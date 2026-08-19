@@ -72,7 +72,7 @@ def show_inventory() -> int:
         print(f"     Custom detectors: {len([d for d in detectors if not d.name.startswith('_')])}")
         print(f"     Registry files: {len(native)}")
     else:
-        print(f"\n  ❌ Slither vulndb pack not found")
+        print(f"\n  ❌ Slither vulndb pack not found ({pack})")
 
     print()
     return 0

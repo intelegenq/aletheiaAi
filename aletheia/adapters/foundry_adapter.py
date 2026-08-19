@@ -9,7 +9,7 @@ from typing import Optional
 
 from .base import ScanResult
 
-FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "/root/.foundry/bin")
+FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "")
 
 
 def run_foundry(

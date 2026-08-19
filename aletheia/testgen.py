@@ -7,12 +7,13 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import shutil
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Optional
 
-FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "/root/.foundry/bin")
+FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "")
 
 SUPPORTED_CLASSES = [
     "access-control-bypass",
@@ -352,7 +353,7 @@ def run_generated_test(test_path: str, target_dir: str) -> dict[str, Any]:
 
         match_path = os.path.relpath(staged, target_dir)
         r = subprocess.run(
-            ["forge", "test", "--match-path", match_path],
+            [os.environ.get("ALETHEIA_FORGE_BIN") or shutil.which("forge") or "forge", "test", "--match-path", match_path],
             capture_output=True, text=True, timeout=180,
             cwd=target_dir, env=env,
         )

@@ -27,6 +27,8 @@ def run_scan(args) -> bool:
     emit_json = getattr(args, "json", False)
     emit_sarif = getattr(args, "sarif", False)
     do_verify = getattr(args, "verify", False)
+    do_report = getattr(args, "report", False)
+    report_platform = getattr(args, "platform", "default")
     gen_tests = getattr(args, "generate_tests", False)
     gen_pocs = getattr(args, "generate_poc", False)
 
@@ -36,8 +38,24 @@ def run_scan(args) -> bool:
     if ctx.error:
         print(f"[aletheia] ERROR: {ctx.error}")
         return False
-    print(f"[aletheia]   foundry={ctx.foundry} solc={ctx.solc_version} contracts={len(ctx.contracts)} tests={len(ctx.test_files)}")
+    print(f"[aletheia]   chain={ctx.chain.primary} confidence={ctx.chain.confidence} foundry={ctx.foundry} solc={ctx.solc_version} contracts={len(ctx.contracts)} tests={len(ctx.test_files)}")
     print(f"[aletheia]   build={ctx.build_status}")
+
+    if ctx.chain.primary != "evm":
+        output_dir = Path(getattr(args, "output", "") or (Path(os.environ.get("ALETHEIA_RESULTS_DIR", "artifacts")) / str(int(time.time()))))
+        output_dir.mkdir(parents=True, exist_ok=True)
+        store = ArtifactStore()
+        store.base_dir = output_dir
+        store.init()
+        manifest = {
+            "run_id": store.run_id, "target": target, "build_context": ctx.to_dict(),
+            "scanners": [], "chain_status": {"chain": ctx.chain.primary, "supported": False, "reason": "no enabled adapter for this chain"},
+            "results": {"total_findings": 0, "by_severity": {}, "by_engine": {}, "by_status": {}}, "engine_results": {},
+        }
+        store.save_run(manifest)
+        (output_dir / "findings.json").write_text(json.dumps(to_aletheia_unified([]), indent=2), encoding="utf-8")
+        print(f"[aletheia] chain {ctx.chain.primary}: no adapter enabled; scan deferred without false findings")
+        return True
 
     # --- 2. Resolve scanners ---
     selected = _resolve_scanners(scanners_str, ctx)
@@ -51,6 +69,11 @@ def run_scan(args) -> bool:
     run_dir = output_dir_arg if output_dir_arg else str(store.init())
     output_dir = Path(run_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    # All phase artifacts must share the requested run directory. Previously
+    # ArtifactStore kept its auto-generated default while findings.json used
+    # --output, leaving resume/verify without run_manifest.json.
+    store.base_dir = output_dir
+    store.init()
     print(f"[aletheia] output: {output_dir}")
 
     # --- 4. Run each scanner ---
@@ -179,6 +202,17 @@ def run_scan(args) -> bool:
             f"{len(report_ready)} report-ready, {len(needs_review_t)} needs-review, "
             f"{len(out_of_scope_t)} out-of-scope"
         )
+
+        if do_report:
+            from .reporting import generate_reports
+            reports = generate_reports(
+                findings=vres.get("findings", ranked),
+                triage_results=triage_results,
+                output_dir=output_dir,
+                policy=triage_policy,
+                platform=report_platform,
+            )
+            print(f"[aletheia] report: {len(reports)} report-ready findings ({report_platform})")
 
     # --- 9. Output ---
     # Build run manifest

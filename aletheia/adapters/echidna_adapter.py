@@ -4,13 +4,14 @@ from __future__ import annotations
 import json
 import os
 import subprocess
+import shutil
 import time
 from pathlib import Path
 from typing import Optional
 
 from .base import ScanResult
 
-FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "/root/.foundry/bin")
+FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "")
 
 
 def run_echidna(
@@ -28,7 +29,11 @@ def run_echidna(
     env = dict(os.environ)
     env["PATH"] = f"{FOUNDRY_BIN}:{env.get('PATH', '')}"
 
-    cmd = ["/usr/local/bin/echidna"]
+    binary = os.environ.get("ALETHEIA_ECHIDNA_BIN") or shutil.which("echidna")
+    if not binary:
+        return ScanResult(engine="echidna", success=False, exit_code=-2, error="echidna not found",
+                           duration_sec=time.time() - t0)
+    cmd = [binary]
     # find the main test contract file
     test_contract = _find_echidna_test(target, contract)
     if test_contract:

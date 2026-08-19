@@ -39,6 +39,12 @@ def show_inventory() -> int:
 
     for cmd, desc in tools:
         installed = check_bin(cmd)
+        if cmd == "slither" and not installed:
+            try:
+                import importlib.util
+                installed = importlib.util.find_spec("slither") is not None
+            except Exception:
+                installed = False
         status = "✅" if installed else "❌"
         ver = f" ({get_version(cmd)})" if installed else ""
         print(f"  {status} {cmd:15s} — {desc}{ver}")
@@ -56,7 +62,8 @@ def show_inventory() -> int:
         print(f"  • {name:15s} → {cat}")
 
     # Check slither pack
-    pack = Path("/mnt/data/slither-vulndb")
+    import os
+    pack = Path(os.environ.get("ALETHEIA_PACK_ROOT", str(Path(__file__).resolve().parent.parent / "slither-vulndb")))
     if pack.exists():
         print(f"\n  ✅ Slither vulndb pack: {pack}")
         from aletheia.adapters.slither_adapter import PACK_ROOT

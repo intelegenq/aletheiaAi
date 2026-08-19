@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, field
+from .chains import ChainTarget, classify_target
 
 
 @dataclass
@@ -24,6 +25,7 @@ class BuildContext:
     build_status: str = "not-built"  # not-built, ok, failed
     build_log: str = ""
     error: str = ""
+    chain: ChainTarget = field(default_factory=ChainTarget)
 
     def to_dict(self) -> dict:
         return {
@@ -38,6 +40,7 @@ class BuildContext:
             "build_status": self.build_status,
             "build_log": self.build_log,
             "error": self.error,
+            "chain": self.chain.to_dict(),
         }
 
 
@@ -145,14 +148,22 @@ def intake(path: str, with_build: bool = True, solc_switch: bool = True) -> Buil
     # detect foundry
     ctx.foundry, ctx.foundry_toml = detect_foundry(root)
 
-    # find all .sol files
+    # find all recognized source files
     ctx.sol_files = find_sol_files(root)
-    if not ctx.sol_files:
-        ctx.error = "no .sol files found"
+    all_source_files = [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in {".sol", ".move", ".rs", ".ts"} and "node_modules" not in str(p)]
+    ctx.chain = classify_target(root, all_source_files)
+    if not all_source_files:
+        # Keep the legacy phrase for callers/tests while covering all
+        # supported source types in the explanation.
+        ctx.error = "no .sol files or recognized source files found"
         return ctx
 
     # classify
-    ctx.contracts, ctx.test_files, _ = classify_contracts(root, ctx.sol_files)
+    if ctx.sol_files:
+        ctx.contracts, ctx.test_files, _ = classify_contracts(root, ctx.sol_files)
+    else:
+        ctx.contracts = [p for p in all_source_files if p.name not in {"test.rs", "tests.rs"}]
+        ctx.test_files = [p for p in all_source_files if p.name.startswith("test")]
 
     # detect solc version
     ctx.solc_version = detect_solc_version(root)

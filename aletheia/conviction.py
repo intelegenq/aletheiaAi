@@ -84,9 +84,24 @@ class ConvictionEngine:
             return self.analysis
         if not self.target_dir:
             return None
+        target_root = self.target_dir
+        if target_root and not os.path.exists(target_root):
+            # Archived manifests can contain the producer's absolute target
+            # path. Resolve an unambiguous directory with the same basename
+            # below the current workspace before giving up on real analysis.
+            wanted = os.path.basename(os.path.normpath(target_root))
+            matches = []
+            for root, dirs, _files in os.walk(os.getcwd()):
+                for name in dirs:
+                    if name == wanted:
+                        candidate = os.path.join(root, name)
+                        if any(os.path.isdir(os.path.join(candidate, sub)) for sub in ("contracts", "src")):
+                            matches.append(candidate)
+            if len(matches) == 1:
+                target_root = matches[0]
         candidates = []
         for sub in ("contracts", "src"):
-            d = os.path.join(self.target_dir, sub)
+            d = os.path.join(target_root, sub)
             if os.path.isdir(d):
                 for root, _dirs, files in os.walk(d):
                     for name in sorted(files):
@@ -94,8 +109,8 @@ class ConvictionEngine:
                             candidates.append(os.path.join(root, name))
             if candidates:
                 break
-        if not candidates and os.path.isfile(self.target_dir) and self.target_dir.endswith(".sol"):
-            candidates = [self.target_dir]
+        if not candidates and os.path.isfile(target_root) and target_root.endswith(".sol"):
+            candidates = [target_root]
         if not candidates:
             return None
         outcome = load_analysis(candidates[0])
@@ -188,6 +203,32 @@ class ConvictionEngine:
             src_path = f.source_location.file
             if not src_path.startswith("/") and self.target_dir:
                 src_path = os.path.join(self.target_dir, src_path)
+            # Findings produced on another machine may retain that machine's
+            # absolute workspace prefix. Resolve the path by its relative
+            # suffix inside the current target, without trusting the stale
+            # absolute location.
+            target_base = self.target_dir if os.path.isdir(self.target_dir) else os.getcwd()
+            if not os.path.isfile(src_path) and target_base and os.path.isabs(src_path):
+                marker = "/contracts/"
+                if marker in src_path:
+                    candidate = os.path.join(target_base, src_path.split(marker, 1)[1])
+                    if os.path.isfile(candidate):
+                        src_path = candidate
+                elif "/src/" in src_path:
+                    candidate = os.path.join(target_base, src_path.split("/src/", 1)[1])
+                    if os.path.isfile(candidate):
+                        src_path = candidate
+                if not os.path.isfile(src_path):
+                    # Last resort for archived artifacts whose target root also
+                    # moved: locate the same contracts/<file> suffix below the
+                    # current working tree. Ambiguous matches are rejected.
+                    suffix = src_path.replace("\\", "/").split("/contracts/", 1)[-1]
+                    matches = []
+                    for root, _dirs, files in os.walk(target_base):
+                        if suffix.split("/")[-1] in files and root.replace("\\", "/").endswith("/contracts"):
+                            matches.append(os.path.join(root, suffix.split("/")[-1]))
+                    if len(matches) == 1:
+                        src_path = matches[0]
             if not os.path.isfile(src_path):
                 return False, f"Source file not found: {src_path}", "invalid"
             try:

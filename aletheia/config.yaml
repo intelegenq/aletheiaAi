@@ -7,7 +7,7 @@ app:
 
 pack:
   # slither-vulndb unified pack location
-  root: /mnt/data/slither-vulndb
+  root: ./slither-vulndb  # override with ALETHEIA_PACK_ROOT for external packs
   detectors:
     - pattern-privileged-config-mutation   # PAT-0001
     - pattern-unchecked-transfer           # PAT-0003
@@ -32,10 +32,10 @@ pack:
     - ds-test
 
 kb:
-  specs: /mnt/data/slither-vulndb/detector_specs/batch1_enriched.json
-  native: /mnt/data/slither-vulndb/registry/native_enriched.json
-  universal: /mnt/data/slither-vulndb/knowledge/universal_kb.json
-  patterns: /mnt/data/slither-vulndb/knowledge/vulndb.sqlite
+  specs: ./slither-vulndb/detector_specs/batch1_enriched.json
+  native: ./slither-vulndb/registry/native_enriched.json
+  universal: ./slither-vulndb/knowledge/universal_kb.json
+  patterns: ./slither-vulndb/knowledge/vulndb.sqlite
 
 analyzer:
   min_confidence: medium
@@ -74,12 +74,12 @@ chains:
 fuzzing:
   medusa:
     enabled: true
-    bin: /usr/local/bin/medusa
+    bin: ""  # resolve from PATH or ALETHEIA_MEDUSA_BIN
     timeout_sec: 600
     workers: 4
   echidna:
     enabled: true
-    bin: /usr/local/bin/echidna
+    bin: ""  # resolve from PATH or ALETHEIA_ECHIDNA_BIN
     timeout_sec: 600
     test_mode: assertion
 
@@ -87,21 +87,21 @@ fuzzing:
 engines:
   slither:
     enabled: true
-    bin: /opt/audit-venv/bin/python3
-    pack_root: /mnt/data/slither-vulndb
+    bin: ""  # current Python or ALETHEIA_SLITHER_PY
+    pack_root: ./slither-vulndb
   mythril:
     enabled: true
-    bin: /usr/local/bin/myth
+    bin: ""  # resolve from PATH or ALETHEIA_MYTHRIL_BIN
     timeout_sec: 300
   semgrep:
     enabled: true
-    bin: /usr/local/bin/semgrep
-    rules: /mnt/data/slither-vulndb/semgrep_rules/
+    bin: ""  # resolve from PATH or ALETHEIA_SEMGREP_BIN
+    rules: ./slither-vulndb/semgrep_rules/
 
 storage:
-  results_dir: /mnt/data/results
-  targets_dir: /mnt/data/targets
-  scratch_dir: /mnt/data/scratch
+  results_dir: ./artifacts
+  targets_dir: ./targets
+  scratch_dir: ./scratch
 
 telemetry:
   enabled: false

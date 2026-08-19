@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import json
+import os
 import shutil
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -24,7 +25,8 @@ class ArtifactStore:
         if not self.run_id:
             self.run_id = new_run_id()
         if self.base_dir is None:
-            self.base_dir = Path("/mnt/data/results") / self.run_id
+            root = os.environ.get("ALETHEIA_RESULTS_DIR", "artifacts")
+            self.base_dir = Path(root) / self.run_id
 
     def init(self) -> Path:
         self.base_dir.mkdir(parents=True, exist_ok=True)

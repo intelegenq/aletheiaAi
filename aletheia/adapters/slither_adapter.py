@@ -8,9 +8,12 @@ from typing import Optional
 
 from .base import ScanResult, load_jsonl
 
-PACK_ROOT = Path("/mnt/data/slither-vulndb")
-VENV_PYTHON = os.environ.get("ALETHEIA_SLITHER_PY", "/opt/audit-venv/bin/python3")
-FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "/root/.foundry/bin")
+PACK_ROOT = Path(os.environ.get(
+    "ALETHEIA_PACK_ROOT",
+    str(Path(__file__).resolve().parents[2] / "slither-vulndb"),
+))
+VENV_PYTHON = os.environ.get("ALETHEIA_SLITHER_PY", sys.executable)
+FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "")
 
 
 def run_slither(
@@ -21,7 +24,13 @@ def run_slither(
 ) -> ScanResult:
     """Run slither pattern pack via agent_adapter.py."""
     env = dict(os.environ)
-    env["PATH"] = f"{FOUNDRY_BIN}:{env.get('PATH', '')}"
+    # The adapter may be launched with an absolute virtualenv interpreter while
+    # its bin directory is absent from PATH. The pattern pack invokes the
+    # `slither` executable internally, so expose the interpreter's bin dir.
+    # Keep the symlink path itself: resolving it can move from the project
+    # virtualenv back to the runtime interpreter and hide `.venv/bin/slither`.
+    python_bin = str(Path(VENV_PYTHON).parent.resolve())
+    env["PATH"] = f"{python_bin}:{FOUNDRY_BIN}:{env.get('PATH', '')}"
     if build_context and build_context.solc_version:
         env["SOLC_VERSION"] = build_context.solc_version
 

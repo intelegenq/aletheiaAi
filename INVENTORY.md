@@ -25,26 +25,31 @@
 ## 4. Fixtures — ✅ SUDAH ADA
 - positive/negative/mitigated + NativePositive.sol + per-analysis fixtures
 
-## 5. Triage/Analyzer — ❌ BELUM ADA
-- **FP filters** — baru ada 2 (uninitialized-storage, scope) di adapter, hardcoded
-- **Access control validation** — ada analysis tapi ga di-output (PAT-0001 ke-fire di setter restricted tanpa verdict)
-- **Ground truth** — belum otomatis (cari setter ungated yg ke-miss)
-- **Conviction engine** — belum ada sama sekali
+## 5. Triage/Analyzer — ✅ M3–M6 selesai
+- FP filtering, scope safety, access-control/reachability evidence, root-cause correlation, conviction, dan triage severity aktif
+- Unknown evidence tetap dipertahankan sebagai unknown dan memblokir report-ready bila kritis
 
-## 6. Reporter — ❌ BELUM ADA
-- reporting.py — format saja (unified/JSONL/SARIF)
-- **Template report per platform** (HackenProof/Immunefi/YesWeHack) — belum ada
+## 6. Reporter — ✅ selesai
+- Evidence-gated report JSON/Markdown untuk default, HackenProof, Immunefi, dan YesWeHack
+- Report schema validation menolak finding yang belum verified, unknown, atau out-of-scope
 
-## 7. Workflow — ❌ BELUM ADA
-- 7-phase pipeline — masih manual (gua jalanin step by step)
-- **Scope fetcher** — belum ada (gua buka browser/curl manual)
-- **Repo cloner + artifact identity** — manual
+## 7. Workflow — ✅ selesai
+- Durable resumable pipeline dengan atomic checkpoint, retry, artifact manifest, AI planning, scan, verify, triage, review, dan report
+- Target resolver mendukung local path dan shallow Git clone
+- Scope manifest parser dan reproducible artifact identity tersedia
 
-## 8. Universal spec → detector builder — ❌ BELUM ADA
-- 59 specs masih JSON — implementasi manual per detector
+## 8. Universal spec → detector/analysis compiler — ✅ M8 selesai
+- 59 universal specs sekarang dinormalisasi dari taxonomy 93 + semantic coverage
+- 48 static-feasible dan 11 manual-review; status implementasi tetap dibedakan
+- AI plan menerima spec selection, primitive requirement, provenance, dan coverage status
+- Compiler menghasilkan execution contract: 23 detector, 25 analysis task, 11 manual review
+- Workflow menyimpan `spec_execution_catalog.json` dan tidak mempromosikan candidate/manual menjadi detector
 
-## 9. Multi-chain — ❌ BELUM ADA
-- EVM aja (slither). Solana/Move/Rust masih nol
+## 9. Multi-chain capability routing — ✅ M9 selesai
+- Chain classifier untuk EVM, Solana/Anchor, Move, dan Rust
+- Capability registry dan explicit engine routing
+- Target non-EVM tidak dipaksa masuk scanner EVM; workflow menyelesaikan audit dengan status deferred tanpa false finding
+- Implementasi scanner native Solana/Move/Rust tetap menjadi scope lanjutan, bukan dianggap sudah tersedia
 
 ## 10. Data yang kebuang
 - /mnt/data/scratch/*.py — 10+ script debug/analyze satu kali, ga pernah di-pack
@@ -56,10 +61,11 @@
 |---|---|---|
 | Scanner EVM | ✅ done | — |
 | KB + 59 specs | ✅ done | — |
-| FP filtering | ⚠️ partial (2 filter) | P1 |
-| Access-control verdict | ❌ | P1 |
-| Conviction engine | ❌ | P2 |
-| Reporter per-platform | ❌ | P2 |
-| Workflow orchestrator | ❌ | P1 |
-| Spec→detector builder | ❌ | P2 |
-| Multi-chain | ❌ | P3 |
+| FP filtering | ✅ | — |
+| Access-control verdict | ✅ | — |
+| Conviction engine | ✅ | — |
+| Reporter per-platform | ✅ | — |
+| Workflow orchestrator | ✅ | — |
+| Spec→detector/analysis compiler | ✅ | — |
+| Multi-chain capability routing | ✅ | — |
+| Multi-chain capability routing | ✅ | — |

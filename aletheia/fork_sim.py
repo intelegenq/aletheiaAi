@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json
 import os
+import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Optional
@@ -45,8 +46,8 @@ class ForkSimulator:
             )
 
         # For now: fork simulation requires anvil + rpc — if tools missing, skip.
-        anvil = os.environ.get("ALETHEIA_ANVIL_BIN", "/root/.foundry/bin/anvil")
-        if not os.path.isfile(anvil):
+        anvil = os.environ.get("ALETHEIA_ANVIL_BIN") or shutil.which("anvil")
+        if not anvil:
             return ForkSimulationResult(
                 status="skipped",
                 reason="fork simulation unavailable (anvil not found)",

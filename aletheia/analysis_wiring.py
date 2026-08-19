@@ -12,8 +12,11 @@ from typing import Any, Optional
 
 logger = logging.getLogger(__name__)
 
-# The vulndb pack lives here (symlinked from /root/slither_vulndb).
-PACK_ROOT = os.environ.get("ALETHEIA_PACK_ROOT", "/mnt/data/slither-vulndb")
+# The pack location is configurable for both local and external installations.
+PACK_ROOT = os.environ.get(
+    "ALETHEIA_PACK_ROOT",
+    str(__import__("pathlib").Path(__file__).resolve().parent.parent / "slither-vulndb"),
+)
 
 
 @dataclass

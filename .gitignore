@@ -30,6 +30,7 @@ Thumbs.db
 
 # Test / scan results
 results/
+artifacts/
 *.sarif
 .midnight/
 echidna.*

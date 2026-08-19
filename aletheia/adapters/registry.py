@@ -8,17 +8,22 @@ from .slither_adapter import run_slither
 from .semgrep_adapter import run_semgrep
 from .mythril_adapter import run_mythril
 from .foundry_adapter import run_foundry
-from .medusa_adapter import run_medusa
 from .echidna_adapter import run_echidna
+
+try:  # The Medusa adapter is optional in minimal/source distributions.
+    from .medusa_adapter import run_medusa
+except ImportError:
+    run_medusa = None
 
 ADAPTERS: dict[str, Callable] = {
     "slither": run_slither,
     "semgrep": run_semgrep,
     "mythril": run_mythril,
     "foundry": run_foundry,
-    "medusa": run_medusa,
     "echidna": run_echidna,
 }
+if run_medusa is not None:
+    ADAPTERS["medusa"] = run_medusa
 
 ADAPTER_CATEGORIES: dict[str, str] = {
     "slither": "static",

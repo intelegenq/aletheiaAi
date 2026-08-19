@@ -18,6 +18,9 @@ def main(argv=None) -> int:
     p_scan.add_argument("target", help="local project path")
     p_scan.add_argument("--scanners", default="all",
                         help="comma-separated engines: all,slither,semgrep,mythril,foundry,medusa,echidna")
+    p_scan.add_argument("--chain", default="", help="require a chain family (for example solana, cosmos, polkadot, move, starknet)")
+    p_scan.add_argument("--ecosystem", default="", help="require a specific ecosystem plugin (for example solana_anchor)")
+    p_scan.add_argument("--capabilities", action="store_true", help="print chain capability matrix and exit")
     p_scan.add_argument("--no-build", action="store_true",
                         help="skip forge build")
     p_scan.add_argument("--output", default="",
@@ -99,6 +102,9 @@ def main(argv=None) -> int:
         return show_inventory()
 
     if args.command == "scan":
+        if args.capabilities:
+            from aletheia.inventory import show_inventory
+            return show_inventory()
         from aletheia.orchestrator import run_scan
         result = run_scan(args)
         return 0 if result else 1

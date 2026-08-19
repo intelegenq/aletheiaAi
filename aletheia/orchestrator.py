@@ -40,6 +40,14 @@ def run_scan(args) -> bool:
         return False
     print(f"[aletheia]   chain={ctx.chain.primary} confidence={ctx.chain.confidence} foundry={ctx.foundry} solc={ctx.solc_version} contracts={len(ctx.contracts)} tests={len(ctx.test_files)}")
     print(f"[aletheia]   build={ctx.build_status}")
+    required_chain = getattr(args, "chain", "")
+    required_ecosystem = getattr(args, "ecosystem", "")
+    if required_chain and ctx.chain.primary != required_chain:
+        print(f"[aletheia] ERROR: requested chain {required_chain}, detected {ctx.chain.primary}")
+        return False
+    if required_ecosystem and getattr(ctx.chain, "ecosystem", "unknown") != required_ecosystem:
+        print(f"[aletheia] ERROR: requested ecosystem {required_ecosystem}, detected {getattr(ctx.chain, 'ecosystem', 'unknown')}")
+        return False
 
     if ctx.chain.primary != "evm":
         output_dir = Path(getattr(args, "output", "") or (Path(os.environ.get("ALETHEIA_RESULTS_DIR", "artifacts")) / str(int(time.time()))))
@@ -47,14 +55,33 @@ def run_scan(args) -> bool:
         store = ArtifactStore()
         store.base_dir = output_dir
         store.init()
+        # Non-EVM plugins supply their own semantic scanner.  A detected target
+        # is candidate-only unless a chain-native reproduction is configured.
+        from .plugin_api import plugin_for_target
+        import aletheia.non_evm
+        plugin, descriptor = plugin_for_target(Path(target))
+        findings = []
+        fact_payload = {}
+        if plugin and descriptor:
+            facts = plugin.collect_semantic_facts(descriptor)
+            findings = plugin.scan(descriptor, facts, plugin.available_rules())
+            fact_payload = facts.to_dict()
+            (output_dir / "semantic_facts.json").write_text(json.dumps(fact_payload, indent=2, sort_keys=True), encoding="utf-8")
+            (output_dir / "findings.json").write_text(json.dumps(to_aletheia_unified(findings), indent=2, sort_keys=True), encoding="utf-8")
+            if emit_sarif:
+                (output_dir / "findings.sarif").write_text(json.dumps(to_sarif(findings), indent=2, sort_keys=True), encoding="utf-8")
         manifest = {
             "run_id": store.run_id, "target": target, "build_context": ctx.to_dict(),
-            "scanners": [], "chain_status": {"chain": ctx.chain.primary, "supported": False, "reason": "no enabled adapter for this chain"},
-            "results": {"total_findings": 0, "by_severity": {}, "by_engine": {}, "by_status": {}}, "engine_results": {},
+            "scanners": [f"{descriptor.ecosystem}-semantic"] if descriptor else [],
+            "chain_status": {"chain": ctx.chain.primary, "ecosystem": getattr(ctx.chain, "ecosystem", "unknown"), "status": "candidate-only" if plugin else "deferred", "supported": bool(plugin), "reason": "semantic candidate scanner; chain-native reproduction unavailable" if plugin else "no enabled ecosystem plugin"},
+            "results": {"total_findings": len(findings), "by_severity": {}, "by_engine": {}, "by_status": {"candidate": len(findings)}}, "engine_results": {},
         }
         store.save_run(manifest)
-        (output_dir / "findings.json").write_text(json.dumps(to_aletheia_unified([]), indent=2), encoding="utf-8")
-        print(f"[aletheia] chain {ctx.chain.primary}: no adapter enabled; scan deferred without false findings")
+        if not plugin:
+            (output_dir / "findings.json").write_text(json.dumps(to_aletheia_unified([]), indent=2, sort_keys=True), encoding="utf-8")
+            print(f"[aletheia] chain {ctx.chain.primary}: scan deferred without false findings")
+        else:
+            print(f"[aletheia] {descriptor.ecosystem}: {len(findings)} source-mapped candidates; verification requires chain-native reproduction")
         return True
 
     # --- 2. Resolve scanners ---

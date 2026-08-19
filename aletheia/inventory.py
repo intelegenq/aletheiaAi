@@ -24,7 +24,7 @@ def get_version(name: str) -> str:
 
 def show_inventory() -> int:
     print("=" * 60)
-    print("ALETHEIA AI — TOOL INVENTORY")
+    print("ALETHEIA AI - TOOL INVENTORY")
     print("=" * 60)
     print()
 
@@ -45,34 +45,39 @@ def show_inventory() -> int:
                 installed = importlib.util.find_spec("slither") is not None
             except Exception:
                 installed = False
-        status = "✅" if installed else "❌"
+        status = "[ok]" if installed else "[missing]"
         ver = f" ({get_version(cmd)})" if installed else ""
-        print(f"  {status} {cmd:15s} — {desc}{ver}")
+        print(f"  {status} {cmd:15s} - {desc}{ver}")
 
     print()
     print("Available adapters:")
     from aletheia.adapters.registry import ADAPTERS
     for name in sorted(ADAPTERS):
-        print(f"  • {name}")
+        print(f"  - {name}")
 
     from aletheia.adapters.registry import ADAPTER_CATEGORIES
     print()
     print("Scanner categories:")
     for name, cat in sorted(ADAPTER_CATEGORIES.items()):
-        print(f"  • {name:15s} → {cat}")
+        print(f"  - {name:15s} -> {cat}")
 
     # Check slither pack
     import os
     pack = Path(os.environ.get("ALETHEIA_PACK_ROOT", str(Path(__file__).resolve().parent.parent / "slither-vulndb")))
     if pack.exists():
-        print(f"\n  ✅ Slither vulndb pack: {pack}")
+        print(f"\n  [ok] Slither vulndb pack: {pack}")
         from aletheia.adapters.slither_adapter import PACK_ROOT
         detectors = list(pack.glob("detectors/*.py"))
         native = list(pack.glob("registry/*.json"))
         print(f"     Custom detectors: {len([d for d in detectors if not d.name.startswith('_')])}")
         print(f"     Registry files: {len(native)}")
     else:
-        print(f"\n  ❌ Slither vulndb pack not found ({pack})")
+        print(f"\n  [missing] Slither vulndb pack not found ({pack})")
 
+    print()
+    from .capabilities import registry
+    print("Chain capabilities:")
+    for capability in registry():
+        print(f"  - {capability.chain_family:10s}/{capability.ecosystem:15s} {capability.status:14s} engine={capability.engine} rules={capability.rule_count} verifier={capability.verifier_state}")
     print()
     return 0

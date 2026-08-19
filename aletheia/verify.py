@@ -52,6 +52,33 @@ def run_verification(
     if verbose:
         print(f"[aletheia] verification: {len(findings)} findings")
 
+    # Non-EVM findings must never enter Slither, EVM conviction, Foundry test
+    # generation, or fork simulation. Their plugin verifier is conservative.
+    non_evm = [f for f in findings if f.chain_family not in {"", "evm"}]
+    if non_evm:
+        if len(non_evm) != len(findings):
+            raise ValueError("mixed EVM/non-EVM verification runs are not supported; split targets by chain")
+        import aletheia.non_evm
+        from .plugin_api import plugins
+        plugin = next((p for p in plugins() if non_evm[0].ecosystem in p.ecosystems), None)
+        if plugin is None:
+            raise ValueError(f"no verifier plugin for {non_evm[0].ecosystem}")
+        facts = None
+        if target_dir:
+            descriptor = plugin.detect_target(Path(target_dir))
+            facts = plugin.collect_semantic_facts(descriptor) if descriptor else None
+        results = {}
+        for finding in findings:
+            result = plugin.verify(finding, None, facts, [])
+            finding.status = result.verdict; finding.verification_status = result.verdict
+            results[finding.finding_id] = result
+        payload={"schema_version":"aletheia.chain-verification.v1", "count":len(results), "results":[r.to_dict() for r in results.values()]}
+        (run_dir / "chain-verification.json").write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+        (run_dir / "verified-findings.json").write_text(json.dumps(to_aletheia_unified([]), indent=2, sort_keys=True), encoding="utf-8")
+        (run_dir / "needs-review.json").write_text(json.dumps(to_aletheia_unified(findings), indent=2, sort_keys=True), encoding="utf-8")
+        return {"conviction_results": results, "verified": [], "rejected": [], "needs_review": findings,
+                "needs_dynamic_validation": [], "findings": findings, "root_cause_map": {}}
+
     # --- real static analysis (single load, shared by all checks) ---
     analysis = _load_target_analysis(target_dir)
     if verbose:
@@ -294,5 +321,13 @@ def load_findings_from_run(run_dir: Path) -> list[Finding]:
             raw_artifact_reference=d.get("raw_artifact_reference", ""),
             corroborating_engines=list(d.get("corroborating_engines") or []),
             dedup_key=d.get("dedup_key", ""),
+            chain_family=d.get("chain_family", "evm"), ecosystem=d.get("ecosystem", "evm"),
+            language=d.get("language", "solidity"), runtime=d.get("runtime", ""),
+            rule_id=d.get("rule_id", d.get("detector", "")), universal_taxonomy_id=d.get("universal_taxonomy_id", ""),
+            chain_pattern_id=d.get("chain_pattern_id", ""), semantic_evidence=list(d.get("semantic_evidence") or []),
+            trust_boundary=d.get("trust_boundary", ""), attacker_control=d.get("attacker_control", "unknown"), asset_model=d.get("asset_model", ""),
+            cross_chain_context=dict(d.get("cross_chain_context") or {}), verification_status=d.get("verification_status", d.get("status", "candidate")),
+            verification_requirements=list(d.get("verification_requirements") or []), false_positive_conditions=list(d.get("false_positive_conditions") or []),
+            reproduction_status=d.get("reproduction_status", "not-attempted"),
         ))
     return findings

@@ -79,12 +79,14 @@ def main(argv=None) -> int:
     sub.add_parser("setup", help="prepare safe local directories; never stores credentials")
     p_map=sub.add_parser("map", help="write deterministic attack-surface artifacts"); p_map.add_argument("target"); p_map.add_argument("--output",default="")
     p_plan=sub.add_parser("plan", help="create bounded evidence-first audit plan"); p_plan.add_argument("target"); p_plan.add_argument("--output",default="")
-    p_rep=sub.add_parser("reproduce", help="write a local-only reproduction plan"); p_rep.add_argument("run_dir"); p_rep.add_argument("--finding",required=True)
+    p_rep=sub.add_parser("reproduce", help="run an existing local-only test harness"); p_rep.add_argument("run_dir"); p_rep.add_argument("--finding",required=True); p_rep.add_argument("--target",default="")
+    p_package=sub.add_parser("package",help="render a linted local submission package"); p_package.add_argument("run_dir"); p_package.add_argument("--platform",default="generic",choices=["generic","immunefi","hackenproof","yeswehack","code4rena"])
     p_hunt=sub.add_parser("hunt",help="run local, scope-aware hunter workflow"); p_hunt.add_argument("program_id"); p_hunt.add_argument("target"); p_hunt.add_argument("--output",default="")
     p_status=sub.add_parser("status",help="show a persisted run"); p_status.add_argument("run_dir")
     p_queue=sub.add_parser("queue",help="show human review queue"); p_queue.add_argument("run_dir")
     p_explain=sub.add_parser("explain",help="explain fused evidence"); p_explain.add_argument("run_dir"); p_explain.add_argument("--finding",required=True)
     p_prog=sub.add_parser("program",help="manage local program scope"); ps=p_prog.add_subparsers(dest="program_command"); pi=ps.add_parser("import"); pi.add_argument("source"); pshow=ps.add_parser("show"); pshow.add_argument("program_id"); padd=ps.add_parser("target-add"); padd.add_argument("program_id"); padd.add_argument("locator"); pexpl=ps.add_parser("scope-explain"); pexpl.add_argument("program_id"); pexpl.add_argument("target")
+    p_knowledge=sub.add_parser("knowledge",help="import and search local historical knowledge"); ks=p_knowledge.add_subparsers(dest="knowledge_command"); ki=ks.add_parser("import"); ki.add_argument("path"); ki.add_argument("--source-name",required=True); ki.add_argument("--license",required=True); kv=ks.add_parser("validate"); kv.add_argument("path"); kstats=ks.add_parser("stats"); ksearch=ks.add_parser("search"); ksearch.add_argument("query"); ksearch.add_argument("--chain",default=""); ksearch.add_argument("--domain",default="")
 
     # durable audit workflow
     p_audit = sub.add_parser("audit", help="run durable scan -> verify -> triage -> report workflow")
@@ -123,8 +125,16 @@ def main(argv=None) -> int:
         from .hunter import plan
         out=args.output or "artifacts/plan"; plan(args.target,out); print(out); return 0
     if args.command == "reproduce":
-        from .hunter import reproduction_plan
-        print(__import__("json").dumps(reproduction_plan(args.run_dir,args.finding),indent=2)); return 0
+        from .verify import load_findings_from_run
+        from .reproduction import run
+        finding=next((f for f in load_findings_from_run(Path(args.run_dir)) if f.finding_id==args.finding),None)
+        if not finding: print("[aletheia] ERROR: finding not found"); return 1
+        target=args.target or __import__("json").loads((Path(args.run_dir)/"run_manifest.json").read_text()).get("target","")
+        print(__import__("json").dumps(run(finding,target,Path(args.run_dir)/"reproduction"/finding.finding_id).__dict__,default=str,indent=2)); return 0
+    if args.command == "package":
+        from .packages import build
+        try: print(__import__("json").dumps(build(args.run_dir,args.platform),indent=2)); return 0
+        except ValueError as exc: print(f"[aletheia] ERROR: {exc}"); return 1
     if args.command == "hunt":
         from .hunter_workflow import hunt
         print(__import__("json").dumps(hunt(args.program_id,args.target,args.output or None),indent=2)); return 0
@@ -145,6 +155,13 @@ def main(argv=None) -> int:
         if args.program_command == "scope-explain":
             p=programs.load(args.program_id); print(__import__("json").dumps(dict(zip(("status","evidence"),programs.explain(p,args.target))),indent=2)); return 0
         p_prog.print_help(); return 1
+    if args.command == "knowledge":
+        from . import knowledge_ingestion as knowledge
+        if args.knowledge_command == "import": print(__import__("json").dumps(knowledge.import_path(args.path,args.source_name,args.license),indent=2)); return 0
+        if args.knowledge_command == "validate": print(__import__("json").dumps(knowledge.validate(args.path),indent=2)); return 0
+        if args.knowledge_command == "stats": print(__import__("json").dumps({"records":len(knowledge.records())},indent=2)); return 0
+        if args.knowledge_command == "search": print(__import__("json").dumps(knowledge.search(args.query,args.chain,args.domain),indent=2)); return 0
+        p_knowledge.print_help(); return 1
 
     if args.command == "scan":
         if args.capabilities:

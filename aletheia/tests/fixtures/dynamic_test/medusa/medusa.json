@@ -1,0 +1,23 @@
+{
+  "fuzzing": {
+    "workers": 2,
+    "testLimit": 20000,
+    "callSequenceLength": 50,
+    "timeout": 60,
+    "targetContracts": ["VulnerableVault"],
+    "corpusDirectory": "corpus",
+    "coverageEnabled": true,
+    "senderAddresses": [
+      "0x10000",
+      "0x20000",
+      "0x30000"
+    ],
+    "deployerAddress": "0x30000"
+  },
+  "compilation": {
+    "platform": "solc",
+    "platformConfig": {
+      "target": "contracts/VulnerableVault.sol"
+    }
+  }
+}

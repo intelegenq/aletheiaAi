@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Foundry / Solidity
+cache/
+out/
+lib/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / scan results
+results/
+*.sarif
+.midnight/
+echidna.*
+medusa_*
+
+# Slither internal
+.slither/
+
+# Tmp
+/tmp/
+*.tmp

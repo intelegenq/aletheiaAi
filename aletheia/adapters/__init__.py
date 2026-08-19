@@ -1,0 +1,1 @@
+"""Scanner adapters: Slither, Semgrep, Mythril, Foundry, Medusa, Echidna."""

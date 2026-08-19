@@ -1,0 +1,107 @@
+# AletheiaAI — bug bounty meta-orchestrator configuration
+# Paths are relative to this file unless absolute.
+
+app:
+  name: aletheiaAI
+  version: 0.1.0
+
+pack:
+  # slither-vulndb unified pack location
+  root: /mnt/data/slither-vulndb
+  detectors:
+    - pattern-privileged-config-mutation   # PAT-0001
+    - pattern-unchecked-transfer           # PAT-0003
+    - pattern-div-before-mul               # PAT-0005
+    - pattern-unbounded-loop               # PAT-0009
+    - pattern-oracle-dependency            # PAT-0010
+    - pattern-reentrancy                   # PAT-0011
+    - pattern-liquidation-manipulation     # PAT-0016
+    - pattern-dependency-version-pinning   # PAT-0027
+  native_enabled: true
+  fp_filters:
+    - uninitialized_storage_assign_or_revert
+    - scope_exclude
+  scope_exclude:
+    - node_modules
+    - "/lib/"
+    - "/test/"
+    - "/tests/"
+    - "/script/"
+    - "/scripts/"
+    - forge-std
+    - ds-test
+
+kb:
+  specs: /mnt/data/slither-vulndb/detector_specs/batch1_enriched.json
+  native: /mnt/data/slither-vulndb/registry/native_enriched.json
+  universal: /mnt/data/slither-vulndb/knowledge/universal_kb.json
+  patterns: /mnt/data/slither-vulndb/knowledge/vulndb.sqlite
+
+analyzer:
+  min_confidence: medium
+  dedupe_by: [pattern_id, file, function]
+  # Conviction engine thresholds
+  conviction:
+    require_dynamic_validation: true
+    require_impact_quantified: true
+    require_alternative_hypotheses_eliminated: true
+
+reporter:
+  formats:
+    hackenproof: {enabled: true}
+    immunefi: {enabled: true}
+    yeswehack: {enabled: true}
+  default_language: en
+
+workflow:
+  phases:
+    - scope
+    - scan
+    - verify
+    - conviction
+    - poc
+    - report
+    - coordination
+  stop_at: conviction   # halt before PoC/report until user approves
+
+chains:
+  evm: {enabled: true, engine: slither}
+  solana: {enabled: false, engine: none}
+  move: {enabled: false, engine: none}
+  rust: {enabled: false, engine: none}
+
+# Fuzzing engines
+fuzzing:
+  medusa:
+    enabled: true
+    bin: /usr/local/bin/medusa
+    timeout_sec: 600
+    workers: 4
+  echidna:
+    enabled: true
+    bin: /usr/local/bin/echidna
+    timeout_sec: 600
+    test_mode: assertion
+
+# Static engines
+engines:
+  slither:
+    enabled: true
+    bin: /opt/audit-venv/bin/python3
+    pack_root: /mnt/data/slither-vulndb
+  mythril:
+    enabled: true
+    bin: /usr/local/bin/myth
+    timeout_sec: 300
+  semgrep:
+    enabled: true
+    bin: /usr/local/bin/semgrep
+    rules: /mnt/data/slither-vulndb/semgrep_rules/
+
+storage:
+  results_dir: /mnt/data/results
+  targets_dir: /mnt/data/targets
+  scratch_dir: /mnt/data/scratch
+
+telemetry:
+  enabled: false

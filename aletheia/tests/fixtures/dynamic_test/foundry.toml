@@ -1,0 +1,18 @@
+[profile.default]
+solc = "0.8.20"
+src = "contracts"
+test = "test"
+libs = ["lib"]
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "ds-test/=lib/forge-std/lib/ds-test/src/"
+]
+
+[fuzz]
+runs = 5000
+
+[invariant]
+runs = 5000
+depth = 100
+fail_on_revert = false
+call_override = false

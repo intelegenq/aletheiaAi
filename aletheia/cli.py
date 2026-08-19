@@ -9,7 +9,7 @@ from pathlib import Path
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         prog="aletheia",
-        description="AletheiaAI — bug bounty meta-orchestrator: scan, verify, convict, report",
+        description="AletheiaAI - bug bounty meta-orchestrator: scan, verify, convict, report",
     )
     sub = parser.add_subparsers(dest="command")
 
@@ -75,9 +75,19 @@ def main(argv=None) -> int:
 
     # inventory
     sub.add_parser("inventory", help="show available tools and adapters")
+    sub.add_parser("doctor", help="show reproducible dependency diagnostics")
+    sub.add_parser("setup", help="prepare safe local directories; never stores credentials")
+    p_map=sub.add_parser("map", help="write deterministic attack-surface artifacts"); p_map.add_argument("target"); p_map.add_argument("--output",default="")
+    p_plan=sub.add_parser("plan", help="create bounded evidence-first audit plan"); p_plan.add_argument("target"); p_plan.add_argument("--output",default="")
+    p_rep=sub.add_parser("reproduce", help="write a local-only reproduction plan"); p_rep.add_argument("run_dir"); p_rep.add_argument("--finding",required=True)
+    p_hunt=sub.add_parser("hunt",help="run local, scope-aware hunter workflow"); p_hunt.add_argument("program_id"); p_hunt.add_argument("target"); p_hunt.add_argument("--output",default="")
+    p_status=sub.add_parser("status",help="show a persisted run"); p_status.add_argument("run_dir")
+    p_queue=sub.add_parser("queue",help="show human review queue"); p_queue.add_argument("run_dir")
+    p_explain=sub.add_parser("explain",help="explain fused evidence"); p_explain.add_argument("run_dir"); p_explain.add_argument("--finding",required=True)
+    p_prog=sub.add_parser("program",help="manage local program scope"); ps=p_prog.add_subparsers(dest="program_command"); pi=ps.add_parser("import"); pi.add_argument("source"); pshow=ps.add_parser("show"); pshow.add_argument("program_id"); padd=ps.add_parser("target-add"); padd.add_argument("program_id"); padd.add_argument("locator"); pexpl=ps.add_parser("scope-explain"); pexpl.add_argument("program_id"); pexpl.add_argument("target")
 
     # durable audit workflow
-    p_audit = sub.add_parser("audit", help="run durable scan → verify → triage → report workflow")
+    p_audit = sub.add_parser("audit", help="run durable scan -> verify -> triage -> report workflow")
     p_audit.add_argument("target", help="local project path")
     p_audit.add_argument("--output", default="", help="workflow run directory")
     p_audit.add_argument("--scanners", default="all", help="comma-separated scanner engines")
@@ -100,6 +110,41 @@ def main(argv=None) -> int:
     if args.command == "inventory":
         from aletheia.inventory import show_inventory
         return show_inventory()
+    if args.command == "doctor":
+        from .doctor import doctor
+        print(__import__("json").dumps(doctor(), indent=2)); return 0
+    if args.command == "setup":
+        from .doctor import setup
+        print(__import__("json").dumps(setup(), indent=2)); return 0
+    if args.command == "map":
+        from .attack_surface import write
+        out=args.output or "artifacts/map"; write(args.target,out); print(out); return 0
+    if args.command == "plan":
+        from .hunter import plan
+        out=args.output or "artifacts/plan"; plan(args.target,out); print(out); return 0
+    if args.command == "reproduce":
+        from .hunter import reproduction_plan
+        print(__import__("json").dumps(reproduction_plan(args.run_dir,args.finding),indent=2)); return 0
+    if args.command == "hunt":
+        from .hunter_workflow import hunt
+        print(__import__("json").dumps(hunt(args.program_id,args.target,args.output or None),indent=2)); return 0
+    if args.command == "status":
+        from .hunter_workflow import status
+        print(__import__("json").dumps(status(args.run_dir),indent=2)); return 0
+    if args.command == "queue":
+        from .hunter_workflow import queue
+        print(__import__("json").dumps(queue(args.run_dir),indent=2)); return 0
+    if args.command == "explain":
+        from .hunter_workflow import explain
+        print(__import__("json").dumps(explain(args.run_dir,args.finding),indent=2)); return 0
+    if args.command == "program":
+        from . import programs
+        if args.program_command == "import": print(__import__("json").dumps(programs.import_program(args.source).to_dict(),indent=2)); return 0
+        if args.program_command == "show": print(__import__("json").dumps(programs.load(args.program_id).to_dict(),indent=2)); return 0
+        if args.program_command == "target-add": print(__import__("json").dumps(programs.add_target(args.program_id,args.locator).__dict__,indent=2)); return 0
+        if args.program_command == "scope-explain":
+            p=programs.load(args.program_id); print(__import__("json").dumps(dict(zip(("status","evidence"),programs.explain(p,args.target))),indent=2)); return 0
+        p_prog.print_help(); return 1
 
     if args.command == "scan":
         if args.capabilities:
@@ -199,7 +244,7 @@ def main(argv=None) -> int:
         (run_dir / "needs-review.json").write_text(json.dumps(needs_review_t, indent=2, default=str), encoding="utf-8")
         (run_dir / "out-of-scope.json").write_text(json.dumps(out_of_scope_t, indent=2, default=str), encoding="utf-8")
         print(
-            f"\n[aletheia] triage complete: {len(results)} results — "
+            f"\n[aletheia] triage complete: {len(results)} results - "
             f"{len(report_ready)} report-ready, {len(needs_review_t)} needs-review, "
             f"{len(out_of_scope_t)} out-of-scope"
         )

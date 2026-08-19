@@ -73,7 +73,7 @@ def run_scan(args) -> bool:
         manifest = {
             "run_id": store.run_id, "target": target, "build_context": ctx.to_dict(),
             "scanners": [f"{descriptor.ecosystem}-semantic"] if descriptor else [],
-            "chain_status": {"chain": ctx.chain.primary, "ecosystem": getattr(ctx.chain, "ecosystem", "unknown"), "status": "candidate-only" if plugin else "deferred", "supported": bool(plugin), "reason": "semantic candidate scanner; chain-native reproduction unavailable" if plugin else "no enabled ecosystem plugin"},
+            "chain_status": {"chain": ctx.chain.primary, "ecosystem": getattr(ctx.chain, "ecosystem", "unknown"), "status": "partial" if plugin else "deferred", "supported": False, "reason": "syntax-aware semantic scanner; chain-native reproduction unavailable" if plugin else "no enabled ecosystem plugin"},
             "results": {"total_findings": len(findings), "by_severity": {}, "by_engine": {}, "by_status": {"candidate": len(findings)}}, "engine_results": {},
         }
         store.save_run(manifest)

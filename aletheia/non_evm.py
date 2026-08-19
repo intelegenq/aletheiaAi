@@ -14,6 +14,7 @@ from .rule_contract import RuleDefinition
 from .semantic_facts import SemanticFact, SemanticFactBundle
 from .target_model import TargetDescriptor
 from .verification_contract import VerificationCapabilities, ReproductionCapabilities, VerificationResult
+from .syntax import parse
 
 UNIVERSAL = {"authorization":"authorization-bypass", "origin":"signer/origin confusion",
              "asset":"accounting and asset-conservation failure", "cross":"cross-chain trust-boundary failure",
@@ -40,7 +41,7 @@ CONFIG = {
 "parachain_xcm": ("polkadot", "rust", ("Cargo.toml",), ("xcm::", "MultiLocation", "Xcm("), {"location":"MultiLocation|Location", "asset":"MultiAsset|Assets", "origin":"OriginKind|origin conversion|Sovereign", "barrier":"Barrier|barrier", "trader":"Trader|trader", "transact":"Transact", "reserve":"ReserveAsset|reserve", "teleport":"Teleport", "peer":"HRMP|XCMP|parachain", "destination":"BuyExecution|DepositAsset|destination"}),
 "move_aptos": ("move", "move", ("Move.toml",), ("aptos_framework", "aptos::", "signer"), {"entry":"public entry|entry fun", "signer":"&signer|signer", "resource":"move_to|move_from|borrow_global", "capability":"Capability|capability", "coin":"coin::|Coin<", "event":"event::|emit", "upgrade":"init_module|upgrade", "dependency":"use ", "state":"has key|resource"}),
 "move_sui": ("move", "move", ("Move.toml",), ("sui::", "UID", "shared"), {"entry":"public entry|entry fun", "signer":"TxContext|ctx", "resource":"move_to|move_from|borrow_global", "uid":"UID|object::", "shared":"share_object|shared", "capability":"Capability|cap", "transfer":"transfer::", "coin":"coin::|balance::", "event":"event::|emit", "upgrade":r"init\(|upgrade", "state":"dynamic_field|delete"}),
-"ink": ("substrate", "rust", ("Cargo.toml",), ("#[ink", "ink::contract"), {"caller":"self.env().caller|caller", "value":"transferred_value|payable", "storage":r"#\[ink\(storage\)\]|Mapping", "call":"build_call|try_invoke|invoke", "selector":"selector|Selector", "reentrancy":"reentrancy|locked", "upgrade":"set_code_hash|upgrade", "arithmetic":"checked_|saturating_|balance"}),
+"ink": ("substrate", "rust", ("Cargo.toml",), ("#[ink", "ink::contract"), {"caller":"self.env().caller|caller", "value":"transferred_value|payable", "storage":r"ink\s*\(\s*storage\s*\)|Mapping", "call":"build_call|try_invoke|invoke", "selector":"selector|Selector", "reentrancy":"reentrancy|locked", "upgrade":"set_code_hash|upgrade", "arithmetic":"checked_|saturating_|balance"}),
 "cairo": ("starknet", "cairo", ("Scarb.toml",), ("#[starknet::contract]", "starknet::"), {"caller":"get_caller_address", "storage":r"#\[storage\]|Storage", "dispatcher":"Dispatcher|dispatcher", "message":"L1Handler|l1_handler|message", "class":"replace_class|class_hash", "felt":"felt252|u256|u128", "access":"component::|AccessControl", "oracle":"oracle|timestamp", "upgrade":"upgrade|replace_class"}),
 }
 
@@ -56,7 +57,7 @@ class SourceSemanticPlugin:
         self.ecosystems = (ecosystem,)
 
     def detect_target(self, root: Path):
-        files = tuple(p for p in root.rglob("*") if p.is_file() and ".git" not in p.parts)
+        files = tuple(sorted((p for p in root.rglob("*") if p.is_file() and ".git" not in p.parts), key=lambda p: str(p)))
         names = {p.name for p in files}; texts = "\n".join(p.read_text(encoding="utf-8", errors="ignore")[:20000] for p in files if p.suffix in {".rs", ".move", ".cairo", ".go"})
         marker_ok = any(marker in names for marker in self.markers)
         identifiers = sum(needle in texts for needle in self.identifiers)
@@ -66,13 +67,18 @@ class SourceSemanticPlugin:
 
     def collect_semantic_facts(self, target):
         bundle = SemanticFactBundle(chain_family=self.chain_family, ecosystem=self.ecosystem,
-            limitations=["Source semantic extraction is structural; compiler/IR integration is optional and unavailable."])
+            limitations=["Tokenizer/parser extraction is deterministic and source-span aware; compiler AST/IR acceleration is optional."])
         for path in target.files:
             if path.suffix not in {".rs", ".move", ".cairo", ".go"}: continue
-            for number, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
+            document = parse(path.read_text(encoding="utf-8", errors="ignore"))
+            nodes = [*document.nodes, *(field for node in document.nodes for field in node.children)]
+            for node in nodes:
+                line = " ".join([*node.attributes, node.text()])
                 for kind, expression in self.fact_patterns.items():
                     if re.search(expression, line, re.I):
-                        bundle.facts.append(SemanticFact(kind, line.strip()[:240], str(path.relative_to(target.root)), number))
+                        bundle.facts.append(SemanticFact(kind, line.strip()[:500], str(path.relative_to(target.root)), node.start_line,
+                            {"node_kind": node.kind, "node": node.name, "end_line": node.end_line,
+                             "attributes": node.attributes, "syntax_aware": True}))
         return bundle
 
     def available_rules(self):
@@ -113,7 +119,12 @@ class SourceSemanticPlugin:
     def reproduction_capabilities(self): return ReproductionCapabilities(False, ())
     def verify(self, finding, target, facts, evidence):
         mapped = bool(finding.source_location.file and finding.source_location.line_start and finding.semantic_evidence)
-        return VerificationResult(finding.finding_id, self.chain_family, "needs-review", finding.source_location.__dict__ if mapped else {}, ["source mapping" if mapped else "missing source mapping", "semantic evidence" if mapped else "missing semantic evidence"], limitations=["No chain-native local reproduction configured; candidate cannot be verified or rejected."])
+        checks = ["source mapping" if mapped else "missing source mapping", "semantic evidence" if mapped else "missing semantic evidence",
+                  "attacker-controlled boundary is unresolved", "chain-specific sink/trust boundary reviewed"]
+        if self.ecosystem == "cosmos_ibc": checks += ["packet sequence/timeout/port/channel/acknowledgement/state transition required"]
+        if self.ecosystem == "parachain_xcm": checks += ["origin conversion/barrier/reserve-teleport/sovereign account/destination execution required"]
+        return VerificationResult(finding.finding_id, self.chain_family, self.ecosystem, "needs-review", finding.source_location.__dict__ if mapped else {}, checks,
+            limitations=["No chain-native local reproduction configured; candidate cannot be verified or rejected."])
 
 for _ecosystem in CONFIG:
     register(SourceSemanticPlugin(_ecosystem))

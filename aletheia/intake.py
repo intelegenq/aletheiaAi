@@ -85,7 +85,7 @@ def classify_contracts(
     libs = []
     for f in sol_files:
         rel = str(f.relative_to(root))
-        if rel.startswith(("test/", "tests/", "script/", "scripts/")):
+        if rel.replace("\\", "/").startswith(("test/", "tests/", "script/", "scripts/")):
             tests.append(f)
         elif "forge-std" in rel or "ds-test" in rel or "node_modules" in rel:
             libs.append(f)

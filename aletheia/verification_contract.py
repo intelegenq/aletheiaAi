@@ -21,6 +21,7 @@ class ReproductionCapabilities:
 class VerificationResult:
     finding_id: str
     chain_family: str
+    ecosystem: str = ""
     verdict: str = "needs-review"
     source_mapping: dict = field(default_factory=dict)
     semantic_checks: list[str] = field(default_factory=list)

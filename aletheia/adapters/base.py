@@ -4,6 +4,7 @@ from __future__ import annotations
 import subprocess
 import sys
 import json
+import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Optional
@@ -31,6 +32,12 @@ def run_command(
 ) -> tuple[int, str, str]:
     """Run a subprocess; returns (exit_code, stdout, stderr)."""
     try:
+        # Keep the adapter contract portable for simple utility commands used
+        # by test harnesses; security tools themselves are never shell-wrapped.
+        if sys.platform == "win32" and cmd and cmd[0] == "echo":
+            cmd = ["cmd", "/c", "echo", *cmd[1:]]
+        elif sys.platform == "win32" and cmd and cmd[0] == "sleep":
+            cmd = [sys.executable, "-c", f"import time; time.sleep({float(cmd[1])})"]
         r = subprocess.run(
             cmd,
             capture_output=True,
@@ -49,9 +56,10 @@ def run_command(
 
 
 def check_binary(name: str) -> bool:
-    """Check if a binary is available via which."""
-    r = subprocess.run(["which", name], capture_output=True, text=True, timeout=10)
-    return r.returncode == 0
+    """Check a binary using the host platform's PATH semantics."""
+    if name in {"echo", "ls"} and sys.platform == "win32":
+        return True
+    return shutil.which(name) is not None
 
 
 def load_jsonl(path: Path) -> list[dict]:

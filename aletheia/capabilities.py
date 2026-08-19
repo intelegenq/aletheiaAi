@@ -19,5 +19,5 @@ def registry() -> list[Capability]:
     import aletheia.non_evm  # register built-ins
     values=[Capability("evm", "evm", "supported", "slither/foundry", 0, "evm conviction")]
     for plugin in plugins():
-        values.append(Capability(plugin.chain_family, plugin.ecosystem, "candidate-only", f"{plugin.ecosystem}-semantic", len(plugin.available_rules()), "source/evidence gate; no reproduction"))
+        values.append(Capability(plugin.chain_family, plugin.ecosystem, "partial", f"{plugin.ecosystem}-semantic-parser", len(plugin.available_rules()), "chain-aware source/evidence gate; no reproduction"))
     return values

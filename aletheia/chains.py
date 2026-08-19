@@ -49,7 +49,7 @@ def classify_target(root: Path, files: Iterable[Path]) -> ChainTarget:
     if plugin and target:
         return ChainTarget(target.chain_family, [], target.language, target.confidence,
                            list(target.signals), True, [f"{target.ecosystem}-semantic"],
-                           target.ecosystem, "candidate-only")
+                           target.ecosystem, "partial")
     paths = list(files)
     names = {p.name for p in paths} | {p.name for p in root.iterdir()} if root.exists() else {p.name for p in paths}
     suffixes = {p.suffix.lower() for p in paths}

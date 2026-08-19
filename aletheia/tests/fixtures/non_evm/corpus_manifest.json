@@ -1,0 +1,6 @@
+{
+  "schema_version": "aletheia.non-evm-corpus.v1",
+  "fixture_classes": ["vulnerable", "secure", "mitigated", "ambiguous", "out_of_scope"],
+  "ecosystems": ["solana_anchor", "cosmwasm", "cosmos_ibc", "substrate_frame", "parachain_xcm", "move_aptos", "move_sui", "ink", "cairo"],
+  "expectations": {"vulnerable": "candidate with source mapping and semantic evidence", "secure": "no matching vulnerability evidence", "mitigated": "no matching vulnerability evidence", "ambiguous": "candidate; needs-review", "out_of_scope": "candidate; excluded by scope"}
+}

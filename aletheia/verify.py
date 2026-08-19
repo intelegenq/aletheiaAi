@@ -67,6 +67,7 @@ def run_verification(
         if target_dir:
             descriptor = plugin.detect_target(Path(target_dir))
             facts = plugin.collect_semantic_facts(descriptor) if descriptor else None
+        run_dir.mkdir(parents=True, exist_ok=True)
         results = {}
         for finding in findings:
             result = plugin.verify(finding, None, facts, [])
@@ -74,6 +75,16 @@ def run_verification(
             results[finding.finding_id] = result
         payload={"schema_version":"aletheia.chain-verification.v1", "count":len(results), "results":[r.to_dict() for r in results.values()]}
         (run_dir / "chain-verification.json").write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+        # Triage/workflow consume the established conviction artifact.  This
+        # compatibility projection never promotes a chain finding and contains
+        # no EVM analysis fields.
+        projected = {"schema_version": "aletheia.conviction.v2", "count": len(results), "root_causes": [],
+                     "results": [{"finding_id": r.finding_id, "verdict": r.verdict, "score": 0.0,
+                                  "reasons": r.limitations + r.semantic_checks, "confidence": "low",
+                                  "access_control_verdict": "unknown", "call_path_verdict": "unknown",
+                                  "evidence_summary": {"chain_family": r.chain_family, "ecosystem": r.ecosystem},
+                                  "exploitability": {}, "verification_artifacts": []} for r in results.values()]}
+        (run_dir / "conviction.json").write_text(json.dumps(projected, indent=2, sort_keys=True), encoding="utf-8")
         (run_dir / "verified-findings.json").write_text(json.dumps(to_aletheia_unified([]), indent=2, sort_keys=True), encoding="utf-8")
         (run_dir / "needs-review.json").write_text(json.dumps(to_aletheia_unified(findings), indent=2, sort_keys=True), encoding="utf-8")
         return {"conviction_results": results, "verified": [], "rejected": [], "needs_review": findings,

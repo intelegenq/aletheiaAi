@@ -44,3 +44,4 @@ corpus/
 # Tmp
 /tmp/
 *.tmp
+runs/

@@ -1,0 +1,104 @@
+[
+  {
+    "finding_id": "pp-c38f759edadceb0b",
+    "root_cause_id": "",
+    "priority": "needs-review",
+    "severity": "unknown",
+    "confidence": "low",
+    "exploitability": {
+      "score": 0.0,
+      "label": "insufficient-evidence",
+      "factors": {
+        "reachable": 0.0,
+        "reproducible": 0.0,
+        "permissionless": 0.0,
+        "special_state_required": 0.0,
+        "dynamic_corroboration": 0.0
+      },
+      "missing_information": [
+        "reachability",
+        "reproducibility",
+        "permissionless",
+        "special_state"
+      ]
+    },
+    "impact": {
+      "impact": "unknown",
+      "affected_assets": [
+        "unknown"
+      ],
+      "direct_funds_loss": "unknown",
+      "indirect_funds_loss": "unknown",
+      "temporary_loss": false,
+      "permanent_loss": false,
+      "state_corruption": false,
+      "availability_impact": false,
+      "privilege_takeover": false,
+      "quantified_amount": ""
+    },
+    "attacker_prerequisites": {
+      "permissionless": "unknown",
+      "requires_privileged_role": "unknown",
+      "privileged_role": "",
+      "requires_compromised_key": "unknown",
+      "requires_flash_loan": "unknown",
+      "requires_special_state": "unknown",
+      "special_state": "",
+      "requires_external_dependency": "unknown",
+      "requires_market_condition": "unknown",
+      "requires_multiple_transactions": "unknown",
+      "capital_required": "unknown",
+      "unknown": [
+        "access-control",
+        "reachability"
+      ]
+    },
+    "affected_assets": [
+      "unknown"
+    ],
+    "affected_users": [],
+    "scope_status": "uncertain",
+    "scope_reason": "No program scope configuration was provided",
+    "duplicate_status": "merged",
+    "duplicated_into": "",
+    "evidence_merged_from": [
+      "sl-b823c90cf09d8496",
+      "sl-a684bb7110765116",
+      "sl-0f2e03dc2e8c41b0",
+      "sl-378e223950f5d162",
+      "sl-43d1fd2835622f7d",
+      "sl-41620db6d0c925a8",
+      "sl-358b1c1421af3ad3",
+      "sl-f14354a17bf9fe10",
+      "sl-8456fd26a806cf87",
+      "sl-e33a65257f9baa90",
+      "sl-2b3a60dfe4372d63",
+      "sl-f72350233c154f72",
+      "sl-e175c500abdf3cd9",
+      "sl-934b7bf1417bec6f",
+      "sl-d9858c5d2bbc8ef7",
+      "sl-e75d6b06ed841807",
+      "sl-94ace5b57c7a2905",
+      "sl-801ff7a2853701d2",
+      "sl-a5ed5887fa8343c3",
+      "sl-d8999a6944fe5a39",
+      "al-022d6b6696817741"
+    ],
+    "rationale": [
+      "Root cause: ",
+      "Engines: slither, semgrep (22 evidence sources)",
+      "Conviction verdict: needs-review (score=0.1)",
+      "Severity capped: conviction verdict 'needs-review' is not verified \u2014 evidence insufficient",
+      "Needs review: evidence insufficient to rank"
+    ],
+    "missing_information": [
+      "access-control analysis",
+      "reachability analysis",
+      "attacker prerequisites: access-control, reachability",
+      "exploitability factor: reachability",
+      "exploitability factor: reproducibility",
+      "exploitability factor: permissionless",
+      "exploitability factor: special_state"
+    ]
+  }
+]

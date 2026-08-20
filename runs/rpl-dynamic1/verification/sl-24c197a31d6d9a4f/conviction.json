@@ -1,0 +1,93 @@
+{
+  "finding_id": "sl-24c197a31d6d9a4f",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketRewardsPool._executeRewardSnapshot(RewardSubmission)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketRewardsPool._executeRewardSnapshot(RewardSubmission)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "RocketRewardsPool.executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool.submitRewardSnapshot(RewardSubmission)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketRewardsPool.executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool._executeRewardSnapshot(RewardSubmission)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-a6f263f31e278911",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-a6f263f31e278911",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/rewards/RocketRewardsPool.sol:234",
+    "AccessControlIndex: no guard on RocketRewardsPool._executeRewardSnapshot(RewardSubmission) but no state write detected",
+    "ReachabilityIndex: RocketRewardsPool._executeRewardSnapshot(RewardSubmission) reachable only via guarded callers ['RocketRewardsPool.executeRewardSnapshot(RewardSubmission)', 'RocketRewardsPool.submitRewardSnapshot(RewardSubmission)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "access_control_verdict",
+    "fork_simulation"
+  ]
+}

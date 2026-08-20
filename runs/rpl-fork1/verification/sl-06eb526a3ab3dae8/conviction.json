@@ -1,0 +1,90 @@
+{
+  "finding_id": "sl-06eb526a3ab3dae8",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "unreachable",
+  "exploitability": {
+    "reachable": false,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketTokenRPLInterface.getInflationCalcTime()",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketTokenRPLInterface.getInflationCalcTime()",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "unreachable",
+      "entry_point": "",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketTokenRPLInterface.getInflationCalcTime()"
+      ]
+    }
+  },
+  "root_cause_id": "rc-eb2ea76e17299a1e",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-eb2ea76e17299a1e",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/token/RocketTokenRPL.sol:59",
+    "AccessControlIndex: no guard on RocketTokenRPLInterface.getInflationCalcTime() but no state write detected",
+    "ReachabilityIndex: RocketTokenRPLInterface.getInflationCalcTime() not reachable from any external entry point"
+  ],
+  "rejected_because": [
+    "Function proven unreachable from external call paths"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

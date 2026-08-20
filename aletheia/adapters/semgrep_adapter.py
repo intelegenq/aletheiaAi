@@ -18,6 +18,7 @@ def run_semgrep(
 ) -> ScanResult:
     """Run semgrep on Solidity files."""
     import subprocess, time
+    from pathlib import Path as _Path
     t0 = time.time()
 
     out_path = (output_dir / "semgrep_findings.json") if output_dir else Path("/tmp/semgrep_findings.json")
@@ -25,8 +26,12 @@ def run_semgrep(
     if rules:
         cmd.extend(["--config", rules])
     else:
-        cmd.extend(["--config", "auto"])
-    cmd.extend(["--lang", "solidity"])
+        # Default: custom Solidity rules shipped with AletheiaAI
+        default_rules = _Path(__file__).resolve().parent.parent / "rules" / "solidity-security.yml"
+        if default_rules.is_file():
+            cmd.extend(["--config", str(default_rules)])
+        else:
+            cmd.extend(["--config", "auto"])
     cmd.append(target)
 
     env = dict(os.environ)

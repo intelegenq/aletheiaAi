@@ -1,0 +1,96 @@
+{
+  "finding_id": "sl-dcfd7d650013692e",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "userDistributeTime"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMinipoolDelegate.beginUserDistribute()",
+    "state_variables": [
+      "userDistributeTime"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyInitialised",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "RocketMinipoolDelegate.beginUserDistribute()",
+      "state_writes": [
+        "userDistributeTime"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketMinipoolDelegate.beginUserDistribute()",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMinipoolDelegate.beginUserDistribute()",
+        "userDistributeTime storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-14234ea75ef7cf05",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-14234ea75ef7cf05",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol:421",
+    "AccessControlIndex: effective guard on RocketMinipoolDelegate.beginUserDistribute() via onlyInitialised",
+    "ReachabilityIndex: RocketMinipoolDelegate.beginUserDistribute() is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyInitialised)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

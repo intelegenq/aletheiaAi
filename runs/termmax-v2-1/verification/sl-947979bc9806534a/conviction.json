@@ -1,0 +1,103 @@
+{
+  "finding_id": "sl-947979bc9806534a",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "PausableStorageLocation"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxVaultV2.maxDeposit(address)",
+    "state_variables": [
+      "PausableStorageLocation"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxVaultV2.maxDeposit(address)",
+      "state_writes": [
+        "PausableStorageLocation"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxVaultV2.maxDeposit(address)",
+      "callers": [
+        "ERC4626Upgradeable.deposit(uint256,address)",
+        "ERC4626Upgradeable.mint(uint256,address)",
+        "TermMaxVaultV2.maxMint(address)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxVaultV2.maxDeposit(address)",
+        "PausableStorageLocation storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-af498a6e7f2df010",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-af498a6e7f2df010",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol:317",
+    "AccessControlIndex: no guard on TermMaxVaultV2.maxDeposit(address), writes state ['PausableStorageLocation']",
+    "ReachabilityIndex: TermMaxVaultV2.maxDeposit(address) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

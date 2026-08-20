@@ -1,0 +1,95 @@
+{
+  "finding_id": "sl-fa407bfe6725ed31",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "StableERC4626For4626._depositToPool(address,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "StableERC4626For4626._depositToPool(address,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "ERC4626Upgradeable.deposit(uint256,address)",
+        "ERC4626Upgradeable.mint(uint256,address)",
+        "StableERC4626For4626._deposit(address,address,uint256,uint256)",
+        "StakingBuffer._depositWithBuffer(address)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "ERC4626Upgradeable.deposit(uint256,address)",
+        "StableERC4626For4626._depositToPool(address,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-180914f967ac56ca",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-180914f967ac56ca",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/tokens/StableERC4626For4626.sol:152",
+    "AccessControlIndex: no guard on StableERC4626For4626._depositToPool(address,uint256) but no state write detected",
+    "ReachabilityIndex: StableERC4626For4626._depositToPool(address,uint256) reachable via unguarded callers ['ERC4626Upgradeable.deposit(uint256,address)', 'ERC4626Upgradeable.mint(uint256,address)', 'StableERC4626For4626._deposit(address,address,uint256,uint256)', 'StakingBuffer._depositWithBuffer(address)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

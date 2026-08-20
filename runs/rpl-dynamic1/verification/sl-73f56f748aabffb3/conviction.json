@@ -1,0 +1,93 @@
+{
+  "finding_id": "sl-73f56f748aabffb3",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketDAOProtocolVerifier.getNode(uint256,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketDAOProtocolVerifier.getNode(uint256,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketDAOProtocolVerifier.getNode(uint256,uint256)",
+      "callers": [
+        "RocketDAOProtocolVerifier.createChallenge(uint256,uint256,Types.Node,Types.Node[])",
+        "RocketDAOProtocolVerifier.submitRoot(uint256,uint256,Types.Node[])",
+        "RocketDAOProtocolVerifier.verifyVote(address,uint256,uint256,uint256,Types.Node[])"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketDAOProtocolVerifier.getNode(uint256,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-805f3f8ab6e88163",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-805f3f8ab6e88163",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol:722",
+    "AccessControlIndex: no guard on RocketDAOProtocolVerifier.getNode(uint256,uint256) but no state write detected",
+    "ReachabilityIndex: RocketDAOProtocolVerifier.getNode(uint256,uint256) is an external entry point",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "access_control_verdict",
+    "fork_simulation"
+  ]
+}

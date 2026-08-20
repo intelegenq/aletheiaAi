@@ -1,0 +1,127 @@
+{
+  "finding_id": "sl-7ee4efcc9cfd654a",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketBase.setAddress(bytes32,address)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketBase.setAddress(bytes32,address)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "RocketClaimDAO.newContract(string,address,uint256,uint256,uint256,uint256)",
+        "RocketClaimDAO.updateContract(string,address,uint256,uint256,uint256)",
+        "RocketDAONodeTrustedUpgrade._addContract(string,address,string)",
+        "RocketDAONodeTrustedUpgrade._execute(bytes32,string,string,address)",
+        "RocketDAONodeTrustedUpgrade._upgradeContract(string,address,string)",
+        "RocketDAONodeTrustedUpgrade.bootstrapUpgrade(string,string,string,address)",
+        "RocketDAONodeTrustedUpgrade.execute(uint256)",
+        "RocketDAONodeTrustedUpgrade.upgrade(string,string,string,address)",
+        "RocketDAOProtocolProposal._addProposal(address,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,bytes)",
+        "RocketDAOProtocolProposal._propose(string,uint256,uint256,bytes)",
+        "RocketDAOProtocolProposal.propose(string,bytes,uint32,Types.Node[])",
+        "RocketDAOProtocolSettings.setSettingAddress(string,address)",
+        "RocketDAOProtocolSettings.setSettingAddressList(string,address[])",
+        "RocketDAOProtocolVerifier.submitProposalRoot(uint256,address,uint32,Types.Node[])",
+        "RocketDAOSecurityProposals._memberInit(string,address)",
+        "RocketDAOSecurityProposals.proposalInvite(string,address)",
+        "RocketDAOSecurityProposals.proposalReplace(address,string,address)",
+        "RocketDAOSecurityProposals.proposalSettingAddress(string,string,address)",
+        "RocketMegapoolFactory._upgradeDelegate(address)",
+        "RocketMegapoolFactory.initialise()",
+        "RocketMegapoolFactory.upgradeDelegate(address)",
+        "RocketMegapoolManager.addValidator(address,uint32,bytes)",
+        "RocketMegapoolManager.challengeExit(RocketMegapoolManagerInterface.ExitChallenge[])",
+        "RocketMerkleDistributorMainnet.initialise()",
+        "RocketMinipoolManager._setMinipoolPubkey(address,bytes)",
+        "RocketMinipoolManager.createVacantMinipool(address,uint256,bytes,uint256,uint256)",
+        "RocketMinipoolManager.setMinipoolPubkey(bytes)",
+        "RocketNodeManager.confirmRPLWithdrawalAddress(address)",
+        "RocketNodeManager.setRPLWithdrawalAddress(address,address,bool)",
+        "RocketNodeManager.updateRPLWithdrawalAddress(address,address)",
+        "RocketRewardsPool._executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool.executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool.submitRewardSnapshot(RewardSubmission)",
+        "RocketUpgradeOneDotFour._addContract(string,address,string)",
+        "RocketUpgradeOneDotFour._upgradeContract(string,address,string)",
+        "RocketUpgradeOneDotFour.execute()"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketClaimDAO.newContract(string,address,uint256,uint256,uint256,uint256)",
+        "RocketBase.setAddress(bytes32,address)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-765b3a41da3264ae",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-765b3a41da3264ae",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/RocketBase.sol:160",
+    "AccessControlIndex: no guard on RocketBase.setAddress(bytes32,address) but no state write detected",
+    "ReachabilityIndex: RocketBase.setAddress(bytes32,address) reachable via unguarded callers ['RocketDAONodeTrustedUpgrade._addContract(string,address,string)', 'RocketDAONodeTrustedUpgrade._execute(bytes32,string,string,address)', 'RocketDAONodeTrustedUpgrade._upgradeContract(string,address,string)', 'RocketDAOProtocolProposal._addProposal(address,string,uint256,uint256,uint256,uint256,uint256,uint256,uint256,bytes)', 'RocketDAOProtocolProposal._propose(string,uint256,uint256,bytes)', 'RocketDAOSecurityProposals._memberInit(string,address)', 'RocketMegapoolFactory._upgradeDelegate(address)', 'RocketMinipoolManager._setMinipoolPubkey(address,bytes)', 'RocketNodeManager.updateRPLWithdrawalAddress(address,address)', 'RocketRewardsPool._executeRewardSnapshot(RewardSubmission)', 'RocketUpgradeOneDotFour._addContract(string,address,string)', 'RocketUpgradeOneDotFour._upgradeContract(string,address,string)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

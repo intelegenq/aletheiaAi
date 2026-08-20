@@ -1,0 +1,92 @@
+{
+  "finding_id": "sl-49218b8a19011a1d",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRouterV2._rollover(IERC20,uint256,bytes,bytes)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxRouterV2._rollover(IERC20,uint256,bytes,bytes)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "TermMaxRouterV2.executeOperation(IERC20,uint128,address,bytes,bytes)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRouterV2.executeOperation(IERC20,uint128,address,bytes,bytes)",
+        "TermMaxRouterV2._rollover(IERC20,uint256,bytes,bytes)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-8d9ee7e94f0aaa5c",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-8d9ee7e94f0aaa5c",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/router/TermMaxRouterV2.sol:449",
+    "AccessControlIndex: no guard on TermMaxRouterV2._rollover(IERC20,uint256,bytes,bytes) but no state write detected",
+    "ReachabilityIndex: TermMaxRouterV2._rollover(IERC20,uint256,bytes,bytes) reachable only via guarded callers ['TermMaxRouterV2.executeOperation(IERC20,uint128,address,bytes,bytes)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

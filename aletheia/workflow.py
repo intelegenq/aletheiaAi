@@ -21,7 +21,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 
-PHASES = ("ai_plan", "scan", "verify", "triage", "ai_review", "report")
+PHASES = ("ai_plan", "scan", "dynamic", "verify", "triage", "ai_review", "report")
 TERMINAL = {"completed", "failed", "paused"}
 
 
@@ -213,6 +213,7 @@ class AuditWorkflow:
         actions = {
             "ai_plan": self._ai_plan,
             "scan": self._scan,
+            "dynamic": self._dynamic,
             "verify": self._verify,
             "triage": self._triage,
             "ai_review": self._ai_review,
@@ -255,6 +256,156 @@ class AuditWorkflow:
             generate_tests=False, generate_poc=False,
         )
         return run_scan(args)
+
+    def _dynamic(self) -> bool:
+        """Run dynamic analysis: forge test, medusa, echidna.
+
+        Generates invariant tests from static findings when the target
+        project has no existing tests.  Dynamic findings are normalised
+        and merged into findings.json so the verify phase can use them.
+        """
+        from .adapters.foundry_adapter import run_foundry
+        from .adapters.medusa_adapter import run_medusa
+        from .adapters.echidna_adapter import run_echidna
+        from .adapters.base import ScanResult
+        from .normalizer import normalize_scan_result
+        from .models import Finding, to_aletheia_unified
+        from .test_generator import generate_invariant_tests
+
+        timeout = int(self.options.get("timeout", 600))
+        dynamic_dir = self.run_dir / "dynamic"
+        dynamic_dir.mkdir(parents=True, exist_ok=True)
+
+        # --- 1. Run existing forge tests (if any) ---
+        foundry_result = None
+        try:
+            foundry_result = run_foundry(
+                target=self.target,
+                timeout=timeout,
+                output_dir=dynamic_dir,
+                build_context=None,
+            )
+            print(f"[aletheia]   foundry: exit={foundry_result.exit_code} findings={len(foundry_result.raw_findings)}")
+        except Exception as e:
+            print(f"[aletheia]   foundry: error — {e}")
+            foundry_result = ScanResult(engine="foundry", success=False, exit_code=-1, error=str(e), duration_sec=0)
+
+        # --- 2. Generate invariant tests from High/Medium findings ---
+        findings_path = self.run_dir / "findings.json"
+        if not findings_path.is_file():
+            print("[aletheia]   no findings.json — skipping test generation")
+            return True
+
+        import json as _json
+        unified = _json.loads(findings_path.read_text(encoding="utf-8"))
+        static_findings = unified.get("findings", [])
+        high_medium = [f for f in static_findings if f.get("severity", "").lower() in ("high", "medium")]
+
+        gen_dir = dynamic_dir / "generated_tests"
+        gen_dir.mkdir(parents=True, exist_ok=True)
+
+        test_files = []
+        if high_medium:
+            print(f"[aletheia]   generating invariant tests from {len(high_medium)} High/Medium findings...")
+            try:
+                test_files = generate_invariant_tests(self.target, high_medium, gen_dir)
+                print(f"[aletheia]   generated {len(test_files)} test files")
+            except Exception as e:
+                print(f"[aletheia]   test generation error — {e}")
+
+        # --- 3. Run medusa on generated tests (if available) ---
+        medusa_result = None
+        medusa_bin = shutil.which("medusa") or "/usr/local/bin/medusa"
+        if test_files and Path(medusa_bin).is_file():
+            try:
+                medusa_result = run_medusa(
+                    target=self.target,
+                    timeout=timeout,
+                    output_dir=dynamic_dir,
+                    build_context=None,
+                )
+                print(f"[aletheia]   medusa: exit={medusa_result.exit_code} findings={len(medusa_result.raw_findings)}")
+            except Exception as e:
+                print(f"[aletheia]   medusa: error — {e}")
+                medusa_result = ScanResult(engine="medusa", success=False, exit_code=-1, error=str(e), duration_sec=0)
+        else:
+            print("[aletheia]   medusa: skipped (no test files or binary not found)")
+
+        # --- 4. Run echidna on generated tests (if available) ---
+        echidna_result = None
+        echidna_bin = os.environ.get("ALETHEIA_ECHIDNA_BIN") or shutil.which("echidna")
+        if test_files and echidna_bin:
+            try:
+                echidna_result = run_echidna(
+                    target=self.target,
+                    timeout=timeout,
+                    output_dir=dynamic_dir,
+                    build_context=None,
+                )
+                print(f"[aletheia]   echidna: exit={echidna_result.exit_code} findings={len(echidna_result.raw_findings)}")
+            except Exception as e:
+                print(f"[aletheia]   echidna: error — {e}")
+                echidna_result = ScanResult(engine="echidna", success=False, exit_code=-1, error=str(e), duration_sec=0)
+        else:
+            print("[aletheia]   echidna: skipped (no test files or binary not found)")
+
+        # --- 5. Normalize + merge dynamic findings into findings.json ---
+        all_dynamic_findings: list[Finding] = []
+        for sr in [foundry_result, medusa_result, echidna_result]:
+            if sr is None:
+                continue
+            if sr.stdout:
+                (dynamic_dir / f"{sr.engine}_stdout.txt").write_text(sr.stdout, encoding="utf-8")
+            if sr.stderr:
+                (dynamic_dir / f"{sr.engine}_stderr.txt").write_text(sr.stderr, encoding="utf-8")
+            if sr.raw_findings:
+                (dynamic_dir / f"{sr.engine}_raw_findings.json").write_text(
+                    _json.dumps(sr.raw_findings, indent=2, default=str), encoding="utf-8"
+                )
+            try:
+                normalized = normalize_scan_result(sr)
+                for f in normalized:
+                    if not f.engine:
+                        f.engine = sr.engine
+                all_dynamic_findings.extend(normalized)
+            except Exception as e:
+                print(f"[aletheia]   {sr.engine}: normalize failed — {e}")
+
+        # Merge dynamic findings into findings.json
+        if all_dynamic_findings:
+            existing = unified.get("findings", [])
+            existing_ids = {f.get("finding_id", "") for f in existing}
+            new_findings = [f for f in all_dynamic_findings if f.finding_id not in existing_ids]
+            from .models import to_dict as _to_dict
+            merged = existing + [_to_dict(f) for f in new_findings]
+            unified["findings"] = merged
+            unified["count"] = len(merged)
+            unified.setdefault("by_engine", {})
+            for f in new_findings:
+                eng = f.engine or "unknown"
+                unified["by_engine"][eng] = unified["by_engine"].get(eng, 0) + 1
+            findings_path.write_text(_json.dumps(unified, indent=2, default=str), encoding="utf-8")
+            print(f"[aletheia]   merged {len(new_findings)} dynamic findings into findings.json (total: {len(merged)})")
+        else:
+            print("[aletheia]   no dynamic findings to merge")
+
+        # Save dynamic phase summary
+        summary = {
+            "engines": {},
+            "total_dynamic_findings": len(all_dynamic_findings),
+        }
+        for sr in [foundry_result, medusa_result, echidna_result]:
+            if sr is None:
+                continue
+            summary["engines"][sr.engine] = {
+                "success": sr.success,
+                "exit_code": sr.exit_code,
+                "findings": len(sr.raw_findings),
+                "error": sr.error,
+                "duration_sec": round(sr.duration_sec, 1),
+            }
+        (dynamic_dir / "dynamic_summary.json").write_text(_json.dumps(summary, indent=2), encoding="utf-8")
+        return True
 
     def _ai_plan(self) -> bool:
         from .adapters.registry import ADAPTERS
@@ -310,7 +461,17 @@ class AuditWorkflow:
             for name in ("triage.json", "report-ready-findings.json", "needs-review.json", "out-of-scope.json"):
                 (self.run_dir / name).write_text("[]\n", encoding="utf-8")
             return True
-        results = run_triage_from_run(self.run_dir, policy_name=self.policy, verbose=True)
+        # Load scope config from file if available
+        triage_config = None
+        scope_file = self.run_dir / "scope_config.json"
+        if not scope_file.is_file():
+            scope_file = Path(self.target) / "scope_config.json"
+        if scope_file.is_file():
+            try:
+                triage_config = json.loads(scope_file.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        results = run_triage_from_run(self.run_dir, config=triage_config, policy_name=self.policy, verbose=True)
         (self.run_dir / "triage.json").write_text(json.dumps([t.to_dict() for t in results], indent=2, default=str), encoding="utf-8")
         report_ready, needs_review, out_of_scope = bucket_triage_results(results)
         (self.run_dir / "report-ready-findings.json").write_text(json.dumps(report_ready, indent=2, default=str), encoding="utf-8")
@@ -339,6 +500,120 @@ class AuditWorkflow:
         if conviction_path.is_file():
             conviction_payload = json.loads(conviction_path.read_text(encoding="utf-8"))
         evidence = read_evidence(self.run_dir)
+
+        # --- deterministic review analysis (no LLM required) ---
+
+        # Load triage results
+        triage_results = []
+        triage_path = self.run_dir / "triage.json"
+        if triage_path.is_file():
+            triage_results = json.loads(triage_path.read_text(encoding="utf-8"))
+
+        # 1. Cross-engine corroboration: findings flagged by multiple engines
+        engine_map: dict[str, list[str]] = {}
+        for f in findings:
+            fid = f.finding_id
+            engines = [f.engine] + list(f.corroborating_engines or [])
+            engine_map[fid] = engines
+        corroborated = [
+            {"finding_id": fid, "engines": engs, "count": len(engs)}
+            for fid, engs in engine_map.items() if len(engs) > 1
+        ]
+
+        # 2. Access-control summary
+        conviction_results = conviction_payload.get("results", [])
+        ac_summary = {"permissionless": 0, "restricted": 0, "partially_restricted": 0, "unknown": 0}
+        for cr in conviction_results:
+            ac = cr.get("access_control_verdict", "unknown")
+            key = ac.replace("-", "_") if ac else "unknown"
+            ac_summary[key] = ac_summary.get(key, 0) + 1
+
+        # 3. Exploitability ranking — top 10
+        triage_by_score = sorted(triage_results, key=lambda t: t.get("exploitability", {}).get("score", 0), reverse=True)
+        top_exploitable = [
+            {
+                "finding_id": t.get("finding_id", ""),
+                "score": t.get("exploitability", {}).get("score", 0),
+                "label": t.get("exploitability", {}).get("label", ""),
+                "priority": t.get("priority", ""),
+                "scope": t.get("scope_status", ""),
+                "permissionless": t.get("attacker_prerequisites", {}).get("permissionless", "unknown"),
+            }
+            for t in triage_by_score[:10]
+        ]
+
+        # 4. Root-cause clusters — group by vulnerability class
+        vuln_classes: dict[str, dict] = {}
+        for f in findings:
+            vc = f.vulnerability_class or "unknown"
+            if vc not in vuln_classes:
+                vuln_classes[vc] = {"count": 0, "severities": [], "engines": set(), "finding_ids": []}
+            vuln_classes[vc]["count"] += 1
+            vuln_classes[vc]["severities"].append(f.severity)
+            vuln_classes[vc]["engines"].add(f.engine)
+            vuln_classes[vc]["finding_ids"].append(f.finding_id)
+        # Convert sets to lists for JSON
+        root_cause_clusters = []
+        for vc, info in sorted(vuln_classes.items(), key=lambda x: -x[1]["count"]):
+            sev_counts: dict[str, int] = {}
+            for s in info["severities"]:
+                sev_counts[s] = sev_counts.get(s, 0) + 1
+            root_cause_clusters.append({
+                "vulnerability_class": vc,
+                "count": info["count"],
+                "severity_distribution": sev_counts,
+                "engines": sorted(info["engines"]),
+                "sample_findings": info["finding_ids"][:5],
+            })
+
+        # 5. Missing evidence summary — what's blocking report-ready
+        from .triage import missing_blockers
+        blocking_findings: list[dict] = []
+        # Rebuild TriageResult objects to use missing_blockers
+        from .triage_model import TriageResult
+        for t_dict in triage_results:
+            try:
+                t = TriageResult(
+                    finding_id=t_dict.get("finding_id", ""),
+                    priority=t_dict.get("priority", ""),
+                    missing_information=t_dict.get("missing_information", []),
+                    scope_status=t_dict.get("scope_status", ""),
+                )
+                blockers = missing_blockers(t)
+                if blockers:
+                    blocking_findings.append({
+                        "finding_id": t_dict.get("finding_id", ""),
+                        "priority": t_dict.get("priority", ""),
+                        "scope": t_dict.get("scope_status", ""),
+                        "blockers": blockers,
+                    })
+            except Exception:
+                pass
+
+        # 6. Phase summary — verdict distribution
+        verdict_counts: dict[str, int] = {}
+        for cr in conviction_results:
+            v = cr.get("verdict", "unknown")
+            verdict_counts[v] = verdict_counts.get(v, 0) + 1
+
+        # 7. Actionable recommendations
+        recommendations: list[str] = []
+        urgent = [t for t in triage_results if "urgent" in t.get("priority", "")]
+        if urgent:
+            recommendations.append(f"Review {len(urgent)} urgent findings first — in-scope, permissionless, plausible exploitability")
+        high = [t for t in triage_results if "high" in t.get("priority", "")]
+        if high:
+            recommendations.append(f"Review {len(high)} high-priority findings — in-scope, theoretical exploitability")
+        needs_dyn = [cr for cr in conviction_results if cr.get("verdict") == "needs-dynamic-validation"]
+        if needs_dyn:
+            recommendations.append(f"Run dynamic analysis (medusa/echidna) on {len(needs_dyn)} findings flagged for dynamic validation")
+        if ac_summary.get("unknown", 0) > 0:
+            recommendations.append(f"Resolve access-control mapping for {ac_summary['unknown']} findings with unknown AC verdict")
+        if corroborated:
+            recommendations.append(f"{len(corroborated)} findings corroborated by multiple engines — highest credibility")
+        if not recommendations:
+            recommendations.append("No urgent actions — all findings needs-review or rejected")
+
         review = {
             "schema_version": "aletheia.ai-review.v1",
             "verification_plans": [asdict(build_verification_plan(f)) for f in findings],
@@ -350,6 +625,14 @@ class AuditWorkflow:
                 "artifacts": len(evidence.get("artifacts", [])),
             },
             "verdict_authority": "conviction-and-triage-artifacts; AI review cannot promote findings",
+            # --- new deterministic analysis ---
+            "verdict_distribution": verdict_counts,
+            "access_control_summary": ac_summary,
+            "cross_engine_corroboration": corroborated,
+            "top_exploitable": top_exploitable,
+            "root_cause_clusters": root_cause_clusters,
+            "blocking_findings": blocking_findings,
+            "recommendations": recommendations,
         }
         (self.run_dir / "ai_review.json").write_text(json.dumps(review, indent=2), encoding="utf-8")
         return True

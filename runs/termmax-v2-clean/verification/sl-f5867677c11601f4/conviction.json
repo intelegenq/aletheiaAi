@@ -1,0 +1,102 @@
+{
+  "finding_id": "sl-f5867677c11601f4",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[])",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[])",
+      "state_writes": [
+        "PausableStorageLocation",
+        "ReentrancyGuardStorageLocation"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[])",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[])",
+        "PausableStorageLocation,ReentrancyGuardStorageLocation storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-f7be599201d25389",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-f7be599201d25389",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol:281",
+    "AccessControlIndex: no guard on TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[]), writes state ['PausableStorageLocation', 'ReentrancyGuardStorageLocation']",
+    "ReachabilityIndex: TermMaxRouter_Repay_Gt.leverageFromXtAndCollateral(address,ITermMaxMarket,uint128,uint128,uint128,SwapUnit[]) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

@@ -1,0 +1,89 @@
+{
+  "finding_id": "sl-82c792e696b32a89",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyCallbackAddress",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-4d34d200299506d2",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-4d34d200299506d2",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol:500",
+    "AccessControlIndex: effective guard on TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes) via onlyCallbackAddress",
+    "ReachabilityIndex: TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyCallbackAddress)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "check_id": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+    "path": "/mnt/data/rpl-audit/.github/workflows/CI.yml",
+    "start": {
+      "line": 8,
+      "col": 9,
+      "offset": 83
+    },
+    "end": {
+      "line": 8,
+      "col": 36,
+      "offset": 110
+    },
+    "extra": {
+      "message": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`.",
+      "metadata": {
+        "category": "security",
+        "cwe": [
+          "CWE-1357: Reliance on Insufficiently Trustworthy Component",
+          "CWE-353: Missing Support for Integrity Check"
+        ],
+        "owasp": [
+          "A08:2021 - Software and Data Integrity Failures",
+          "A08:2025 - Software and Data Integrity Failures"
+        ],
+        "references": [
+          "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions"
+        ],
+        "technology": [
+          "github-actions"
+        ],
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "MEDIUM",
+        "impact": "HIGH",
+        "confidence": "HIGH",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Cryptographic Issues",
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+        "shortlink": "https://sg.run/2LgAL"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+    "path": "/mnt/data/rpl-audit/.github/workflows/CI.yml",
+    "start": {
+      "line": 11,
+      "col": 9,
+      "offset": 160
+    },
+    "end": {
+      "line": 11,
+      "col": 34,
+      "offset": 185
+    },
+    "extra": {
+      "message": "GitHub Actions step uses a mutable tag or branch reference. Tags and branch names can be silently repointed by the action owner, enabling supply-chain attacks \u2014 as seen in the trivy-action and kics-github-action compromises. Pin the reference to a full 40-character commit SHA instead, e.g. `uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608`.",
+      "metadata": {
+        "category": "security",
+        "cwe": [
+          "CWE-1357: Reliance on Insufficiently Trustworthy Component",
+          "CWE-353: Missing Support for Integrity Check"
+        ],
+        "owasp": [
+          "A08:2021 - Software and Data Integrity Failures",
+          "A08:2025 - Software and Data Integrity Failures"
+        ],
+        "references": [
+          "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions"
+        ],
+        "technology": [
+          "github-actions"
+        ],
+        "subcategory": [
+          "vuln"
+        ],
+        "likelihood": "MEDIUM",
+        "impact": "HIGH",
+        "confidence": "HIGH",
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Cryptographic Issues",
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/yaml.github-actions.security.github-actions-mutable-action-tag.github-actions-mutable-action-tag",
+        "shortlink": "https://sg.run/2LgAL"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "solidity.security.incorrect-use-of-blockhash.incorrect-use-of-blockhash",
+    "path": "/mnt/data/rpl-audit/contracts/thirdparty/Multicall2/Multicall2.sol",
+    "start": {
+      "line": 69,
+      "col": 21,
+      "offset": 2877
+    },
+    "end": {
+      "line": 69,
+      "col": 44,
+      "offset": 2900
+    },
+    "extra": {
+      "message": "blockhash(block.number) and blockhash(block.number + N) always returns 0.",
+      "metadata": {
+        "category": "security",
+        "technology": [
+          "solidity"
+        ],
+        "cwe": "CWE-341: Predictable from Observable State",
+        "confidence": "HIGH",
+        "likelihood": "LOW",
+        "impact": "MEDIUM",
+        "subcategory": [
+          "vuln"
+        ],
+        "references": [
+          "https://blog.positive.com/predicting-random-numbers-in-ethereum-smart-contracts-e5358c6b8620"
+        ],
+        "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+        "vulnerability_class": [
+          "Other"
+        ],
+        "source": "https://semgrep.dev/r/solidity.security.incorrect-use-of-blockhash.incorrect-use-of-blockhash",
+        "shortlink": "https://sg.run/qvPO"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  }
+]

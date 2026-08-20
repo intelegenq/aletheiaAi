@@ -14,26 +14,28 @@ from .rootcause import correlate
 
 
 def _load_target_analysis(target_dir: str):
-    """Load real Slither analysis for a target project (best effort)."""
+    """Load real Slither analysis for a target project (best effort).
+
+    Passes the project directory to Slither so it compiles the whole Foundry
+    project (all contracts, not just one file). Falls back to single-file if
+    the target is a .sol file.
+    """
     import os
     if not target_dir:
         return None
-    candidates: list[str] = []
-    for sub in ("contracts", "src"):
-        d = os.path.join(target_dir, sub)
-        if os.path.isdir(d):
-            for root, _dirs, files in os.walk(d):
-                for name in sorted(files):
-                    if name.endswith(".sol"):
-                        candidates.append(os.path.join(root, name))
-        if candidates:
-            break
-    if not candidates and target_dir.endswith(".sol") and os.path.isfile(target_dir):
-        candidates = [target_dir]
-    if not candidates:
-        return None
-    outcome = load_analysis(candidates[0])
-    return outcome if outcome.ok else None
+
+    # If target is a single .sol file, analyse it directly
+    if target_dir.endswith(".sol") and os.path.isfile(target_dir):
+        outcome = load_analysis(target_dir)
+        return outcome if outcome.ok else None
+
+    # Otherwise pass the project directory — Slither + CryticCompile will
+    # auto-detect Foundry/Hardhat and compile all contracts.
+    if os.path.isdir(target_dir):
+        outcome = load_analysis(target_dir)
+        return outcome if outcome.ok else None
+
+    return None
 
 
 def run_verification(

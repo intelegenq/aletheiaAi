@@ -1,0 +1,12 @@
+{
+  "engines": {
+    "foundry": {
+      "success": true,
+      "exit_code": 0,
+      "findings": 0,
+      "error": "",
+      "duration_sec": 0.2
+    }
+  },
+  "total_dynamic_findings": 0
+}

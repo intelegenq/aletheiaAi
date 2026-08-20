@@ -12,7 +12,22 @@ PACK_ROOT = Path(os.environ.get(
     "ALETHEIA_PACK_ROOT",
     str(Path(__file__).resolve().parents[2] / "slither-vulndb"),
 ))
-VENV_PYTHON = os.environ.get("ALETHEIA_SLITHER_PY", sys.executable)
+VENV_PYTHON = os.environ.get("ALETHEIA_SLITHER_PY", "")
+if not VENV_PYTHON:
+    # Try sys.executable first; if it can't import slither, fall back to python3.12
+    import shutil
+    for candidate in (sys.executable, "python3.12", "python3.11"):
+        if candidate and shutil.which(candidate):
+            import subprocess
+            try:
+                r = subprocess.run([candidate, "-c", "from slither import Slither"], capture_output=True, timeout=10)
+                if r.returncode == 0:
+                    VENV_PYTHON = candidate
+                    break
+            except Exception:
+                continue
+    if not VENV_PYTHON:
+        VENV_PYTHON = sys.executable
 FOUNDRY_BIN = os.environ.get("ALETHEIA_FOUNDRY_BIN", "")
 
 

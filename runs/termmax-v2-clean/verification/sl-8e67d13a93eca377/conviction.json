@@ -1,0 +1,105 @@
+{
+  "finding_id": "sl-8e67d13a93eca377",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "ERC721StorageLocation",
+      "OwnableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "loanMapping"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256)",
+    "state_variables": [
+      "ERC721StorageLocation",
+      "OwnableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "loanMapping"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "only_owner",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyOwner",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256)",
+      "state_writes": [
+        "ERC721StorageLocation",
+        "OwnableStorageLocation",
+        "ReentrancyGuardStorageLocation",
+        "loanMapping"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256)",
+        "ERC721StorageLocation,OwnableStorageLocation,ReentrancyGuardStorageLocation,loanMapping storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-2978c57fd5170a01",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-2978c57fd5170a01",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/tokens/AbstractGearingTokenV2.sol:200",
+    "AccessControlIndex: effective guard on AbstractGearingTokenV2.augmentDebt(address,uint256,uint256) via onlyOwner",
+    "ReachabilityIndex: AbstractGearingTokenV2.augmentDebt(address,uint256,uint256) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyOwner)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

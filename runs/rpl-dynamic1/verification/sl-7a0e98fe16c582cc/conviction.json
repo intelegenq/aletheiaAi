@@ -1,0 +1,118 @@
+{
+  "finding_id": "sl-7a0e98fe16c582cc",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "debt",
+      "lastDistributionTime",
+      "nodeBond",
+      "numExitingValidators",
+      "numInactiveValidators",
+      "refundValue",
+      "userCapital",
+      "validators"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64)",
+    "state_variables": [
+      "debt",
+      "lastDistributionTime",
+      "nodeBond",
+      "numExitingValidators",
+      "numInactiveValidators",
+      "refundValue",
+      "userCapital",
+      "validators"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyRocketMegapoolManager",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64)",
+      "state_writes": [
+        "debt",
+        "lastDistributionTime",
+        "nodeBond",
+        "numExitingValidators",
+        "numInactiveValidators",
+        "refundValue",
+        "userCapital",
+        "validators"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64)",
+        "debt,lastDistributionTime,nodeBond,numExitingValidators,numInactiveValidators,refundValue,userCapital,validators storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-bc80fce785d7af2e",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-bc80fce785d7af2e",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol:624",
+    "AccessControlIndex: effective guard on RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64) via onlyRocketMegapoolManager",
+    "ReachabilityIndex: RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyRocketMegapoolManager)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "fork_simulation"
+  ]
+}

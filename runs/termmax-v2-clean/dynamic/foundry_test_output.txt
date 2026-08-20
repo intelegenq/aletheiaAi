@@ -1,0 +1,2 @@
+Compiling 97 files with Solc 0.8.35
+Solc 0.8.35 finished in 43.36s

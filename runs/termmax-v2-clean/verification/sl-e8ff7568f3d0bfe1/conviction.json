@@ -1,0 +1,102 @@
+{
+  "finding_id": "sl-e8ff7568f3d0bfe1",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.5,
+  "source_verified": true,
+  "access_control_verdict": "partially-restricted",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "unknown",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256)",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": false,
+      "has_access_control": true,
+      "modifier_name": "onlyWhitelisted",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256)",
+      "state_writes": [
+        "PausableStorageLocation",
+        "ReentrancyGuardStorageLocation"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256)",
+        "PausableStorageLocation,ReentrancyGuardStorageLocation storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-e40427dbda6484fc",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-e40427dbda6484fc",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/router/TermMaxRouter_V1_1_2.sol:511",
+    "AccessControlIndex: guard present on TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256) but not proven effective (onlyWhitelisted)",
+    "ReachabilityIndex: TermMaxRouter_V1_1_2.repayByTokenThroughFt(address,ITermMaxMarket,uint256,ITermMaxOrder[],uint128[],uint128,uint256) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: guard present but not proven effective",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

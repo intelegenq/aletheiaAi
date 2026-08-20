@@ -1,0 +1,1 @@
+No tests found in ABI. If you are using assert(), use --test-mode assertion

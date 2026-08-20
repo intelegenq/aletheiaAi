@@ -1,0 +1,109 @@
+{
+  "finding_id": "sl-cc85e29122fa125c",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.5,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "unknown",
+    "state_variables": [
+      "nodeRefundBalance",
+      "nodeSlashBalance",
+      "withdrawalBlock"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMinipoolDelegate._distributeBalance(uint256)",
+    "state_variables": [
+      "nodeRefundBalance",
+      "nodeSlashBalance",
+      "withdrawalBlock"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketMinipoolDelegate._distributeBalance(uint256)",
+      "state_writes": [
+        "nodeRefundBalance",
+        "nodeSlashBalance",
+        "withdrawalBlock"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "RocketMinipoolDelegate.distributeBalance(bool)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMinipoolDelegate.distributeBalance(bool)",
+        "RocketMinipoolDelegate._distributeBalance(uint256)",
+        "nodeRefundBalance,nodeSlashBalance,withdrawalBlock storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d8af0fb082fb6a22",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d8af0fb082fb6a22",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol:478",
+    "AccessControlIndex: no guard on RocketMinipoolDelegate._distributeBalance(uint256), writes state ['nodeRefundBalance', 'nodeSlashBalance', 'withdrawalBlock']",
+    "ReachabilityIndex: RocketMinipoolDelegate._distributeBalance(uint256) reachable only via guarded callers ['RocketMinipoolDelegate.distributeBalance(bool)']",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: reachable only through restricted callers",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "fork_simulation"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "finding_id": "sl-5da8e3642dda7ba1",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMinipoolDelegate.getUserDepositAssigned()",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketMinipoolDelegate.getUserDepositAssigned()",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketMinipoolDelegate.getUserDepositAssigned()",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMinipoolDelegate.getUserDepositAssigned()"
+      ]
+    }
+  },
+  "root_cause_id": "rc-977825ad450956dd",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-977825ad450956dd",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol:80",
+    "AccessControlIndex: no guard on RocketMinipoolDelegate.getUserDepositAssigned() but no state write detected",
+    "ReachabilityIndex: RocketMinipoolDelegate.getUserDepositAssigned() is an external entry point",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "access_control_verdict",
+    "fork_simulation"
+  ]
+}

@@ -176,11 +176,15 @@ def map_function_to_canonical(
     """Map a finding's contract+function to a canonical name in the analysis.
 
     Tries several forms because finding locations may be imprecise.
+    Slither often registers functions under base/interface contracts while
+    findings reference the delegate contract.  We therefore also do a
+    function-name-only search across all canonical names.
     """
     if not function:
         return None
     fn = function.split("(")[0]
 
+    # 1. Exact candidates: Contract.function() / Contract.function
     candidates = []
     if contract:
         candidates.append(f"{contract}.{fn}()")
@@ -195,4 +199,54 @@ def map_function_to_canonical(
         for canonical in outcome.all_functions:
             if canonical.startswith(cand.rstrip("()") + "("):
                 return canonical
+
+    # 2. Function-name-only search across all canonicals.
+    # Slither may register the function under a different contract
+    # (base, interface, abstract) than the finding references.
+    fn_matches = [
+        c for c in outcome.all_functions
+        if c.split(".")[-1].split("(")[0] == fn
+    ]
+    if fn_matches:
+        # Prefer matches that share a prefix with the finding's contract
+        if contract:
+            # Try exact contract name substring first
+            prefix_matches = [c for c in fn_matches if contract in c]
+            if prefix_matches:
+                return prefix_matches[0]
+            # Try first-10-char prefix (catches RocketMegapool* → RocketMegapoolDelegateBaseInterface)
+            contract_prefix = contract[:12]
+            prefix_matches = [c for c in fn_matches if c.startswith(contract_prefix)]
+            if prefix_matches:
+                return prefix_matches[0]
+            # Try any contract that shares first 8+ chars
+            short_prefix = contract[:8]
+            prefix_matches = [c for c in fn_matches if short_prefix in c]
+            if prefix_matches:
+                return prefix_matches[0]
+        return fn_matches[0]
+
+    # 3. Partial contract-name + function-name match (fuzzy)
+    if contract:
+        contract_prefix = contract[:8]
+        for canonical in outcome.all_functions:
+            parts = canonical.split(".", 1)
+            if len(parts) == 2:
+                canon_contract, canon_fn = parts
+                canon_fn_base = canon_fn.split("(")[0]
+                # Exact function name match + fuzzy contract
+                if fn == canon_fn_base and (
+                    contract_prefix in canon_contract or canon_contract[:8] in contract
+                ):
+                    return canonical
+                # Substring function match (catches _claim in _claimFrom)
+                if fn and (fn in canon_fn_base or canon_fn_base in fn) and contract_prefix in canon_contract:
+                    return canonical
+
+    # 4. Fallback: function-name substring match across all canonicals
+    if fn:
+        for canonical in outcome.all_functions:
+            if fn in canonical:
+                return canonical
+
     return None

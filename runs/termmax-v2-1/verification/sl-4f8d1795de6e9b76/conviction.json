@@ -1,0 +1,112 @@
+{
+  "finding_id": "sl-4f8d1795de6e9b76",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "ERC721EnumerableStorageLocation",
+      "ERC721StorageLocation",
+      "loanMapping"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "AbstractGearingToken._burnInternal(uint256)",
+    "state_variables": [
+      "ERC721EnumerableStorageLocation",
+      "ERC721StorageLocation",
+      "loanMapping"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "AbstractGearingToken._burnInternal(uint256)",
+      "state_writes": [
+        "ERC721EnumerableStorageLocation",
+        "ERC721StorageLocation",
+        "loanMapping"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "AbstractGearingToken._repay(uint256,uint128)",
+        "AbstractGearingToken.flashRepay(uint256,bool,bytes)",
+        "AbstractGearingToken.liquidate(uint256,uint128,bool)",
+        "AbstractGearingToken.merge(uint256[])",
+        "AbstractGearingToken.repay(uint256,uint128,bool)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "AbstractGearingToken._repay(uint256,uint128)",
+        "AbstractGearingToken._burnInternal(uint256)",
+        "ERC721EnumerableStorageLocation,ERC721StorageLocation,loanMapping storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-1761694041cda0cf",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-1761694041cda0cf",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol:204",
+    "AccessControlIndex: no guard on AbstractGearingToken._burnInternal(uint256), writes state ['ERC721EnumerableStorageLocation', 'ERC721StorageLocation', 'loanMapping']",
+    "ReachabilityIndex: AbstractGearingToken._burnInternal(uint256) reachable via unguarded callers ['AbstractGearingToken._repay(uint256,uint128)', 'AbstractGearingToken.liquidate(uint256,uint128,bool)', 'AbstractGearingToken.repay(uint256,uint128,bool)']",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

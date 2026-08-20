@@ -1,0 +1,91 @@
+{
+  "finding_id": "sl-cebff71d6638bbec",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyDAOProtocolProposal",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256)",
+      "callers": [
+        "RocketDAOProtocolSettingsInflation.constructor(RocketStorageInterface)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-7b4c9448ea7ab6c2",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-7b4c9448ea7ab6c2",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/dao/protocol/settings/RocketDAOProtocolSettingsInflation.sol:26",
+    "AccessControlIndex: effective guard on RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256) via onlyDAOProtocolProposal",
+    "ReachabilityIndex: RocketDAOProtocolSettingsInflation.setSettingUint(string,uint256) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyDAOProtocolProposal)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

@@ -1,0 +1,1367 @@
+[
+  {
+    "spec_id": "TAX-01",
+    "pattern_id": "TAX-01",
+    "detector_id": "TAX-01",
+    "title": "missing-access-control",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-04",
+    "pattern_id": "TAX-04",
+    "detector_id": "TAX-04",
+    "title": "initializer-protection",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-05",
+    "pattern_id": "TAX-05",
+    "detector_id": "TAX-05",
+    "title": "upgrade-authorization",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-06",
+    "pattern_id": "TAX-06",
+    "detector_id": "TAX-06",
+    "title": "timelock-controls",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-07",
+    "pattern_id": "TAX-07",
+    "detector_id": "TAX-07",
+    "title": "pause-controls",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-08",
+    "pattern_id": "TAX-08",
+    "detector_id": "TAX-08",
+    "title": "emergency-controls",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-09",
+    "pattern_id": "TAX-09",
+    "detector_id": "TAX-09",
+    "title": "untrusted-delegatecall",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "callee_resolution",
+      "data_dependency",
+      "low_level_calls",
+      "manual_review"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-10",
+    "pattern_id": "TAX-10",
+    "detector_id": "TAX-10",
+    "title": "arbitrary-external-call",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-11",
+    "pattern_id": "TAX-11",
+    "detector_id": "TAX-11",
+    "title": "selfdestruct-control",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-12",
+    "pattern_id": "TAX-12",
+    "detector_id": "TAX-12",
+    "title": "callback-sender-validation",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-13",
+    "pattern_id": "TAX-13",
+    "detector_id": "TAX-13",
+    "title": "factory-deployment-control",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-14",
+    "pattern_id": "TAX-14",
+    "detector_id": "TAX-14",
+    "title": "external-call-reentrancy",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-16",
+    "pattern_id": "TAX-16",
+    "detector_id": "TAX-16",
+    "title": "read-only-reentrancy",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-17",
+    "pattern_id": "TAX-17",
+    "detector_id": "TAX-17",
+    "title": "token-hook-reentrancy",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-19",
+    "pattern_id": "TAX-19",
+    "detector_id": "TAX-19",
+    "title": "signature-domain-separation",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-20",
+    "pattern_id": "TAX-20",
+    "detector_id": "TAX-20",
+    "title": "signature-nonce-replay",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-21",
+    "pattern_id": "TAX-21",
+    "detector_id": "TAX-21",
+    "title": "signature-expiration",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "data_dependency",
+      "economic_invariant",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "oracle_source",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-24",
+    "pattern_id": "TAX-24",
+    "detector_id": "TAX-24",
+    "title": "merkle-proof-validation",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-26",
+    "pattern_id": "TAX-26",
+    "detector_id": "TAX-26",
+    "title": "arithmetic-overflow-underflow",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-28",
+    "pattern_id": "TAX-28",
+    "detector_id": "TAX-28",
+    "title": "division-precision-loss",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-29",
+    "pattern_id": "TAX-29",
+    "detector_id": "TAX-29",
+    "title": "rounding-direction",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-31",
+    "pattern_id": "TAX-31",
+    "detector_id": "TAX-31",
+    "title": "unsafe-casting",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-32",
+    "pattern_id": "TAX-32",
+    "detector_id": "TAX-32",
+    "title": "inline-assembly-arithmetic",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "data_dependency",
+      "manual_review",
+      "range_constraints",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-35",
+    "pattern_id": "TAX-35",
+    "detector_id": "TAX-35",
+    "title": "share-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-36",
+    "pattern_id": "TAX-36",
+    "detector_id": "TAX-36",
+    "title": "reward-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-37",
+    "pattern_id": "TAX-37",
+    "detector_id": "TAX-37",
+    "title": "interest-accounting",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-38",
+    "pattern_id": "TAX-38",
+    "detector_id": "TAX-38",
+    "title": "fee-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-39",
+    "pattern_id": "TAX-39",
+    "detector_id": "TAX-39",
+    "title": "debt-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-42",
+    "pattern_id": "TAX-42",
+    "detector_id": "TAX-42",
+    "title": "fund-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-43",
+    "pattern_id": "TAX-43",
+    "detector_id": "TAX-43",
+    "title": "unchecked-token-return",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-44",
+    "pattern_id": "TAX-44",
+    "detector_id": "TAX-44",
+    "title": "token-decimals",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-46",
+    "pattern_id": "TAX-46",
+    "detector_id": "TAX-46",
+    "title": "token-standard-compatibility",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-47",
+    "pattern_id": "TAX-47",
+    "detector_id": "TAX-47",
+    "title": "approval-safety",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-48",
+    "pattern_id": "TAX-48",
+    "detector_id": "TAX-48",
+    "title": "balance-accounting",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "data_dependency",
+      "economic_invariant",
+      "manual_review",
+      "oracle_source"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-49",
+    "pattern_id": "TAX-49",
+    "detector_id": "TAX-49",
+    "title": "slippage-enforcement",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "data_dependency",
+      "manual_review",
+      "slithir_ops"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-50",
+    "pattern_id": "TAX-50",
+    "detector_id": "TAX-50",
+    "title": "swap-route-validation",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-52",
+    "pattern_id": "TAX-52",
+    "detector_id": "TAX-52",
+    "title": "sandwich-mev",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-53",
+    "pattern_id": "TAX-53",
+    "detector_id": "TAX-53",
+    "title": "frontrunning",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-63",
+    "pattern_id": "TAX-63",
+    "detector_id": "TAX-63",
+    "title": "governance-parameters",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-64",
+    "pattern_id": "TAX-64",
+    "detector_id": "TAX-64",
+    "title": "voting-snapshot",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-67",
+    "pattern_id": "TAX-67",
+    "detector_id": "TAX-67",
+    "title": "bridge-validator-set",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-70",
+    "pattern_id": "TAX-70",
+    "detector_id": "TAX-70",
+    "title": "proxy-storage-collision",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-71",
+    "pattern_id": "TAX-71",
+    "detector_id": "TAX-71",
+    "title": "proxy-initialization",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-72",
+    "pattern_id": "TAX-72",
+    "detector_id": "TAX-72",
+    "title": "storage-layout",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-73",
+    "pattern_id": "TAX-73",
+    "detector_id": "TAX-73",
+    "title": "unbounded-storage-loop",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-74",
+    "pattern_id": "TAX-74",
+    "detector_id": "TAX-74",
+    "title": "gas-griefing",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-75",
+    "pattern_id": "TAX-75",
+    "detector_id": "TAX-75",
+    "title": "block-gas-dos",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-76",
+    "pattern_id": "TAX-76",
+    "detector_id": "TAX-76",
+    "title": "locked-funds",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-77",
+    "pattern_id": "TAX-77",
+    "detector_id": "TAX-77",
+    "title": "timestamp-dependence",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-79",
+    "pattern_id": "TAX-79",
+    "detector_id": "TAX-79",
+    "title": "randomness",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-80",
+    "pattern_id": "TAX-80",
+    "detector_id": "TAX-80",
+    "title": "tx-origin-authentication",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-81",
+    "pattern_id": "TAX-81",
+    "detector_id": "TAX-81",
+    "title": "function-visibility",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "cfg_reachability",
+      "manual_review",
+      "storage_reads_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-82",
+    "pattern_id": "TAX-82",
+    "detector_id": "TAX-82",
+    "title": "fallback-receive-handling",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-83",
+    "pattern_id": "TAX-83",
+    "detector_id": "TAX-83",
+    "title": "event-emission",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-84",
+    "pattern_id": "TAX-84",
+    "detector_id": "TAX-84",
+    "title": "privacy-data-exposure",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-88",
+    "pattern_id": "TAX-88",
+    "detector_id": "TAX-88",
+    "title": "abi-encoding-decoding",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-89",
+    "pattern_id": "TAX-89",
+    "detector_id": "TAX-89",
+    "title": "cryptographic-hash-validation",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "ast_traversal",
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-90",
+    "pattern_id": "TAX-90",
+    "detector_id": "TAX-90",
+    "title": "state-machine-transition",
+    "execution_mode": "detector",
+    "status": "implemented",
+    "required_primitives": [
+      "manual_review"
+    ],
+    "engines": [],
+    "actions": [
+      "run_detector",
+      "normalize_candidate",
+      "correlate_knowledge"
+    ],
+    "coverage_status": "implemented",
+    "warnings": []
+  },
+  {
+    "spec_id": "TAX-91",
+    "pattern_id": "TAX-91",
+    "detector_id": "TAX-91",
+    "title": "protocol-invariant",
+    "execution_mode": "analysis_task",
+    "status": "candidate",
+    "required_primitives": [
+      "call_graph",
+      "effective_access_control",
+      "external_reachability",
+      "manual_review",
+      "state_writes"
+    ],
+    "engines": [
+      "slither"
+    ],
+    "actions": [
+      "collect_analysis_facts",
+      "evaluate_primitives",
+      "retain_as_candidate"
+    ],
+    "coverage_status": "planned",
+    "warnings": []
+  }
+]

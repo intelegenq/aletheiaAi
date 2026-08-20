@@ -1,0 +1,94 @@
+{
+  "finding_id": "sl-5cf1e42333d1c88a",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyProxy",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "ERC20SwapAdapter.swap(address,address,bytes,bytes)",
+        "ERC20SwapAdapterV2._swap(IERC20,IERC20,uint256,bytes)",
+        "ERC20SwapAdapterV2.swap(address,address,address,uint256,bytes)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "ERC20SwapAdapter.swap(address,address,bytes,bytes)",
+        "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-fda9900bbcb8c25d",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-fda9900bbcb8c25d",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol:23",
+    "AccessControlIndex: effective guard on PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes) via onlyProxy",
+    "ReachabilityIndex: PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes) reachable via unguarded callers ['ERC20SwapAdapter.swap(address,address,bytes,bytes)']"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyProxy)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

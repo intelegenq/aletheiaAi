@@ -1,0 +1,691 @@
+{
+  "schema_version": "aletheia.unified-finding.v1",
+  "count": 23,
+  "findings": [
+    {
+      "finding_id": "sl-0a8228b5ee8f3133",
+      "fingerprint": "sl-0a8228b5ee8f3133",
+      "engine": "slither",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`",
+      "vulnerability_class": "TAX-14",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-0a8228b5ee8f3133",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:reentrancy-balance\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"withdraw\"}"
+    },
+    {
+      "finding_id": "sl-5ddbb7df78acabbd",
+      "fingerprint": "sl-5ddbb7df78acabbd",
+      "engine": "slither",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "description": "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`",
+      "vulnerability_class": "TAX-14",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 196,
+        "line_end": 235,
+        "contract": "AlphaProVault",
+        "function": "deposit"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-5ddbb7df78acabbd",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:reentrancy-balance\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"deposit\"}"
+    },
+    {
+      "finding_id": "pp-c38f759edadceb0b",
+      "fingerprint": "pp-c38f759edadceb0b",
+      "engine": "slither",
+      "detector": "pattern-privileged-config-mutation",
+      "title": "pattern-privileged-config-mutation",
+      "description": "AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341) mutates privileged configuration without effective access control: accruedManagerFees0, accruedManagerFees1, accruedProtocolFees0, accruedProtocolFees1",
+      "vulnerability_class": "PAT-0001",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341) mutates privileged configuration without effective access control: accruedManagerFees0, accruedManagerFees1, accruedProtocolFees0, accruedProtocolFees1"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "pp-c38f759edadceb0b",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"pattern-privileged-config-mutation\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"withdraw\"}"
+    },
+    {
+      "finding_id": "sl-b823c90cf09d8496",
+      "fingerprint": "sl-b823c90cf09d8496",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullLower = (TickMath.MIN_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#169)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 144,
+        "line_end": 179,
+        "contract": "AlphaProVault",
+        "function": "initialize"
+      },
+      "evidence": [
+        "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullLower = (TickMath.MIN_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#169)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-b823c90cf09d8496",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"initialize\"}"
+    },
+    {
+      "finding_id": "sl-a684bb7110765116",
+      "fingerprint": "sl-a684bb7110765116",
+      "engine": "slither",
+      "detector": "slither:uninitialized-local",
+      "title": "Uninitialized Local",
+      "description": "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager1 (contracts/AlphaProVault.sol#548) is a local variable never initialized",
+      "vulnerability_class": "TAX-87",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 548,
+        "line_end": 548,
+        "contract": "_burnAndCollect",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager1 (contracts/AlphaProVault.sol#548) is a local variable never initialized"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a684bb7110765116",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"_burnAndCollect\", \"detector\": \"slither:uninitialized-local\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-43d1fd2835622f7d",
+      "fingerprint": "sl-43d1fd2835622f7d",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (liquidity,feeGrowthInside0Last,feeGrowthInside1Last,None,None) = pool.positions(positionKey) (contracts/AlphaProPeriphery.sol#90-96)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProPeriphery.sol",
+        "line_start": 80,
+        "line_end": 138,
+        "contract": "AlphaProPeriphery",
+        "function": "getFees"
+      },
+      "evidence": [
+        "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (liquidity,feeGrowthInside0Last,feeGrowthInside1Last,None,None) = pool.positions(positionKey) (contracts/AlphaProPeriphery.sol#90-96)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-43d1fd2835622f7d",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProPeriphery\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProPeriphery.sol\", \"function\": \"getFees\"}"
+    },
+    {
+      "finding_id": "sl-41620db6d0c925a8",
+      "fingerprint": "sl-41620db6d0c925a8",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#794)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 788,
+        "line_end": 795,
+        "contract": "AlphaProVault",
+        "function": "emergencyBurn"
+      },
+      "evidence": [
+        "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#794)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-41620db6d0c925a8",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"emergencyBurn\"}"
+    },
+    {
+      "finding_id": "sl-0f2e03dc2e8c41b0",
+      "fingerprint": "sl-0f2e03dc2e8c41b0",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseLower (contracts/AlphaProVault.sol#138) can be used in cross function reentrancies:\n\t- AlphaProVault.baseLower (contracts/AlphaProVault.sol#138)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseUpper (contracts/AlphaProVault.sol#139) can be used in cross function reentrancies:\n\t- AlphaProVault.baseUpper (contracts/AlphaProVault.sol#139)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseLower (contracts/AlphaProVault.sol#138) can be used in cross function reentrancies:\n\t- AlphaProVault.baseLower (contracts/AlphaProVault.sol#138)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseUpper (contracts/AlphaProVault.sol#139) can be used in cross function reentrancies:\n\t- AlphaProVault.baseUpper (contracts/AlphaProVault.sol#139)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-0f2e03dc2e8c41b0",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"rebalance\"}"
+    },
+    {
+      "finding_id": "sl-378e223950f5d162",
+      "fingerprint": "sl-378e223950f5d162",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-378e223950f5d162",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"withdraw\"}"
+    },
+    {
+      "finding_id": "sl-358b1c1421af3ad3",
+      "fingerprint": "sl-358b1c1421af3ad3",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "AlphaProVault._floor(int24) (contracts/AlphaProVault.sol#500-504) performs a multiplication on the result of a division:\n\t- compressed = tick / tickSpacing (contracts/AlphaProVault.sol#501)\n\t- compressed * tickSpacing (contracts/AlphaProVault.sol#503)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 500,
+        "line_end": 504,
+        "contract": "AlphaProVault",
+        "function": "_floor"
+      },
+      "evidence": [
+        "AlphaProVault._floor(int24) (contracts/AlphaProVault.sol#500-504) performs a multiplication on the result of a division:\n\t- compressed = tick / tickSpacing (contracts/AlphaProVault.sol#501)\n\t- compressed * tickSpacing (contracts/AlphaProVault.sol#503)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-358b1c1421af3ad3",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"_floor\"}"
+    },
+    {
+      "finding_id": "sl-8456fd26a806cf87",
+      "fingerprint": "sl-8456fd26a806cf87",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault._liquidityForAmounts(int24,int24,uint256,uint256) (contracts/AlphaProVault.sol#653-668) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#659)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 653,
+        "line_end": 668,
+        "contract": "AlphaProVault",
+        "function": "_liquidityForAmounts"
+      },
+      "evidence": [
+        "AlphaProVault._liquidityForAmounts(int24,int24,uint256,uint256) (contracts/AlphaProVault.sol#653-668) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#659)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8456fd26a806cf87",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"_liquidityForAmounts\"}"
+    },
+    {
+      "finding_id": "sl-e33a65257f9baa90",
+      "fingerprint": "sl-e33a65257f9baa90",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault._poke(int24,int24) (contracts/AlphaProVault.sol#240-245) ignores return value by pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 240,
+        "line_end": 245,
+        "contract": "AlphaProVault",
+        "function": "_poke"
+      },
+      "evidence": [
+        "AlphaProVault._poke(int24,int24) (contracts/AlphaProVault.sol#240-245) ignores return value by pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-e33a65257f9baa90",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"_poke\"}"
+    },
+    {
+      "finding_id": "sl-2b3a60dfe4372d63",
+      "fingerprint": "sl-2b3a60dfe4372d63",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault.getTwap() (contracts/AlphaProVault.sol#488-496) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (contracts/AlphaProVault.sol#494)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 488,
+        "line_end": 496,
+        "contract": "AlphaProVault",
+        "function": "getTwap"
+      },
+      "evidence": [
+        "AlphaProVault.getTwap() (contracts/AlphaProVault.sol#488-496) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (contracts/AlphaProVault.sol#494)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-2b3a60dfe4372d63",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"getTwap\"}"
+    },
+    {
+      "finding_id": "sl-f72350233c154f72",
+      "fingerprint": "sl-f72350233c154f72",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#469)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 462,
+        "line_end": 485,
+        "contract": "AlphaProVault",
+        "function": "checkCanRebalance"
+      },
+      "evidence": [
+        "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#469)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f72350233c154f72",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"checkCanRebalance\"}"
+    },
+    {
+      "finding_id": "sl-e175c500abdf3cd9",
+      "fingerprint": "sl-e175c500abdf3cd9",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault._amountsForLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#637-650) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#642)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 637,
+        "line_end": 650,
+        "contract": "AlphaProVault",
+        "function": "_amountsForLiquidity"
+      },
+      "evidence": [
+        "AlphaProVault._amountsForLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#637-650) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#642)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-e175c500abdf3cd9",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"_amountsForLiquidity\"}"
+    },
+    {
+      "finding_id": "sl-934b7bf1417bec6f",
+      "fingerprint": "sl-934b7bf1417bec6f",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault._mintLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#568-572) ignores return value by pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 568,
+        "line_end": 572,
+        "contract": "AlphaProVault",
+        "function": "_mintLiquidity"
+      },
+      "evidence": [
+        "AlphaProVault._mintLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#568-572) ignores return value by pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-934b7bf1417bec6f",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"_mintLiquidity\"}"
+    },
+    {
+      "finding_id": "sl-d9858c5d2bbc8ef7",
+      "fingerprint": "sl-d9858c5d2bbc8ef7",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#396)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#396)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d9858c5d2bbc8ef7",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:unused-return\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"rebalance\"}"
+    },
+    {
+      "finding_id": "sl-f14354a17bf9fe10",
+      "fingerprint": "sl-f14354a17bf9fe10",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal calls:\n\t- _poke(fullLower,fullUpper) (contracts/AlphaProVault.sol#212)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(baseLower,baseUpper) (contracts/AlphaProVault.sol#213)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(limitLower,limitUpper) (contracts/AlphaProVault.sol#214)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tState variables written after the call(s):\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _balances[account] = _balances[account].add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#240)\n\tERC20Upgradeable._balances (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#37) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._transfer(address,address,uint256) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#214-223)\n\t- ERC20Upgradeable.balanceOf(address) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#109-111)\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _totalSupply = _totalSupply.add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#239)\n\tERC20Upgradeable._totalSupply (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#41) can be used in cross function reentrancies:\n\t- ERC20Upgradeable.totalSupply() (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#102-104)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 196,
+        "line_end": 235,
+        "contract": "AlphaProVault",
+        "function": "deposit"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal calls:\n\t- _poke(fullLower,fullUpper) (contracts/AlphaProVault.sol#212)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(baseLower,baseUpper) (contracts/AlphaProVault.sol#213)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(limitLower,limitUpper) (contracts/AlphaProVault.sol#214)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tState variables written after the call(s):\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _balances[account] = _balances[account].add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#240)\n\tERC20Upgradeable._balances (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#37) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._transfer(address,address,uint256) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#214-223)\n\t- ERC20Upgradeable.balanceOf(address) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#109-111)\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _totalSupply = _totalSupply.add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#239)\n\tERC20Upgradeable._totalSupply (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#41) can be used in cross function reentrancies:\n\t- ERC20Upgradeable.totalSupply() (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#102-104)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f14354a17bf9fe10",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"deposit\"}"
+    },
+    {
+      "finding_id": "sl-e75d6b06ed841807",
+      "fingerprint": "sl-e75d6b06ed841807",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "AlphaProVaultFactory.constructor(address,address,uint24)._governance (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- governance = _governance (contracts/AlphaProVaultFactory.sol#34)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVaultFactory.sol",
+        "line_start": 32,
+        "line_end": 32,
+        "contract": "constructor",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVaultFactory.constructor(address,address,uint24)._governance (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- governance = _governance (contracts/AlphaProVaultFactory.sol#34)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-e75d6b06ed841807",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"constructor\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../charm-audit/contracts/AlphaProVaultFactory.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-94ace5b57c7a2905",
+      "fingerprint": "sl-94ace5b57c7a2905",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "AlphaProVault.setManager(address)._manager (contracts/AlphaProVault.sol#801) lacks a zero-check on :\n\t\t- pendingManager = _manager (contracts/AlphaProVault.sol#802)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 801,
+        "line_end": 801,
+        "contract": "setManager",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault.setManager(address)._manager (contracts/AlphaProVault.sol#801) lacks a zero-check on :\n\t\t- pendingManager = _manager (contracts/AlphaProVault.sol#802)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-94ace5b57c7a2905",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"setManager\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-801ff7a2853701d2",
+      "fingerprint": "sl-801ff7a2853701d2",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "AlphaProVaultFactory.setGovernance(address)._governance (contracts/AlphaProVaultFactory.sol#69) lacks a zero-check on :\n\t\t- pendingGovernance = _governance (contracts/AlphaProVaultFactory.sol#70)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVaultFactory.sol",
+        "line_start": 69,
+        "line_end": 69,
+        "contract": "setGovernance",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVaultFactory.setGovernance(address)._governance (contracts/AlphaProVaultFactory.sol#69) lacks a zero-check on :\n\t\t- pendingGovernance = _governance (contracts/AlphaProVaultFactory.sol#70)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-801ff7a2853701d2",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"setGovernance\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../charm-audit/contracts/AlphaProVaultFactory.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-a5ed5887fa8343c3",
+      "fingerprint": "sl-a5ed5887fa8343c3",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "AlphaProVault.setRebalanceDelegate(address)._rebalanceDelegate (contracts/AlphaProVault.sol#806) lacks a zero-check on :\n\t\t- rebalanceDelegate = _rebalanceDelegate (contracts/AlphaProVault.sol#807)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 806,
+        "line_end": 806,
+        "contract": "setRebalanceDelegate",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault.setRebalanceDelegate(address)._rebalanceDelegate (contracts/AlphaProVault.sol#806) lacks a zero-check on :\n\t\t- rebalanceDelegate = _rebalanceDelegate (contracts/AlphaProVault.sol#807)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a5ed5887fa8343c3",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"setRebalanceDelegate\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-d8999a6944fe5a39",
+      "fingerprint": "sl-d8999a6944fe5a39",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp >= _lastTimestamp.add(period),PE) (contracts/AlphaProVault.sol#466)\n\t- require(bool,string)(_lastTimestamp == 0 || tickMove >= minTickMove,TM) (contracts/AlphaProVault.sol#471)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "candidate",
+      "source_location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 462,
+        "line_end": 485,
+        "contract": "AlphaProVault",
+        "function": "checkCanRebalance"
+      },
+      "evidence": [
+        "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp >= _lastTimestamp.add(period),PE) (contracts/AlphaProVault.sol#466)\n\t- require(bool,string)(_lastTimestamp == 0 || tickMove >= minTickMove,TM) (contracts/AlphaProVault.sol#471)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {},
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d8999a6944fe5a39",
+      "corroborating_engines": [],
+      "dedup_key": "{\"contract\": \"AlphaProVault\", \"detector\": \"slither:timestamp\", \"file\": \"../charm-audit/contracts/AlphaProVault.sol\", \"function\": \"checkCanRebalance\"}"
+    }
+  ]
+}

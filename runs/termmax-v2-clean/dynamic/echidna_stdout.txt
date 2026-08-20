@@ -1,0 +1,1 @@
+[2026-08-20 07:22:15.75] Compiling `/mnt/data/termmax-contract-v2/test/v2/FuzzActionsV2WithPool.t.sol`... Done! (51.821290241s)

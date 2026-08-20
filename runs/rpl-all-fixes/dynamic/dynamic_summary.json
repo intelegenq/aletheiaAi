@@ -1,0 +1,26 @@
+{
+  "engines": {
+    "foundry": {
+      "success": true,
+      "exit_code": 1,
+      "findings": 10,
+      "error": "",
+      "duration_sec": 237.1
+    },
+    "medusa": {
+      "success": false,
+      "exit_code": 6,
+      "findings": 0,
+      "error": "exit 6",
+      "duration_sec": 0.3
+    },
+    "echidna": {
+      "success": true,
+      "exit_code": 1,
+      "findings": 0,
+      "error": "",
+      "duration_sec": 3.1
+    }
+  },
+  "total_dynamic_findings": 10
+}

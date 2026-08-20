@@ -1,0 +1,2290 @@
+{
+  "schema_version": "aletheia.unified-finding.v1",
+  "count": 54,
+  "findings": [
+    {
+      "finding_id": "sl-82c792e696b32a89",
+      "fingerprint": "sl-82c792e696b32a89",
+      "engine": "slither",
+      "detector": "slither:controlled-delegatecall",
+      "title": "Controlled Delegatecall",
+      "description": "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#500-528) uses delegatecall to a input-controlled function id\n\t- (success,returnData) = lastUnit.adapter.delegatecall(approvalData) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#523)",
+      "vulnerability_class": "TAX-09",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol",
+        "line_start": 500,
+        "line_end": 528,
+        "contract": "TermMaxRouter_Repay_Gt",
+        "function": "executeOperation"
+      },
+      "evidence": [
+        "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#500-528) uses delegatecall to a input-controlled function id\n\t- (success,returnData) = lastUnit.adapter.delegatecall(approvalData) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#523)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-4d34d200299506d2",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxRouter_Repay_Gt.executeOperation(address,IERC20,uint256,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-82c792e696b32a89"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-82c792e696b32a89",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxRouter_Repay_Gt\", \"detector\": \"slither:controlled-delegatecall\", \"file\": \"../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol\", \"function\": \"executeOperation\"}"
+    },
+    {
+      "finding_id": "sl-486eeb6337ced8a0",
+      "fingerprint": "sl-486eeb6337ced8a0",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "FullMath.mulDiv(uint256,uint256,uint256) (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#92)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol",
+        "line_start": 14,
+        "line_end": 108,
+        "contract": "FullMath",
+        "function": "mulDiv"
+      },
+      "evidence": [
+        "FullMath.mulDiv(uint256,uint256,uint256) (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#14-108) performs a multiplication on the result of a division:\n\t- denominator = denominator / twos (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#68)\n\t- inv *= 2 - denominator * inv (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol#92)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-f7a4b7c2baf6f000",
+        "root_cause_resolved": true,
+        "root_cause_function": "FullMath.mulDiv(uint256,uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-486eeb6337ced8a0"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-486eeb6337ced8a0",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"FullMath\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/FullMath.sol\", \"function\": \"mulDiv\"}"
+    },
+    {
+      "finding_id": "sl-fcda97ed6442bebf",
+      "fingerprint": "sl-fcda97ed6442bebf",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "MarketApproxPtOutLibV2.quickCalc(MarketApproxPtOutLibV2.Args6,uint256,uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#378-420) performs a multiplication on the result of a division:\n\t- mid = (low + high) / 2 (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#389)\n\t- thisNetSyToReserve = (_netSyToReserve * mid) / _guess (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#393)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol",
+        "line_start": 378,
+        "line_end": 420,
+        "contract": "MarketApproxPtOutLibV2",
+        "function": "quickCalc"
+      },
+      "evidence": [
+        "MarketApproxPtOutLibV2.quickCalc(MarketApproxPtOutLibV2.Args6,uint256,uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#378-420) performs a multiplication on the result of a division:\n\t- mid = (low + high) / 2 (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#389)\n\t- thisNetSyToReserve = (_netSyToReserve * mid) / _guess (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#393)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ba2dc6c38892e65a",
+        "root_cause_resolved": true,
+        "root_cause_function": "MarketApproxPtOutLibV2.quickCalc(MarketApproxPtOutLibV2.Args6,uint256,uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-fcda97ed6442bebf"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-fcda97ed6442bebf",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"MarketApproxPtOutLibV2\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol\", \"function\": \"quickCalc\"}"
+    },
+    {
+      "finding_id": "sl-738689f2fa427b1d",
+      "fingerprint": "sl-738689f2fa427b1d",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "MarketMathCore.addLiquidityCore(MarketState,int256,int256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#124-166) performs a multiplication on the result of a division:\n\t- netLpBySy = (syDesired * market.totalLp) / market.totalSy (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#146)\n\t- lpToAccount = netLpBySy (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#152)\n\t- ptUsed = (market.totalPt * lpToAccount).rawDivUp(market.totalLp) (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#154)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol",
+        "line_start": 124,
+        "line_end": 166,
+        "contract": "MarketMathCore",
+        "function": "addLiquidityCore"
+      },
+      "evidence": [
+        "MarketMathCore.addLiquidityCore(MarketState,int256,int256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#124-166) performs a multiplication on the result of a division:\n\t- netLpBySy = (syDesired * market.totalLp) / market.totalSy (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#146)\n\t- lpToAccount = netLpBySy (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#152)\n\t- ptUsed = (market.totalPt * lpToAccount).rawDivUp(market.totalLp) (dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol#154)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-658e336858787ae9",
+        "root_cause_resolved": true,
+        "root_cause_function": "MarketMathCore.addLiquidityCore(MarketState,int256,int256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-738689f2fa427b1d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-738689f2fa427b1d",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"MarketMathCore\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/Market/MarketMathCore.sol\", \"function\": \"addLiquidityCore\"}"
+    },
+    {
+      "finding_id": "sl-8700d06fba610fb7",
+      "fingerprint": "sl-8700d06fba610fb7",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "MarketApproxPtInLibV2.quickCalc(MarketApproxPtInLibV2.Args5,uint256,uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#132-171) performs a multiplication on the result of a division:\n\t- mid = (low + high) / 2 (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#143)\n\t- thisNetSyToReserve = (_netSyToReserve * mid) / _guess (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#146)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol",
+        "line_start": 132,
+        "line_end": 171,
+        "contract": "MarketApproxPtInLibV2",
+        "function": "quickCalc"
+      },
+      "evidence": [
+        "MarketApproxPtInLibV2.quickCalc(MarketApproxPtInLibV2.Args5,uint256,uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#132-171) performs a multiplication on the result of a division:\n\t- mid = (low + high) / 2 (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#143)\n\t- thisNetSyToReserve = (_netSyToReserve * mid) / _guess (dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol#146)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-87b7c6198dcad8a6",
+        "root_cause_resolved": true,
+        "root_cause_function": "MarketApproxPtInLibV2.quickCalc(MarketApproxPtInLibV2.Args5,uint256,uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8700d06fba610fb7"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8700d06fba610fb7",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"MarketApproxPtInLibV2\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/router/math/MarketApproxLibV2.sol\", \"function\": \"quickCalc\"}"
+    },
+    {
+      "finding_id": "sl-5cf1e42333d1c88a",
+      "fingerprint": "sl-5cf1e42333d1c88a",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes) (contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol#23-65) ignores return value by (tokenOutAmt,None,None) = router.swapExactPtForToken(recipient,address(market),amount,createTokenOutputStruct(address(tokenOut),minTokenOut),emptyLimit) (contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol#56-62)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol",
+        "line_start": 23,
+        "line_end": 65,
+        "contract": "PendleSwapV3AdapterV2",
+        "function": "_swap"
+      },
+      "evidence": [
+        "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes) (contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol#23-65) ignores return value by (tokenOutAmt,None,None) = router.swapExactPtForToken(recipient,address(market),amount,createTokenOutputStruct(address(tokenOut),minTokenOut),emptyLimit) (contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol#56-62)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-fda9900bbcb8c25d",
+        "root_cause_resolved": true,
+        "root_cause_function": "PendleSwapV3AdapterV2._swap(address,IERC20,IERC20,uint256,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-5cf1e42333d1c88a"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-5cf1e42333d1c88a",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"PendleSwapV3AdapterV2\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/router/swapAdapters/PendleSwapV3AdapterV2.sol\", \"function\": \"_swap\"}"
+    },
+    {
+      "finding_id": "sl-b405618d3030b273",
+      "fingerprint": "sl-b405618d3030b273",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#12-29) ignores return value by (latestTimestamp,None,None,latestInitialized) = IPancakeSwapV3Pool(_pool).observations(observationIndex) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#20-21)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol",
+        "line_start": 12,
+        "line_end": 29,
+        "contract": "TermMaxPancakeTWAPPriceFeed",
+        "function": "_ensureSufficientObservations"
+      },
+      "evidence": [
+        "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#12-29) ignores return value by (latestTimestamp,None,None,latestInitialized) = IPancakeSwapV3Pool(_pool).observations(observationIndex) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#20-21)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-48c3e95d0a94b930",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-b405618d3030b273"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-b405618d3030b273",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxPancakeTWAPPriceFeed\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol\", \"function\": \"_ensureSufficientObservations\"}"
+    },
+    {
+      "finding_id": "sl-47959f5c957524e5",
+      "fingerprint": "sl-47959f5c957524e5",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#138-154) ignores return value by (latestTimestamp,None,None,latestInitialized) = IUniswapV3Pool(_pool).observations(observationIndex) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#146)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol",
+        "line_start": 138,
+        "line_end": 154,
+        "contract": "TermMaxUniswapTWAPPriceFeed",
+        "function": "_ensureSufficientObservations"
+      },
+      "evidence": [
+        "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#138-154) ignores return value by (latestTimestamp,None,None,latestInitialized) = IUniswapV3Pool(_pool).observations(observationIndex) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#146)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-aa0668d7e0630073",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-47959f5c957524e5"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-47959f5c957524e5",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxUniswapTWAPPriceFeed\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol\", \"function\": \"_ensureSufficientObservations\"}"
+    },
+    {
+      "finding_id": "sl-d3d7b343e3f51e74",
+      "fingerprint": "sl-d3d7b343e3f51e74",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235):\n\tExternal calls:\n\t- totalRedeem = _redeemFromMarket(order,orderInfo) (contracts/v1/vault/OrderManager.sol#196)\n\t\t- ITermMaxOrder(order).withdrawAssets(orderInfo.ft,address(this),ftReserve) (contracts/v1/vault/OrderManager.sol#283)\n\t\t- (totalRedeem,None) = orderInfo.market.redeem(ftReserve,address(this)) (contracts/v1/vault/OrderManager.sol#285)\n\t- _burnFromOrder(ITermMaxOrder(order),orderInfo,maxWithdraw) (contracts/v1/vault/OrderManager.sol#213)\n\t\t- order.withdrawAssets(orderInfo.ft,address(this),amount) (contracts/v1/vault/OrderManager.sol#272)\n\t\t- order.withdrawAssets(orderInfo.xt,address(this),amount) (contracts/v1/vault/OrderManager.sol#273)\n\t\t- orderInfo.market.burn(address(this),amount) (contracts/v1/vault/OrderManager.sol#277)\n\t- _burnFromOrder(ITermMaxOrder(order),orderInfo,amountLeft) (contracts/v1/vault/OrderManager.sol#216)\n\t\t- order.withdrawAssets(orderInfo.ft,address(this),amount) (contracts/v1/vault/OrderManager.sol#272)\n\t\t- order.withdrawAssets(orderInfo.xt,address(this),amount) (contracts/v1/vault/OrderManager.sol#273)\n\t\t- orderInfo.market.burn(address(this),amount) (contracts/v1/vault/OrderManager.sol#277)\n\tState variables written after the call(s):\n\t- _accretingPrincipal -= amplifiedAmt (contracts/v1/vault/OrderManager.sol#234)\n\tVaultStorage._accretingPrincipal (contracts/v1/vault/VaultStorage.sol#35) can be used in cross function reentrancies:\n\t- OrderManager._accruedPeriodInterest(uint256,uint256) (contracts/v1/vault/OrderManager.sol#300-306)\n\t- OrderManager._checkLockedFt() (contracts/v1/vault/OrderManager.sol#344-346)\n\t- OrderManager.dealBadDebt(address,address,uint256) (contracts/v1/vault/OrderManager.sol#252-269)\n\t- OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/OrderManager.sol",
+        "line_start": 180,
+        "line_end": 235,
+        "contract": "OrderManager",
+        "function": "withdrawAssets"
+      },
+      "evidence": [
+        "Reentrancy in OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235):\n\tExternal calls:\n\t- totalRedeem = _redeemFromMarket(order,orderInfo) (contracts/v1/vault/OrderManager.sol#196)\n\t\t- ITermMaxOrder(order).withdrawAssets(orderInfo.ft,address(this),ftReserve) (contracts/v1/vault/OrderManager.sol#283)\n\t\t- (totalRedeem,None) = orderInfo.market.redeem(ftReserve,address(this)) (contracts/v1/vault/OrderManager.sol#285)\n\t- _burnFromOrder(ITermMaxOrder(order),orderInfo,maxWithdraw) (contracts/v1/vault/OrderManager.sol#213)\n\t\t- order.withdrawAssets(orderInfo.ft,address(this),amount) (contracts/v1/vault/OrderManager.sol#272)\n\t\t- order.withdrawAssets(orderInfo.xt,address(this),amount) (contracts/v1/vault/OrderManager.sol#273)\n\t\t- orderInfo.market.burn(address(this),amount) (contracts/v1/vault/OrderManager.sol#277)\n\t- _burnFromOrder(ITermMaxOrder(order),orderInfo,amountLeft) (contracts/v1/vault/OrderManager.sol#216)\n\t\t- order.withdrawAssets(orderInfo.ft,address(this),amount) (contracts/v1/vault/OrderManager.sol#272)\n\t\t- order.withdrawAssets(orderInfo.xt,address(this),amount) (contracts/v1/vault/OrderManager.sol#273)\n\t\t- orderInfo.market.burn(address(this),amount) (contracts/v1/vault/OrderManager.sol#277)\n\tState variables written after the call(s):\n\t- _accretingPrincipal -= amplifiedAmt (contracts/v1/vault/OrderManager.sol#234)\n\tVaultStorage._accretingPrincipal (contracts/v1/vault/VaultStorage.sol#35) can be used in cross function reentrancies:\n\t- OrderManager._accruedPeriodInterest(uint256,uint256) (contracts/v1/vault/OrderManager.sol#300-306)\n\t- OrderManager._checkLockedFt() (contracts/v1/vault/OrderManager.sol#344-346)\n\t- OrderManager.dealBadDebt(address,address,uint256) (contracts/v1/vault/OrderManager.sol#252-269)\n\t- OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235)",
+        "OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235) has external calls inside a loop: maxWithdraw = orderInfo.xt.balanceOf(order).min(orderInfo.ft.balanceOf(order)) (contracts/v1/vault/OrderManager.sol#209)",
+        "OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp >= orderInfo.maturity + Constants.LIQUIDATION_WINDOW (contracts/v1/vault/OrderManager.sol#194)\n\t- block.timestamp < orderInfo.maturity (contracts/v1/vault/OrderManager.sol#207)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-e35edb107effef07",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManager.withdrawAssets(IERC20,address,uint256)",
+        "root_cause_state_variables": [
+          "_accretingPrincipal",
+          "_annualizedInterest",
+          "_badDebtMapping",
+          "_lastUpdateTime",
+          "_maturityToInterest",
+          "_orderMapping",
+          "_performanceFee",
+          "_totalFt"
+        ],
+        "evidence_count": 3,
+        "merged_finding_ids": [
+          "sl-d3d7b343e3f51e74",
+          "sl-bc5e7f77506575ec",
+          "sl-9d9d939a345d3fb6"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d3d7b343e3f51e74",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManager\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/OrderManager.sol\", \"function\": \"withdrawAssets\"}"
+    },
+    {
+      "finding_id": "sl-4903e578e02fac12",
+      "fingerprint": "sl-4903e578e02fac12",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "Math.invMod(uint256,uint256) (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#243-289) performs a multiplication on the result of a division:\n\t- quotient = gcd / remainder (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#265)\n\t- (gcd,remainder) = (remainder,gcd - remainder * quotient) (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#267-274)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol",
+        "line_start": 243,
+        "line_end": 289,
+        "contract": "Math",
+        "function": "invMod"
+      },
+      "evidence": [
+        "Math.invMod(uint256,uint256) (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#243-289) performs a multiplication on the result of a division:\n\t- quotient = gcd / remainder (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#265)\n\t- (gcd,remainder) = (remainder,gcd - remainder * quotient) (dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol#267-274)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-e123a0d683da5b99",
+        "root_cause_resolved": true,
+        "root_cause_function": "Math.invMod(uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-4903e578e02fac12"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-4903e578e02fac12",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"Math\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/utils/math/Math.sol\", \"function\": \"invMod\"}"
+    },
+    {
+      "finding_id": "sl-48569599be067fda",
+      "fingerprint": "sl-48569599be067fda",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "TickMath.getSqrtRatioAtTick(int24) (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#52)\n\t- ratio = type()(uint256).max / ratio (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#54)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol",
+        "line_start": 26,
+        "line_end": 61,
+        "contract": "TickMath",
+        "function": "getSqrtRatioAtTick"
+      },
+      "evidence": [
+        "TickMath.getSqrtRatioAtTick(int24) (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#26-61) performs a multiplication on the result of a division:\n\t- ratio = (ratio * 0x48a170391f7dc42444e8fa2) >> 128 (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#52)\n\t- ratio = type()(uint256).max / ratio (dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol#54)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-70bc0808f65a529b",
+        "root_cause_resolved": true,
+        "root_cause_function": "TickMath.getSqrtRatioAtTick(int24)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-48569599be067fda"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-48569599be067fda",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TickMath\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/@uniswap-v3-core-1.0.2-solc-0.8-simulate/contracts/libraries/TickMath.sol\", \"function\": \"getSqrtRatioAtTick\"}"
+    },
+    {
+      "finding_id": "sl-a584bca7f4d663fc",
+      "fingerprint": "sl-a584bca7f4d663fc",
+      "engine": "slither",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "description": "LogExpMath.pow(uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol#250-298) performs a multiplication on the result of a division:\n\t- logx_times_y = ((ln_36_x / ONE_18) * y_int256 + ((ln_36_x % ONE_18) * y_int256) / ONE_18) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol#284)",
+      "vulnerability_class": "TAX-28",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol",
+        "line_start": 250,
+        "line_end": 298,
+        "contract": "LogExpMath",
+        "function": "pow"
+      },
+      "evidence": [
+        "LogExpMath.pow(uint256,uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol#250-298) performs a multiplication on the result of a division:\n\t- logx_times_y = ((ln_36_x / ONE_18) * y_int256 + ((ln_36_x % ONE_18) * y_int256) / ONE_18) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol#284)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-79bfad2668e962d6",
+        "root_cause_resolved": true,
+        "root_cause_function": "LogExpMath.pow(uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-a584bca7f4d663fc"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a584bca7f4d663fc",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"LogExpMath\", \"detector\": \"slither:divide-before-multiply\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/math/LogExpMath.sol\", \"function\": \"pow\"}"
+    },
+    {
+      "finding_id": "sl-ae74eb253167636f",
+      "fingerprint": "sl-ae74eb253167636f",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxOrder._sellFtForExactTokenStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#716-732) ignores return value by (None,deltaFt) = TermMaxCurve.sellFtForExactDebtToken(nif,daysToMaturity,cuts,oriXtReserve,debtTokenOut) (contracts/v1/TermMaxOrder.sol#726-727)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/TermMaxOrder.sol",
+        "line_start": 716,
+        "line_end": 732,
+        "contract": "TermMaxOrder",
+        "function": "_sellFtForExactTokenStep"
+      },
+      "evidence": [
+        "TermMaxOrder._sellFtForExactTokenStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#716-732) ignores return value by (None,deltaFt) = TermMaxCurve.sellFtForExactDebtToken(nif,daysToMaturity,cuts,oriXtReserve,debtTokenOut) (contracts/v1/TermMaxOrder.sol#726-727)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-5c5c270ee8e7d5c7",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrder._sellFtForExactTokenStep(uint256,uint256,uint256,OrderConfig)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-ae74eb253167636f"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-ae74eb253167636f",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrder\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/TermMaxOrder.sol\", \"function\": \"_sellFtForExactTokenStep\"}"
+    },
+    {
+      "finding_id": "sl-4c8ac8c2ef8962ad",
+      "fingerprint": "sl-4c8ac8c2ef8962ad",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxOrder._buyExactXtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#650-662) ignores return value by (None,deltaFt) = TermMaxCurve.buyExactXt(nif,daysToMaturity,cuts,oriXtReserve,xtAmtOut) (contracts/v1/TermMaxOrder.sol#658)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/TermMaxOrder.sol",
+        "line_start": 650,
+        "line_end": 662,
+        "contract": "TermMaxOrder",
+        "function": "_buyExactXtStep"
+      },
+      "evidence": [
+        "TermMaxOrder._buyExactXtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#650-662) ignores return value by (None,deltaFt) = TermMaxCurve.buyExactXt(nif,daysToMaturity,cuts,oriXtReserve,xtAmtOut) (contracts/v1/TermMaxOrder.sol#658)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-0907b6f0a8fad28a",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrder._buyExactXtStep(uint256,uint256,uint256,OrderConfig)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-4c8ac8c2ef8962ad"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-4c8ac8c2ef8962ad",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrder\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/TermMaxOrder.sol\", \"function\": \"_buyExactXtStep\"}"
+    },
+    {
+      "finding_id": "sl-469dd3fcce4e2613",
+      "fingerprint": "sl-469dd3fcce4e2613",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxPTPriceFeed._oracleIsReady() (contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol#114-119) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = PY_LP_ORACLE.getOracleState(address(MARKET),DURATION) (contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol#115-116)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol",
+        "line_start": 114,
+        "line_end": 119,
+        "contract": "TermMaxPTPriceFeed",
+        "function": "_oracleIsReady"
+      },
+      "evidence": [
+        "TermMaxPTPriceFeed._oracleIsReady() (contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol#114-119) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = PY_LP_ORACLE.getOracleState(address(MARKET),DURATION) (contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol#115-116)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-f145edaac9844d14",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxPTPriceFeed._oracleIsReady()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-469dd3fcce4e2613"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-469dd3fcce4e2613",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxPTPriceFeed\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPTPriceFeed.sol\", \"function\": \"_oracleIsReady\"}"
+    },
+    {
+      "finding_id": "sl-6812ccc0c6dfed07",
+      "fingerprint": "sl-6812ccc0c6dfed07",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxOrder._sellXtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#514-526) ignores return value by (None,debtTokenAmtOut) = TermMaxCurve.sellXt(nif,daysToMaturity,cuts,oriXtReserve,tokenAmtIn) (contracts/v1/TermMaxOrder.sol#522)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/TermMaxOrder.sol",
+        "line_start": 514,
+        "line_end": 526,
+        "contract": "TermMaxOrder",
+        "function": "_sellXtStep"
+      },
+      "evidence": [
+        "TermMaxOrder._sellXtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#514-526) ignores return value by (None,debtTokenAmtOut) = TermMaxCurve.sellXt(nif,daysToMaturity,cuts,oriXtReserve,tokenAmtIn) (contracts/v1/TermMaxOrder.sol#522)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-cd2d10d3af50c9c0",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrder._sellXtStep(uint256,uint256,uint256,OrderConfig)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-6812ccc0c6dfed07"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-6812ccc0c6dfed07",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrder\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/TermMaxOrder.sol\", \"function\": \"_sellXtStep\"}"
+    },
+    {
+      "finding_id": "sl-c4f89e8899f6c0a8",
+      "fingerprint": "sl-c4f89e8899f6c0a8",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "ERC1967Utils.upgradeToAndCall(address,bytes) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#67-76) ignores return value by Address.functionDelegateCall(newImplementation,data) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#72)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol",
+        "line_start": 67,
+        "line_end": 76,
+        "contract": "ERC1967Utils",
+        "function": "upgradeToAndCall"
+      },
+      "evidence": [
+        "ERC1967Utils.upgradeToAndCall(address,bytes) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#67-76) ignores return value by Address.functionDelegateCall(newImplementation,data) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#72)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-9e34bdff08c85319",
+        "root_cause_resolved": true,
+        "root_cause_function": "ERC1967Utils.upgradeToAndCall(address,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-c4f89e8899f6c0a8"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-c4f89e8899f6c0a8",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"ERC1967Utils\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol\", \"function\": \"upgradeToAndCall\"}"
+    },
+    {
+      "finding_id": "sl-a41a87a08c105778",
+      "fingerprint": "sl-a41a87a08c105778",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "OrderManagerV2.withdrawFts(address,uint256,address) (contracts/v2/vault/OrderManagerV2.sol#146-153) ignores return value by (ft,None,None,None,None) = market.tokens() (contracts/v2/vault/OrderManagerV2.sol#151)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol",
+        "line_start": 146,
+        "line_end": 153,
+        "contract": "OrderManagerV2",
+        "function": "withdrawFts"
+      },
+      "evidence": [
+        "OrderManagerV2.withdrawFts(address,uint256,address) (contracts/v2/vault/OrderManagerV2.sol#146-153) ignores return value by (ft,None,None,None,None) = market.tokens() (contracts/v2/vault/OrderManagerV2.sol#151)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-b01923333efef2d1",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManagerV2.withdrawFts(address,uint256,address)",
+        "root_cause_state_variables": [
+          "_accretingPrincipal",
+          "_annualizedInterest",
+          "_lastUpdateTime",
+          "_maturityToInterest",
+          "_performanceFee",
+          "_totalFt"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-a41a87a08c105778"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a41a87a08c105778",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManagerV2\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol\", \"function\": \"withdrawFts\"}"
+    },
+    {
+      "finding_id": "sl-9888e1e54eb6b183",
+      "fingerprint": "sl-9888e1e54eb6b183",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxOrder._buyFtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#448-459) ignores return value by (None,tokenAmtOut) = TermMaxCurve.buyFt(nif,daysToMaturity,cuts,oriXtReserve,debtTokenAmtIn) (contracts/v1/TermMaxOrder.sol#456)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/TermMaxOrder.sol",
+        "line_start": 448,
+        "line_end": 459,
+        "contract": "TermMaxOrder",
+        "function": "_buyFtStep"
+      },
+      "evidence": [
+        "TermMaxOrder._buyFtStep(uint256,uint256,uint256,OrderConfig) (contracts/v1/TermMaxOrder.sol#448-459) ignores return value by (None,tokenAmtOut) = TermMaxCurve.buyFt(nif,daysToMaturity,cuts,oriXtReserve,debtTokenAmtIn) (contracts/v1/TermMaxOrder.sol#456)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-6066a45af025ba6d",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrder._buyFtStep(uint256,uint256,uint256,OrderConfig)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9888e1e54eb6b183"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9888e1e54eb6b183",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrder\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/TermMaxOrder.sol\", \"function\": \"_buyFtStep\"}"
+    },
+    {
+      "finding_id": "sl-08fcd2ed8bf5ed59",
+      "fingerprint": "sl-08fcd2ed8bf5ed59",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "ERC1967Utils.upgradeBeaconToAndCall(address,bytes) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#157-166) ignores return value by Address.functionDelegateCall(IBeacon(newBeacon).implementation(),data) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#162)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol",
+        "line_start": 157,
+        "line_end": 166,
+        "contract": "ERC1967Utils",
+        "function": "upgradeBeaconToAndCall"
+      },
+      "evidence": [
+        "ERC1967Utils.upgradeBeaconToAndCall(address,bytes) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#157-166) ignores return value by Address.functionDelegateCall(IBeacon(newBeacon).implementation(),data) (dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol#162)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-87ec8f86132a3b92",
+        "root_cause_resolved": true,
+        "root_cause_function": "ERC1967Utils.upgradeBeaconToAndCall(address,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-08fcd2ed8bf5ed59"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-08fcd2ed8bf5ed59",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"ERC1967Utils\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/dependencies/@openzeppelin-contracts-5.2.0/proxy/ERC1967/ERC1967Utils.sol\", \"function\": \"upgradeBeaconToAndCall\"}"
+    },
+    {
+      "finding_id": "sl-1ad6f362c00bf5de",
+      "fingerprint": "sl-1ad6f362c00bf5de",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxRouter_Repay_Gt.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#368-391) ignores return value by (ft,xt,gt,None,None) = market.tokens() (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#373)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol",
+        "line_start": 368,
+        "line_end": 391,
+        "contract": "TermMaxRouter_Repay_Gt",
+        "function": "borrowTokenFromGt"
+      },
+      "evidence": [
+        "TermMaxRouter_Repay_Gt.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256) (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#368-391) ignores return value by (ft,xt,gt,None,None) = market.tokens() (contracts/v1/router/TermMaxRouter_Repay_Gt.sol#373)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-80b438fffad053ea",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxRouter_Repay_Gt.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256)",
+        "root_cause_state_variables": [
+          "PausableStorageLocation",
+          "ReentrancyGuardStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-1ad6f362c00bf5de"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-1ad6f362c00bf5de",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxRouter_Repay_Gt\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/router/TermMaxRouter_Repay_Gt.sol\", \"function\": \"borrowTokenFromGt\"}"
+    },
+    {
+      "finding_id": "sl-60233b70409185ce",
+      "fingerprint": "sl-60233b70409185ce",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "TermMaxRouter.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256) (contracts/v1/router/TermMaxRouter.sol#338-360) ignores return value by (ft,xt,gt,None,None) = market.tokens() (contracts/v1/router/TermMaxRouter.sol#342)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/router/TermMaxRouter.sol",
+        "line_start": 338,
+        "line_end": 360,
+        "contract": "TermMaxRouter",
+        "function": "borrowTokenFromGt"
+      },
+      "evidence": [
+        "TermMaxRouter.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256) (contracts/v1/router/TermMaxRouter.sol#338-360) ignores return value by (ft,xt,gt,None,None) = market.tokens() (contracts/v1/router/TermMaxRouter.sol#342)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-9ed3b60352641254",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxRouter.borrowTokenFromGt(address,ITermMaxMarket,uint256,uint256)",
+        "root_cause_state_variables": [
+          "PausableStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-60233b70409185ce"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-60233b70409185ce",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxRouter\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/router/TermMaxRouter.sol\", \"function\": \"borrowTokenFromGt\"}"
+    },
+    {
+      "finding_id": "sl-10b23877fcd27b38",
+      "fingerprint": "sl-10b23877fcd27b38",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "PTWithPriceFeed._oracleIsReady() (contracts/v1/extensions/PTWithPriceFeed.sol#101-106) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = PY_LP_ORACLE.getOracleState(address(MARKET),DURATION) (contracts/v1/extensions/PTWithPriceFeed.sol#102-103)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/extensions/PTWithPriceFeed.sol",
+        "line_start": 101,
+        "line_end": 106,
+        "contract": "PTWithPriceFeed",
+        "function": "_oracleIsReady"
+      },
+      "evidence": [
+        "PTWithPriceFeed._oracleIsReady() (contracts/v1/extensions/PTWithPriceFeed.sol#101-106) ignores return value by (increaseCardinalityRequired,None,oldestObservationSatisfied) = PY_LP_ORACLE.getOracleState(address(MARKET),DURATION) (contracts/v1/extensions/PTWithPriceFeed.sol#102-103)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-d9b295696207bd22",
+        "root_cause_resolved": true,
+        "root_cause_function": "PTWithPriceFeed._oracleIsReady()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-10b23877fcd27b38"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-10b23877fcd27b38",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"PTWithPriceFeed\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/extensions/PTWithPriceFeed.sol\", \"function\": \"_oracleIsReady\"}"
+    },
+    {
+      "finding_id": "sl-c2c5699fd38edbca",
+      "fingerprint": "sl-c2c5699fd38edbca",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "OrderManagerV2.redeemOrder(IERC20,address) (contracts/v2/vault/OrderManagerV2.sol#89-108) ignores return value by (None,None,None,collateral,None) = market.tokens() (contracts/v2/vault/OrderManagerV2.sol#101)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol",
+        "line_start": 89,
+        "line_end": 108,
+        "contract": "OrderManagerV2",
+        "function": "redeemOrder"
+      },
+      "evidence": [
+        "OrderManagerV2.redeemOrder(IERC20,address) (contracts/v2/vault/OrderManagerV2.sol#89-108) ignores return value by (None,None,None,collateral,None) = market.tokens() (contracts/v2/vault/OrderManagerV2.sol#101)",
+        "Reentrancy in OrderManagerV2.redeemOrder(IERC20,address) (contracts/v2/vault/OrderManagerV2.sol#89-108):\n\tExternal calls:\n\t- (badDebt,deliveryData) = ITermMaxOrderV2(order).redeemAll(address(this)) (contracts/v2/vault/OrderManagerV2.sol#96)\n\t- _depositToPoolOrNot(asset,asset.balanceOf(address(this))) (contracts/v2/vault/OrderManagerV2.sol#104)\n\t\t- pool.deposit(amount,address(this)) (contracts/v2/vault/OrderManagerV2.sol#168)\n\tState variables written after the call(s):\n\t- delete _orderMaturityMapping[order] (contracts/v2/vault/OrderManagerV2.sol#106)\n\tVaultStorageV2._orderMaturityMapping (contracts/v2/vault/VaultStorageV2.sol#47) can be used in cross function reentrancies:\n\t- OrderManagerV2._checkOrder(address) (contracts/v2/vault/OrderManagerV2.sol#258-260)\n\t- OrderManagerV2.afterSwap(IERC20,uint256,uint256,int256,int256) (contracts/v2/vault/OrderManagerV2.sol#276-328)\n\t- OrderManagerV2.createOrder(ITermMaxMarketV2,OrderV2ConfigurationParams) (contracts/v2/vault/OrderManagerV2.sol#110-130)\n\t- OrderManagerV2.redeemOrder(IERC20,address) (contracts/v2/vault/OrderManagerV2.sol#89-108)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-11daf5ccfc10a2fa",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManagerV2.redeemOrder(IERC20,address)",
+        "root_cause_state_variables": [
+          "_badDebtMapping",
+          "_orderMaturityMapping"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-c2c5699fd38edbca",
+          "sl-a847716f4fbd5300"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-c2c5699fd38edbca",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManagerV2\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol\", \"function\": \"redeemOrder\"}"
+    },
+    {
+      "finding_id": "sl-d2a3fd4e312f8029",
+      "fingerprint": "sl-d2a3fd4e312f8029",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts) (contracts/v1/vault/OrderManager.sol#84-112) ignores return value by (ft,xt,None,None,debtToken) = market.tokens() (contracts/v1/vault/OrderManager.sol#96)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/OrderManager.sol",
+        "line_start": 84,
+        "line_end": 112,
+        "contract": "OrderManager",
+        "function": "createOrder"
+      },
+      "evidence": [
+        "OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts) (contracts/v1/vault/OrderManager.sol#84-112) ignores return value by (ft,xt,None,None,debtToken) = market.tokens() (contracts/v1/vault/OrderManager.sol#96)",
+        "Reentrancy in OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts) (contracts/v1/vault/OrderManager.sol#84-112):\n\tExternal calls:\n\t- order = market.createOrder(address(this),maxSupply,ISwapCallback(address(this)),curveCuts) (contracts/v1/vault/OrderManager.sol#99)\n\t- market.mint(address(order),initialReserve) (contracts/v1/vault/OrderManager.sol#102)\n\tState variables written after the call(s):\n\t- _supplyQueue.push(address(order)) (contracts/v1/vault/OrderManager.sol#104)\n\tVaultStorage._supplyQueue (contracts/v1/vault/VaultStorage.sol#43) can be used in cross function reentrancies:\n\t- OrderManager._redeemFromMarket(address,OrderInfo) (contracts/v1/vault/OrderManager.sol#280-297)\n\t- OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts) (contracts/v1/vault/OrderManager.sol#84-112)\n\t- OrderManager.depositAssets(IERC20,uint256) (contracts/v1/vault/OrderManager.sol#150-175)\n\t- _withdrawQueue.push(address(order)) (contracts/v1/vault/OrderManager.sol#105)\n\tVaultStorage._withdrawQueue (contracts/v1/vault/VaultStorage.sol#44) can be used in cross function reentrancies:\n\t- OrderManager._redeemFromMarket(address,OrderInfo) (contracts/v1/vault/OrderManager.sol#280-297)\n\t- OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts) (contracts/v1/vault/OrderManager.sol#84-112)\n\t- OrderManager.withdrawAssets(IERC20,address,uint256) (contracts/v1/vault/OrderManager.sol#180-235)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-037c66884f6b98fb",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManager.createOrder(IERC20,ITermMaxMarket,uint256,uint256,CurveCuts)",
+        "root_cause_state_variables": [
+          "_orderMapping",
+          "_supplyQueue",
+          "_withdrawQueue"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-d2a3fd4e312f8029",
+          "sl-e61d65b88ed39e90"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d2a3fd4e312f8029",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManager\", \"detector\": \"slither:unused-return\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/OrderManager.sol\", \"function\": \"createOrder\"}"
+    },
+    {
+      "finding_id": "sl-f4a219593f600ef6",
+      "fingerprint": "sl-f4a219593f600ef6",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in AbstractGearingToken.flashRepay(uint256,bool,bytes) (contracts/v1/tokens/AbstractGearingToken.sol#250-269):\n\tExternal calls:\n\t- IFlashRepayer(msg.sender).executeOperation(repayToken,loan.debtAmt,config.collateral,loan.collateralData,callbackData) (contracts/v1/tokens/AbstractGearingToken.sol#263-265)\n\tState variables written after the call(s):\n\t- _burnInternal(id) (contracts/v1/tokens/AbstractGearingToken.sol#267)\n\t\t- $ = ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#46)\n\t\t- $ = ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#46)\n\tERC721Upgradeable.ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#42) can be used in cross function reentrancies:\n\t- ERC721Upgradeable._getERC721Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#44-48)\n\t- ERC721Upgradeable._getERC721Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#44-48)\n\t- _burnInternal(id) (contracts/v1/tokens/AbstractGearingToken.sol#267)\n\t\t- delete loanMapping[id] (contracts/v1/tokens/AbstractGearingToken.sol#206)\n\tAbstractGearingToken.loanMapping (contracts/v1/tokens/AbstractGearingToken.sol#62) can be used in cross function reentrancies:\n\t- AbstractGearingToken.getLiquidationInfo(uint256) (contracts/v1/tokens/AbstractGearingToken.sol#343-351)\n\t- AbstractGearingToken.loanInfo(uint256) (contracts/v1/tokens/AbstractGearingToken.sol#192-202)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol",
+        "line_start": 250,
+        "line_end": 269,
+        "contract": "AbstractGearingToken",
+        "function": "flashRepay"
+      },
+      "evidence": [
+        "Reentrancy in AbstractGearingToken.flashRepay(uint256,bool,bytes) (contracts/v1/tokens/AbstractGearingToken.sol#250-269):\n\tExternal calls:\n\t- IFlashRepayer(msg.sender).executeOperation(repayToken,loan.debtAmt,config.collateral,loan.collateralData,callbackData) (contracts/v1/tokens/AbstractGearingToken.sol#263-265)\n\tState variables written after the call(s):\n\t- _burnInternal(id) (contracts/v1/tokens/AbstractGearingToken.sol#267)\n\t\t- $ = ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#46)\n\t\t- $ = ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#46)\n\tERC721Upgradeable.ERC721StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#42) can be used in cross function reentrancies:\n\t- ERC721Upgradeable._getERC721Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#44-48)\n\t- ERC721Upgradeable._getERC721Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC721/ERC721Upgradeable.sol#44-48)\n\t- _burnInternal(id) (contracts/v1/tokens/AbstractGearingToken.sol#267)\n\t\t- delete loanMapping[id] (contracts/v1/tokens/AbstractGearingToken.sol#206)\n\tAbstractGearingToken.loanMapping (contracts/v1/tokens/AbstractGearingToken.sol#62) can be used in cross function reentrancies:\n\t- AbstractGearingToken.getLiquidationInfo(uint256) (contracts/v1/tokens/AbstractGearingToken.sol#343-351)\n\t- AbstractGearingToken.loanInfo(uint256) (contracts/v1/tokens/AbstractGearingToken.sol#192-202)",
+        "AbstractGearingToken.flashRepay(uint256,bool,bytes) (contracts/v1/tokens/AbstractGearingToken.sol#250-269) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v1/tokens/AbstractGearingToken.sol#252)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-fe89579dfdaf02d1",
+        "root_cause_resolved": true,
+        "root_cause_function": "AbstractGearingToken.flashRepay(uint256,bool,bytes)",
+        "root_cause_state_variables": [
+          "ERC721EnumerableStorageLocation",
+          "ERC721StorageLocation",
+          "OwnableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "loanMapping"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-f4a219593f600ef6",
+          "sl-b42ab615d308fdec"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f4a219593f600ef6",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AbstractGearingToken\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol\", \"function\": \"flashRepay\"}"
+    },
+    {
+      "finding_id": "sl-6965c25e47d3d884",
+      "fingerprint": "sl-6965c25e47d3d884",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in TermMaxMarketV2.updateMarketConfig(MarketConfig) (contracts/v2/TermMaxMarketV2.sol#165-176):\n\tExternal calls:\n\t- gt.setTreasurer(newConfig.treasurer) (contracts/v2/TermMaxMarketV2.sol#170)\n\tState variables written after the call(s):\n\t- _config = mConfig (contracts/v2/TermMaxMarketV2.sol#174)\n\tTermMaxMarketV2._config (contracts/v2/TermMaxMarketV2.sol#60) can be used in cross function reentrancies:\n\t- TermMaxMarketV2._checkDeadline() (contracts/v2/TermMaxMarketV2.sol#419-427)\n\t- TermMaxMarketV2._initalizeOrder(OrderInitialParams,address) (contracts/v2/TermMaxMarketV2.sol#488-499)\n\t- TermMaxMarketV2.config() (contracts/v2/TermMaxMarketV2.sol#145-147)\n\t- TermMaxMarketV2.initialize(MarketInitialParams) (contracts/v2/TermMaxMarketV2.sol#92-107)\n\t- TermMaxMarketV2.isOpen() (contracts/v2/TermMaxMarketV2.sol#70-75)\n\t- TermMaxMarketV2.mintGtFeeRatio() (contracts/v2/TermMaxMarketV2.sol#83-87)\n\t- TermMaxMarketV2.updateMarketConfig(MarketConfig) (contracts/v2/TermMaxMarketV2.sol#165-176)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxMarketV2.sol",
+        "line_start": 165,
+        "line_end": 176,
+        "contract": "TermMaxMarketV2",
+        "function": "updateMarketConfig"
+      },
+      "evidence": [
+        "Reentrancy in TermMaxMarketV2.updateMarketConfig(MarketConfig) (contracts/v2/TermMaxMarketV2.sol#165-176):\n\tExternal calls:\n\t- gt.setTreasurer(newConfig.treasurer) (contracts/v2/TermMaxMarketV2.sol#170)\n\tState variables written after the call(s):\n\t- _config = mConfig (contracts/v2/TermMaxMarketV2.sol#174)\n\tTermMaxMarketV2._config (contracts/v2/TermMaxMarketV2.sol#60) can be used in cross function reentrancies:\n\t- TermMaxMarketV2._checkDeadline() (contracts/v2/TermMaxMarketV2.sol#419-427)\n\t- TermMaxMarketV2._initalizeOrder(OrderInitialParams,address) (contracts/v2/TermMaxMarketV2.sol#488-499)\n\t- TermMaxMarketV2.config() (contracts/v2/TermMaxMarketV2.sol#145-147)\n\t- TermMaxMarketV2.initialize(MarketInitialParams) (contracts/v2/TermMaxMarketV2.sol#92-107)\n\t- TermMaxMarketV2.isOpen() (contracts/v2/TermMaxMarketV2.sol#70-75)\n\t- TermMaxMarketV2.mintGtFeeRatio() (contracts/v2/TermMaxMarketV2.sol#83-87)\n\t- TermMaxMarketV2.updateMarketConfig(MarketConfig) (contracts/v2/TermMaxMarketV2.sol#165-176)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-7f83e5318c90d71f",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxMarketV2.updateMarketConfig(MarketConfig)",
+        "root_cause_state_variables": [
+          "OwnableStorageLocation",
+          "_config"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-6965c25e47d3d884"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-6965c25e47d3d884",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxMarketV2\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxMarketV2.sol\", \"function\": \"updateMarketConfig\"}"
+    },
+    {
+      "finding_id": "sl-a8da029c47245590",
+      "fingerprint": "sl-a8da029c47245590",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in TermMaxVaultV2.withdrawFts(address,uint256,address,address) (contracts/v2/vault/TermMaxVaultV2.sol#376-395):\n\tExternal calls:\n\t- _delegateCall(abi.encodeCall(IOrderManagerV2.withdrawFts,(order,amount,recipient))) (contracts/v2/vault/TermMaxVaultV2.sol#391)\n\t\t- (success,returnData) = ORDER_MANAGER_SINGLETON.delegatecall(data) (contracts/v2/vault/TermMaxVaultV2.sol#398)\n\tState variables written after the call(s):\n\t- _burn(owner,shares) (contracts/v2/vault/TermMaxVaultV2.sol#392)\n\t\t- $ = ERC20StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#48)\n\tERC20Upgradeable.ERC20StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#44) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._getERC20Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#46-50)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol",
+        "line_start": 376,
+        "line_end": 395,
+        "contract": "TermMaxVaultV2",
+        "function": "withdrawFts"
+      },
+      "evidence": [
+        "Reentrancy in TermMaxVaultV2.withdrawFts(address,uint256,address,address) (contracts/v2/vault/TermMaxVaultV2.sol#376-395):\n\tExternal calls:\n\t- _delegateCall(abi.encodeCall(IOrderManagerV2.withdrawFts,(order,amount,recipient))) (contracts/v2/vault/TermMaxVaultV2.sol#391)\n\t\t- (success,returnData) = ORDER_MANAGER_SINGLETON.delegatecall(data) (contracts/v2/vault/TermMaxVaultV2.sol#398)\n\tState variables written after the call(s):\n\t- _burn(owner,shares) (contracts/v2/vault/TermMaxVaultV2.sol#392)\n\t\t- $ = ERC20StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#48)\n\tERC20Upgradeable.ERC20StorageLocation (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#44) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._getERC20Storage() (dependencies/@openzeppelin-contracts-upgradeable-5.2.0/token/ERC20/ERC20Upgradeable.sol#46-50)",
+        "TermMaxVaultV2.withdrawFts(address,uint256,address,address) (contracts/v2/vault/TermMaxVaultV2.sol#376-395) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- shares > maxShares (contracts/v2/vault/TermMaxVaultV2.sol#384)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-03c2bd235220d8ab",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxVaultV2.withdrawFts(address,uint256,address,address)",
+        "root_cause_state_variables": [
+          "ERC20StorageLocation",
+          "ERC4626StorageLocation",
+          "ReentrancyGuardStorageLocation"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-a8da029c47245590",
+          "sl-0a23de35decba395"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a8da029c47245590",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxVaultV2\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol\", \"function\": \"withdrawFts\"}"
+    },
+    {
+      "finding_id": "sl-a0a25c28747c9948",
+      "fingerprint": "sl-a0a25c28747c9948",
+      "engine": "slither",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "description": "Reentrancy in TermMaxMarket.updateMarketConfig(MarketConfig) (contracts/v1/TermMaxMarket.sol#145-156):\n\tExternal calls:\n\t- gt.setTreasurer(newConfig.treasurer) (contracts/v1/TermMaxMarket.sol#149)\n\tState variables written after the call(s):\n\t- _config = mConfig (contracts/v1/TermMaxMarket.sol#154)\n\tTermMaxMarket._config (contracts/v1/TermMaxMarket.sol#44) can be used in cross function reentrancies:\n\t- TermMaxMarket.config() (contracts/v1/TermMaxMarket.sol#131-133)\n\t- TermMaxMarket.initialize(MarketInitialParams) (contracts/v1/TermMaxMarket.sol#74-89)\n\t- TermMaxMarket.mintGtFeeRatio() (contracts/v1/TermMaxMarket.sol#65-69)\n\t- TermMaxMarket.previewRedeem(uint256) (contracts/v1/TermMaxMarket.sol#300-321)\n\t- TermMaxMarket.updateMarketConfig(MarketConfig) (contracts/v1/TermMaxMarket.sol#145-156)",
+      "vulnerability_class": "TAX-14",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/TermMaxMarket.sol",
+        "line_start": 145,
+        "line_end": 156,
+        "contract": "TermMaxMarket",
+        "function": "updateMarketConfig"
+      },
+      "evidence": [
+        "Reentrancy in TermMaxMarket.updateMarketConfig(MarketConfig) (contracts/v1/TermMaxMarket.sol#145-156):\n\tExternal calls:\n\t- gt.setTreasurer(newConfig.treasurer) (contracts/v1/TermMaxMarket.sol#149)\n\tState variables written after the call(s):\n\t- _config = mConfig (contracts/v1/TermMaxMarket.sol#154)\n\tTermMaxMarket._config (contracts/v1/TermMaxMarket.sol#44) can be used in cross function reentrancies:\n\t- TermMaxMarket.config() (contracts/v1/TermMaxMarket.sol#131-133)\n\t- TermMaxMarket.initialize(MarketInitialParams) (contracts/v1/TermMaxMarket.sol#74-89)\n\t- TermMaxMarket.mintGtFeeRatio() (contracts/v1/TermMaxMarket.sol#65-69)\n\t- TermMaxMarket.previewRedeem(uint256) (contracts/v1/TermMaxMarket.sol#300-321)\n\t- TermMaxMarket.updateMarketConfig(MarketConfig) (contracts/v1/TermMaxMarket.sol#145-156)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-da40f9262f549647",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxMarket.updateMarketConfig(MarketConfig)",
+        "root_cause_state_variables": [
+          "OwnableStorageLocation",
+          "_config"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-a0a25c28747c9948"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a0a25c28747c9948",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxMarket\", \"detector\": \"slither:reentrancy-no-eth\", \"file\": \"../termmax-contract-v2/contracts/v1/TermMaxMarket.sol\", \"function\": \"updateMarketConfig\"}"
+    },
+    {
+      "finding_id": "sl-1cda9cd78d5b6cf2",
+      "fingerprint": "sl-1cda9cd78d5b6cf2",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "AccessManagerV2.batchSetSwitch(IPausable[],bool) (contracts/v2/access/AccessManagerV2.sol#48-58) has external calls inside a loop: entities[i_scope_0].pause() (contracts/v2/access/AccessManagerV2.sol#55)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/access/AccessManagerV2.sol",
+        "line_start": 48,
+        "line_end": 58,
+        "contract": "AccessManagerV2",
+        "function": "batchSetSwitch"
+      },
+      "evidence": [
+        "AccessManagerV2.batchSetSwitch(IPausable[],bool) (contracts/v2/access/AccessManagerV2.sol#48-58) has external calls inside a loop: entities[i_scope_0].pause() (contracts/v2/access/AccessManagerV2.sol#55)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-f3e56bfea3269354",
+        "root_cause_resolved": true,
+        "root_cause_function": "AccessManagerV2.batchSetSwitch(IPausable[],bool)",
+        "root_cause_state_variables": [
+          "AccessControlStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-1cda9cd78d5b6cf2"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-1cda9cd78d5b6cf2",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AccessManagerV2\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v2/access/AccessManagerV2.sol\", \"function\": \"batchSetSwitch\"}"
+    },
+    {
+      "finding_id": "sl-72d32f792facac41",
+      "fingerprint": "sl-72d32f792facac41",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "OrderManagerV2.removeLiquidityFromOrders(IERC20,address[],uint256[]) (contracts/v2/vault/OrderManagerV2.sol#62-82) has external calls inside a loop: ITermMaxOrderV2(order).removeLiquidity(asset,removingLiquidity,address(this)) (contracts/v2/vault/OrderManagerV2.sol#74)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol",
+        "line_start": 62,
+        "line_end": 82,
+        "contract": "OrderManagerV2",
+        "function": "removeLiquidityFromOrders"
+      },
+      "evidence": [
+        "OrderManagerV2.removeLiquidityFromOrders(IERC20,address[],uint256[]) (contracts/v2/vault/OrderManagerV2.sol#62-82) has external calls inside a loop: ITermMaxOrderV2(order).removeLiquidity(asset,removingLiquidity,address(this)) (contracts/v2/vault/OrderManagerV2.sol#74)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-8caf5fda9ee8b878",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManagerV2.removeLiquidityFromOrders(IERC20,address[],uint256[])",
+        "root_cause_state_variables": [
+          "_accretingPrincipal",
+          "_annualizedInterest",
+          "_lastUpdateTime",
+          "_maturityToInterest",
+          "_performanceFee"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-72d32f792facac41"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-72d32f792facac41",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManagerV2\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol\", \"function\": \"removeLiquidityFromOrders\"}"
+    },
+    {
+      "finding_id": "sl-9735192de02389ad",
+      "fingerprint": "sl-9735192de02389ad",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "OrderManagerV2.updateOrdersConfiguration(address[],OrderV2ConfigurationParams[]) (contracts/v2/vault/OrderManagerV2.sol#45-60) has external calls inside a loop: ITermMaxOrderV2(order).setCurveAndPrice(config.originalVirtualXtReserve,config.virtualXtReserve,config.maxXtReserve,config.curveCuts) (contracts/v2/vault/OrderManagerV2.sol#55-57)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol",
+        "line_start": 45,
+        "line_end": 60,
+        "contract": "OrderManagerV2",
+        "function": "updateOrdersConfiguration"
+      },
+      "evidence": [
+        "OrderManagerV2.updateOrdersConfiguration(address[],OrderV2ConfigurationParams[]) (contracts/v2/vault/OrderManagerV2.sol#45-60) has external calls inside a loop: ITermMaxOrderV2(order).setCurveAndPrice(config.originalVirtualXtReserve,config.virtualXtReserve,config.maxXtReserve,config.curveCuts) (contracts/v2/vault/OrderManagerV2.sol#55-57)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-a4095756ff05b501",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManagerV2.updateOrdersConfiguration(address[],OrderV2ConfigurationParams[])",
+        "root_cause_state_variables": [
+          "_accretingPrincipal",
+          "_annualizedInterest",
+          "_lastUpdateTime",
+          "_maturityToInterest",
+          "_performanceFee"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9735192de02389ad"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9735192de02389ad",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManagerV2\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol\", \"function\": \"updateOrdersConfiguration\"}"
+    },
+    {
+      "finding_id": "sl-b99f1dd8dd865e57",
+      "fingerprint": "sl-b99f1dd8dd865e57",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "TermMaxRewardContract.claimRewards(IERC20[],address) (contracts/v2/activity/TermMaxRewardContract.sol#61-85) has external calls inside a loop: address(to).transfer(amounts[i]) (contracts/v2/activity/TermMaxRewardContract.sol#79)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/activity/TermMaxRewardContract.sol",
+        "line_start": 61,
+        "line_end": 85,
+        "contract": "TermMaxRewardContract",
+        "function": "claimRewards"
+      },
+      "evidence": [
+        "TermMaxRewardContract.claimRewards(IERC20[],address) (contracts/v2/activity/TermMaxRewardContract.sol#61-85) has external calls inside a loop: address(to).transfer(amounts[i]) (contracts/v2/activity/TermMaxRewardContract.sol#79)",
+        "TermMaxRewardContract.claimRewards(IERC20[],address).to (contracts/v2/activity/TermMaxRewardContract.sol#61) lacks a zero-check on :\n\t\t- address(to).transfer(amounts[i]) (contracts/v2/activity/TermMaxRewardContract.sol#79)",
+        "Reentrancy in TermMaxRewardContract.claimRewards(IERC20[],address) (contracts/v2/activity/TermMaxRewardContract.sol#61-85):\n\tExternal calls:\n\t- address(to).transfer(amounts[i]) (contracts/v2/activity/TermMaxRewardContract.sol#79)\n\tState variables written after the call(s):\n\t- delete profile.rewards[token] (contracts/v2/activity/TermMaxRewardContract.sol#77)\n\tEvent emitted after the call(s):\n\t- RewardClaimed(msg.sender,to,tokens,amounts) (contracts/v2/activity/TermMaxRewardContract.sol#84)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-8ccbf9a057c8ceaf",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxRewardContract.claimRewards(IERC20[],address)",
+        "root_cause_state_variables": [
+          "PausableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "userProfiles"
+        ],
+        "evidence_count": 3,
+        "merged_finding_ids": [
+          "sl-b99f1dd8dd865e57",
+          "sl-a906d08e68a06fd1",
+          "sl-2f86097cd7486b80"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-b99f1dd8dd865e57",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxRewardContract\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v2/activity/TermMaxRewardContract.sol\", \"function\": \"claimRewards\"}"
+    },
+    {
+      "finding_id": "sl-8e9a333771e3e4fe",
+      "fingerprint": "sl-8e9a333771e3e4fe",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "TermMaxVault.unpause() (contracts/v1/vault/TermMaxVault.sol#688-694) has external calls inside a loop: ITermMaxOrder(_supplyQueue[i]).unpause() (contracts/v1/vault/TermMaxVault.sol#692)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol",
+        "line_start": 688,
+        "line_end": 694,
+        "contract": "TermMaxVault",
+        "function": "unpause"
+      },
+      "evidence": [
+        "TermMaxVault.unpause() (contracts/v1/vault/TermMaxVault.sol#688-694) has external calls inside a loop: ITermMaxOrder(_supplyQueue[i]).unpause() (contracts/v1/vault/TermMaxVault.sol#692)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-034a5c33382d2c61",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxVault.unpause()",
+        "root_cause_state_variables": [
+          "OwnableStorageLocation",
+          "PausableStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8e9a333771e3e4fe"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8e9a333771e3e4fe",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxVault\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol\", \"function\": \"unpause\"}"
+    },
+    {
+      "finding_id": "sl-af798267c4ee53d4",
+      "fingerprint": "sl-af798267c4ee53d4",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "TermMaxVault.pause() (contracts/v1/vault/TermMaxVault.sol#677-683) has external calls inside a loop: ITermMaxOrder(_supplyQueue[i]).pause() (contracts/v1/vault/TermMaxVault.sol#681)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol",
+        "line_start": 677,
+        "line_end": 683,
+        "contract": "TermMaxVault",
+        "function": "pause"
+      },
+      "evidence": [
+        "TermMaxVault.pause() (contracts/v1/vault/TermMaxVault.sol#677-683) has external calls inside a loop: ITermMaxOrder(_supplyQueue[i]).pause() (contracts/v1/vault/TermMaxVault.sol#681)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-d72d14a2ccc50ea9",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxVault.pause()",
+        "root_cause_state_variables": [
+          "OwnableStorageLocation",
+          "PausableStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-af798267c4ee53d4"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-af798267c4ee53d4",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxVault\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol\", \"function\": \"pause\"}"
+    },
+    {
+      "finding_id": "sl-d44ccf45acbcc98a",
+      "fingerprint": "sl-d44ccf45acbcc98a",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "OrderManager.depositAssets(IERC20,uint256) (contracts/v1/vault/OrderManager.sol#150-175) has external calls inside a loop: xtReserve = orderInfo.xt.balanceOf(order) (contracts/v1/vault/OrderManager.sol#161)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/OrderManager.sol",
+        "line_start": 150,
+        "line_end": 175,
+        "contract": "OrderManager",
+        "function": "depositAssets"
+      },
+      "evidence": [
+        "OrderManager.depositAssets(IERC20,uint256) (contracts/v1/vault/OrderManager.sol#150-175) has external calls inside a loop: xtReserve = orderInfo.xt.balanceOf(order) (contracts/v1/vault/OrderManager.sol#161)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-2cd9f36a0375b112",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManager.depositAssets(IERC20,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-d44ccf45acbcc98a"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d44ccf45acbcc98a",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManager\", \"detector\": \"slither:calls-loop\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/OrderManager.sol\", \"function\": \"depositAssets\"}"
+    },
+    {
+      "finding_id": "sl-d5737bccc9f97038",
+      "fingerprint": "sl-d5737bccc9f97038",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "BoringOwnableUpgradeable.transferOwnership(address,bool,bool).newOwner (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol#23) lacks a zero-check on :\n\t\t- pendingOwner = newOwner (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol#34)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol",
+        "line_start": 23,
+        "line_end": 23,
+        "contract": "transferOwnership",
+        "function": null
+      },
+      "evidence": [
+        "BoringOwnableUpgradeable.transferOwnership(address,bool,bool).newOwner (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol#23) lacks a zero-check on :\n\t\t- pendingOwner = newOwner (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol#34)",
+        "Ownable2Step.transferOwnership(address).newOwner (dependencies/@openzeppelin-contracts-5.2.0/access/Ownable2Step.sol#43) lacks a zero-check on :\n\t\t- _pendingOwner = newOwner (dependencies/@openzeppelin-contracts-5.2.0/access/Ownable2Step.sol#44)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-868117bc359bca9e",
+        "root_cause_resolved": true,
+        "root_cause_function": "Ownable2StepUpgradeable.transferOwnership(address)",
+        "root_cause_state_variables": [
+          "Ownable2StepStorageLocation",
+          "OwnableStorageLocation"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-d5737bccc9f97038",
+          "sl-9838e9b48cd063df"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d5737bccc9f97038",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"transferOwnership\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/BoringOwnableUpgradeable.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-af58eea65809aaa0",
+      "fingerprint": "sl-af58eea65809aaa0",
+      "engine": "slither",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "description": "OFTCore.setMsgInspector(address)._msgInspector (contracts/v2/tokenomics/TMX.sol#2338) lacks a zero-check on :\n\t\t- msgInspector = _msgInspector (contracts/v2/tokenomics/TMX.sol#2339)",
+      "vulnerability_class": "TAX-90",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/tokenomics/TMX.sol",
+        "line_start": 2338,
+        "line_end": 2338,
+        "contract": "setMsgInspector",
+        "function": null
+      },
+      "evidence": [
+        "OFTCore.setMsgInspector(address)._msgInspector (contracts/v2/tokenomics/TMX.sol#2338) lacks a zero-check on :\n\t\t- msgInspector = _msgInspector (contracts/v2/tokenomics/TMX.sol#2339)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-75e6abeed21180ba",
+        "root_cause_resolved": true,
+        "root_cause_function": "OFTCore.setMsgInspector(address)",
+        "root_cause_state_variables": [
+          "msgInspector"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-af58eea65809aaa0"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-af58eea65809aaa0",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"setMsgInspector\", \"detector\": \"slither:missing-zero-check\", \"file\": \"../termmax-contract-v2/contracts/v2/tokenomics/TMX.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-4548e865868c7b10",
+      "fingerprint": "sl-4548e865868c7b10",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2.swapTokenToExactToken(IERC20,IERC20,address,uint128,uint128,uint256) (contracts/v2/TermMaxOrderV2.sol#734-788) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > deadline (contracts/v2/TermMaxOrderV2.sol#742)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 734,
+        "line_end": 788,
+        "contract": "TermMaxOrderV2",
+        "function": "swapTokenToExactToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2.swapTokenToExactToken(IERC20,IERC20,address,uint128,uint128,uint256) (contracts/v2/TermMaxOrderV2.sol#734-788) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > deadline (contracts/v2/TermMaxOrderV2.sol#742)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-66b58dd9a514fce8",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2.swapTokenToExactToken(IERC20,IERC20,address,uint128,uint128,uint256)",
+        "root_cause_state_variables": [
+          "PausableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "virtualXtReserve"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-4548e865868c7b10"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-4548e865868c7b10",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"swapTokenToExactToken\"}"
+    },
+    {
+      "finding_id": "sl-f205cf3a0091cda9",
+      "fingerprint": "sl-f205cf3a0091cda9",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "MiniHelpers.isCurrentlyExpired(uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#5-7) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- (expiry <= block.timestamp) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#6)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol",
+        "line_start": 5,
+        "line_end": 7,
+        "contract": "MiniHelpers",
+        "function": "isCurrentlyExpired"
+      },
+      "evidence": [
+        "MiniHelpers.isCurrentlyExpired(uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#5-7) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- (expiry <= block.timestamp) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#6)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-3bf83c483c685b71",
+        "root_cause_resolved": true,
+        "root_cause_function": "MiniHelpers.isCurrentlyExpired(uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-f205cf3a0091cda9"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f205cf3a0091cda9",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"MiniHelpers\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol\", \"function\": \"isCurrentlyExpired\"}"
+    },
+    {
+      "finding_id": "sl-8e67d13a93eca377",
+      "fingerprint": "sl-8e67d13a93eca377",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256) (contracts/v2/tokens/AbstractGearingTokenV2.sol#200-224) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v2/tokens/AbstractGearingTokenV2.sol#209)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/tokens/AbstractGearingTokenV2.sol",
+        "line_start": 200,
+        "line_end": 224,
+        "contract": "AbstractGearingTokenV2",
+        "function": "augmentDebt"
+      },
+      "evidence": [
+        "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256) (contracts/v2/tokens/AbstractGearingTokenV2.sol#200-224) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v2/tokens/AbstractGearingTokenV2.sol#209)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-2978c57fd5170a01",
+        "root_cause_resolved": true,
+        "root_cause_function": "AbstractGearingTokenV2.augmentDebt(address,uint256,uint256)",
+        "root_cause_state_variables": [
+          "ERC721StorageLocation",
+          "OwnableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "loanMapping"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8e67d13a93eca377"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8e67d13a93eca377",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AbstractGearingTokenV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/tokens/AbstractGearingTokenV2.sol\", \"function\": \"augmentDebt\"}"
+    },
+    {
+      "finding_id": "sl-9f7fae42b7c1ee40",
+      "fingerprint": "sl-9f7fae42b7c1ee40",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "MiniHelpers.isTimeInThePast(uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#13-15) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- (timestamp <= block.timestamp) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#14)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol",
+        "line_start": 13,
+        "line_end": 15,
+        "contract": "MiniHelpers",
+        "function": "isTimeInThePast"
+      },
+      "evidence": [
+        "MiniHelpers.isTimeInThePast(uint256) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#13-15) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- (timestamp <= block.timestamp) (dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol#14)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-6a57a460d2cedb27",
+        "root_cause_resolved": true,
+        "root_cause_function": "MiniHelpers.isTimeInThePast(uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9f7fae42b7c1ee40"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9f7fae42b7c1ee40",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"MiniHelpers\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/core/libraries/MiniHelpers.sol\", \"function\": \"isTimeInThePast\"}"
+    },
+    {
+      "finding_id": "sl-12e98e48483a97eb",
+      "fingerprint": "sl-12e98e48483a97eb",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#12-29) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- currentTimestamp - uint256(latestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#23)\n\t- currentTimestamp - uint256(oldestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#28)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol",
+        "line_start": 12,
+        "line_end": 29,
+        "contract": "TermMaxPancakeTWAPPriceFeed",
+        "function": "_ensureSufficientObservations"
+      },
+      "evidence": [
+        "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#12-29) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- currentTimestamp - uint256(latestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#23)\n\t- currentTimestamp - uint256(oldestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol#28)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-0d59772eb29f6e7b",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxPancakeTWAPPriceFeed._ensureSufficientObservations(address,uint32)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-12e98e48483a97eb"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-12e98e48483a97eb",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxPancakeTWAPPriceFeed\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxPancakeTWAPPriceFeed.sol\", \"function\": \"_ensureSufficientObservations\"}"
+    },
+    {
+      "finding_id": "sl-51d1048d2aaf6be1",
+      "fingerprint": "sl-51d1048d2aaf6be1",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#138-154) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- currentTimestamp - uint256(latestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#148)\n\t- currentTimestamp - uint256(oldestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#153)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol",
+        "line_start": 138,
+        "line_end": 154,
+        "contract": "TermMaxUniswapTWAPPriceFeed",
+        "function": "_ensureSufficientObservations"
+      },
+      "evidence": [
+        "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32) (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#138-154) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- currentTimestamp - uint256(latestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#148)\n\t- currentTimestamp - uint256(oldestTimestamp) < _twapPeriod (contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol#153)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-48e4a370b6efc5fa",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxUniswapTWAPPriceFeed._ensureSufficientObservations(address,uint32)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-51d1048d2aaf6be1"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-51d1048d2aaf6be1",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxUniswapTWAPPriceFeed\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/oracle/priceFeeds/TermMaxUniswapTWAPPriceFeed.sol\", \"function\": \"_ensureSufficientObservations\"}"
+    },
+    {
+      "finding_id": "sl-28c82f4858f681c3",
+      "fingerprint": "sl-28c82f4858f681c3",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2._sellToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1139-1150) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netOut < minDebtTokenOut (contracts/v2/TermMaxOrderV2.sol#1148)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 1139,
+        "line_end": 1150,
+        "contract": "TermMaxOrderV2",
+        "function": "_sellToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2._sellToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1139-1150) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netOut < minDebtTokenOut (contracts/v2/TermMaxOrderV2.sol#1148)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-359b5c8817515b73",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2._sellToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool))",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-28c82f4858f681c3"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-28c82f4858f681c3",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"_sellToken\"}"
+    },
+    {
+      "finding_id": "sl-edb4816a54fc1695",
+      "fingerprint": "sl-edb4816a54fc1695",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "AbstractGearingToken.removeCollateral(uint256,bytes) (contracts/v1/tokens/AbstractGearingToken.sol#290-313) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v1/tokens/AbstractGearingToken.sol#296)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol",
+        "line_start": 290,
+        "line_end": 313,
+        "contract": "AbstractGearingToken",
+        "function": "removeCollateral"
+      },
+      "evidence": [
+        "AbstractGearingToken.removeCollateral(uint256,bytes) (contracts/v1/tokens/AbstractGearingToken.sol#290-313) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v1/tokens/AbstractGearingToken.sol#296)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-5663aa54027c5a8a",
+        "root_cause_resolved": true,
+        "root_cause_function": "AbstractGearingToken.removeCollateral(uint256,bytes)",
+        "root_cause_state_variables": [
+          "ERC721StorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "loanMapping"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-edb4816a54fc1695"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-edb4816a54fc1695",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AbstractGearingToken\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol\", \"function\": \"removeCollateral\"}"
+    },
+    {
+      "finding_id": "sl-aa703eca89e73592",
+      "fingerprint": "sl-aa703eca89e73592",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxVaultV2.dealBadDebt(address,uint256,address,address) (contracts/v2/vault/TermMaxVaultV2.sol#409-433) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- shares > maxShares (contracts/v2/vault/TermMaxVaultV2.sol#418)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol",
+        "line_start": 409,
+        "line_end": 433,
+        "contract": "TermMaxVaultV2",
+        "function": "dealBadDebt"
+      },
+      "evidence": [
+        "TermMaxVaultV2.dealBadDebt(address,uint256,address,address) (contracts/v2/vault/TermMaxVaultV2.sol#409-433) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- shares > maxShares (contracts/v2/vault/TermMaxVaultV2.sol#418)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-57f644103013e0f3",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxVaultV2.dealBadDebt(address,uint256,address,address)",
+        "root_cause_state_variables": [
+          "ERC20StorageLocation",
+          "ERC4626StorageLocation",
+          "ReentrancyGuardStorageLocation"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-aa703eca89e73592"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-aa703eca89e73592",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxVaultV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol\", \"function\": \"dealBadDebt\"}"
+    },
+    {
+      "finding_id": "sl-b9262c55cd006a12",
+      "fingerprint": "sl-b9262c55cd006a12",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2.swapExactTokenToToken(IERC20,IERC20,address,uint128,uint128,uint256) (contracts/v2/TermMaxOrderV2.sol#666-721) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > deadline (contracts/v2/TermMaxOrderV2.sol#674)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 666,
+        "line_end": 721,
+        "contract": "TermMaxOrderV2",
+        "function": "swapExactTokenToToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2.swapExactTokenToToken(IERC20,IERC20,address,uint128,uint128,uint256) (contracts/v2/TermMaxOrderV2.sol#666-721) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > deadline (contracts/v2/TermMaxOrderV2.sol#674)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-385d7720f0894f84",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2.swapExactTokenToToken(IERC20,IERC20,address,uint128,uint128,uint256)",
+        "root_cause_state_variables": [
+          "PausableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "virtualXtReserve"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-b9262c55cd006a12"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-b9262c55cd006a12",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"swapExactTokenToToken\"}"
+    },
+    {
+      "finding_id": "sl-959e495ea39c0235",
+      "fingerprint": "sl-959e495ea39c0235",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2._buyToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1085-1098) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netOut < minTokenOut (contracts/v2/TermMaxOrderV2.sol#1096)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 1085,
+        "line_end": 1098,
+        "contract": "TermMaxOrderV2",
+        "function": "_buyToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2._buyToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1085-1098) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netOut < minTokenOut (contracts/v2/TermMaxOrderV2.sol#1096)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-32d6b874650563e5",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2._buyToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool))",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-959e495ea39c0235"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-959e495ea39c0235",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"_buyToken\"}"
+    },
+    {
+      "finding_id": "sl-43f2eef81914eb06",
+      "fingerprint": "sl-43f2eef81914eb06",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "OrderManager.depositAssets(IERC20,uint256) (contracts/v1/vault/OrderManager.sol#150-175) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > orderInfo.maturity (contracts/v1/vault/OrderManager.sol#158)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/vault/OrderManager.sol",
+        "line_start": 150,
+        "line_end": 175,
+        "contract": "OrderManager",
+        "function": "depositAssets"
+      },
+      "evidence": [
+        "OrderManager.depositAssets(IERC20,uint256) (contracts/v1/vault/OrderManager.sol#150-175) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > orderInfo.maturity (contracts/v1/vault/OrderManager.sol#158)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-85e6cd64a2dfde6f",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManager.depositAssets(IERC20,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-43f2eef81914eb06"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-43f2eef81914eb06",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManager\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v1/vault/OrderManager.sol\", \"function\": \"depositAssets\"}"
+    },
+    {
+      "finding_id": "sl-c52e71a8646795fc",
+      "fingerprint": "sl-c52e71a8646795fc",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2._sellTokenForExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1164-1177) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netTokenIn > maxTokenIn (contracts/v2/TermMaxOrderV2.sol#1174)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 1164,
+        "line_end": 1177,
+        "contract": "TermMaxOrderV2",
+        "function": "_sellTokenForExactToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2._sellTokenForExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1164-1177) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netTokenIn > maxTokenIn (contracts/v2/TermMaxOrderV2.sol#1174)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ee400a5aa6373069",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2._sellTokenForExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool))",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-c52e71a8646795fc"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-c52e71a8646795fc",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"_sellTokenForExactToken\"}"
+    },
+    {
+      "finding_id": "sl-9d0f9cff3e7365fd",
+      "fingerprint": "sl-9d0f9cff3e7365fd",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "AbstractGearingToken.augmentDebt(address,uint256,uint256) (contracts/v1/tokens/AbstractGearingToken.sol#167-187) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v1/tokens/AbstractGearingToken.sol#172)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol",
+        "line_start": 167,
+        "line_end": 187,
+        "contract": "AbstractGearingToken",
+        "function": "augmentDebt"
+      },
+      "evidence": [
+        "AbstractGearingToken.augmentDebt(address,uint256,uint256) (contracts/v1/tokens/AbstractGearingToken.sol#167-187) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- config.maturity <= block.timestamp (contracts/v1/tokens/AbstractGearingToken.sol#172)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-a5bcf5396540af11",
+        "root_cause_resolved": true,
+        "root_cause_function": "AbstractGearingToken.augmentDebt(address,uint256,uint256)",
+        "root_cause_state_variables": [
+          "ERC721StorageLocation",
+          "OwnableStorageLocation",
+          "ReentrancyGuardStorageLocation",
+          "loanMapping"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9d0f9cff3e7365fd"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9d0f9cff3e7365fd",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"AbstractGearingToken\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v1/tokens/AbstractGearingToken.sol\", \"function\": \"augmentDebt\"}"
+    },
+    {
+      "finding_id": "sl-551625c49bdd55c5",
+      "fingerprint": "sl-551625c49bdd55c5",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "OrderManagerV2.afterSwap(IERC20,uint256,uint256,int256,int256) (contracts/v2/vault/OrderManagerV2.sol#276-328) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- maturityInterest < deltaAnnualizedInterest_scope_0 || _annualizedInterest < deltaAnnualizedInterest_scope_0 (contracts/v2/vault/OrderManagerV2.sol#311)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol",
+        "line_start": 276,
+        "line_end": 328,
+        "contract": "OrderManagerV2",
+        "function": "afterSwap"
+      },
+      "evidence": [
+        "OrderManagerV2.afterSwap(IERC20,uint256,uint256,int256,int256) (contracts/v2/vault/OrderManagerV2.sol#276-328) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- maturityInterest < deltaAnnualizedInterest_scope_0 || _annualizedInterest < deltaAnnualizedInterest_scope_0 (contracts/v2/vault/OrderManagerV2.sol#311)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-1f3f705f7253d0f7",
+        "root_cause_resolved": true,
+        "root_cause_function": "OrderManagerV2.afterSwap(IERC20,uint256,uint256,int256,int256)",
+        "root_cause_state_variables": [
+          "_accretingPrincipal",
+          "_annualizedInterest",
+          "_lastUpdateTime",
+          "_maturityToInterest",
+          "_performanceFee",
+          "_totalFt"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-551625c49bdd55c5"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-551625c49bdd55c5",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"OrderManagerV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol\", \"function\": \"afterSwap\"}"
+    },
+    {
+      "finding_id": "sl-cd2bd2d5bbafd68f",
+      "fingerprint": "sl-cd2bd2d5bbafd68f",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "TermMaxOrderV2._buyExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1112-1125) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netTokenIn > maxTokenIn (contracts/v2/TermMaxOrderV2.sol#1122)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol",
+        "line_start": 1112,
+        "line_end": 1125,
+        "contract": "TermMaxOrderV2",
+        "function": "_buyExactToken"
+      },
+      "evidence": [
+        "TermMaxOrderV2._buyExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool)) (contracts/v2/TermMaxOrderV2.sol#1112-1125) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- netTokenIn > maxTokenIn (contracts/v2/TermMaxOrderV2.sol#1122)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ba4eda2caa426754",
+        "root_cause_resolved": true,
+        "root_cause_function": "TermMaxOrderV2._buyExactToken(uint256,uint256,OrderConfig,function(uint256,uint256,uint256,OrderConfig) returns(uint256,uint256,uint256,uint256,bool))",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-cd2bd2d5bbafd68f"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-cd2bd2d5bbafd68f",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"TermMaxOrderV2\", \"detector\": \"slither:timestamp\", \"file\": \"../termmax-contract-v2/contracts/v2/TermMaxOrderV2.sol\", \"function\": \"_buyExactToken\"}"
+    }
+  ]
+}

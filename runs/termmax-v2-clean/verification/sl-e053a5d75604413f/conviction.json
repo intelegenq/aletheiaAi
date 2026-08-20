@@ -1,0 +1,105 @@
+{
+  "finding_id": "sl-e053a5d75604413f",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "ERC20StorageLocation",
+      "ERC4626StorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxVault.dealBadDebt(address,uint256,address,address)",
+    "state_variables": [
+      "ERC20StorageLocation",
+      "ERC4626StorageLocation",
+      "ReentrancyGuardStorageLocation"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxVault.dealBadDebt(address,uint256,address,address)",
+      "state_writes": [
+        "ERC20StorageLocation",
+        "ERC4626StorageLocation",
+        "ReentrancyGuardStorageLocation"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxVault.dealBadDebt(address,uint256,address,address)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxVault.dealBadDebt(address,uint256,address,address)",
+        "ERC20StorageLocation,ERC4626StorageLocation,ReentrancyGuardStorageLocation storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-3cecbd07d0e9fa0e",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-3cecbd07d0e9fa0e",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol:396",
+    "AccessControlIndex: no guard on TermMaxVault.dealBadDebt(address,uint256,address,address), writes state ['ERC20StorageLocation', 'ERC4626StorageLocation', 'ReentrancyGuardStorageLocation']",
+    "ReachabilityIndex: TermMaxVault.dealBadDebt(address,uint256,address,address) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

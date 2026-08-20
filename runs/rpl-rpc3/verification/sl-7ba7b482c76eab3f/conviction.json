@@ -1,0 +1,90 @@
+{
+  "finding_id": "sl-7ba7b482c76eab3f",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "unreachable",
+  "exploitability": {
+    "reachable": false,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketDAOProposalInterface.getExpires(uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketDAOProposalInterface.getExpires(uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "unreachable",
+      "entry_point": "",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketDAOProposalInterface.getExpires(uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-8cea7d55b9f93393",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-8cea7d55b9f93393",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolProposal.sol:298",
+    "AccessControlIndex: no guard on RocketDAOProposalInterface.getExpires(uint256) but no state write detected",
+    "ReachabilityIndex: RocketDAOProposalInterface.getExpires(uint256) not reachable from any external entry point"
+  ],
+  "rejected_because": [
+    "Function proven unreachable from external call paths"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "access_control_verdict",
+    "fork_simulation"
+  ]
+}

@@ -66,6 +66,12 @@ PRIMITIVE_ENGINES = {
 class KnowledgeBase:
     def __init__(self, root: str | Path | None = None, *, strict: bool = False):
         configured = root or os.environ.get("ALETHEIA_PACK_ROOT", "")
+        if not configured:
+            # Fallback: same convention as inventory.py — pack lives next to the
+            # project root as ./slither-vulndb (symlink or real directory).
+            candidate = Path(__file__).resolve().parent.parent / "slither-vulndb"
+            if candidate.is_dir():
+                configured = str(candidate)
         self.root = Path(configured).expanduser().resolve() if configured else None
         self.strict = strict
         self.manifest: dict[str, Any] = {}

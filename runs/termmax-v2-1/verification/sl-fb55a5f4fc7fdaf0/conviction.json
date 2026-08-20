@@ -1,0 +1,147 @@
+{
+  "finding_id": "sl-fb55a5f4fc7fdaf0",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "ERC20StorageLocation",
+      "ERC4626StorageLocation",
+      "INITIALIZABLE_STORAGE",
+      "Ownable2StepStorageLocation",
+      "OwnableStorageLocation",
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "_curator",
+      "_guardian",
+      "_maxCapacity",
+      "_minApy",
+      "_pendingGuardian",
+      "_pendingPool",
+      "_pendingTimelock",
+      "_performanceFeeRate",
+      "_pool",
+      "_timelock"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxVaultV2.initialize(VaultInitialParamsV2)",
+    "state_variables": [
+      "ERC20StorageLocation",
+      "ERC4626StorageLocation",
+      "INITIALIZABLE_STORAGE",
+      "Ownable2StepStorageLocation",
+      "OwnableStorageLocation",
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "_curator",
+      "_guardian",
+      "_maxCapacity",
+      "_minApy",
+      "_pendingGuardian",
+      "_pendingPool",
+      "_pendingTimelock",
+      "_performanceFeeRate",
+      "_pool",
+      "_timelock"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxVaultV2.initialize(VaultInitialParamsV2)",
+      "state_writes": [
+        "ERC20StorageLocation",
+        "ERC4626StorageLocation",
+        "INITIALIZABLE_STORAGE",
+        "Ownable2StepStorageLocation",
+        "OwnableStorageLocation",
+        "PausableStorageLocation",
+        "ReentrancyGuardStorageLocation",
+        "_curator",
+        "_guardian",
+        "_maxCapacity",
+        "_minApy",
+        "_pendingGuardian",
+        "_pendingPool",
+        "_pendingTimelock",
+        "_performanceFeeRate",
+        "_pool",
+        "_timelock"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxVaultV2.initialize(VaultInitialParamsV2)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxVaultV2.initialize(VaultInitialParamsV2)",
+        "ERC20StorageLocation,ERC4626StorageLocation,INITIALIZABLE_STORAGE,Ownable2StepStorageLocation,OwnableStorageLocation,PausableStorageLocation,ReentrancyGuardStorageLocation,_curator,_guardian,_maxCapacity,_minApy,_pendingGuardian,_pendingPool,_pendingTimelock,_performanceFeeRate,_pool,_timelock storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d5e190e6e12e027a",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d5e190e6e12e027a",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/vault/TermMaxVaultV2.sol:95",
+    "AccessControlIndex: no guard on TermMaxVaultV2.initialize(VaultInitialParamsV2), writes state ['ERC20StorageLocation', 'ERC4626StorageLocation', 'INITIALIZABLE_STORAGE', 'Ownable2StepStorageLocation', 'OwnableStorageLocation', 'PausableStorageLocation', 'ReentrancyGuardStorageLocation', '_curator', '_guardian', '_maxCapacity', '_minApy', '_pendingGuardian', '_pendingPool', '_pendingTimelock', '_performanceFeeRate', '_pool', '_timelock']",
+    "ReachabilityIndex: TermMaxVaultV2.initialize(VaultInitialParamsV2) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

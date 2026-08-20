@@ -1,0 +1,496 @@
+[
+  {
+    "check_id": "aletheia.rules.solidity.tx-origin-comparison",
+    "path": "/mnt/data/rpl-audit/contracts/contract/RocketStorage.sol",
+    "start": {
+      "line": 49,
+      "col": 95,
+      "offset": 2075
+    },
+    "end": {
+      "line": 49,
+      "col": 116,
+      "offset": 2096
+    },
+    "extra": {
+      "message": "tx.origin used in comparison for access control.",
+      "metadata": {
+        "category": "security",
+        "confidence": "high"
+      },
+      "severity": "ERROR",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolProposal.sol",
+    "start": {
+      "line": 378,
+      "col": 13,
+      "offset": 21857
+    },
+    "end": {
+      "line": 378,
+      "col": 82,
+      "offset": 21926
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/dao/protocol/settings/RocketDAOProtocolSettingsInflation.sol",
+    "start": {
+      "line": 17,
+      "col": 60,
+      "offset": 1120
+    },
+    "end": {
+      "line": 17,
+      "col": 84,
+      "offset": 1144
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/dao/security/RocketDAOSecurityActions.sol",
+    "start": {
+      "line": 65,
+      "col": 105,
+      "offset": 3364
+    },
+    "end": {
+      "line": 65,
+      "col": 169,
+      "offset": 3428
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/dao/security/RocketDAOSecurityProposals.sol",
+    "start": {
+      "line": 61,
+      "col": 92,
+      "offset": 3918
+    },
+    "end": {
+      "line": 61,
+      "col": 111,
+      "offset": 3937
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/dao/security/RocketDAOSecurityUpgrade.sol",
+    "start": {
+      "line": 58,
+      "col": 90,
+      "offset": 4107
+    },
+    "end": {
+      "line": 58,
+      "col": 109,
+      "offset": 4126
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/megapool/RocketMegapoolDelegateBase.sol",
+    "start": {
+      "line": 30,
+      "col": 26,
+      "offset": 1562
+    },
+    "end": {
+      "line": 30,
+      "col": 57,
+      "offset": 1593
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/megapool/RocketMegapoolPenalties.sol",
+    "start": {
+      "line": 99,
+      "col": 27,
+      "offset": 6293
+    },
+    "end": {
+      "line": 99,
+      "col": 65,
+      "offset": 6331
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/megapool/RocketMegapoolPenalties.sol",
+    "start": {
+      "line": 140,
+      "col": 27,
+      "offset": 9091
+    },
+    "end": {
+      "line": 140,
+      "col": 65,
+      "offset": 9129
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/network/RocketNetworkPenalties.sol",
+    "start": {
+      "line": 94,
+      "col": 27,
+      "offset": 5808
+    },
+    "end": {
+      "line": 94,
+      "col": 65,
+      "offset": 5846
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/network/RocketNetworkPenalties.sol",
+    "start": {
+      "line": 134,
+      "col": 27,
+      "offset": 8494
+    },
+    "end": {
+      "line": 134,
+      "col": 65,
+      "offset": 8532
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/network/RocketNetworkRevenues.sol",
+    "start": {
+      "line": 179,
+      "col": 44,
+      "offset": 11084
+    },
+    "end": {
+      "line": 179,
+      "col": 76,
+      "offset": 11116
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/network/RocketNetworkRevenues.sol",
+    "start": {
+      "line": 189,
+      "col": 34,
+      "offset": 11829
+    },
+    "end": {
+      "line": 189,
+      "col": 62,
+      "offset": 11857
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+    "start": {
+      "line": 253,
+      "col": 40,
+      "offset": 14521
+    },
+    "end": {
+      "line": 253,
+      "col": 73,
+      "offset": 14554
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+    "start": {
+      "line": 258,
+      "col": 13,
+      "offset": 14692
+    },
+    "end": {
+      "line": 258,
+      "col": 51,
+      "offset": 14730
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/rewards/RocketClaimDAO.sol",
+    "start": {
+      "line": 196,
+      "col": 33,
+      "offset": 12333
+    },
+    "end": {
+      "line": 196,
+      "col": 66,
+      "offset": 12366
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.unchecked-erc20-approve",
+    "path": "/mnt/data/rpl-audit/contracts/contract/rewards/RocketMerkleDistributorMainnet.sol",
+    "start": {
+      "line": 69,
+      "col": 13,
+      "offset": 3785
+    },
+    "end": {
+      "line": 69,
+      "col": 70,
+      "offset": 3842
+    },
+    "extra": {
+      "message": "ERC20 approve() return value not checked.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.unchecked-erc20-approve",
+    "path": "/mnt/data/rpl-audit/contracts/contract/rewards/RocketMerkleDistributorMainnet.sol",
+    "start": {
+      "line": 166,
+      "col": 13,
+      "offset": 9800
+    },
+    "end": {
+      "line": 166,
+      "col": 77,
+      "offset": 9864
+    },
+    "extra": {
+      "message": "ERC20 approve() return value not checked.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  },
+  {
+    "check_id": "aletheia.rules.solidity.timestamp-dependence",
+    "path": "/mnt/data/rpl-audit/contracts/contract/rewards/RocketRewardsPool.sol",
+    "start": {
+      "line": 107,
+      "col": 17,
+      "offset": 6033
+    },
+    "end": {
+      "line": 107,
+      "col": 60,
+      "offset": 6076
+    },
+    "extra": {
+      "message": "block.timestamp used in arithmetic \u2014 miner manipulable.",
+      "metadata": {
+        "category": "security",
+        "confidence": "medium"
+      },
+      "severity": "WARNING",
+      "fingerprint": "requires login",
+      "lines": "requires login",
+      "validation_state": "NO_VALIDATOR",
+      "engine_kind": "OSS"
+    }
+  }
+]

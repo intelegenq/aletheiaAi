@@ -1,0 +1,6067 @@
+{
+  "schema_version": "aletheia.ai-review.v1",
+  "verification_plans": [
+    {
+      "finding_id": "sl-bf2993a844e2d2bb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-52aff01ee762f891",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0a0e7a4c7f9d8c41",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e0ec4ccdc0992bf5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ece76d5eafc04279",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-6d1658d1f932cf90",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-4ca8796193ffa95a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-672e53925c510548",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-6749d1d819f0a756",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-55f7db3f1b489670",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "pp-cbdf7e9fda0f9200",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-38d8c00e6d0b2dac",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-dba1a5d5ef16597d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b772fcb9fcd07698",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-db25dd11611d32a6",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e1a671e3e40cf366",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-036d2f0e9272a342",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-120ae6f6764e1678",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a7672cf240a870f9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-82c792e696b32a89",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-992956b76e854362",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-86bdde7eb2ff3804",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d3d7b343e3f51e74",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b3580c64ecbb76a3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8d3dafad3d3fdf34",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-20c99b92f594c948",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5bd82808cae748dc",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6ead15b063533d96",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-eaeaa0c5b5c00820",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-eff82c0fd8538322",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-86cbf7d81e2e3b5b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3e306f641004d601",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7cb73bc873eb1abb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-961cde6518138d66",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-75fbfdc56f51e5a3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-db2e11c5b1b460c5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0ba5602ba93e72a3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7f68097b04689786",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-24af339c065bbeaf",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3693af353ed7b095",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5cf1e42333d1c88a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5d381b88a5796b90",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3511b08db329624c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6fe01eac086c7115",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-60328018c7512af2",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ea172e163bbe7c08",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-1090ec7d6e484ad2",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9a60da3db69fc751",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-49218b8a19011a1d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8cd9ad2f9f11437a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-106313fab9c6a125",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-134ec01176ffd6b3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-40b9b5ac8569660d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f5867677c11601f4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fb8eae148b2f32b8",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a60d263866e6c88b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7420d05e5508dcf1",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fbcc9687f45e235b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e8ff7568f3d0bfe1",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-703f44213e607b9d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ee70d4d29ca3704e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b405618d3030b273",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-975f64d2dcf9c0ea",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3721f387a2c42ae5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-536bf5dbdf06195f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-47959f5c957524e5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-181fe4cd380fe421",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a8e22dc14e750fc1",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4ed3cb009d928e4b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-40261b561e9fab97",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4d7fe97a001c90b3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5375d7107f0d8b9e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e88eea02b344fb92",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-62241ce2a43aed41",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-54b789e6b9ee293f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4aea6dfc77058658",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-25444d6d71b626fa",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e61d65b88ed39e90",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6965c25e47d3d884",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-bc20570ce0e2f63d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a847716f4fbd5300",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-2c1170849d0a9c82",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a0a25c28747c9948",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7b2b85a0b8e8955e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-39d50e7a91361c69",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-dcbee03589a22691",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7fea3aabd3844dd4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a4fc7b9b2fd1972f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f92fd6546a43d866",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3c61186ce9c725db",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-057df44363ef20ea",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7a0f76a9c8633c27",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-90382e3099f92f0a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ed7b99cce4a21dd4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-53205bdd9c581223",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7c550e86c3aaa356",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-30af483ad47a8986",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-aa8b810ce311b031",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4bf611cbe075fbe6",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ae74eb253167636f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-eeea7b65b99d599d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c79141f96c137d2a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-884c994652c01c3a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-748335a0869499ac",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-1127abaa42d4f667",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-498c3c7180c42984",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4c8ac8c2ef8962ad",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4c6ab07c68769c8c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5de7980ca50b1119",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fd15082579c9b29e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-28a4091754653aae",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-88b029f960206861",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-400c22ab9caceab7",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-60d2faf3332a7128",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a9129bda7977be3a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5c974bbd348cc956",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-901b6579086d8bb8",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-469dd3fcce4e2613",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6221850dfa111ba5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7ef19283ba861a1d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ebbbd20986c07b97",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b49530d3c2845d6c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6812ccc0c6dfed07",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a41a87a08c105778",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9888e1e54eb6b183",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c0a4b98e1b7913af",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-78583f3ffb7512b9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d752f71f1505d658",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-95b3de17280b331e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9127ffdb4646600c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-715a4e1206f99870",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-20952f90ea446f34",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-87334590ab75c992",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-718e23846f0cf4bb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-641b4bf327bb1f9e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b55d7da7d6db9d5b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-48f76a6af646b08c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-65026d41ac8298a2",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-dd224283deea6690",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7e9e63025f9646ea",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-1ad6f362c00bf5de",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-2a049e86156b95bd",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fcc463c3791bebcd",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fbdc9a87ec1c937b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-60233b70409185ce",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-dcaae0d12869a853",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-10b23877fcd27b38",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f0923464ac154492",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4183a3169862e3d0",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c2c5699fd38edbca",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-493507e4c5cd1ebf",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fa407bfe6725ed31",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d2a3fd4e312f8029",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-88f5152f4e6ad4eb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d971f4523031ca2f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9f782d5b729a6849",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7d8b035521269cb5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b46341d0034ded69",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8f51663c8fc16476",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a7a1ac545ec5f852",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4cd045b4226740bf",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-cb03f8105d7bc5f3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9eff727c71cc7d3a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-62557002046b3b13",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0cf99660c98b03b3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-edd3494482fd98f3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4ba8b51639ba9c8e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c51f69db123f5b08",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-95aecb6334c865b0",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8b930e2edfdf5378",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-73fa8ad48abd047f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-62272ec864c08809",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f5e3359c32078437",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-60339ac823d96af4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-617c79f51bbdc207",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b0da34921ed1001c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-1f42680eb5af70ca",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-1cda9cd78d5b6cf2",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-868329e0099532d7",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fc6b4ffd77dd8e59",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-747064a651eb2070",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-67f1288c18c67db6",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a05bbfa6c93ec138",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6dc4d584107ef7d7",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-595a360768a9a8ae",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a13aea726a8087b3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c1ac8a1f90c62dd5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a074bb05ed87ef20",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3d1bfe464cff0c8b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-acb6a6c731505e72",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4587711f71af1a43",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-28f6a2e04460046b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b27e00a669752976",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e8785f66d74257a8",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5d2130b1dbe2933b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a906d08e68a06fd1",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-71fdf4f1613bcc39",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-01c146f9265221e9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-13e4c5b4608106f9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-55b83b738fdbf248",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-df0b3e4cf1d12d8b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f612e62b929e8a81",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-af58eea65809aaa0",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b6ef8b509e5577f8",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-a0981ca94d9e5760",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-356da65d7d78a52a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7cfce5ab51c807ef",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ddccfff9a94c8c5c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-55e9e9e2c34dda6c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-149064e60ebc3702",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-5fb5882199637e11",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9e1c8b4287c8ee35",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4548e865868c7b10",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-66c96a02e11a283a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8e67d13a93eca377",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e053a5d75604413f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-12e98e48483a97eb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-95e8b302ec30d62d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-bc52982556669763",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6bc378f0fbe0a8c0",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-51d1048d2aaf6be1",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-765bacf6c8a24407",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-58b1f98700f18640",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6805bbcd78d1a408",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b42ab615d308fdec",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d9483189b4b6f383",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-bc1540f08160921b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-28c82f4858f681c3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-947979bc9806534a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-fa715b7a0724a874",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0adaff840457eeea",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-edb4816a54fc1695",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-15f18c6791e48dca",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-aa703eca89e73592",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-57bc398507f2296d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0fce17e09f7abff7",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b9262c55cd006a12",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-959e495ea39c0235",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-099f7f9c4a7cb553",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3e644630ac34faa3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-43f2eef81914eb06",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9360e49757b088d3",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-6f7e47547737dc4e",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c8e4e060bce268fa",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-af4347b6c132cff9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-645ac2841f23fb8d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f5069d2cf4950651",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4db148842d53a71c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-c52e71a8646795fc",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0077980b465ebb46",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-ea69f3c4b23c6201",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-7016388b20451a5f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-f10155fcecee8676",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-3f9a0e9b19f2452f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b8c29071357229d2",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9d0f9cff3e7365fd",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b236978659037f12",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-595c06cfcb439b98",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9d9d939a345d3fb6",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d0e0c8741b320ddb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-551625c49bdd55c5",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-cd2bd2d5bbafd68f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-0a23de35decba395",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-df07bd95675a4368",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-485e16696b025277",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-162465c053c18771",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-72d32f792facac41",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-9735192de02389ad",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-e777df5a41a163ac",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-b99f1dd8dd865e57",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-bc5e7f77506575ec",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d46dbc6533e0f3f9",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8e9a333771e3e4fe",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-af798267c4ee53d4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d5a31cc17defe67f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-d44ccf45acbcc98a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-cc8cdb9d6769e265",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-8a96714191e639e0",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-4f8d1795de6e9b76",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "sl-2f86097cd7486b80",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-308e96deb9726c8a",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-2b20425bd380e253",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-7d227b9df14b826c",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-83a3e30fc23229b4",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-57b7a69f6d8b0c5b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-d91ba125cfa87909",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-6a00674c33598b7b",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-7baf3e15c698e99f",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-256af4270ae453df",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-f58cd23c33f2e569",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-5a7bdb5abcdb9f52",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-92422f49de26ff46",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-79fb307beece0776",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-c2f899af08e5bea8",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-691365e773b1e1eb",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-73cc297fd072134d",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-5ba8ba6fb62571ff",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-71c2d3f9030d3018",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    },
+    {
+      "finding_id": "al-2a50bac1ce655256",
+      "actions": [
+        "resolve source function",
+        "confirm access-control verdict",
+        "confirm call-path reachability"
+      ],
+      "required_evidence": [
+        "source location",
+        "analysis evidence",
+        "reproducible or corroborating evidence"
+      ],
+      "blockers": []
+    }
+  ],
+  "contradictions": [],
+  "evidence_counts": {
+    "findings": 299,
+    "conviction": 268,
+    "triage": 112,
+    "artifacts": 333
+  },
+  "verdict_authority": "conviction-and-triage-artifacts; AI review cannot promote findings",
+  "verdict_distribution": {
+    "needs-review": 156,
+    "needs-dynamic-validation": 70,
+    "rejected": 42
+  },
+  "access_control_summary": {
+    "permissionless": 0,
+    "restricted": 28,
+    "partially_restricted": 19,
+    "unknown": 170,
+    "ungated": 51
+  },
+  "cross_engine_corroboration": [
+    {
+      "finding_id": "sl-52aff01ee762f891",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-0a0e7a4c7f9d8c41",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-e0ec4ccdc0992bf5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-ece76d5eafc04279",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-d3d7b343e3f51e74",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-b3580c64ecbb76a3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-8d3dafad3d3fdf34",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-20c99b92f594c948",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-5bd82808cae748dc",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-6ead15b063533d96",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-eaeaa0c5b5c00820",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-eff82c0fd8538322",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-86cbf7d81e2e3b5b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-3e306f641004d601",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-7cb73bc873eb1abb",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-961cde6518138d66",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-75fbfdc56f51e5a3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-db2e11c5b1b460c5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-0ba5602ba93e72a3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-7f68097b04689786",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-24af339c065bbeaf",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-3693af353ed7b095",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-5cf1e42333d1c88a",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-5d381b88a5796b90",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-3511b08db329624c",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-6fe01eac086c7115",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-60328018c7512af2",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-ea172e163bbe7c08",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-1090ec7d6e484ad2",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-9a60da3db69fc751",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-49218b8a19011a1d",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-8cd9ad2f9f11437a",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-106313fab9c6a125",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-134ec01176ffd6b3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-40b9b5ac8569660d",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-f5867677c11601f4",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-fb8eae148b2f32b8",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a60d263866e6c88b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-7420d05e5508dcf1",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-fbcc9687f45e235b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-e8ff7568f3d0bfe1",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-703f44213e607b9d",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-ee70d4d29ca3704e",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-b405618d3030b273",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-975f64d2dcf9c0ea",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-3721f387a2c42ae5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-536bf5dbdf06195f",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-47959f5c957524e5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-181fe4cd380fe421",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a8e22dc14e750fc1",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-4ed3cb009d928e4b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-40261b561e9fab97",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-4d7fe97a001c90b3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-5375d7107f0d8b9e",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-e88eea02b344fb92",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-62241ce2a43aed41",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-9f782d5b729a6849",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-7d8b035521269cb5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-b46341d0034ded69",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-8f51663c8fc16476",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a7a1ac545ec5f852",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-4cd045b4226740bf",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-cb03f8105d7bc5f3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-9eff727c71cc7d3a",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-62557002046b3b13",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-0cf99660c98b03b3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-edd3494482fd98f3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-4ba8b51639ba9c8e",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-c51f69db123f5b08",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-95aecb6334c865b0",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-8b930e2edfdf5378",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-73fa8ad48abd047f",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-62272ec864c08809",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-f5e3359c32078437",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-60339ac823d96af4",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-617c79f51bbdc207",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-b0da34921ed1001c",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-1f42680eb5af70ca",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-1cda9cd78d5b6cf2",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-868329e0099532d7",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-fc6b4ffd77dd8e59",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-747064a651eb2070",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-67f1288c18c67db6",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a05bbfa6c93ec138",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-6dc4d584107ef7d7",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-595a360768a9a8ae",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a13aea726a8087b3",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-c1ac8a1f90c62dd5",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-a074bb05ed87ef20",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-3d1bfe464cff0c8b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-acb6a6c731505e72",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-4587711f71af1a43",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-28f6a2e04460046b",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-b27e00a669752976",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "sl-e8785f66d74257a8",
+      "engines": [
+        "slither",
+        "slither"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "al-308e96deb9726c8a",
+      "engines": [
+        "semgrep",
+        "semgrep"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "al-2b20425bd380e253",
+      "engines": [
+        "semgrep",
+        "semgrep"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "al-7d227b9df14b826c",
+      "engines": [
+        "semgrep",
+        "semgrep"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "al-83a3e30fc23229b4",
+      "engines": [
+        "semgrep",
+        "semgrep"
+      ],
+      "count": 2
+    },
+    {
+      "finding_id": "al-57b7a69f6d8b0c5b",
+      "engines": [
+        "semgrep",
+        "semgrep"
+      ],
+      "count": 2
+    }
+  ],
+  "top_exploitable": [
+    {
+      "finding_id": "pp-4ca8796193ffa95a",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "pp-672e53925c510548",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "pp-55f7db3f1b489670",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-86cbf7d81e2e3b5b",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-3e306f641004d601",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-961cde6518138d66",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-7f68097b04689786",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-5d381b88a5796b90",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-2c1170849d0a9c82",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    },
+    {
+      "finding_id": "sl-7a0f76a9c8633c27",
+      "score": 0.5,
+      "label": "plausible",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "permissionless": true
+    }
+  ],
+  "root_cause_clusters": [
+    {
+      "vulnerability_class": "TAX-43",
+      "count": 100,
+      "severity_distribution": {
+        "high": 1,
+        "medium": 99
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-86bdde7eb2ff3804",
+        "sl-7cb73bc873eb1abb",
+        "sl-961cde6518138d66",
+        "sl-75fbfdc56f51e5a3",
+        "sl-db2e11c5b1b460c5"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-77",
+      "count": 56,
+      "severity_distribution": {
+        "low": 56
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-5fb5882199637e11",
+        "sl-9e1c8b4287c8ee35",
+        "sl-4548e865868c7b10",
+        "sl-66c96a02e11a283a",
+        "sl-8e67d13a93eca377"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-73",
+      "count": 48,
+      "severity_distribution": {
+        "low": 45,
+        "informational": 3
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-a7a1ac545ec5f852",
+        "sl-4cd045b4226740bf",
+        "sl-cb03f8105d7bc5f3",
+        "sl-9eff727c71cc7d3a",
+        "sl-62557002046b3b13"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-90",
+      "count": 20,
+      "severity_distribution": {
+        "low": 20
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-9f782d5b729a6849",
+        "sl-7d8b035521269cb5",
+        "sl-b46341d0034ded69",
+        "sl-8f51663c8fc16476",
+        "sl-5d2130b1dbe2933b"
+      ]
+    },
+    {
+      "vulnerability_class": "semgrep",
+      "count": 19,
+      "severity_distribution": {
+        "warning": 19
+      },
+      "engines": [
+        "semgrep"
+      ],
+      "sample_findings": [
+        "al-308e96deb9726c8a",
+        "al-2b20425bd380e253",
+        "al-7d227b9df14b826c",
+        "al-83a3e30fc23229b4",
+        "al-57b7a69f6d8b0c5b"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-14",
+      "count": 16,
+      "severity_distribution": {
+        "high": 5,
+        "medium": 10,
+        "informational": 1
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-52aff01ee762f891",
+        "sl-0a0e7a4c7f9d8c41",
+        "sl-e0ec4ccdc0992bf5",
+        "sl-ece76d5eafc04279",
+        "sl-38d8c00e6d0b2dac"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-87",
+      "count": 14,
+      "severity_distribution": {
+        "medium": 14
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-b3580c64ecbb76a3",
+        "sl-8d3dafad3d3fdf34",
+        "sl-20c99b92f594c948",
+        "sl-5bd82808cae748dc",
+        "sl-6ead15b063533d96"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-28",
+      "count": 10,
+      "severity_distribution": {
+        "medium": 10
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-eff82c0fd8538322",
+        "sl-86cbf7d81e2e3b5b",
+        "sl-3e306f641004d601",
+        "sl-7a0f76a9c8633c27",
+        "sl-90382e3099f92f0a"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-09",
+      "count": 9,
+      "severity_distribution": {
+        "high": 9
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-dba1a5d5ef16597d",
+        "sl-b772fcb9fcd07698",
+        "sl-db25dd11611d32a6",
+        "sl-e1a671e3e40cf366",
+        "sl-036d2f0e9272a342"
+      ]
+    },
+    {
+      "vulnerability_class": "PAT-0001",
+      "count": 6,
+      "severity_distribution": {
+        "high": 6
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "pp-6d1658d1f932cf90",
+        "pp-4ca8796193ffa95a",
+        "pp-672e53925c510548",
+        "pp-6749d1d819f0a756",
+        "pp-55f7db3f1b489670"
+      ]
+    },
+    {
+      "vulnerability_class": "TAX-89",
+      "count": 1,
+      "severity_distribution": {
+        "high": 1
+      },
+      "engines": [
+        "slither"
+      ],
+      "sample_findings": [
+        "sl-bf2993a844e2d2bb"
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "finding_id": "sl-bf2993a844e2d2bb",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-52aff01ee762f891",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-0a0e7a4c7f9d8c41",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "attacker prerequisites: access-control"
+      ]
+    },
+    {
+      "finding_id": "sl-ece76d5eafc04279",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "pp-6d1658d1f932cf90",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-38d8c00e6d0b2dac",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-dba1a5d5ef16597d",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-b772fcb9fcd07698",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-db25dd11611d32a6",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-120ae6f6764e1678",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-a7672cf240a870f9",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-992956b76e854362",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-86bdde7eb2ff3804",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-b3580c64ecbb76a3",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-8d3dafad3d3fdf34",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-20c99b92f594c948",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-5bd82808cae748dc",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-6ead15b063533d96",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-eaeaa0c5b5c00820",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-eff82c0fd8538322",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-db2e11c5b1b460c5",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "attacker prerequisites: access-control"
+      ]
+    },
+    {
+      "finding_id": "sl-0ba5602ba93e72a3",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-3511b08db329624c",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-6fe01eac086c7115",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-60328018c7512af2",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-884c994652c01c3a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "attacker prerequisites: access-control"
+      ]
+    },
+    {
+      "finding_id": "sl-8cd9ad2f9f11437a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-40b9b5ac8569660d",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fb8eae148b2f32b8",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-a60d263866e6c88b",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fbcc9687f45e235b",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-b405618d3030b273",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-47959f5c957524e5",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-4ed3cb009d928e4b",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "attacker prerequisites: access-control"
+      ]
+    },
+    {
+      "finding_id": "sl-62241ce2a43aed41",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-7b2b85a0b8e8955e",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-39d50e7a91361c69",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-7fea3aabd3844dd4",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-f92fd6546a43d866",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-057df44363ef20ea",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-90382e3099f92f0a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-ed7b99cce4a21dd4",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-7c550e86c3aaa356",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-30af483ad47a8986",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-c79141f96c137d2a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fd15082579c9b29e",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-a9129bda7977be3a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-901b6579086d8bb8",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-ebbbd20986c07b97",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-9127ffdb4646600c",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-65026d41ac8298a2",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-7e9e63025f9646ea",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fbdc9a87ec1c937b",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-493507e4c5cd1ebf",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-d971f4523031ca2f",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-9f782d5b729a6849",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-a7a1ac545ec5f852",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-62557002046b3b13",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fc6b4ffd77dd8e59",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-4ba8b51639ba9c8e",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-8b930e2edfdf5378",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-62272ec864c08809",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-f5e3359c32078437",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-868329e0099532d7",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-a05bbfa6c93ec138",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-f612e62b929e8a81",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-7cfce5ab51c807ef",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-ddccfff9a94c8c5c",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-12e98e48483a97eb",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-b236978659037f12",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-51d1048d2aaf6be1",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-fa715b7a0724a874",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-3e644630ac34faa3",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "sl-d46dbc6533e0f3f9",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "al-308e96deb9726c8a",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "al-2b20425bd380e253",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "attacker prerequisites: access-control",
+        "exploitability factor: permissionless"
+      ]
+    },
+    {
+      "finding_id": "al-7d227b9df14b826c",
+      "priority": "needs-review",
+      "scope": "uncertain",
+      "blockers": [
+        "access-control analysis",
+        "reachability analysis",
+        "attacker prerequisites: access-control, reachability",
+        "exploitability factor: reachability",
+        "exploitability factor: permissionless"
+      ]
+    }
+  ],
+  "recommendations": [
+    "Run dynamic analysis (medusa/echidna) on 70 findings flagged for dynamic validation",
+    "Resolve access-control mapping for 170 findings with unknown AC verdict",
+    "100 findings corroborated by multiple engines \u2014 highest credibility"
+  ]
+}

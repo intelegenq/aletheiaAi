@@ -1,0 +1,102 @@
+{
+  "finding_id": "sl-b99f1dd8dd865e57",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "userProfiles"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRewardContract.claimRewards(IERC20[],address)",
+    "state_variables": [
+      "PausableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "userProfiles"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyAvailableUser",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "TermMaxRewardContract.claimRewards(IERC20[],address)",
+      "state_writes": [
+        "PausableStorageLocation",
+        "ReentrancyGuardStorageLocation",
+        "userProfiles"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "TermMaxRewardContract.claimRewards(IERC20[],address)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRewardContract.claimRewards(IERC20[],address)",
+        "PausableStorageLocation,ReentrancyGuardStorageLocation,userProfiles storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-8ccbf9a057c8ceaf",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 3,
+    "root_cause_id": "rc-8ccbf9a057c8ceaf",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/activity/TermMaxRewardContract.sol:61",
+    "AccessControlIndex: effective guard on TermMaxRewardContract.claimRewards(IERC20[],address) via onlyAvailableUser",
+    "ReachabilityIndex: TermMaxRewardContract.claimRewards(IERC20[],address) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyAvailableUser)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

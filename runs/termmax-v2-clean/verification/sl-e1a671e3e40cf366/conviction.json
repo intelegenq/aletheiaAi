@@ -1,0 +1,97 @@
+{
+  "finding_id": "sl-e1a671e3e40cf366",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxRouter_V1_1_2._doSwap(bytes,SwapUnit[])",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxRouter_V1_1_2._doSwap(bytes,SwapUnit[])",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "TermMaxRouter_V1_1_2._exactPositionLeverage(bytes)",
+        "TermMaxRouter_V1_1_2._generalLeverage(uint256,TermMaxRouter_V1_1_2.FlashLoanType,bytes)",
+        "TermMaxRouter_V1_1_2.executeOperation(IERC20,uint128,address,bytes,bytes)",
+        "TermMaxRouter_V1_1_2.executeOperation(address,IERC20,uint256,bytes)",
+        "TermMaxRouter_V1_1_2.redeemAndSwap(address,ITermMaxMarket,uint256,SwapUnit[],uint256)",
+        "TermMaxRouter_V1_1_2.swapExactTokenToTokenWithDex(IERC20,uint256,IERC20,address,ITermMaxOrder,uint128,uint256,SwapUnit[])"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxRouter_V1_1_2._exactPositionLeverage(bytes)",
+        "TermMaxRouter_V1_1_2._doSwap(bytes,SwapUnit[])"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d417e69dce90134e",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d417e69dce90134e",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/router/TermMaxRouter_V1_1_2.sol:651",
+    "AccessControlIndex: no guard on TermMaxRouter_V1_1_2._doSwap(bytes,SwapUnit[]) but no state write detected",
+    "ReachabilityIndex: TermMaxRouter_V1_1_2._doSwap(bytes,SwapUnit[]) reachable via unguarded callers ['TermMaxRouter_V1_1_2._exactPositionLeverage(bytes)', 'TermMaxRouter_V1_1_2._generalLeverage(uint256,TermMaxRouter_V1_1_2.FlashLoanType,bytes)', 'TermMaxRouter_V1_1_2.redeemAndSwap(address,ITermMaxMarket,uint256,SwapUnit[],uint256)', 'TermMaxRouter_V1_1_2.swapExactTokenToTokenWithDex(IERC20,uint256,IERC20,address,ITermMaxOrder,uint128,uint256,SwapUnit[])']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

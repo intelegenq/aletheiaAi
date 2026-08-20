@@ -1,0 +1,1798 @@
+{
+  "schema_version": "1.0",
+  "success": true,
+  "count": 42,
+  "results": [
+    {
+      "schema_version": "1.0",
+      "finding_id": "pp-c38f759edadceb0b",
+      "pattern_id": "PAT-0001",
+      "detector": "pattern-privileged-config-mutation",
+      "title": "pattern-privileged-config-mutation",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341) mutates privileged configuration without effective access control: accruedManagerFees0, accruedManagerFees1, accruedProtocolFees0, accruedProtocolFees1",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341) mutates privileged configuration without effective access control: accruedManagerFees0, accruedManagerFees1, accruedProtocolFees0, accruedProtocolFees1"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "pattern_pack": true,
+        "pattern_id": "PAT-0001"
+      },
+      "native_overlap": "extends",
+      "raw": {
+        "element_type": "function",
+        "check": "pattern-privileged-config-mutation"
+      },
+      "taxonomy_id": "TAX-01",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::4c97af52e990822ce69d19c661141be4c4e3a9cb01e9df6ec2ad2b7cce8e38cf",
+          "pattern_id": "VDB-F00844E410BE",
+          "title": "Owner Can Add Arbitrary Code to Be Executed From the SocketGateway Contract",
+          "severity": "Medium",
+          "taxonomy_id": "TAX-01",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Owner Can Add Arbitrary Code to Be Executed From the SocketGateway Contract",
+            "severity": "Medium",
+            "data_source_name": "/diligence/audits/2023/02/socket/",
+            "data_source_repo": "https://consensys.net//diligence/audits/2023/02/socket/",
+            "data_source_url": "https://consensys.net//diligence/audits/2023/02/socket/",
+            "body_sha256": "51538164290d271cf30763078bc62cf26500e701d9a642231950e59bec9326df"
+          }
+        },
+        {
+          "record_id": "vulndb::f03a3597f5ce03715cb802d415414f96cd64890319a11ab3ed0a66f3fd58d566",
+          "pattern_id": "VDB-BFA45895CEC7",
+          "title": "Centralization risk - operator have privileges set some important configurations",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-01",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Centralization risk - operator have privileges set some important configurations",
+            "severity": "Unknown",
+            "data_source_name": "sherlock-audit/2023-03-taurus-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-03-taurus-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-03-taurus-judging/blob/main//false/073.md",
+            "body_sha256": "f9ab15eab32791b55b42a87071fe6e62f463defce0094db6a52167f1aa37475c"
+          }
+        },
+        {
+          "record_id": "vulndb::2b231508ab85d97a14385e30b8b1c0cde3a80a350e2e4a8624f8106e14360a7b",
+          "pattern_id": "VDB-98F39F2B52A0",
+          "title": "AmbireAccount implementation can be destroyed by privileges",
+          "severity": "Medium",
+          "taxonomy_id": "TAX-01",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "AmbireAccount implementation can be destroyed by privileges",
+            "severity": "Medium",
+            "data_source_name": "code-423n4/2023-05-ambire-findings",
+            "data_source_repo": "https://github.com/code-423n4/2023-05-ambire-findings",
+            "data_source_url": "https://github.com/code-423n4/2023-05-ambire-findings/issues/10",
+            "body_sha256": "4c78dc90e061f4601260434af3c8c224f44c81f2bd431feb7ccb685ff6cdff58"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-e75d6b06ed841807",
+      "pattern_id": "TAX-90",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVaultFactory.constructor(address,address,uint24)._governance (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- governance = _governance (contracts/AlphaProVaultFactory.sol#34)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVaultFactory.sol",
+        "line_start": 32,
+        "line_end": 32,
+        "contract": "constructor",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVaultFactory.constructor(address,address,uint24)._governance (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- governance = _governance (contracts/AlphaProVaultFactory.sol#34)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-90"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "missing-zero-check"
+      },
+      "taxonomy_id": "TAX-90",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-94ace5b57c7a2905",
+      "pattern_id": "TAX-90",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.setManager(address)._manager (contracts/AlphaProVault.sol#801) lacks a zero-check on :\n\t\t- pendingManager = _manager (contracts/AlphaProVault.sol#802)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 801,
+        "line_end": 801,
+        "contract": "setManager",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault.setManager(address)._manager (contracts/AlphaProVault.sol#801) lacks a zero-check on :\n\t\t- pendingManager = _manager (contracts/AlphaProVault.sol#802)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-90"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "missing-zero-check"
+      },
+      "taxonomy_id": "TAX-90",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-37e357be0314fa80",
+      "pattern_id": "TAX-90",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVaultFactory.constructor(address,address,uint24)._template (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- template = _template (contracts/AlphaProVaultFactory.sol#33)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVaultFactory.sol",
+        "line_start": 32,
+        "line_end": 32,
+        "contract": "constructor",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVaultFactory.constructor(address,address,uint24)._template (contracts/AlphaProVaultFactory.sol#32) lacks a zero-check on :\n\t\t- template = _template (contracts/AlphaProVaultFactory.sol#33)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-90"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "missing-zero-check"
+      },
+      "taxonomy_id": "TAX-90",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-801ff7a2853701d2",
+      "pattern_id": "TAX-90",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVaultFactory.setGovernance(address)._governance (contracts/AlphaProVaultFactory.sol#69) lacks a zero-check on :\n\t\t- pendingGovernance = _governance (contracts/AlphaProVaultFactory.sol#70)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVaultFactory.sol",
+        "line_start": 69,
+        "line_end": 69,
+        "contract": "setGovernance",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVaultFactory.setGovernance(address)._governance (contracts/AlphaProVaultFactory.sol#69) lacks a zero-check on :\n\t\t- pendingGovernance = _governance (contracts/AlphaProVaultFactory.sol#70)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-90"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "missing-zero-check"
+      },
+      "taxonomy_id": "TAX-90",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-a5ed5887fa8343c3",
+      "pattern_id": "TAX-90",
+      "detector": "slither:missing-zero-check",
+      "title": "Missing Zero Check",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.setRebalanceDelegate(address)._rebalanceDelegate (contracts/AlphaProVault.sol#806) lacks a zero-check on :\n\t\t- rebalanceDelegate = _rebalanceDelegate (contracts/AlphaProVault.sol#807)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 806,
+        "line_end": 806,
+        "contract": "setRebalanceDelegate",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault.setRebalanceDelegate(address)._rebalanceDelegate (contracts/AlphaProVault.sol#806) lacks a zero-check on :\n\t\t- rebalanceDelegate = _rebalanceDelegate (contracts/AlphaProVault.sol#807)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-90"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "missing-zero-check"
+      },
+      "taxonomy_id": "TAX-90",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-d8999a6944fe5a39",
+      "pattern_id": "TAX-77",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "severity": "Low",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp >= _lastTimestamp.add(period),PE) (contracts/AlphaProVault.sol#466)\n\t- require(bool,string)(_lastTimestamp == 0 || tickMove >= minTickMove,TM) (contracts/AlphaProVault.sol#471)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 462,
+        "line_end": 485,
+        "contract": "AlphaProVault",
+        "function": "checkCanRebalance"
+      },
+      "evidence": [
+        "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp >= _lastTimestamp.add(period),PE) (contracts/AlphaProVault.sol#466)\n\t- require(bool,string)(_lastTimestamp == 0 || tickMove >= minTickMove,TM) (contracts/AlphaProVault.sol#471)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-77"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "timestamp"
+      },
+      "taxonomy_id": "TAX-77",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::902bccb6e3a63479a6bcd50100622733938dc8b7a9a6ed990a8d905186fa2081",
+          "pattern_id": "VDB-578B70926A19",
+          "title": "lastTimeStamp can be manipulated in Mainvaul.sol",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-77",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "lastTimeStamp can be manipulated in Mainvaul.sol",
+            "severity": "Unknown",
+            "data_source_name": "sherlock-audit/2023-01-derby-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-01-derby-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-01-derby-judging/blob/main//false/336.md",
+            "body_sha256": "024aa9f618d4cb26aa110d645e1e2c74f694a5e199eb17321349faa79d7439ef"
+          }
+        },
+        {
+          "record_id": "vulndb::747b9aae9cc5050ff0a6a6e9f8fa770b4f3592d27a8aae1dc40d973c850f126f",
+          "pattern_id": "VDB-AAEA7865DA65",
+          "title": "lastTimeStamp can be manipulated in Game.sol",
+          "severity": "Medium",
+          "taxonomy_id": "TAX-77",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "lastTimeStamp can be manipulated in Game.sol",
+            "severity": "Medium",
+            "data_source_name": "sherlock-audit/2023-01-derby-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-01-derby-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-01-derby-judging/blob/main//038-M/344.md",
+            "body_sha256": "d6815e5728ba695a914b674de66b6f8b5bc6e047575f4996b3721bd45a831fae"
+          }
+        },
+        {
+          "record_id": "vulndb::6c5c136b4ed537a4fb7e131fa1c0cb115183dc53b8597be141b7a124985e4b09",
+          "pattern_id": "VDB-679E816F60BF",
+          "title": "6.6 Remapper Last_Timestamp Can Be Reset to 0",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-77",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "6.6 Remapper Last_Timestamp Can Be Reset to 0",
+            "severity": "Unknown",
+            "data_source_name": "ChainSecurity/ChainSecurity_Herodotus_Herodotus_on_Starknet_audit-2.pdf",
+            "data_source_repo": "https://chainsecurity.com/wp-content/uploads/2023/11/ChainSecurity_Herodotus_Herodotus_on_Starknet_audit-2.pdf",
+            "data_source_url": "https://chainsecurity.com/wp-content/uploads/2023/11/ChainSecurity_Herodotus_Herodotus_on_Starknet_audit-2.pdf",
+            "body_sha256": "650ce45d6d958655fcb465e7ceecaff856a37fd8a5fa0e4f09c5d739fa6e65c4"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-358b1c1421af3ad3",
+      "pattern_id": "TAX-28",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._floor(int24) (contracts/AlphaProVault.sol#500-504) performs a multiplication on the result of a division:\n\t- compressed = tick / tickSpacing (contracts/AlphaProVault.sol#501)\n\t- compressed * tickSpacing (contracts/AlphaProVault.sol#503)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 500,
+        "line_end": 504,
+        "contract": "AlphaProVault",
+        "function": "_floor"
+      },
+      "evidence": [
+        "AlphaProVault._floor(int24) (contracts/AlphaProVault.sol#500-504) performs a multiplication on the result of a division:\n\t- compressed = tick / tickSpacing (contracts/AlphaProVault.sol#501)\n\t- compressed * tickSpacing (contracts/AlphaProVault.sol#503)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-28"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "divide-before-multiply"
+      },
+      "taxonomy_id": "TAX-28",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::209f1d9b8f8dfe73825cd34498dd14d1542b682df0df0b9661654b20a93ae5a2",
+          "pattern_id": "VDB-A31FBCCB653F",
+          "title": "Possible precision loss in `_getTicksForPosition` function",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Possible precision loss in `_getTicksForPosition` function",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/132.md",
+            "body_sha256": "f3aca8e0fe68d1e3f661f83664d9a41bdc2ccae614d59d6d45616631f1c1ee0f"
+          }
+        },
+        {
+          "record_id": "vulndb::c69c5551759cb059ffa93971fa3e6a38ceac8e2858e9fa7a4977dc32aa2c9097",
+          "pattern_id": "VDB-532A1FE1573C",
+          "title": "Loss Of Precision Due To Division Before Multiplication",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Loss Of Precision Due To Division Before Multiplication",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/178.md",
+            "body_sha256": "7ba730efb30d45fd6e0679e141eb54846b278a1fa4b0a1b7398148b63590c6d6"
+          }
+        },
+        {
+          "record_id": "vulndb::d6bcb66dc7c116d2b9c27ff1f658aa8be115fb1ef978cfd20c9c879bc5bf83fa",
+          "pattern_id": "VDB-C09C5775CF46",
+          "title": "Division Before Multiplication in Multipool",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Division Before Multiplication in Multipool",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/054.md",
+            "body_sha256": "283aad84a3048697a2d51bd9c9b502290516776df395da87a48a6a5241c1b946"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-b823c90cf09d8496",
+      "pattern_id": "TAX-28",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullLower = (TickMath.MIN_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#169)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 144,
+        "line_end": 179,
+        "contract": "AlphaProVault",
+        "function": "initialize"
+      },
+      "evidence": [
+        "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullLower = (TickMath.MIN_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#169)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-28"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "divide-before-multiply"
+      },
+      "taxonomy_id": "TAX-28",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::209f1d9b8f8dfe73825cd34498dd14d1542b682df0df0b9661654b20a93ae5a2",
+          "pattern_id": "VDB-A31FBCCB653F",
+          "title": "Possible precision loss in `_getTicksForPosition` function",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Possible precision loss in `_getTicksForPosition` function",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/132.md",
+            "body_sha256": "f3aca8e0fe68d1e3f661f83664d9a41bdc2ccae614d59d6d45616631f1c1ee0f"
+          }
+        },
+        {
+          "record_id": "vulndb::d6bcb66dc7c116d2b9c27ff1f658aa8be115fb1ef978cfd20c9c879bc5bf83fa",
+          "pattern_id": "VDB-C09C5775CF46",
+          "title": "Division Before Multiplication in Multipool",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Division Before Multiplication in Multipool",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/054.md",
+            "body_sha256": "283aad84a3048697a2d51bd9c9b502290516776df395da87a48a6a5241c1b946"
+          }
+        },
+        {
+          "record_id": "vulndb::c69c5551759cb059ffa93971fa3e6a38ceac8e2858e9fa7a4977dc32aa2c9097",
+          "pattern_id": "VDB-532A1FE1573C",
+          "title": "Loss Of Precision Due To Division Before Multiplication",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Loss Of Precision Due To Division Before Multiplication",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/178.md",
+            "body_sha256": "7ba730efb30d45fd6e0679e141eb54846b278a1fa4b0a1b7398148b63590c6d6"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-c986e90dd2078090",
+      "pattern_id": "TAX-28",
+      "detector": "slither:divide-before-multiply",
+      "title": "Divide Before Multiply",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullUpper = (TickMath.MAX_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#170)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 144,
+        "line_end": 179,
+        "contract": "AlphaProVault",
+        "function": "initialize"
+      },
+      "evidence": [
+        "AlphaProVault.initialize(VaultParams,address) (contracts/AlphaProVault.sol#144-179) performs a multiplication on the result of a division:\n\t- fullUpper = (TickMath.MAX_TICK / _tickSpacing) * _tickSpacing (contracts/AlphaProVault.sol#170)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-28"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "divide-before-multiply"
+      },
+      "taxonomy_id": "TAX-28",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::209f1d9b8f8dfe73825cd34498dd14d1542b682df0df0b9661654b20a93ae5a2",
+          "pattern_id": "VDB-A31FBCCB653F",
+          "title": "Possible precision loss in `_getTicksForPosition` function",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Possible precision loss in `_getTicksForPosition` function",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/132.md",
+            "body_sha256": "f3aca8e0fe68d1e3f661f83664d9a41bdc2ccae614d59d6d45616631f1c1ee0f"
+          }
+        },
+        {
+          "record_id": "vulndb::d6bcb66dc7c116d2b9c27ff1f658aa8be115fb1ef978cfd20c9c879bc5bf83fa",
+          "pattern_id": "VDB-C09C5775CF46",
+          "title": "Division Before Multiplication in Multipool",
+          "severity": "High",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Division Before Multiplication in Multipool",
+            "severity": "High",
+            "data_source_name": "sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-real-wagmi-judging/blob/main//010-H/054.md",
+            "body_sha256": "283aad84a3048697a2d51bd9c9b502290516776df395da87a48a6a5241c1b946"
+          }
+        },
+        {
+          "record_id": "vulndb::c7055e2eb1a73663d4fbbd1e8716122da8b8bf8d852d4a0136b8a471a2ebddad",
+          "pattern_id": "VDB-160C2B0D4FB4",
+          "title": "Division by zero and Divide before multiply",
+          "severity": "Informational",
+          "taxonomy_id": "TAX-28",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Division by zero and Divide before multiply",
+            "severity": "Informational",
+            "data_source_name": "sherlock-audit/2023-07-kyber-swap-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-07-kyber-swap-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-07-kyber-swap-judging/blob/main//invalid/016.md",
+            "body_sha256": "96234a9fb460c371b19b9cb998a3c807b4759466c949b83879adc659133c62da"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-a684bb7110765116",
+      "pattern_id": "TAX-87",
+      "detector": "slither:uninitialized-local",
+      "title": "Uninitialized Local",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager1 (contracts/AlphaProVault.sol#548) is a local variable never initialized",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 548,
+        "line_end": 548,
+        "contract": "_burnAndCollect",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager1 (contracts/AlphaProVault.sol#548) is a local variable never initialized"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-87"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "uninitialized-local"
+      },
+      "taxonomy_id": "TAX-87",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-f6fa0538bb797c90",
+      "pattern_id": "TAX-87",
+      "detector": "slither:uninitialized-local",
+      "title": "Uninitialized Local",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager0 (contracts/AlphaProVault.sol#547) is a local variable never initialized",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 547,
+        "line_end": 547,
+        "contract": "_burnAndCollect",
+        "function": null
+      },
+      "evidence": [
+        "AlphaProVault._burnAndCollect(int24,int24,uint128).feesToManager0 (contracts/AlphaProVault.sol#547) is a local variable never initialized"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-87"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "variable",
+        "check": "uninitialized-local"
+      },
+      "taxonomy_id": "TAX-87",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-43d1fd2835622f7d",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (liquidity,feeGrowthInside0Last,feeGrowthInside1Last,None,None) = pool.positions(positionKey) (contracts/AlphaProPeriphery.sol#90-96)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProPeriphery.sol",
+        "line_start": 80,
+        "line_end": 138,
+        "contract": "AlphaProPeriphery",
+        "function": "getFees"
+      },
+      "evidence": [
+        "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (liquidity,feeGrowthInside0Last,feeGrowthInside1Last,None,None) = pool.positions(positionKey) (contracts/AlphaProPeriphery.sol#90-96)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-8456fd26a806cf87",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._liquidityForAmounts(int24,int24,uint256,uint256) (contracts/AlphaProVault.sol#653-668) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#659)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 653,
+        "line_end": 668,
+        "contract": "AlphaProVault",
+        "function": "_liquidityForAmounts"
+      },
+      "evidence": [
+        "AlphaProVault._liquidityForAmounts(int24,int24,uint256,uint256) (contracts/AlphaProVault.sol#653-668) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#659)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-41620db6d0c925a8",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#794)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 788,
+        "line_end": 795,
+        "contract": "AlphaProVault",
+        "function": "emergencyBurn"
+      },
+      "evidence": [
+        "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#794)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-abc66c6ed025a407",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#793)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 788,
+        "line_end": 795,
+        "contract": "AlphaProVault",
+        "function": "emergencyBurn"
+      },
+      "evidence": [
+        "AlphaProVault.emergencyBurn(int24,int24,uint128) (contracts/AlphaProVault.sol#788-795) ignores return value by pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#793)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-a6484b9a86c0f877",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (None,None,feeGrowthOutside0Upper,feeGrowthOutside1Upper,None,None,None,None) = pool.ticks(params.upperTick) (contracts/AlphaProPeriphery.sol#99-100)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProPeriphery.sol",
+        "line_start": 80,
+        "line_end": 138,
+        "contract": "AlphaProPeriphery",
+        "function": "getFees"
+      },
+      "evidence": [
+        "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (None,None,feeGrowthOutside0Upper,feeGrowthOutside1Upper,None,None,None,None) = pool.ticks(params.upperTick) (contracts/AlphaProPeriphery.sol#99-100)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-e33a65257f9baa90",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._poke(int24,int24) (contracts/AlphaProVault.sol#240-245) ignores return value by pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 240,
+        "line_end": 245,
+        "contract": "AlphaProVault",
+        "function": "_poke"
+      },
+      "evidence": [
+        "AlphaProVault._poke(int24,int24) (contracts/AlphaProVault.sol#240-245) ignores return value by pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-2b3a60dfe4372d63",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.getTwap() (contracts/AlphaProVault.sol#488-496) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (contracts/AlphaProVault.sol#494)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 488,
+        "line_end": 496,
+        "contract": "AlphaProVault",
+        "function": "getTwap"
+      },
+      "evidence": [
+        "AlphaProVault.getTwap() (contracts/AlphaProVault.sol#488-496) ignores return value by (tickCumulatives,None) = pool.observe(secondsAgo) (contracts/AlphaProVault.sol#494)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-f72350233c154f72",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#469)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 462,
+        "line_end": 485,
+        "contract": "AlphaProVault",
+        "function": "checkCanRebalance"
+      },
+      "evidence": [
+        "AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#469)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-e175c500abdf3cd9",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._amountsForLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#637-650) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#642)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 637,
+        "line_end": 650,
+        "contract": "AlphaProVault",
+        "function": "_amountsForLiquidity"
+      },
+      "evidence": [
+        "AlphaProVault._amountsForLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#637-650) ignores return value by (sqrtRatioX96,None,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#642)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-5b381fdceae80ab7",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (sqrtRatioX96,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProPeriphery.sol#84)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProPeriphery.sol",
+        "line_start": 80,
+        "line_end": 138,
+        "contract": "AlphaProPeriphery",
+        "function": "getFees"
+      },
+      "evidence": [
+        "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (sqrtRatioX96,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProPeriphery.sol#84)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-934b7bf1417bec6f",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault._mintLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#568-572) ignores return value by pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 568,
+        "line_end": 572,
+        "contract": "AlphaProVault",
+        "function": "_mintLiquidity"
+      },
+      "evidence": [
+        "AlphaProVault._mintLiquidity(int24,int24,uint128) (contracts/AlphaProVault.sol#568-572) ignores return value by pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-cda4e50ddd281ed9",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (None,None,feeGrowthOutside0Lower,feeGrowthOutside1Lower,None,None,None,None) = pool.ticks(params.lowerTick) (contracts/AlphaProPeriphery.sol#97-98)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProPeriphery.sol",
+        "line_start": 80,
+        "line_end": 138,
+        "contract": "AlphaProPeriphery",
+        "function": "getFees"
+      },
+      "evidence": [
+        "AlphaProPeriphery.getFees(GetFeesParams) (contracts/AlphaProPeriphery.sol#80-138) ignores return value by (None,None,feeGrowthOutside0Lower,feeGrowthOutside1Lower,None,None,None,None) = pool.ticks(params.lowerTick) (contracts/AlphaProPeriphery.sol#97-98)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-d9858c5d2bbc8ef7",
+      "pattern_id": "TAX-43",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#396)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460) ignores return value by (None,tick,None,None,None,None,None) = pool.slot0() (contracts/AlphaProVault.sol#396)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-43"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "unused-return"
+      },
+      "taxonomy_id": "TAX-43",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-0a8228b5ee8f3133",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-8395486ab32f413d",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-5ddbb7df78acabbd",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 196,
+        "line_end": 235,
+        "contract": "AlphaProVault",
+        "function": "deposit"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::886246d004eaee87313be2b1166610d787940cf3c254760937d2a4abe2e2aef0",
+          "pattern_id": "VDB-6204AD8F5ED8",
+          "title": "external re-entrant-able `_unwrapRefundETH` is called before tokenTransfer during _swapAndAddLiquidity on ArrakisRouter",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "external re-entrant-able `_unwrapRefundETH` is called before tokenTransfer during _swapAndAddLiquidity on ArrakisRouter",
+            "severity": "Unknown",
+            "data_source_name": "sherlock-audit/2023-06-arrakis-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-arrakis-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-arrakis-judging/blob/main//false/062.md",
+            "body_sha256": "87878defa5b60d04368687a2dd32edb2ec91f0589468c5e54d2d683ac1ae001d"
+          }
+        },
+        {
+          "record_id": "vulndb::a1b13deab077190148fd48e6eed6421f2f66cc8ffe1767fa39d76aa532927a0e",
+          "pattern_id": "VDB-843181DDDC42",
+          "title": "Changing `to.onFlashLoan()` to `msg.sender.onFlashLoan() `",
+          "severity": "Informational",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Changing `to.onFlashLoan()` to `msg.sender.onFlashLoan() `",
+            "severity": "Informational",
+            "data_source_name": "sherlock-audit/2023-10-aloe-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-10-aloe-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-10-aloe-judging/blob/main//invalid/021.md",
+            "body_sha256": "3c8d3721ab84926cd4946b4227b5b85d4e776ac841f5f09ed48e22d439e358d3"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-f24fab41535b3bb8",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-83e4407cf087036d",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 196,
+        "line_end": 235,
+        "contract": "AlphaProVault",
+        "function": "deposit"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal call allowing reentrancy:\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tBalance read before the call:\n\t- (shares,amount0,amount1) = _calcSharesAndAmounts(amount0Desired,amount1Desired) (contracts/AlphaProVault.sol#217)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(totalSupply() <= maxTotalSupply,maxTotalSupply) (contracts/AlphaProVault.sol#234)\n\t\t- stale variable `TMP_160`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::886246d004eaee87313be2b1166610d787940cf3c254760937d2a4abe2e2aef0",
+          "pattern_id": "VDB-6204AD8F5ED8",
+          "title": "external re-entrant-able `_unwrapRefundETH` is called before tokenTransfer during _swapAndAddLiquidity on ArrakisRouter",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "external re-entrant-able `_unwrapRefundETH` is called before tokenTransfer during _swapAndAddLiquidity on ArrakisRouter",
+            "severity": "Unknown",
+            "data_source_name": "sherlock-audit/2023-06-arrakis-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-06-arrakis-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-06-arrakis-judging/blob/main//false/062.md",
+            "body_sha256": "87878defa5b60d04368687a2dd32edb2ec91f0589468c5e54d2d683ac1ae001d"
+          }
+        },
+        {
+          "record_id": "vulndb::a1b13deab077190148fd48e6eed6421f2f66cc8ffe1767fa39d76aa532927a0e",
+          "pattern_id": "VDB-843181DDDC42",
+          "title": "Changing `to.onFlashLoan()` to `msg.sender.onFlashLoan() `",
+          "severity": "Informational",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Changing `to.onFlashLoan()` to `msg.sender.onFlashLoan() `",
+            "severity": "Informational",
+            "data_source_name": "sherlock-audit/2023-10-aloe-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2023-10-aloe-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2023-10-aloe-judging/blob/main//invalid/021.md",
+            "body_sha256": "3c8d3721ab84926cd4946b4227b5b85d4e776ac841f5f09ed48e22d439e358d3"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-ddb5e39b1a6d0dab",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount0 = getBalance0().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#307)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount0 >= amount0Min,amount0Min) (contracts/AlphaProVault.sol#333)\n\t\t- stale variable `amount0`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-3313b08a75465073",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-9dfdd6d847facbb1",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-balance",
+      "title": "Reentrancy Balance",
+      "severity": "High",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal call allowing reentrancy:\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tBalance read before the call:\n\t- amount1 = getBalance1().mul(shares).div(totalSupply) (contracts/AlphaProVault.sol#308)\n\tPossible stale balance used after the call in a condition:\n\t- require(bool,string)(amount1 >= amount1Min,amount1Min) (contracts/AlphaProVault.sol#334)\n\t\t- stale variable `amount1`"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-balance"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-0f2e03dc2e8c41b0",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseLower (contracts/AlphaProVault.sol#138) can be used in cross function reentrancies:\n\t- AlphaProVault.baseLower (contracts/AlphaProVault.sol#138)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseUpper (contracts/AlphaProVault.sol#139) can be used in cross function reentrancies:\n\t- AlphaProVault.baseUpper (contracts/AlphaProVault.sol#139)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseLower (contracts/AlphaProVault.sol#138) can be used in cross function reentrancies:\n\t- AlphaProVault.baseLower (contracts/AlphaProVault.sol#138)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- (baseLower,baseUpper) = (_baseLower,_baseUpper) (contracts/AlphaProVault.sol#437)\n\tAlphaProVault.baseUpper (contracts/AlphaProVault.sol#139) can be used in cross function reentrancies:\n\t- AlphaProVault.baseUpper (contracts/AlphaProVault.sol#139)\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-5646ec10b42232a0",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-f14354a17bf9fe10",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal calls:\n\t- _poke(fullLower,fullUpper) (contracts/AlphaProVault.sol#212)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(baseLower,baseUpper) (contracts/AlphaProVault.sol#213)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(limitLower,limitUpper) (contracts/AlphaProVault.sol#214)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tState variables written after the call(s):\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _balances[account] = _balances[account].add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#240)\n\tERC20Upgradeable._balances (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#37) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._transfer(address,address,uint256) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#214-223)\n\t- ERC20Upgradeable.balanceOf(address) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#109-111)\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _totalSupply = _totalSupply.add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#239)\n\tERC20Upgradeable._totalSupply (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#41) can be used in cross function reentrancies:\n\t- ERC20Upgradeable.totalSupply() (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#102-104)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 196,
+        "line_end": 235,
+        "contract": "AlphaProVault",
+        "function": "deposit"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.deposit(uint256,uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#196-235):\n\tExternal calls:\n\t- _poke(fullLower,fullUpper) (contracts/AlphaProVault.sol#212)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(baseLower,baseUpper) (contracts/AlphaProVault.sol#213)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- _poke(limitLower,limitUpper) (contracts/AlphaProVault.sol#214)\n\t\t- pool.burn(tickLower,tickUpper,0) (contracts/AlphaProVault.sol#243)\n\t- token0.safeTransferFrom(msg.sender,address(this),amount0) (contracts/AlphaProVault.sol#228)\n\t- token1.safeTransferFrom(msg.sender,address(this),amount1) (contracts/AlphaProVault.sol#229)\n\tState variables written after the call(s):\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _balances[account] = _balances[account].add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#240)\n\tERC20Upgradeable._balances (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#37) can be used in cross function reentrancies:\n\t- ERC20Upgradeable._transfer(address,address,uint256) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#214-223)\n\t- ERC20Upgradeable.balanceOf(address) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#109-111)\n\t- _mint(to,shares) (contracts/AlphaProVault.sol#232)\n\t\t- _totalSupply = _totalSupply.add(amount) (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#239)\n\tERC20Upgradeable._totalSupply (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#41) can be used in cross function reentrancies:\n\t- ERC20Upgradeable.totalSupply() (lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol#102-104)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::48b1b6bdb7039a146097216a5638c4ceeaf528d27b4b2545d54e3cb6b2af5ffd",
+          "pattern_id": "VDB-BF4D945C8F18",
+          "title": "The _totalSupply can be miscalculated in ERC4626Upgradeable.sol",
+          "severity": "Low",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "The _totalSupply can be miscalculated in ERC4626Upgradeable.sol",
+            "severity": "Low",
+            "data_source_name": "sherlock-audit/2022-10-rage-trade-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2022-10-rage-trade-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2022-10-rage-trade-judging/blob/main//low-info/038.md",
+            "body_sha256": "da9c1a1df52d8d5ffa795c2b3fbaa59fc036907fe1ce03597867b47eb05e95a3"
+          }
+        },
+        {
+          "record_id": "vulndb::c2b67a3229a1b284fcf6b7f6cda298e949d0249cbdba7cd468ee13d4e420b80f",
+          "pattern_id": "VDB-CFBB54148797",
+          "title": "QA Report",
+          "severity": "Unknown",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "QA Report",
+            "severity": "Unknown",
+            "data_source_name": "code-423n4/2022-03-prepo-findings",
+            "data_source_repo": "https://github.com/code-423n4/2022-03-prepo-findings",
+            "data_source_url": "https://github.com/code-423n4/2022-03-prepo-findings/issues/104",
+            "body_sha256": "356fc0a56abead0521d11f4b3672dfd2d99e68551f9adf0c8d4768cfe425ece7"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-aab95e2aef6b3a4f",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_bidLower,_bidUpper,bidLiquidity) (contracts/AlphaProVault.sol#446)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (limitLower,limitUpper) = (_bidLower,_bidUpper) (contracts/AlphaProVault.sol#447)\n\tAlphaProVault.limitLower (contracts/AlphaProVault.sol#140) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitLower (contracts/AlphaProVault.sol#140)\n\t- (limitLower,limitUpper) = (_bidLower,_bidUpper) (contracts/AlphaProVault.sol#447)\n\tAlphaProVault.limitUpper (contracts/AlphaProVault.sol#141) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitUpper (contracts/AlphaProVault.sol#141)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_bidLower,_bidUpper,bidLiquidity) (contracts/AlphaProVault.sol#446)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (limitLower,limitUpper) = (_bidLower,_bidUpper) (contracts/AlphaProVault.sol#447)\n\tAlphaProVault.limitLower (contracts/AlphaProVault.sol#140) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitLower (contracts/AlphaProVault.sol#140)\n\t- (limitLower,limitUpper) = (_bidLower,_bidUpper) (contracts/AlphaProVault.sol#447)\n\tAlphaProVault.limitUpper (contracts/AlphaProVault.sol#141) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitUpper (contracts/AlphaProVault.sol#141)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-378e223950f5d162",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": [
+        {
+          "record_id": "vulndb::cd089998e6eda0d07abdc6869ee8b5e5bd31a211ba391a5a0523c4646d23136a",
+          "pattern_id": "VDB-5859A5913A6A",
+          "title": "Missing ReEntrancy Guard to `mint` function",
+          "severity": "Medium",
+          "taxonomy_id": "TAX-14",
+          "provenance": {
+            "source": "smart-contract-vulndb",
+            "repository": "https://github.com/tintinweb/smart-contract-vulndb",
+            "source_commit": "2bad174547d80cd090fb5065fb609922a2b74188",
+            "title": "Missing ReEntrancy Guard to `mint` function",
+            "severity": "Medium",
+            "data_source_name": "sherlock-audit/2022-10-nftport-judging",
+            "data_source_repo": "https://github.com/sherlock-audit/2022-10-nftport-judging",
+            "data_source_url": "https://github.com/sherlock-audit/2022-10-nftport-judging/blob/main//008-M/037.md",
+            "body_sha256": "13d829df60c15ecb4c0b09d882d00117615c38058daebefd0f7b5ab7737fba91"
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-9539c5f27d647034",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 293,
+        "line_end": 341,
+        "contract": "AlphaProVault",
+        "function": "withdraw"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.withdraw(uint256,uint256,uint256,address) (contracts/AlphaProVault.sol#293-341):\n\tExternal calls:\n\t- (fullAmount0,fullAmount1) = _burnLiquidityShare(fullLower,fullUpper,shares,totalSupply) (contracts/AlphaProVault.sol#311-316)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (baseAmount0,baseAmount1) = _burnLiquidityShare(baseLower,baseUpper,shares,totalSupply) (contracts/AlphaProVault.sol#317-322)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- (limitAmount0,limitAmount1) = _burnLiquidityShare(limitLower,limitUpper,shares,totalSupply) (contracts/AlphaProVault.sol#323-328)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-c54dcf1d9614c6c2",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\tState variables written after the call(s):\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedManagerFees0 = accruedManagerFees0.add(feesToManager0) (contracts/AlphaProVault.sol#552)\n\tAlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees0 (contracts/AlphaProVault.sol#121)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedManagerFees1 = accruedManagerFees1.add(feesToManager1) (contracts/AlphaProVault.sol#553)\n\tAlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedManagerFees1 (contracts/AlphaProVault.sol#122)\n\t- AlphaProVault.collectManager(address) (contracts/AlphaProVault.sol#715-723)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedProtocolFees0 = accruedProtocolFees0.add(feesToProtocol0) (contracts/AlphaProVault.sol#542)\n\tAlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees0 (contracts/AlphaProVault.sol#119)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance0() (contracts/AlphaProVault.sol#614-617)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- accruedProtocolFees1 = accruedProtocolFees1.add(feesToProtocol1) (contracts/AlphaProVault.sol#543)\n\tAlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120) can be used in cross function reentrancies:\n\t- AlphaProVault.accruedProtocolFees1 (contracts/AlphaProVault.sol#120)\n\t- AlphaProVault.collectProtocol(address) (contracts/AlphaProVault.sol#701-710)\n\t- AlphaProVault.getBalance1() (contracts/AlphaProVault.sol#622-625)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-4be8a1e2bf5ce486",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_bidLower,_bidUpper,bidLiquidity) (contracts/AlphaProVault.sol#446)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_askLower,_askUpper,askLiquidity) (contracts/AlphaProVault.sol#449)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- lastTick = tick (contracts/AlphaProVault.sol#454)\n\tAlphaProVault.lastTick (contracts/AlphaProVault.sol#142) can be used in cross function reentrancies:\n\t- AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485)\n\t- AlphaProVault.lastTick (contracts/AlphaProVault.sol#142)\n\t- lastTimestamp = block.timestamp (contracts/AlphaProVault.sol#453)\n\tAlphaProVault.lastTimestamp (contracts/AlphaProVault.sol#123) can be used in cross function reentrancies:\n\t- AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485)\n\t- AlphaProVault.lastTimestamp (contracts/AlphaProVault.sol#123)\n\t- managerFee = pendingManagerFee (contracts/AlphaProVault.sol#459)\n\tAlphaProVault.managerFee (contracts/AlphaProVault.sol#127) can be used in cross function reentrancies:\n\t- AlphaProVault.getPositionAmounts(int24,int24) (contracts/AlphaProVault.sol#595-609)\n\t- AlphaProVault.managerFee (contracts/AlphaProVault.sol#127)\n\t- protocolFee = factory.protocolFee() (contracts/AlphaProVault.sol#458)\n\tAlphaProVault.protocolFee (contracts/AlphaProVault.sol#126) can be used in cross function reentrancies:\n\t- AlphaProVault.getPositionAmounts(int24,int24) (contracts/AlphaProVault.sol#595-609)\n\t- AlphaProVault.protocolFee (contracts/AlphaProVault.sol#126)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_bidLower,_bidUpper,bidLiquidity) (contracts/AlphaProVault.sol#446)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_askLower,_askUpper,askLiquidity) (contracts/AlphaProVault.sol#449)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- lastTick = tick (contracts/AlphaProVault.sol#454)\n\tAlphaProVault.lastTick (contracts/AlphaProVault.sol#142) can be used in cross function reentrancies:\n\t- AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485)\n\t- AlphaProVault.lastTick (contracts/AlphaProVault.sol#142)\n\t- lastTimestamp = block.timestamp (contracts/AlphaProVault.sol#453)\n\tAlphaProVault.lastTimestamp (contracts/AlphaProVault.sol#123) can be used in cross function reentrancies:\n\t- AlphaProVault.checkCanRebalance() (contracts/AlphaProVault.sol#462-485)\n\t- AlphaProVault.lastTimestamp (contracts/AlphaProVault.sol#123)\n\t- managerFee = pendingManagerFee (contracts/AlphaProVault.sol#459)\n\tAlphaProVault.managerFee (contracts/AlphaProVault.sol#127) can be used in cross function reentrancies:\n\t- AlphaProVault.getPositionAmounts(int24,int24) (contracts/AlphaProVault.sol#595-609)\n\t- AlphaProVault.managerFee (contracts/AlphaProVault.sol#127)\n\t- protocolFee = factory.protocolFee() (contracts/AlphaProVault.sol#458)\n\tAlphaProVault.protocolFee (contracts/AlphaProVault.sol#126) can be used in cross function reentrancies:\n\t- AlphaProVault.getPositionAmounts(int24,int24) (contracts/AlphaProVault.sol#595-609)\n\t- AlphaProVault.protocolFee (contracts/AlphaProVault.sol#126)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    },
+    {
+      "schema_version": "1.0",
+      "finding_id": "sl-4a8b5c753d3304fa",
+      "pattern_id": "TAX-14",
+      "detector": "slither:reentrancy-no-eth",
+      "title": "Reentrancy No Eth",
+      "severity": "Medium",
+      "confidence": "medium",
+      "result_mode": "candidate",
+      "description": "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_askLower,_askUpper,askLiquidity) (contracts/AlphaProVault.sol#449)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (limitLower,limitUpper) = (_askLower,_askUpper) (contracts/AlphaProVault.sol#450)\n\tAlphaProVault.limitLower (contracts/AlphaProVault.sol#140) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitLower (contracts/AlphaProVault.sol#140)\n\t- (limitLower,limitUpper) = (_askLower,_askUpper) (contracts/AlphaProVault.sol#450)\n\tAlphaProVault.limitUpper (contracts/AlphaProVault.sol#141) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitUpper (contracts/AlphaProVault.sol#141)",
+      "location": {
+        "file": "../charm-audit/contracts/AlphaProVault.sol",
+        "line_start": 374,
+        "line_end": 460,
+        "contract": "AlphaProVault",
+        "function": "rebalance"
+      },
+      "evidence": [
+        "Reentrancy in AlphaProVault.rebalance() (contracts/AlphaProVault.sol#374-460):\n\tExternal calls:\n\t- _burnAndCollect(_fullLower,_fullUpper,fullLiquidity) (contracts/AlphaProVault.sol#390)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(baseLower,baseUpper,baseLiquidity) (contracts/AlphaProVault.sol#391)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _burnAndCollect(limitLower,limitUpper,limitLiquidity) (contracts/AlphaProVault.sol#392)\n\t\t- (burned0,burned1) = pool.burn(tickLower,tickUpper,liquidity) (contracts/AlphaProVault.sol#523)\n\t\t- (collect0,collect1) = pool.collect(address(this),tickLower,tickUpper,type()(uint128).max,type()(uint128).max) (contracts/AlphaProVault.sol#527-533)\n\t- _mintLiquidity(_fullLower,_fullUpper,fullLiquidity_scope_0) (contracts/AlphaProVault.sol#423)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_baseLower,_baseUpper,baseLiquidity_scope_1) (contracts/AlphaProVault.sol#436)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\t- _mintLiquidity(_askLower,_askUpper,askLiquidity) (contracts/AlphaProVault.sol#449)\n\t\t- pool.mint(address(this),tickLower,tickUpper,liquidity,) (contracts/AlphaProVault.sol#570)\n\tState variables written after the call(s):\n\t- (limitLower,limitUpper) = (_askLower,_askUpper) (contracts/AlphaProVault.sol#450)\n\tAlphaProVault.limitLower (contracts/AlphaProVault.sol#140) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitLower (contracts/AlphaProVault.sol#140)\n\t- (limitLower,limitUpper) = (_askLower,_askUpper) (contracts/AlphaProVault.sol#450)\n\tAlphaProVault.limitUpper (contracts/AlphaProVault.sol#141) can be used in cross function reentrancies:\n\t- AlphaProVault.getTotalAmounts() (contracts/AlphaProVault.sol#579-588)\n\t- AlphaProVault.limitUpper (contracts/AlphaProVault.sol#141)"
+      ],
+      "remediation": "Review the cited path and add the required validation, authorization, domain binding, bound, or invariant guard.",
+      "provenance": {
+        "slither_native": true,
+        "taxonomy_id": "TAX-14"
+      },
+      "native_overlap": "native",
+      "raw": {
+        "element_type": "function",
+        "check": "reentrancy-no-eth"
+      },
+      "taxonomy_id": "TAX-14",
+      "knowledge_evidence": []
+    }
+  ]
+}

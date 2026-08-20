@@ -1,0 +1,97 @@
+{
+  "finding_id": "sl-ddc07ad64344b9fc",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "PendlePYOracleLib.getSYandPYIndexCurrent(IPMarket)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "PendlePYOracleLib.getSYandPYIndexCurrent(IPMarket)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "PTWithPriceFeed.latestRoundData()",
+        "PendlePYLpOracle.getPtToAssetRate(address,uint32)",
+        "PendlePYLpOracle.getPtToSyRate(address,uint32)",
+        "PendlePYLpOracle.getYtToAssetRate(address,uint32)",
+        "PendlePYLpOracle.getYtToSyRate(address,uint32)",
+        "TermMaxPTPriceFeed.latestRoundData()"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "PTWithPriceFeed.latestRoundData()",
+        "PendlePYOracleLib.getSYandPYIndexCurrent(IPMarket)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-baffc07fd2e8926f",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-baffc07fd2e8926f",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/dependencies/pendle-core-v2-1.0.0/contracts/oracles/PtYtLpOracle/PendlePYOracleLib.sol:82",
+    "AccessControlIndex: no guard on PendlePYOracleLib.getSYandPYIndexCurrent(IPMarket) but no state write detected",
+    "ReachabilityIndex: PendlePYOracleLib.getSYandPYIndexCurrent(IPMarket) reachable via unguarded callers ['PTWithPriceFeed.latestRoundData()', 'PendlePYLpOracle.getPtToAssetRate(address,uint32)', 'PendlePYLpOracle.getPtToSyRate(address,uint32)', 'PendlePYLpOracle.getYtToAssetRate(address,uint32)', 'PendlePYLpOracle.getYtToSyRate(address,uint32)', 'TermMaxPTPriceFeed.latestRoundData()']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

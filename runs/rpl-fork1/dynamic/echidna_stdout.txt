@@ -1,0 +1,3 @@
+[2026-08-19 21:05:38.10] Compiling `/mnt/data/rpl-audit`... Done! (7.116632342s)
+Multiple contracts found, only analyzing the first
+Analyzing contract: /mnt/data/rpl-audit/contracts/contract/RocketBase.sol:RocketBase

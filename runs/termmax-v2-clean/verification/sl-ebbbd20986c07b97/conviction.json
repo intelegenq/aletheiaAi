@@ -1,0 +1,92 @@
+{
+  "finding_id": "sl-ebbbd20986c07b97",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "UniswapV3Adapter._swap(IERC20,IERC20,uint256,bytes)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "UniswapV3Adapter._swap(IERC20,IERC20,uint256,bytes)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "ERC20SwapAdapter.swap(address,address,bytes,bytes)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "ERC20SwapAdapter.swap(address,address,bytes,bytes)",
+        "UniswapV3Adapter._swap(IERC20,IERC20,uint256,bytes)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d60b1cf5802df9c6",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d60b1cf5802df9c6",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/router/swapAdapters/UniswapV3Adapter.sol:19",
+    "AccessControlIndex: no guard on UniswapV3Adapter._swap(IERC20,IERC20,uint256,bytes) but no state write detected",
+    "ReachabilityIndex: UniswapV3Adapter._swap(IERC20,IERC20,uint256,bytes) reachable via unguarded callers ['ERC20SwapAdapter.swap(address,address,bytes,bytes)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "finding_id": "sl-30af483ad47a8986",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxVault._previewAccruedPeriodInterest(uint256,uint256,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxVault._previewAccruedPeriodInterest(uint256,uint256,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "ERC4626Upgradeable._convertToAssets(uint256,Math.Rounding)",
+        "ERC4626Upgradeable._convertToShares(uint256,Math.Rounding)",
+        "ERC4626Upgradeable.convertToAssets(uint256)",
+        "ERC4626Upgradeable.convertToShares(uint256)",
+        "ERC4626Upgradeable.deposit(uint256,address)",
+        "ERC4626Upgradeable.maxWithdraw(address)",
+        "ERC4626Upgradeable.mint(uint256,address)",
+        "ERC4626Upgradeable.previewDeposit(uint256)",
+        "ERC4626Upgradeable.previewMint(uint256)",
+        "ERC4626Upgradeable.previewRedeem(uint256)",
+        "ERC4626Upgradeable.previewWithdraw(uint256)",
+        "ERC4626Upgradeable.redeem(uint256,address,address)",
+        "ERC4626Upgradeable.withdraw(uint256,address,address)",
+        "TermMaxVault._previewAccruedInterest()",
+        "TermMaxVault.accretingPrincipal()",
+        "TermMaxVault.dealBadDebt(address,uint256,address,address)",
+        "TermMaxVault.maxDeposit(address)",
+        "TermMaxVault.maxMint(address)",
+        "TermMaxVault.performanceFee()",
+        "TermMaxVault.totalAssets()"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "ERC4626Upgradeable._convertToAssets(uint256,Math.Rounding)",
+        "TermMaxVault._previewAccruedPeriodInterest(uint256,uint256,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-ed2081b1fde7e37d",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-ed2081b1fde7e37d",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/vault/TermMaxVault.sol:733",
+    "AccessControlIndex: no guard on TermMaxVault._previewAccruedPeriodInterest(uint256,uint256,uint256) but no state write detected",
+    "ReachabilityIndex: TermMaxVault._previewAccruedPeriodInterest(uint256,uint256,uint256) reachable via unguarded callers ['ERC4626Upgradeable._convertToAssets(uint256,Math.Rounding)', 'ERC4626Upgradeable._convertToShares(uint256,Math.Rounding)', 'ERC4626Upgradeable.convertToAssets(uint256)', 'ERC4626Upgradeable.convertToShares(uint256)', 'ERC4626Upgradeable.deposit(uint256,address)', 'ERC4626Upgradeable.maxWithdraw(address)', 'ERC4626Upgradeable.mint(uint256,address)', 'ERC4626Upgradeable.previewDeposit(uint256)', 'ERC4626Upgradeable.previewMint(uint256)', 'ERC4626Upgradeable.previewRedeem(uint256)', 'ERC4626Upgradeable.previewWithdraw(uint256)', 'ERC4626Upgradeable.redeem(uint256,address,address)', 'ERC4626Upgradeable.withdraw(uint256,address,address)', 'TermMaxVault._previewAccruedInterest()', 'TermMaxVault.accretingPrincipal()', 'TermMaxVault.dealBadDebt(address,uint256,address,address)', 'TermMaxVault.maxDeposit(address)', 'TermMaxVault.maxMint(address)', 'TermMaxVault.performanceFee()', 'TermMaxVault.totalAssets()']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

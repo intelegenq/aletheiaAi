@@ -1,0 +1,130 @@
+{
+  "finding_id": "sl-aea64c6e863fd024",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketBase.addUint(bytes32,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketBase.addUint(bytes32,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "RocketClaimDAO._payOutContract(string)",
+        "RocketClaimDAO.payOutContracts(string[])",
+        "RocketClaimDAO.payOutContractsAndWithdraw(string[])",
+        "RocketClaimDAO.updateContract(string,address,uint256,uint256,uint256)",
+        "RocketDAONodeTrustedUpgrade.upgrade(string,string,string,address)",
+        "RocketDAOProtocolProposal._vote(address,uint256,uint256,RocketDAOProtocolProposalInterface.VoteDirection,bool)",
+        "RocketDAOProtocolProposal.overrideVote(uint256,RocketDAOProtocolProposalInterface.VoteDirection)",
+        "RocketDAOProtocolProposal.vote(uint256,RocketDAOProtocolProposalInterface.VoteDirection,uint256,uint256,Types.Node[])",
+        "RocketDepositPool._increaseETHBorrowed(address,uint256)",
+        "RocketDepositPool.applyCredit(address,uint256)",
+        "RocketDepositPool.nodeDeposit(uint256)",
+        "RocketDepositPool.reduceBond(address,uint256)",
+        "RocketDepositPool.requestFunds(uint256,uint32,uint256,bool)",
+        "RocketMerkleDistributorMainnet._claimAndStake(address,Claim[],uint256)",
+        "RocketMerkleDistributorMainnet.claim(address,Claim[])",
+        "RocketMerkleDistributorMainnet.claimAndStake(address,Claim[],uint256)",
+        "RocketMinipoolManager.incrementNodeFinalisedMinipoolCount(address)",
+        "RocketMinipoolManager.incrementNodeStakingMinipoolCount(address)",
+        "RocketMinipoolManager.updateNodeStakingMinipoolCount(uint256,uint256,uint256,uint256)",
+        "RocketNodeDeposit.depositEthFor(address)",
+        "RocketNodeDeposit.increaseDepositCreditBalance(address,uint256)",
+        "RocketNodeManager.addUnclaimedRewards(address)",
+        "RocketNodeManager.refundExpressTicket(address)",
+        "RocketNodeStaking._increaseNodeRPLStake(address,uint256)",
+        "RocketNodeStaking._stakeRPLFor(address,uint256)",
+        "RocketNodeStaking._unstakeLegacyRPL(address,uint256)",
+        "RocketNodeStaking._unstakeRPLFor(address,uint256)",
+        "RocketNodeStaking.stakeRPL(uint256)",
+        "RocketNodeStaking.stakeRPLFor(address,uint256)",
+        "RocketNodeStaking.transferRPL(address,address,uint256)",
+        "RocketNodeStaking.unstakeLegacyRPL(uint256)",
+        "RocketNodeStaking.unstakeLegacyRPLFor(address,uint256)",
+        "RocketNodeStaking.unstakeRPL(uint256)",
+        "RocketNodeStaking.unstakeRPLFor(address,uint256)",
+        "RocketRewardsPool._executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool._incrementRewardIndex()",
+        "RocketRewardsPool.executeRewardSnapshot(RewardSubmission)",
+        "RocketRewardsPool.submitRewardSnapshot(RewardSubmission)",
+        "StakeHelper.addLegacyStakedRPL(address,uint256)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketClaimDAO._payOutContract(string)",
+        "RocketBase.addUint(bytes32,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-7b3c963afa51570d",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-7b3c963afa51570d",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/RocketBase.sol:178",
+    "AccessControlIndex: no guard on RocketBase.addUint(bytes32,uint256) but no state write detected",
+    "ReachabilityIndex: RocketBase.addUint(bytes32,uint256) reachable via unguarded callers ['RocketClaimDAO._payOutContract(string)', 'RocketDAOProtocolProposal._vote(address,uint256,uint256,RocketDAOProtocolProposalInterface.VoteDirection,bool)', 'RocketDepositPool._increaseETHBorrowed(address,uint256)', 'RocketMerkleDistributorMainnet.claim(address,Claim[])', 'RocketMerkleDistributorMainnet.claimAndStake(address,Claim[],uint256)', 'RocketNodeStaking._increaseNodeRPLStake(address,uint256)', 'RocketNodeStaking._stakeRPLFor(address,uint256)', 'RocketNodeStaking._unstakeLegacyRPL(address,uint256)', 'RocketNodeStaking._unstakeRPLFor(address,uint256)', 'RocketNodeStaking.unstakeLegacyRPL(uint256)', 'RocketNodeStaking.unstakeRPL(uint256)', 'RocketRewardsPool._executeRewardSnapshot(RewardSubmission)', 'RocketRewardsPool._incrementRewardIndex()', 'StakeHelper.addLegacyStakedRPL(address,uint256)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "finding_id": "sl-2a754472b6843d82",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "_balances",
+      "_totalSupply",
+      "borrowBalancesMock",
+      "cashMock",
+      "totalBorrowsMock"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "MockVToken.liquidateBorrow(address,uint256,address)",
+    "state_variables": [
+      "_balances",
+      "_totalSupply",
+      "borrowBalancesMock",
+      "cashMock",
+      "totalBorrowsMock"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "MockVToken.liquidateBorrow(address,uint256,address)",
+      "state_writes": [
+        "_balances",
+        "_totalSupply",
+        "borrowBalancesMock",
+        "cashMock",
+        "totalBorrowsMock"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "MockVToken.liquidateBorrow(address,uint256,address)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "MockVToken.liquidateBorrow(address,uint256,address)",
+        "_balances,_totalSupply,borrowBalancesMock,cashMock,totalBorrowsMock storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-e65dac3d6c652015",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-e65dac3d6c652015",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/mocks/MockVToken.sol:164",
+    "AccessControlIndex: no guard on MockVToken.liquidateBorrow(address,uint256,address), writes state ['_balances', '_totalSupply', 'borrowBalancesMock', 'cashMock', 'totalBorrowsMock']",
+    "ReachabilityIndex: MockVToken.liquidateBorrow(address,uint256,address) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

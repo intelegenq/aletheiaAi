@@ -1,0 +1,2 @@
+[2026-08-19 22:19:10.46] Compiling `/mnt/data/rpl-audit/test/generated/RocketDAOSecurityProposalsInvariantTest.sol`... Done! (2.561323538s)
+Analyzing contract: /mnt/data/rpl-audit/test/generated/RocketDAOSecurityProposalsInvariantTest.sol:RocketDAOSecurityProposalsInvariantTest

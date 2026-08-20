@@ -1,0 +1,95 @@
+{
+  "finding_id": "sl-bc1540f08160921b",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "TermMaxMarketV2._checkDeadline()",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "TermMaxMarketV2._checkDeadline()",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "TermMaxMarketV2._redeem(address,address,address,uint256)",
+        "TermMaxMarketV2.previewRedeem(uint256)",
+        "TermMaxMarketV2.redeem(address,address,uint256)",
+        "TermMaxMarketV2.redeem(uint256,address)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "TermMaxMarketV2._redeem(address,address,address,uint256)",
+        "TermMaxMarketV2._checkDeadline()"
+      ]
+    }
+  },
+  "root_cause_id": "rc-9b43763300560db7",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-9b43763300560db7",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/TermMaxMarketV2.sol:419",
+    "AccessControlIndex: no guard on TermMaxMarketV2._checkDeadline() but no state write detected",
+    "ReachabilityIndex: TermMaxMarketV2._checkDeadline() reachable via unguarded callers ['TermMaxMarketV2._redeem(address,address,address,uint256)', 'TermMaxMarketV2.previewRedeem(uint256)', 'TermMaxMarketV2.redeem(address,address,uint256)', 'TermMaxMarketV2.redeem(uint256,address)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": "aletheia.report.v1",
+  "platform": "immunefi",
+  "policy": "default",
+  "count": 0,
+  "findings": []
+}

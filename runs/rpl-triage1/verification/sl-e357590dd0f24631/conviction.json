@@ -1,0 +1,119 @@
+{
+  "finding_id": "sl-e357590dd0f24631",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketBase.setUint(bytes32,uint256)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketBase.setUint(bytes32,uint256)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "AddressQueueStorage.dequeueItem(bytes32)",
+        "AddressQueueStorage.enqueueItem(bytes32,address)",
+        "AddressQueueStorage.removeItem(bytes32,address)",
+        "AddressSetStorage.addItem(bytes32,address)",
+        "AddressSetStorage.removeItem(bytes32,address)",
+        "RocketAuctionManager.claimBid(uint256)",
+        "RocketAuctionManager.createLot()",
+        "RocketAuctionManager.setLotAddressBidAmount(uint256,address,uint256)",
+        "RocketAuctionManager.setLotCount(uint256)",
+        "RocketDAONodeTrustedActions._memberAdd(address,uint256)",
+        "RocketDAONodeTrustedActions._memberJoin(address)",
+        "RocketDAONodeTrustedActions.actionChallengeMake(address)",
+        "RocketDAONodeTrustedActions.actionJoin()",
+        "RocketDAONodeTrustedActions.actionJoinRequired(address)",
+        "RocketDAONodeTrustedProposals._memberInit(string,string,address)",
+        "RocketDAONodeTrustedProposals.proposalInvite(string,string,address)",
+        "RocketDAONodeTrustedProposals.proposalKick(address,uint256)",
+        "RocketDAONodeTrustedProposals.proposalLeave(address)",
+        "RocketDAONodeTrustedProposals.propose(string,bytes)",
+        "RocketDAONodeTrustedSettings.setSettingUint(string,uint256)",
+        "RocketDAONodeTrustedSettingsMembers.constructor(RocketStorageInterface)",
+        "RocketDAONodeTrustedSettingsMembers.setSettingUint(string,uint256)",
+        "RocketDAONodeTrustedSettingsMinipool.constructor(RocketStorageInterface)",
+        "RocketDAONodeTrustedSettingsMinipool.setSettingUint(string,uint256)",
+        "RocketDAONodeTrustedSettingsProposals.constructor(RocketStorageInterface)",
+        "RocketDAOProposal.add(address,string,string,uint256,uint256,uint256,uint256,bytes)",
+        "RocketDAOProposal.vote(address,uint256,uint256,bool)",
+        "RocketMinipoolPenalty.setPenaltyRate(address,uint256)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "AddressQueueStorage.dequeueItem(bytes32)",
+        "RocketBase.setUint(bytes32,uint256)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-03dfa7594224b7a6",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-03dfa7594224b7a6",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/RocketBase.sol:161",
+    "AccessControlIndex: no guard on RocketBase.setUint(bytes32,uint256) but no state write detected",
+    "ReachabilityIndex: RocketBase.setUint(bytes32,uint256) reachable via unguarded callers ['RocketAuctionManager.setLotAddressBidAmount(uint256,address,uint256)', 'RocketAuctionManager.setLotCount(uint256)', 'RocketDAONodeTrustedActions._memberJoin(address)', 'RocketDAONodeTrustedSettingsMembers.constructor(RocketStorageInterface)', 'RocketDAONodeTrustedSettingsMinipool.constructor(RocketStorageInterface)', 'RocketDAONodeTrustedSettingsProposals.constructor(RocketStorageInterface)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

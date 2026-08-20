@@ -1,0 +1,1464 @@
+{
+  "schema_version": "aletheia.unified-finding.v1",
+  "count": 35,
+  "findings": [
+    {
+      "finding_id": "sl-c63246d297ae3845",
+      "fingerprint": "sl-c63246d297ae3845",
+      "engine": "slither",
+      "detector": "slither:reentrancy-eth",
+      "title": "Reentrancy Eth",
+      "description": "Reentrancy in RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417):\n\tExternal calls:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#397)\n\t\t- rocketNetworkRevenues.setNodeCapitalRatio(nodeAddress,capitalRatio) (contracts/contract/megapool/RocketMegapoolDelegate.sol#796)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tExternal calls sending eth:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#397)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tState variables written after the call(s):\n\t- assignedValue -= recycleValue (contracts/contract/megapool/RocketMegapoolDelegate.sol#399)\n\tRocketMegapoolStorageLayout.assignedValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#65) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate.assignFunds(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#300-331)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getAssignedValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#118-120)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363)\n\t- _increaseDebt(shortFall) (contracts/contract/megapool/RocketMegapoolDelegate.sol#405)\n\t\t- debt += _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#730)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)",
+      "vulnerability_class": "TAX-14",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol",
+        "line_start": 368,
+        "line_end": 417,
+        "contract": "RocketMegapoolDelegate",
+        "function": "dissolveValidator"
+      },
+      "evidence": [
+        "Reentrancy in RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417):\n\tExternal calls:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#397)\n\t\t- rocketNetworkRevenues.setNodeCapitalRatio(nodeAddress,capitalRatio) (contracts/contract/megapool/RocketMegapoolDelegate.sol#796)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tExternal calls sending eth:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#397)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tState variables written after the call(s):\n\t- assignedValue -= recycleValue (contracts/contract/megapool/RocketMegapoolDelegate.sol#399)\n\tRocketMegapoolStorageLayout.assignedValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#65) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate.assignFunds(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#300-331)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getAssignedValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#118-120)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363)\n\t- _increaseDebt(shortFall) (contracts/contract/megapool/RocketMegapoolDelegate.sol#405)\n\t\t- debt += _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#730)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)",
+        "Reentrancy in RocketMegapoolDelegate.distribute() (contracts/contract/megapool/RocketMegapoolDelegate.sol#434-443):\n\tExternal calls:\n\t- _distributeAmount(getPendingRewards()) (contracts/contract/megapool/RocketMegapoolDelegate.sol#438)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\t- _claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#441)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- (success,None) = nodeWithdrawalAddress.call{value: amountToSend}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#511)\n\tState variables written after the call(s):\n\t- _claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#441)\n\t\t- debt -= _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#736)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- _claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#441)\n\t\t- refundValue = 0 (contracts/contract/megapool/RocketMegapoolDelegate.sol#507)\n\tRocketMegapoolStorageLayout.refundValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#66) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.getRefundValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#128-130)",
+        "Reentrancy in RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431):\n\tExternal calls:\n\t- _sendToRETH(_amount) (contracts/contract/megapool/RocketMegapoolDelegate.sol#429)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\tState variables written after the call(s):\n\t- _reduceDebt(_amount) (contracts/contract/megapool/RocketMegapoolDelegate.sol#430)\n\t\t- debt -= _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#736)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)",
+        "Reentrancy in RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363):\n\tExternal calls:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#343)\n\t\t- rocketNetworkRevenues.setNodeCapitalRatio(nodeAddress,capitalRatio) (contracts/contract/megapool/RocketMegapoolDelegate.sol#796)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tExternal calls sending eth:\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#343)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tState variables written after the call(s):\n\t- assignedValue -= assignedUsed (contracts/contract/megapool/RocketMegapoolDelegate.sol#346)\n\tRocketMegapoolStorageLayout.assignedValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#65) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate.assignFunds(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#300-331)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getAssignedValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#118-120)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363)\n\t- validators[_validatorId] = validator (contracts/contract/megapool/RocketMegapoolDelegate.sol#354)\n\tRocketMegapoolStorageLayout.validators (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#77) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate.assignFunds(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#300-331)\n\t- RocketMegapoolDelegate.challengeExit(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#548-566)\n\t- RocketMegapoolDelegate.dequeue(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#233-266)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getValidatorInfo(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#98-101)\n\t- RocketMegapoolDelegate.getValidatorInfoAndPubkey(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#111-115)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.notifyExit(uint32,uint64,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#589-616)\n\t- RocketMegapoolDelegate.notifyNotExit(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#571-584)\n\t- RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-1cbb0d4f785d460e",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDepositPoolInterface.reduceBond(address,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 4,
+        "merged_finding_ids": [
+          "sl-c63246d297ae3845",
+          "sl-afc8ed7842176f72",
+          "sl-c9188d9cae630721",
+          "sl-8dd23f7175e1beff"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-c63246d297ae3845",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMegapoolDelegate\", \"detector\": \"slither:reentrancy-eth\", \"file\": \"../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol\", \"function\": \"dissolveValidator\"}"
+    },
+    {
+      "finding_id": "sl-f28203468585d085",
+      "fingerprint": "sl-f28203468585d085",
+      "engine": "slither",
+      "detector": "slither:reentrancy-eth",
+      "title": "Reentrancy Eth",
+      "description": "Reentrancy in RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719):\n\tExternal calls:\n\t- _sendToRETH(toUser) (contracts/contract/megapool/RocketMegapoolDelegate.sol#692)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t- rocketDepositPool.fundsReturned(nodeAddress,nodeShare,userShare) (contracts/contract/megapool/RocketMegapoolDelegate.sol#709)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- rocketNetworkRevenues.setNodeCapitalRatio(nodeAddress,capitalRatio) (contracts/contract/megapool/RocketMegapoolDelegate.sol#796)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tExternal calls sending eth:\n\t- _sendToRETH(toUser) (contracts/contract/megapool/RocketMegapoolDelegate.sol#692)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tState variables written after the call(s):\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- debt -= _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#736)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- refundValue += nodeAmount (contracts/contract/megapool/RocketMegapoolDelegate.sol#483)\n\tRocketMegapoolStorageLayout.refundValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#66) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.getRefundValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#128-130)",
+      "vulnerability_class": "TAX-14",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol",
+        "line_start": 649,
+        "line_end": 719,
+        "contract": "RocketMegapoolDelegate",
+        "function": "_notifyFinalBalance"
+      },
+      "evidence": [
+        "Reentrancy in RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719):\n\tExternal calls:\n\t- _sendToRETH(toUser) (contracts/contract/megapool/RocketMegapoolDelegate.sol#692)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t- rocketDepositPool.fundsReturned(nodeAddress,nodeShare,userShare) (contracts/contract/megapool/RocketMegapoolDelegate.sol#709)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- rocketNetworkRevenues.setNodeCapitalRatio(nodeAddress,capitalRatio) (contracts/contract/megapool/RocketMegapoolDelegate.sol#796)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tExternal calls sending eth:\n\t- _sendToRETH(toUser) (contracts/contract/megapool/RocketMegapoolDelegate.sol#692)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- (success,None) = rocketTokenRETH.call{value: _amount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#745)\n\t\t- rocketRewardsPool.depositVoterShare{value: voterAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#474)\n\t\t- (success,None) = rocketClaimDAO.call{value: protocolDAOAmount}() (contracts/contract/megapool/RocketMegapoolDelegate.sol#479)\n\tState variables written after the call(s):\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- debt -= _amount (contracts/contract/megapool/RocketMegapoolDelegate.sol#736)\n\tRocketMegapoolStorageLayout.debt (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#73) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._increaseDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#729-732)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate._reduceDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#735-738)\n\t- RocketMegapoolDelegate._repayDebt(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#427-431)\n\t- RocketMegapoolDelegate.getDebt() (contracts/contract/megapool/RocketMegapoolDelegate.sol#123-125)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296)\n\t- _snapshotCapitalRatio() (contracts/contract/megapool/RocketMegapoolDelegate.sol#714)\n\t\t- refundValue += nodeAmount (contracts/contract/megapool/RocketMegapoolDelegate.sol#483)\n\tRocketMegapoolStorageLayout.refundValue (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#66) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._claim() (contracts/contract/megapool/RocketMegapoolDelegate.sol#494-516)\n\t- RocketMegapoolDelegate._distributeAmount(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#447-486)\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getPendingRewards() (contracts/contract/megapool/RocketMegapoolDelegate.sol#153-158)\n\t- RocketMegapoolDelegate.getRefundValue() (contracts/contract/megapool/RocketMegapoolDelegate.sol#128-130)",
+        "Reentrancy in RocketMegapoolDelegate.dequeue(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#233-266):\n\tExternal calls:\n\t- rocketDepositPool.exitQueue(nodeAddress,_validatorId,validator.expressUsed) (contracts/contract/megapool/RocketMegapoolDelegate.sol#242)\n\t- rocketDepositPool.fundsReturned(nodeAddress,nodeValue,userValue) (contracts/contract/megapool/RocketMegapoolDelegate.sol#243)\n\t- rocketDepositPool.applyCredit(nodeAddress,nodeValue) (contracts/contract/megapool/RocketMegapoolDelegate.sol#244)\n\tState variables written after the call(s):\n\t- validators[_validatorId] = validator (contracts/contract/megapool/RocketMegapoolDelegate.sol#261)\n\tRocketMegapoolStorageLayout.validators (contracts/contract/megapool/RocketMegapoolStorageLayout.sol#77) can be used in cross function reentrancies:\n\t- RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#649-719)\n\t- RocketMegapoolDelegate.assignFunds(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#300-331)\n\t- RocketMegapoolDelegate.challengeExit(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#548-566)\n\t- RocketMegapoolDelegate.dequeue(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#233-266)\n\t- RocketMegapoolDelegate.dissolveValidator(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#368-417)\n\t- RocketMegapoolDelegate.getValidatorInfo(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#98-101)\n\t- RocketMegapoolDelegate.getValidatorInfoAndPubkey(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#111-115)\n\t- RocketMegapoolDelegate.newValidator(uint256,bool,bytes,bytes,bytes32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#197-229)\n\t- RocketMegapoolDelegate.notifyExit(uint32,uint64,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#589-616)\n\t- RocketMegapoolDelegate.notifyNotExit(uint32,uint64) (contracts/contract/megapool/RocketMegapoolDelegate.sol#571-584)\n\t- RocketMegapoolDelegate.stake(uint32) (contracts/contract/megapool/RocketMegapoolDelegate.sol#335-363)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ccbcc14018c55fcd",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDepositPoolInterface.fundsReturned(address,uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-f28203468585d085",
+          "sl-803af020618bf076"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f28203468585d085",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMegapoolDelegate\", \"detector\": \"slither:reentrancy-eth\", \"file\": \"../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol\", \"function\": \"_notifyFinalBalance\"}"
+    },
+    {
+      "finding_id": "sl-eef3115e45597ea3",
+      "fingerprint": "sl-eef3115e45597ea3",
+      "engine": "slither",
+      "detector": "slither:reentrancy-eth",
+      "title": "Reentrancy Eth",
+      "description": "Reentrancy in RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660):\n\tExternal calls:\n\t- newBond = rocketBondReducer.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#641)\n\tExternal calls sending eth:\n\t- distributeSkimmedRewards() (contracts/contract/minipool/RocketMinipoolDelegate.sol#637)\n\t\t- address(rocketTokenRETH).transfer(rewards.sub(nodeShare)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#669)\n\tState variables written after the call(s):\n\t- nodeDepositBalance = newBond (contracts/contract/minipool/RocketMinipoolDelegate.sol#644)\n\tRocketMinipoolStorageLayout.nodeDepositBalance (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#40) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate._calculateNodeShare(uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#533-556)\n\t- RocketMinipoolDelegate.calculateNodeShare(uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#514-521)\n\t- RocketMinipoolDelegate.close() (contracts/contract/minipool/RocketMinipoolDelegate.sol#583-598)\n\t- RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175)\n\t- RocketMinipoolDelegate.distributeSkimmedRewards() (contracts/contract/minipool/RocketMinipoolDelegate.sol#663-670)\n\t- RocketMinipoolDelegate.getNodeDepositBalance() (contracts/contract/minipool/RocketMinipoolDelegate.sol#63)\n\t- RocketMinipoolDelegate.getNodeTopUpValue() (contracts/contract/minipool/RocketMinipoolDelegate.sol#67)\n\t- RocketMinipoolDelegate.preDeposit(uint256,bytes,bytes,bytes32) (contracts/contract/minipool/RocketMinipoolDelegate.sol#150-161)\n\t- RocketMinipoolDelegate.prepareVacancy(uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#290-312)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196)\n\t- nodeFee = newFee (contracts/contract/minipool/RocketMinipoolDelegate.sol#649)\n\tRocketMinipoolStorageLayout.nodeFee (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#39) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate.calculateNodeRewards(uint256,uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#562-568)\n\t- RocketMinipoolDelegate.getNodeFee() (contracts/contract/minipool/RocketMinipoolDelegate.sol#62)\n\t- RocketMinipoolDelegate.initialise(address) (contracts/contract/minipool/RocketMinipoolDelegate.sol#124-143)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- userDepositBalance = getUserDepositBalance().add(previousBond.sub(newBond)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#643)\n\tRocketMinipoolStorageLayout.userDepositBalance (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#72) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate.close() (contracts/contract/minipool/RocketMinipoolDelegate.sol#583-598)\n\t- RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175)\n\t- RocketMinipoolDelegate.getUserDepositBalance() (contracts/contract/minipool/RocketMinipoolDelegate.sol#73-79)\n\t- RocketMinipoolDelegate.prepareVacancy(uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#290-312)\n\t- RocketMinipoolDelegate.promote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#315-340)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196)",
+      "vulnerability_class": "TAX-14",
+      "severity": "high",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 631,
+        "line_end": 660,
+        "contract": "RocketMinipoolDelegate",
+        "function": "reduceBondAmount"
+      },
+      "evidence": [
+        "Reentrancy in RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660):\n\tExternal calls:\n\t- newBond = rocketBondReducer.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#641)\n\tExternal calls sending eth:\n\t- distributeSkimmedRewards() (contracts/contract/minipool/RocketMinipoolDelegate.sol#637)\n\t\t- address(rocketTokenRETH).transfer(rewards.sub(nodeShare)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#669)\n\tState variables written after the call(s):\n\t- nodeDepositBalance = newBond (contracts/contract/minipool/RocketMinipoolDelegate.sol#644)\n\tRocketMinipoolStorageLayout.nodeDepositBalance (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#40) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate._calculateNodeShare(uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#533-556)\n\t- RocketMinipoolDelegate.calculateNodeShare(uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#514-521)\n\t- RocketMinipoolDelegate.close() (contracts/contract/minipool/RocketMinipoolDelegate.sol#583-598)\n\t- RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175)\n\t- RocketMinipoolDelegate.distributeSkimmedRewards() (contracts/contract/minipool/RocketMinipoolDelegate.sol#663-670)\n\t- RocketMinipoolDelegate.getNodeDepositBalance() (contracts/contract/minipool/RocketMinipoolDelegate.sol#63)\n\t- RocketMinipoolDelegate.getNodeTopUpValue() (contracts/contract/minipool/RocketMinipoolDelegate.sol#67)\n\t- RocketMinipoolDelegate.preDeposit(uint256,bytes,bytes,bytes32) (contracts/contract/minipool/RocketMinipoolDelegate.sol#150-161)\n\t- RocketMinipoolDelegate.prepareVacancy(uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#290-312)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196)\n\t- nodeFee = newFee (contracts/contract/minipool/RocketMinipoolDelegate.sol#649)\n\tRocketMinipoolStorageLayout.nodeFee (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#39) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate.calculateNodeRewards(uint256,uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#562-568)\n\t- RocketMinipoolDelegate.getNodeFee() (contracts/contract/minipool/RocketMinipoolDelegate.sol#62)\n\t- RocketMinipoolDelegate.initialise(address) (contracts/contract/minipool/RocketMinipoolDelegate.sol#124-143)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- userDepositBalance = getUserDepositBalance().add(previousBond.sub(newBond)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#643)\n\tRocketMinipoolStorageLayout.userDepositBalance (contracts/contract/minipool/RocketMinipoolStorageLayout.sol#72) can be used in cross function reentrancies:\n\t- RocketMinipoolDelegate.close() (contracts/contract/minipool/RocketMinipoolDelegate.sol#583-598)\n\t- RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175)\n\t- RocketMinipoolDelegate.getUserDepositBalance() (contracts/contract/minipool/RocketMinipoolDelegate.sol#73-79)\n\t- RocketMinipoolDelegate.prepareVacancy(uint256,uint256) (contracts/contract/minipool/RocketMinipoolDelegate.sol#290-312)\n\t- RocketMinipoolDelegate.promote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#315-340)\n\t- RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660)\n\t- RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196)",
+        "Reentrancy in RocketMinipoolDelegate.reduceBondAmount() (contracts/contract/minipool/RocketMinipoolDelegate.sol#631-660):\n\tExternal calls:\n\t- distributeSkimmedRewards() (contracts/contract/minipool/RocketMinipoolDelegate.sol#637)\n\t\t- address(rocketTokenRETH).transfer(rewards.sub(nodeShare)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#669)\n\tState variables written after the call(s):\n\t- depositType = MinipoolDeposit.Variable (contracts/contract/minipool/RocketMinipoolDelegate.sol#656)\n\t- nodeDepositBalance = newBond (contracts/contract/minipool/RocketMinipoolDelegate.sol#644)\n\t- nodeFee = newFee (contracts/contract/minipool/RocketMinipoolDelegate.sol#649)\n\t- userDepositBalance = getUserDepositBalance().add(previousBond.sub(newBond)) (contracts/contract/minipool/RocketMinipoolDelegate.sol#643)\n\t- userDepositBalanceLegacy = 2 ** 256 - 1 (contracts/contract/minipool/RocketMinipoolDelegate.sol#655)\n\tEvent emitted after the call(s):\n\t- BondReduced(previousBond,newBond,block.timestamp) (contracts/contract/minipool/RocketMinipoolDelegate.sol#659)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ea706842981111d3",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.reduceBondAmount()",
+        "root_cause_state_variables": [
+          "depositType",
+          "nodeDepositBalance",
+          "nodeFee",
+          "nodeRefundBalance",
+          "userDepositBalance",
+          "userDepositBalanceLegacy"
+        ],
+        "evidence_count": 2,
+        "merged_finding_ids": [
+          "sl-eef3115e45597ea3",
+          "sl-839e9dabd0ede61d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-eef3115e45597ea3",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:reentrancy-eth\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"reduceBondAmount\"}"
+    },
+    {
+      "finding_id": "sl-49f970c5777cbb0c",
+      "fingerprint": "sl-49f970c5777cbb0c",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "RocketNodeStaking.getNodeMegapoolETHBonded(address) (contracts/contract/node/RocketNodeStaking.sol#488-493) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#491)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+        "line_start": 488,
+        "line_end": 493,
+        "contract": "RocketNodeStaking",
+        "function": "getNodeMegapoolETHBonded"
+      },
+      "evidence": [
+        "RocketNodeStaking.getNodeMegapoolETHBonded(address) (contracts/contract/node/RocketNodeStaking.sol#488-493) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#491)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-f81ae3f9d1774793",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketNodeStakingInterface.getNodeMegapoolETHBonded(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-49f970c5777cbb0c"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-49f970c5777cbb0c",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeStaking\", \"detector\": \"slither:unused-return\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeStaking.sol\", \"function\": \"getNodeMegapoolETHBonded\"}"
+    },
+    {
+      "finding_id": "sl-26d9ae29439e442f",
+      "fingerprint": "sl-26d9ae29439e442f",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "RocketNodeStaking.getNodeStakedRPL(address) (contracts/contract/node/RocketNodeStaking.sol#79-84) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#82)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+        "line_start": 79,
+        "line_end": 84,
+        "contract": "RocketNodeStaking",
+        "function": "getNodeStakedRPL"
+      },
+      "evidence": [
+        "RocketNodeStaking.getNodeStakedRPL(address) (contracts/contract/node/RocketNodeStaking.sol#79-84) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#82)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-3145e34154a9c999",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketNodeStakingInterface.getNodeStakedRPL(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-26d9ae29439e442f"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-26d9ae29439e442f",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeStaking\", \"detector\": \"slither:unused-return\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeStaking.sol\", \"function\": \"getNodeStakedRPL\"}"
+    },
+    {
+      "finding_id": "sl-281d420567b71109",
+      "fingerprint": "sl-281d420567b71109",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "RocketNodeStaking.getNodeMinipoolETHBorrowed(address) (contracts/contract/node/RocketNodeStaking.sol#517-522) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#520)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+        "line_start": 517,
+        "line_end": 522,
+        "contract": "RocketNodeStaking",
+        "function": "getNodeMinipoolETHBorrowed"
+      },
+      "evidence": [
+        "RocketNodeStaking.getNodeMinipoolETHBorrowed(address) (contracts/contract/node/RocketNodeStaking.sol#517-522) ignores return value by (None,None,value) = rocketNetworkSnapshots.latest(key) (contracts/contract/node/RocketNodeStaking.sol#520)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-e2f7520977c0175e",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketNodeStakingInterface.getNodeMinipoolETHBorrowed(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-281d420567b71109"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-281d420567b71109",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeStaking\", \"detector\": \"slither:unused-return\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeStaking.sol\", \"function\": \"getNodeMinipoolETHBorrowed\"}"
+    },
+    {
+      "finding_id": "sl-8746a98ca4a1312e",
+      "fingerprint": "sl-8746a98ca4a1312e",
+      "engine": "slither",
+      "detector": "slither:unused-return",
+      "title": "Unused Return",
+      "description": "RocketMinipoolManager.getNodeActiveMinipoolCount(address) (contracts/contract/minipool/RocketMinipoolManager.sol#157-169) ignores return value by (exists,None,count) = rocketNetworkSnapshots.latest(key) (contracts/contract/minipool/RocketMinipoolManager.sol#160)",
+      "vulnerability_class": "TAX-43",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol",
+        "line_start": 157,
+        "line_end": 169,
+        "contract": "RocketMinipoolManager",
+        "function": "getNodeActiveMinipoolCount"
+      },
+      "evidence": [
+        "RocketMinipoolManager.getNodeActiveMinipoolCount(address) (contracts/contract/minipool/RocketMinipoolManager.sol#157-169) ignores return value by (exists,None,count) = rocketNetworkSnapshots.latest(key) (contracts/contract/minipool/RocketMinipoolManager.sol#160)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ffa640e652f264de",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getNodeActiveMinipoolCount(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8746a98ca4a1312e"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8746a98ca4a1312e",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolManager\", \"detector\": \"slither:unused-return\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol\", \"function\": \"getNodeActiveMinipoolCount\"}"
+    },
+    {
+      "finding_id": "sl-006e58b05701d98b",
+      "fingerprint": "sl-006e58b05701d98b",
+      "engine": "slither",
+      "detector": "slither:uninitialized-local",
+      "title": "Uninitialized Local",
+      "description": "RocketMinipoolManager.getNodeStakingMinipoolCount(address).total (contracts/contract/minipool/RocketMinipoolManager.sol#184) is a local variable never initialized",
+      "vulnerability_class": "TAX-87",
+      "severity": "medium",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol",
+        "line_start": 184,
+        "line_end": 184,
+        "contract": "getNodeStakingMinipoolCount",
+        "function": null
+      },
+      "evidence": [
+        "RocketMinipoolManager.getNodeStakingMinipoolCount(address).total (contracts/contract/minipool/RocketMinipoolManager.sol#184) is a local variable never initialized"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-5d19a2726e704359",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getNodeStakingMinipoolCount(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-006e58b05701d98b"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-006e58b05701d98b",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"getNodeStakingMinipoolCount\", \"detector\": \"slither:uninitialized-local\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol\", \"function\": null}"
+    },
+    {
+      "finding_id": "sl-2b7c99bff5647a0d",
+      "fingerprint": "sl-2b7c99bff5647a0d",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketDepositPool._assignMegapools(uint256,RocketDAOProtocolSettingsDepositInterface) (contracts/contract/deposit/RocketDepositPool.sol#385-448) has external calls inside a loop: rocketVault.withdrawEther(ethRequired) (contracts/contract/deposit/RocketDepositPool.sol#422)\n\tCalls stack containing the loop:\n\t\tRocketDepositPool.recycleExcessCollateral()\n\t\tRocketDepositPool._recycleValue()\n\t\tRocketDepositPool.processDeposit()\n\t\tRocketDepositPool._assignByDeposit()\n\t\tRocketDepositPool._assignMegapoolsByDeposit(RocketDAOProtocolSettingsDepositInterface)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/deposit/RocketDepositPool.sol",
+        "line_start": 385,
+        "line_end": 448,
+        "contract": "RocketDepositPool",
+        "function": "_assignMegapools"
+      },
+      "evidence": [
+        "RocketDepositPool._assignMegapools(uint256,RocketDAOProtocolSettingsDepositInterface) (contracts/contract/deposit/RocketDepositPool.sol#385-448) has external calls inside a loop: rocketVault.withdrawEther(ethRequired) (contracts/contract/deposit/RocketDepositPool.sol#422)\n\tCalls stack containing the loop:\n\t\tRocketDepositPool.recycleExcessCollateral()\n\t\tRocketDepositPool._recycleValue()\n\t\tRocketDepositPool.processDeposit()\n\t\tRocketDepositPool._assignByDeposit()\n\t\tRocketDepositPool._assignMegapoolsByDeposit(RocketDAOProtocolSettingsDepositInterface)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-59d285c8d4634c38",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDepositPoolInterface.recycleExcessCollateral()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-2b7c99bff5647a0d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-2b7c99bff5647a0d",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDepositPool\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/deposit/RocketDepositPool.sol\", \"function\": \"_assignMegapools\"}"
+    },
+    {
+      "finding_id": "sl-2d9057c91ecaea27",
+      "fingerprint": "sl-2d9057c91ecaea27",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketMinipoolManager.getPrelaunchMinipools(uint256,uint256) (contracts/contract/minipool/RocketMinipoolManager.sol#111-139) has external calls inside a loop: status = minipool.getStatus() (contracts/contract/minipool/RocketMinipoolManager.sol#128)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol",
+        "line_start": 111,
+        "line_end": 139,
+        "contract": "RocketMinipoolManager",
+        "function": "getPrelaunchMinipools"
+      },
+      "evidence": [
+        "RocketMinipoolManager.getPrelaunchMinipools(uint256,uint256) (contracts/contract/minipool/RocketMinipoolManager.sol#111-139) has external calls inside a loop: status = minipool.getStatus() (contracts/contract/minipool/RocketMinipoolManager.sol#128)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-ad710b9f388a18ea",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getPrelaunchMinipools(uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-2d9057c91ecaea27"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-2d9057c91ecaea27",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolManager\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol\", \"function\": \"getPrelaunchMinipools\"}"
+    },
+    {
+      "finding_id": "sl-45d5ce1359dc748d",
+      "fingerprint": "sl-45d5ce1359dc748d",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketDAOProtocolVerifier.claimBondProposer(uint256,uint256[]) (contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol#345-399) has external calls inside a loop: rocketNodeStaking.transferRPL(challenger,proposer,challengeBond - burnPerChallenge) (contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol#395)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol",
+        "line_start": 345,
+        "line_end": 399,
+        "contract": "RocketDAOProtocolVerifier",
+        "function": "claimBondProposer"
+      },
+      "evidence": [
+        "RocketDAOProtocolVerifier.claimBondProposer(uint256,uint256[]) (contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol#345-399) has external calls inside a loop: rocketNodeStaking.transferRPL(challenger,proposer,challengeBond - burnPerChallenge) (contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol#395)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-123ed7aa283edb79",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketNodeStakingInterface.transferRPL(address,address,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-45d5ce1359dc748d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-45d5ce1359dc748d",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAOProtocolVerifier\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolVerifier.sol\", \"function\": \"claimBondProposer\"}"
+    },
+    {
+      "finding_id": "sl-0a29f46f52a83fed",
+      "fingerprint": "sl-0a29f46f52a83fed",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketBase.getBytes32(bytes32) (contracts/contract/RocketBase.sol#157) has external calls inside a loop: rocketStorage.getBytes32(_key) (contracts/contract/RocketBase.sol#157)\n\tCalls stack containing the loop:\n\t\tRocketMerkleDistributorMainnet.claimAndStake(address,Claim[],uint256)\n\t\tRocketMerkleDistributorMainnet._verifyClaim(address,Claim[])\n\t\tRocketMerkleDistributorMainnet._verifyProof(address,Claim)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/RocketBase.sol",
+        "line_start": 157,
+        "line_end": 157,
+        "contract": "RocketBase",
+        "function": "getBytes32"
+      },
+      "evidence": [
+        "RocketBase.getBytes32(bytes32) (contracts/contract/RocketBase.sol#157) has external calls inside a loop: rocketStorage.getBytes32(_key) (contracts/contract/RocketBase.sol#157)\n\tCalls stack containing the loop:\n\t\tRocketMerkleDistributorMainnet.claimAndStake(address,Claim[],uint256)\n\t\tRocketMerkleDistributorMainnet._verifyClaim(address,Claim[])\n\t\tRocketMerkleDistributorMainnet._verifyProof(address,Claim)",
+        "RocketNetworkSnapshotsTime._timeAt(bytes32,uint256) (contracts/contract/network/RocketNetworkSnapshotsTime.sol#154-158) has external calls inside a loop: raw = rocketStorage.getBytes32(key) (contracts/contract/network/RocketNetworkSnapshotsTime.sol#156)\n\tCalls stack containing the loop:\n\t\tRocketNetworkSnapshotsTime.lookupCheckpoint(bytes32,uint64)\n\t\tRocketNetworkSnapshotsTime._binaryLookup(bytes32,uint64,uint256,uint256)",
+        "RocketNetworkSnapshots._blockAt(bytes32,uint256) (contracts/contract/network/RocketNetworkSnapshots.sol#160-164) has external calls inside a loop: raw = rocketStorage.getBytes32(key) (contracts/contract/network/RocketNetworkSnapshots.sol#162)\n\tCalls stack containing the loop:\n\t\tRocketNetworkSnapshots.lookupCheckpoint(bytes32,uint32)\n\t\tRocketNetworkSnapshots._binaryLookup(bytes32,uint32,uint256,uint256)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-576b503658af9dfb",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketBase.getBytes32(bytes32)",
+        "root_cause_state_variables": [],
+        "evidence_count": 3,
+        "merged_finding_ids": [
+          "sl-0a29f46f52a83fed",
+          "sl-899eec7fba643c01",
+          "sl-427229ebfd4d117d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-0a29f46f52a83fed",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketBase\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/RocketBase.sol\", \"function\": \"getBytes32\"}"
+    },
+    {
+      "finding_id": "sl-9e4430d9bd5afe2d",
+      "fingerprint": "sl-9e4430d9bd5afe2d",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketMinipoolManager.getMinipoolCountPerStatus(uint256,uint256) (contracts/contract/minipool/RocketMinipoolManager.sol#75-106) has external calls inside a loop: status = minipool.getStatus() (contracts/contract/minipool/RocketMinipoolManager.sol#89)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol",
+        "line_start": 75,
+        "line_end": 106,
+        "contract": "RocketMinipoolManager",
+        "function": "getMinipoolCountPerStatus"
+      },
+      "evidence": [
+        "RocketMinipoolManager.getMinipoolCountPerStatus(uint256,uint256) (contracts/contract/minipool/RocketMinipoolManager.sol#75-106) has external calls inside a loop: status = minipool.getStatus() (contracts/contract/minipool/RocketMinipoolManager.sol#89)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-5eb396ae1cc24d97",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getMinipoolCountPerStatus(uint256,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9e4430d9bd5afe2d"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9e4430d9bd5afe2d",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolManager\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol\", \"function\": \"getMinipoolCountPerStatus\"}"
+    },
+    {
+      "finding_id": "sl-48a102b9cb8aaa71",
+      "fingerprint": "sl-48a102b9cb8aaa71",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketDepositPool._assignMinipools(uint256,RocketDAOProtocolSettingsDepositInterface) (contracts/contract/deposit/RocketDepositPool.sol#349-381) has external calls inside a loop: minipool.deposit{value: variableDepositAmount}() (contracts/contract/deposit/RocketDepositPool.sol#373)\n\tCalls stack containing the loop:\n\t\tRocketDepositPool.recycleLiquidatedStake()\n\t\tRocketDepositPool._recycleValue()\n\t\tRocketDepositPool.processDeposit()\n\t\tRocketDepositPool._assignByDeposit()\n\t\tRocketDepositPool._assignMinipoolsByDeposit(RocketMinipoolQueueInterface,RocketDAOProtocolSettingsDepositInterface)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/deposit/RocketDepositPool.sol",
+        "line_start": 349,
+        "line_end": 381,
+        "contract": "RocketDepositPool",
+        "function": "_assignMinipools"
+      },
+      "evidence": [
+        "RocketDepositPool._assignMinipools(uint256,RocketDAOProtocolSettingsDepositInterface) (contracts/contract/deposit/RocketDepositPool.sol#349-381) has external calls inside a loop: minipool.deposit{value: variableDepositAmount}() (contracts/contract/deposit/RocketDepositPool.sol#373)\n\tCalls stack containing the loop:\n\t\tRocketDepositPool.recycleLiquidatedStake()\n\t\tRocketDepositPool._recycleValue()\n\t\tRocketDepositPool.processDeposit()\n\t\tRocketDepositPool._assignByDeposit()\n\t\tRocketDepositPool._assignMinipoolsByDeposit(RocketMinipoolQueueInterface,RocketDAOProtocolSettingsDepositInterface)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-987ab908725cf416",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDepositPoolInterface.recycleLiquidatedStake()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-48a102b9cb8aaa71"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-48a102b9cb8aaa71",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDepositPool\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/deposit/RocketDepositPool.sol\", \"function\": \"_assignMinipools\"}"
+    },
+    {
+      "finding_id": "sl-929021218ee395ae",
+      "fingerprint": "sl-929021218ee395ae",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketNodeDeposit.depositMulti(RocketNodeDepositInterface.NodeDeposit[]) (contracts/contract/node/RocketNodeDeposit.sol#162-197) has external calls inside a loop: megapool.newValidator(deposit.bondAmount,deposit.useExpressTicket,deposit.validatorPubkey,deposit.validatorSignature,deposit.depositDataRoot) (contracts/contract/node/RocketNodeDeposit.sol#179)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeDeposit.sol",
+        "line_start": 162,
+        "line_end": 197,
+        "contract": "RocketNodeDeposit",
+        "function": "depositMulti"
+      },
+      "evidence": [
+        "RocketNodeDeposit.depositMulti(RocketNodeDepositInterface.NodeDeposit[]) (contracts/contract/node/RocketNodeDeposit.sol#162-197) has external calls inside a loop: megapool.newValidator(deposit.bondAmount,deposit.useExpressTicket,deposit.validatorPubkey,deposit.validatorSignature,deposit.depositDataRoot) (contracts/contract/node/RocketNodeDeposit.sol#179)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-e60b483b6cd49a3a",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketNodeDepositInterface.depositMulti(RocketNodeDepositInterface.NodeDeposit[])",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-929021218ee395ae"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-929021218ee395ae",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeDeposit\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeDeposit.sol\", \"function\": \"depositMulti\"}"
+    },
+    {
+      "finding_id": "sl-94b22e2364bc8f54",
+      "fingerprint": "sl-94b22e2364bc8f54",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketNodeManager.initialiseFeeDistributor() (contracts/contract/node/RocketNodeManager.sol#261-281) has external calls inside a loop: minipool = RocketMinipoolInterface(rocketMinipoolManager.getNodeMinipoolAt(msg.sender,i)) (contracts/contract/node/RocketNodeManager.sol#272)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeManager.sol",
+        "line_start": 261,
+        "line_end": 281,
+        "contract": "RocketNodeManager",
+        "function": "initialiseFeeDistributor"
+      },
+      "evidence": [
+        "RocketNodeManager.initialiseFeeDistributor() (contracts/contract/node/RocketNodeManager.sol#261-281) has external calls inside a loop: minipool = RocketMinipoolInterface(rocketMinipoolManager.getNodeMinipoolAt(msg.sender,i)) (contracts/contract/node/RocketNodeManager.sol#272)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-71bf6a393822015d",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getNodeMinipoolAt(address,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-94b22e2364bc8f54"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-94b22e2364bc8f54",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeManager\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeManager.sol\", \"function\": \"initialiseFeeDistributor\"}"
+    },
+    {
+      "finding_id": "sl-7c7a1ddb212e2bcb",
+      "fingerprint": "sl-7c7a1ddb212e2bcb",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketNodeManager.getAverageNodeFee(address) (contracts/contract/node/RocketNodeManager.sol#293-338) has external calls inside a loop: depositCounts[i] = rocketMinipoolManager.getNodeStakingMinipoolCountBySize(_nodeAddress,depositSizes[i]) (contracts/contract/node/RocketNodeManager.sol#309)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeManager.sol",
+        "line_start": 293,
+        "line_end": 338,
+        "contract": "RocketNodeManager",
+        "function": "getAverageNodeFee"
+      },
+      "evidence": [
+        "RocketNodeManager.getAverageNodeFee(address) (contracts/contract/node/RocketNodeManager.sol#293-338) has external calls inside a loop: depositCounts[i] = rocketMinipoolManager.getNodeStakingMinipoolCountBySize(_nodeAddress,depositSizes[i]) (contracts/contract/node/RocketNodeManager.sol#309)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-6441003150e6d6a8",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolManagerInterface.getNodeStakingMinipoolCountBySize(address,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-7c7a1ddb212e2bcb"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-7c7a1ddb212e2bcb",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeManager\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeManager.sol\", \"function\": \"getAverageNodeFee\"}"
+    },
+    {
+      "finding_id": "sl-9d7dc9a81fb7166f",
+      "fingerprint": "sl-9d7dc9a81fb7166f",
+      "engine": "slither",
+      "detector": "slither:calls-loop",
+      "title": "Calls Loop",
+      "description": "RocketRewardsPool.getClaimingContractsPerc(string[]) (contracts/contract/rewards/RocketRewardsPool.sol#133-142) has external calls inside a loop: percentages[i] = daoSettingsRewards.getRewardsClaimerPerc(_claimingContracts[i]) (contracts/contract/rewards/RocketRewardsPool.sol#139)",
+      "vulnerability_class": "TAX-73",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/rewards/RocketRewardsPool.sol",
+        "line_start": 133,
+        "line_end": 142,
+        "contract": "RocketRewardsPool",
+        "function": "getClaimingContractsPerc"
+      },
+      "evidence": [
+        "RocketRewardsPool.getClaimingContractsPerc(string[]) (contracts/contract/rewards/RocketRewardsPool.sol#133-142) has external calls inside a loop: percentages[i] = daoSettingsRewards.getRewardsClaimerPerc(_claimingContracts[i]) (contracts/contract/rewards/RocketRewardsPool.sol#139)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-1813b422492b83b6",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAOProtocolSettingsRewardsInterface.getRewardsClaimerPerc(string)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-9d7dc9a81fb7166f"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-9d7dc9a81fb7166f",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketRewardsPool\", \"detector\": \"slither:calls-loop\", \"file\": \"../rpl-audit/contracts/contract/rewards/RocketRewardsPool.sol\", \"function\": \"getClaimingContractsPerc\"}"
+    },
+    {
+      "finding_id": "sl-8be13ca6af0b4605",
+      "fingerprint": "sl-8be13ca6af0b4605",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketNodeStaking._withdrawUnstakingRPL(address) (contracts/contract/node/RocketNodeStaking.sol#247-272) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- timeSinceLastUnstake <= unstakingPeriod (contracts/contract/node/RocketNodeStaking.sol#254)\n\t- block.timestamp - getNodeRPLStakedTime(_nodeAddress) < rocketDAOProtocolSettingsNode.getWithdrawalCooldown() (contracts/contract/node/RocketNodeStaking.sol#258)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/node/RocketNodeStaking.sol",
+        "line_start": 247,
+        "line_end": 272,
+        "contract": "RocketNodeStaking",
+        "function": "_withdrawUnstakingRPL"
+      },
+      "evidence": [
+        "RocketNodeStaking._withdrawUnstakingRPL(address) (contracts/contract/node/RocketNodeStaking.sol#247-272) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- timeSinceLastUnstake <= unstakingPeriod (contracts/contract/node/RocketNodeStaking.sol#254)\n\t- block.timestamp - getNodeRPLStakedTime(_nodeAddress) < rocketDAOProtocolSettingsNode.getWithdrawalCooldown() (contracts/contract/node/RocketNodeStaking.sol#258)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-6b3d6d8b1a2a7118",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAOProtocolSettingsNodeInterface.getWithdrawalCooldown()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8be13ca6af0b4605"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8be13ca6af0b4605",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketNodeStaking\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/node/RocketNodeStaking.sol\", \"function\": \"_withdrawUnstakingRPL\"}"
+    },
+    {
+      "finding_id": "sl-ad027afb058d254c",
+      "fingerprint": "sl-ad027afb058d254c",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(debt == 0,Cannot reduce bond with debt) (contracts/contract/megapool/RocketMegapoolDelegate.sol#273)\n\t- require(bool,string)(nodeQueuedBond == 0,Cannot reduce bond with queued validators) (contracts/contract/megapool/RocketMegapoolDelegate.sol#274)\n\t- require(bool,string)(assignedValue == 0,Cannot reduce bond with prestaked validators) (contracts/contract/megapool/RocketMegapoolDelegate.sol#275)\n\t- require(bool,string)(effectiveBond > newBondRequirement,Bond is at minimum) (contracts/contract/megapool/RocketMegapoolDelegate.sol#280)\n\t- require(bool,string)(_amount <= maxReduce,New bond is too low) (contracts/contract/megapool/RocketMegapoolDelegate.sol#283)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol",
+        "line_start": 270,
+        "line_end": 296,
+        "contract": "RocketMegapoolDelegate",
+        "function": "reduceBond"
+      },
+      "evidence": [
+        "RocketMegapoolDelegate.reduceBond(uint256) (contracts/contract/megapool/RocketMegapoolDelegate.sol#270-296) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(debt == 0,Cannot reduce bond with debt) (contracts/contract/megapool/RocketMegapoolDelegate.sol#273)\n\t- require(bool,string)(nodeQueuedBond == 0,Cannot reduce bond with queued validators) (contracts/contract/megapool/RocketMegapoolDelegate.sol#274)\n\t- require(bool,string)(assignedValue == 0,Cannot reduce bond with prestaked validators) (contracts/contract/megapool/RocketMegapoolDelegate.sol#275)\n\t- require(bool,string)(effectiveBond > newBondRequirement,Bond is at minimum) (contracts/contract/megapool/RocketMegapoolDelegate.sol#280)\n\t- require(bool,string)(_amount <= maxReduce,New bond is too low) (contracts/contract/megapool/RocketMegapoolDelegate.sol#283)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-06772915ae99a7b4",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDepositPoolInterface.reduceBond(address,uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-ad027afb058d254c"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-ad027afb058d254c",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMegapoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol\", \"function\": \"reduceBond\"}"
+    },
+    {
+      "finding_id": "sl-a7494d867092405a",
+      "fingerprint": "sl-a7494d867092405a",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketDAOProposal.add(address,string,string,uint256,uint256,uint256,uint256,bytes) (contracts/contract/dao/RocketDAOProposal.sol#160-192) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(_startTime > block.timestamp,Proposal start time must be in the future) (contracts/contract/dao/RocketDAOProposal.sol#162)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/RocketDAOProposal.sol",
+        "line_start": 160,
+        "line_end": 192,
+        "contract": "RocketDAOProposal",
+        "function": "add"
+      },
+      "evidence": [
+        "RocketDAOProposal.add(address,string,string,uint256,uint256,uint256,uint256,bytes) (contracts/contract/dao/RocketDAOProposal.sol#160-192) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(_startTime > block.timestamp,Proposal start time must be in the future) (contracts/contract/dao/RocketDAOProposal.sol#162)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-dc32b535baf53323",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAOProposal.add(address,string,string,uint256,uint256,uint256,uint256,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-a7494d867092405a"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a7494d867092405a",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAOProposal\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/dao/RocketDAOProposal.sol\", \"function\": \"add\"}"
+    },
+    {
+      "finding_id": "sl-3f50bda1eeb482cc",
+      "fingerprint": "sl-3f50bda1eeb482cc",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.dissolve() (contracts/contract/minipool/RocketMinipoolDelegate.sol#571-580) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp.sub(statusTime) >= rocketDAOProtocolSettingsMinipool.getLaunchTimeout(),The minipool can only be dissolved once it has timed out) (contracts/contract/minipool/RocketMinipoolDelegate.sol#577)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 571,
+        "line_end": 580,
+        "contract": "RocketMinipoolDelegate",
+        "function": "dissolve"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.dissolve() (contracts/contract/minipool/RocketMinipoolDelegate.sol#571-580) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp.sub(statusTime) >= rocketDAOProtocolSettingsMinipool.getLaunchTimeout(),The minipool can only be dissolved once it has timed out) (contracts/contract/minipool/RocketMinipoolDelegate.sol#577)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-8140ccfae82bae91",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.dissolve()",
+        "root_cause_state_variables": [
+          "status",
+          "statusBlock",
+          "statusTime"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-3f50bda1eeb482cc"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-3f50bda1eeb482cc",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"dissolve\"}"
+    },
+    {
+      "finding_id": "sl-8308961c553b2e1c",
+      "fingerprint": "sl-8308961c553b2e1c",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(userDepositAssignedTime == 0,The user deposit has already been assigned) (contracts/contract/minipool/RocketMinipoolDelegate.sol#182)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 179,
+        "line_end": 196,
+        "contract": "RocketMinipoolDelegate",
+        "function": "userDeposit"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.userDeposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#179-196) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(userDepositAssignedTime == 0,The user deposit has already been assigned) (contracts/contract/minipool/RocketMinipoolDelegate.sol#182)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-7aedc4e313d14d07",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.userDeposit()",
+        "root_cause_state_variables": [
+          "nodeDepositBalance",
+          "nodeRefundBalance",
+          "status",
+          "statusBlock",
+          "statusTime",
+          "userDepositAssignedTime",
+          "userDepositBalance"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8308961c553b2e1c"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8308961c553b2e1c",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"userDeposit\"}"
+    },
+    {
+      "finding_id": "sl-8b4406dfd884129f",
+      "fingerprint": "sl-8b4406dfd884129f",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketDAONodeTrustedActions.actionChallengeDecide(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#209-234) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(challengeTime.add(rocketDAONodeTrustedSettingsMembers.getChallengeWindow()) < block.timestamp,Refute window has not yet passed) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#226)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol",
+        "line_start": 209,
+        "line_end": 234,
+        "contract": "RocketDAONodeTrustedActions",
+        "function": "actionChallengeDecide"
+      },
+      "evidence": [
+        "RocketDAONodeTrustedActions.actionChallengeDecide(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#209-234) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(challengeTime.add(rocketDAONodeTrustedSettingsMembers.getChallengeWindow()) < block.timestamp,Refute window has not yet passed) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#226)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-48da3d3926b4d13b",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAONodeTrustedActions.actionChallengeDecide(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-8b4406dfd884129f"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-8b4406dfd884129f",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAONodeTrustedActions\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol\", \"function\": \"actionChallengeDecide\"}"
+    },
+    {
+      "finding_id": "sl-388c846c3e5076fc",
+      "fingerprint": "sl-388c846c3e5076fc",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.canStake() (contracts/contract/minipool/RocketMinipoolDelegate.sol#221-232) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > statusTime + scrubPeriod (contracts/contract/minipool/RocketMinipoolDelegate.sol#231)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 221,
+        "line_end": 232,
+        "contract": "RocketMinipoolDelegate",
+        "function": "canStake"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.canStake() (contracts/contract/minipool/RocketMinipoolDelegate.sol#221-232) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > statusTime + scrubPeriod (contracts/contract/minipool/RocketMinipoolDelegate.sol#231)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-f58f042fe04b0460",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.canStake()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-388c846c3e5076fc"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-388c846c3e5076fc",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"canStake\"}"
+    },
+    {
+      "finding_id": "sl-dcfd7d650013692e",
+      "fingerprint": "sl-dcfd7d650013692e",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.beginUserDistribute() (contracts/contract/minipool/RocketMinipoolDelegate.sol#421-431) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(rocketDAOProtocolSettingsMinipool.hasUserDistributeWindowPassed(timeElapsed),User distribution already pending) (contracts/contract/minipool/RocketMinipoolDelegate.sol#428)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 421,
+        "line_end": 431,
+        "contract": "RocketMinipoolDelegate",
+        "function": "beginUserDistribute"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.beginUserDistribute() (contracts/contract/minipool/RocketMinipoolDelegate.sol#421-431) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(rocketDAOProtocolSettingsMinipool.hasUserDistributeWindowPassed(timeElapsed),User distribution already pending) (contracts/contract/minipool/RocketMinipoolDelegate.sol#428)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-14234ea75ef7cf05",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.beginUserDistribute()",
+        "root_cause_state_variables": [
+          "userDistributeTime"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-dcfd7d650013692e"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-dcfd7d650013692e",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"beginUserDistribute\"}"
+    },
+    {
+      "finding_id": "sl-f03f1130586cabc6",
+      "fingerprint": "sl-f03f1130586cabc6",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.stake(bytes,bytes32) (contracts/contract/minipool/RocketMinipoolDelegate.sol#251-285) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp > statusTime + scrubPeriod,Not enough time has passed to stake) (contracts/contract/minipool/RocketMinipoolDelegate.sol#260)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 251,
+        "line_end": 285,
+        "contract": "RocketMinipoolDelegate",
+        "function": "stake"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.stake(bytes,bytes32) (contracts/contract/minipool/RocketMinipoolDelegate.sol#251-285) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp > statusTime + scrubPeriod,Not enough time has passed to stake) (contracts/contract/minipool/RocketMinipoolDelegate.sol#260)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-28e0e93694fec748",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.stake(bytes,bytes32)",
+        "root_cause_state_variables": [
+          "status",
+          "statusBlock",
+          "statusTime"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-f03f1130586cabc6"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-f03f1130586cabc6",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"stake\"}"
+    },
+    {
+      "finding_id": "sl-a955d8e3fe404829",
+      "fingerprint": "sl-a955d8e3fe404829",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketDAONodeTrustedProposals.propose(string,bytes) (contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol#43-56) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(daoNodeTrusted.getMemberLastProposalTime(msg.sender).add(rocketDAONodeTrustedSettingsProposals.getCooldownTime()) <= block.timestamp,Member has not waited long enough to make another proposal) (contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol#49)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol",
+        "line_start": 43,
+        "line_end": 56,
+        "contract": "RocketDAONodeTrustedProposals",
+        "function": "propose"
+      },
+      "evidence": [
+        "RocketDAONodeTrustedProposals.propose(string,bytes) (contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol#43-56) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(daoNodeTrusted.getMemberLastProposalTime(msg.sender).add(rocketDAONodeTrustedSettingsProposals.getCooldownTime()) <= block.timestamp,Member has not waited long enough to make another proposal) (contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol#49)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-24653ccc200aca82",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAONodeTrustedProposals.propose(string,bytes)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-a955d8e3fe404829"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-a955d8e3fe404829",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAONodeTrustedProposals\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedProposals.sol\", \"function\": \"propose\"}"
+    },
+    {
+      "finding_id": "sl-dc1dcc2d47a24a61",
+      "fingerprint": "sl-dc1dcc2d47a24a61",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(userDepositAssignedTime == 0,The user deposit has already been assigned) (contracts/contract/minipool/RocketMinipoolDelegate.sol#167)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 164,
+        "line_end": 175,
+        "contract": "RocketMinipoolDelegate",
+        "function": "deposit"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.deposit() (contracts/contract/minipool/RocketMinipoolDelegate.sol#164-175) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(userDepositAssignedTime == 0,The user deposit has already been assigned) (contracts/contract/minipool/RocketMinipoolDelegate.sol#167)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-593bfaef8b3164d0",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.deposit()",
+        "root_cause_state_variables": [
+          "status",
+          "statusBlock",
+          "statusTime",
+          "userDepositAssignedTime",
+          "userDepositBalance"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-dc1dcc2d47a24a61"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-dc1dcc2d47a24a61",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"deposit\"}"
+    },
+    {
+      "finding_id": "sl-40c3094bdaa52db7",
+      "fingerprint": "sl-40c3094bdaa52db7",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketDAONodeTrustedActions.actionLeave(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#128-152) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(leaveAcceptedTime.add(rocketDAONodeTrustedSettingsProposals.getActionTime()) > block.timestamp,This member has not been approved to leave or request has expired, please apply to leave again) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#138)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol",
+        "line_start": 128,
+        "line_end": 152,
+        "contract": "RocketDAONodeTrustedActions",
+        "function": "actionLeave"
+      },
+      "evidence": [
+        "RocketDAONodeTrustedActions.actionLeave(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#128-152) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(leaveAcceptedTime.add(rocketDAONodeTrustedSettingsProposals.getActionTime()) > block.timestamp,This member has not been approved to leave or request has expired, please apply to leave again) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#138)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-672304bcc7b5b7e7",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAONodeTrustedActions.actionLeave(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-40c3094bdaa52db7"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-40c3094bdaa52db7",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAONodeTrustedActions\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol\", \"function\": \"actionLeave\"}"
+    },
+    {
+      "finding_id": "sl-6f50346b5765a139",
+      "fingerprint": "sl-6f50346b5765a139",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.promote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#315-340) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp > statusTime + scrubPeriod,Not enough time has passed to promote) (contracts/contract/minipool/RocketMinipoolDelegate.sol#325)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 315,
+        "line_end": 340,
+        "contract": "RocketMinipoolDelegate",
+        "function": "promote"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.promote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#315-340) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(block.timestamp > statusTime + scrubPeriod,Not enough time has passed to promote) (contracts/contract/minipool/RocketMinipoolDelegate.sol#325)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-0c8c9b2bc4ff22ac",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.promote()",
+        "root_cause_state_variables": [
+          "status",
+          "statusBlock",
+          "statusTime",
+          "userDepositAssignedTime",
+          "vacant"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-6f50346b5765a139"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-6f50346b5765a139",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"promote\"}"
+    },
+    {
+      "finding_id": "sl-e1188a6c39ba62f7",
+      "fingerprint": "sl-e1188a6c39ba62f7",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketMinipoolDelegate.canPromote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#235-246) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > statusTime + scrubPeriod (contracts/contract/minipool/RocketMinipoolDelegate.sol#245)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 235,
+        "line_end": 246,
+        "contract": "RocketMinipoolDelegate",
+        "function": "canPromote"
+      },
+      "evidence": [
+        "RocketMinipoolDelegate.canPromote() (contracts/contract/minipool/RocketMinipoolDelegate.sol#235-246) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp > statusTime + scrubPeriod (contracts/contract/minipool/RocketMinipoolDelegate.sol#245)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-32bd45830c6d8c93",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.canPromote()",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-e1188a6c39ba62f7"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-e1188a6c39ba62f7",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"canPromote\"}"
+    },
+    {
+      "finding_id": "sl-19cd5f82f6447fd6",
+      "fingerprint": "sl-19cd5f82f6447fd6",
+      "engine": "slither",
+      "detector": "slither:timestamp",
+      "title": "Timestamp",
+      "description": "RocketDAONodeTrustedActions.actionChallengeMake(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#183-204) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(getUint(keccak256(bytes)(abi.encodePacked(daoNameSpace,node.challenge.created.time,msg.sender))).add(rocketDAONodeTrustedSettingsMembers.getChallengeCooldown()) < block.timestamp,You must wait for the challenge cooldown to pass before issuing another challenge) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#194)",
+      "vulnerability_class": "TAX-77",
+      "severity": "low",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol",
+        "line_start": 183,
+        "line_end": 204,
+        "contract": "RocketDAONodeTrustedActions",
+        "function": "actionChallengeMake"
+      },
+      "evidence": [
+        "RocketDAONodeTrustedActions.actionChallengeMake(address) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#183-204) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- require(bool,string)(getUint(keccak256(bytes)(abi.encodePacked(daoNameSpace,node.challenge.created.time,msg.sender))).add(rocketDAONodeTrustedSettingsMembers.getChallengeCooldown()) < block.timestamp,You must wait for the challenge cooldown to pass before issuing another challenge) (contracts/contract/dao/node/RocketDAONodeTrustedActions.sol#194)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-b68e662faa931d06",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketDAONodeTrustedActions.actionChallengeMake(address)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-19cd5f82f6447fd6"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-19cd5f82f6447fd6",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketDAONodeTrustedActions\", \"detector\": \"slither:timestamp\", \"file\": \"../rpl-audit/contracts/contract/dao/node/RocketDAONodeTrustedActions.sol\", \"function\": \"actionChallengeMake\"}"
+    },
+    {
+      "finding_id": "sl-d4857e3f56539f15",
+      "fingerprint": "sl-d4857e3f56539f15",
+      "engine": "slither",
+      "detector": "slither:reentrancy-unlimited-gas",
+      "title": "Reentrancy Unlimited Gas",
+      "description": "Reentrancy in RocketMinipoolDelegate.distributeBalance(bool) (contracts/contract/minipool/RocketMinipoolDelegate.sol#366-404):\n\tExternal calls:\n\t- _distributeBalance(totalBalance) (contracts/contract/minipool/RocketMinipoolDelegate.sol#384)\n\t\t- address(rocketTokenRETH).transfer(userAmount) (contracts/contract/minipool/RocketMinipoolDelegate.sol#500)\n\tState variables written after the call(s):\n\t- userDistributed = true (contracts/contract/minipool/RocketMinipoolDelegate.sol#392)",
+      "vulnerability_class": "TAX-14",
+      "severity": "informational",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol",
+        "line_start": 366,
+        "line_end": 404,
+        "contract": "RocketMinipoolDelegate",
+        "function": "distributeBalance"
+      },
+      "evidence": [
+        "Reentrancy in RocketMinipoolDelegate.distributeBalance(bool) (contracts/contract/minipool/RocketMinipoolDelegate.sol#366-404):\n\tExternal calls:\n\t- _distributeBalance(totalBalance) (contracts/contract/minipool/RocketMinipoolDelegate.sol#384)\n\t\t- address(rocketTokenRETH).transfer(userAmount) (contracts/contract/minipool/RocketMinipoolDelegate.sol#500)\n\tState variables written after the call(s):\n\t- userDistributed = true (contracts/contract/minipool/RocketMinipoolDelegate.sol#392)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-069b8d1d47fd6bdc",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketMinipoolDelegate.distributeBalance(bool)",
+        "root_cause_state_variables": [
+          "finalised",
+          "nodeRefundBalance",
+          "nodeSlashBalance",
+          "userDistributeTime",
+          "userDistributed",
+          "withdrawalBlock"
+        ],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-d4857e3f56539f15"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-d4857e3f56539f15",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketMinipoolDelegate\", \"detector\": \"slither:reentrancy-unlimited-gas\", \"file\": \"../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol\", \"function\": \"distributeBalance\"}"
+    },
+    {
+      "finding_id": "sl-3be8edd33cf296c5",
+      "fingerprint": "sl-3be8edd33cf296c5",
+      "engine": "slither",
+      "detector": "slither:reentrancy-unlimited-gas",
+      "title": "Reentrancy Unlimited Gas",
+      "description": "Reentrancy in RocketAuctionManager.placeBid(uint256) (contracts/contract/auction/RocketAuctionManager.sol#197-224):\n\tExternal calls:\n\t- msg.sender.transfer(msg.value.sub(bidAmount)) (contracts/contract/auction/RocketAuctionManager.sol#221)\n\tExternal calls sending eth:\n\t- rocketDepositPool.recycleLiquidatedStake{value: bidAmount}() (contracts/contract/auction/RocketAuctionManager.sol#219)\n\t- msg.sender.transfer(msg.value.sub(bidAmount)) (contracts/contract/auction/RocketAuctionManager.sol#221)\n\tEvent emitted after the call(s):\n\t- BidPlaced(_lotIndex,msg.sender,bidAmount,block.timestamp) (contracts/contract/auction/RocketAuctionManager.sol#223)",
+      "vulnerability_class": "TAX-14",
+      "severity": "informational",
+      "confidence": "medium",
+      "status": "rejected",
+      "source_location": {
+        "file": "../rpl-audit/contracts/contract/auction/RocketAuctionManager.sol",
+        "line_start": 197,
+        "line_end": 224,
+        "contract": "RocketAuctionManager",
+        "function": "placeBid"
+      },
+      "evidence": [
+        "Reentrancy in RocketAuctionManager.placeBid(uint256) (contracts/contract/auction/RocketAuctionManager.sol#197-224):\n\tExternal calls:\n\t- msg.sender.transfer(msg.value.sub(bidAmount)) (contracts/contract/auction/RocketAuctionManager.sol#221)\n\tExternal calls sending eth:\n\t- rocketDepositPool.recycleLiquidatedStake{value: bidAmount}() (contracts/contract/auction/RocketAuctionManager.sol#219)\n\t- msg.sender.transfer(msg.value.sub(bidAmount)) (contracts/contract/auction/RocketAuctionManager.sol#221)\n\tEvent emitted after the call(s):\n\t- BidPlaced(_lotIndex,msg.sender,bidAmount,block.timestamp) (contracts/contract/auction/RocketAuctionManager.sol#223)"
+      ],
+      "trace": [],
+      "test_sequence": null,
+      "exploitability_metadata": {
+        "root_cause_id": "rc-656d5970581e335b",
+        "root_cause_resolved": true,
+        "root_cause_function": "RocketAuctionManager.placeBid(uint256)",
+        "root_cause_state_variables": [],
+        "evidence_count": 1,
+        "merged_finding_ids": [
+          "sl-3be8edd33cf296c5"
+        ]
+      },
+      "scope_status": "unknown",
+      "raw_artifact_reference": "sl-3be8edd33cf296c5",
+      "corroborating_engines": [
+        "slither"
+      ],
+      "dedup_key": "{\"contract\": \"RocketAuctionManager\", \"detector\": \"slither:reentrancy-unlimited-gas\", \"file\": \"../rpl-audit/contracts/contract/auction/RocketAuctionManager.sol\", \"function\": \"placeBid\"}"
+    }
+  ]
+}

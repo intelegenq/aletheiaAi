@@ -1,0 +1,714 @@
+Compiling 32 files with Solc 0.8.30
+Compiling 17 files with Solc 0.7.6
+Solc 0.7.6 finished in 492.52ms
+Solc 0.8.30 finished in 1.61s
+Compiler run successful with warnings:
+Warning (2319): This declaration shadows a builtin symbol.
+  --> contracts/contract/network/RocketNetworkSnapshots.sol:41:71:
+   |
+41 |     function latest(bytes32 _key) external view returns (bool exists, uint32 block, uint224 value) {
+   |                                                                       ^^^^^^^^^^^^
+
+Warning (2319): This declaration shadows a builtin symbol.
+  --> contracts/contract/network/RocketNetworkSnapshots.sol:76:105:
+   |
+76 |     function lookupCheckpoint(bytes32 _key, uint32 _block) external override view returns (bool exists, uint32 block, uint224 value) {
+   |                                                                                                         ^^^^^^^^^^^^
+
+Warning (2519): This declaration shadows an existing declaration.
+   --> contracts/contract/network/RocketNetworkRevenues.sol:173:13:
+    |
+173 |             bytes32 valueKey = bytes32(uint256(_key) + checkpointTime);
+    |             ^^^^^^^^^^^^^^^^
+Note: The shadowed declaration is here:
+   --> contracts/contract/network/RocketNetworkRevenues.sol:177:9:
+    |
+177 |         bytes32 valueKey = bytes32(uint256(_key) + checkpointTime);
+    |         ^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/contract/deposit/RocketDepositPool.sol:313:40:
+    |
+313 |  ... function _assignMinipoolsByDeposit(RocketMinipoolQueueInterface _rocketMinipoolQueue, RocketDAOProtocolSettingsDepositI ...
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/contract/deposit/RocketDepositPool.sol:349:47:
+    |
+349 |     function _assignMinipools(uint256 _count, RocketDAOProtocolSettingsDepositInterface _rocketDAOProtocolSettingsDeposit) internal {
+    |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+   --> contracts/contract/deposit/RocketDepositPool.sol:601:9:
+    |
+601 |         RocketNodeManagerInterface rocketNodeManager = RocketNodeManagerInterface(getContractAddress("rocketNodeManager"));
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+   --> contracts/contract/network/RocketNetworkPenalties.sol:142:9:
+    |
+142 |         uint256 currentMaxPenalty = maxPenalty - currentTotal;
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to view
+   --> contracts/contract/deposit/RocketDepositPool.sol:233:5:
+    |
+233 |     function _getRethCollateralShortfall() internal returns (uint256) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketClaimDAOInvariantTest.sol:14:5:
+   |
+14 |     function invariant_0__payOutContract() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketDAOProtocolSettingsInflationInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketDAOProtocolVerifierInvariantTest.sol:14:5:
+   |
+14 |     function invariant_0_claimBondChallenger() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketDAOSecurityProposalsInvariantTest.sol:14:5:
+   |
+14 |     function invariant_0_onlyValidSetting() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketDepositPoolInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMegapoolPenaltiesInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMegapoolPenaltiesInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMegapoolPenaltiesInvariantTest.sol:26:5:
+   |
+26 |     function invariant_unchecked_return_2() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMegapoolProxyInvariantTest.sol:14:5:
+   |
+14 |     function invariant_delegatecall_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMerkleDistributorMainnetInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMerkleDistributorMainnetInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketMinipoolManagerInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkBalancesInvariantTest.sol:14:5:
+   |
+14 |     function invariant_0__updateBalances() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkPenaltiesInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkPenaltiesInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkPenaltiesInvariantTest.sol:26:5:
+   |
+26 |     function invariant_unchecked_return_2() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkRevenuesInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkRevenuesInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNetworkRevenuesInvariantTest.sol:26:5:
+   |
+26 |     function invariant_2__getAverageSince() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:26:5:
+   |
+26 |     function invariant_unchecked_return_2() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:32:5:
+   |
+32 |     function invariant_unchecked_return_3() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:38:5:
+   |
+38 |     function invariant_unchecked_return_4() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:44:5:
+   |
+44 |     function invariant_unchecked_return_5() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketNodeStakingInvariantTest.sol:50:5:
+   |
+50 |     function invariant_unchecked_return_6() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketRewardsPoolInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketSignerRegistryInvariantTest.sol:14:5:
+   |
+14 |     function invariant_0_recoverSigner() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/RocketSignerRegistryInvariantTest.sol:21:5:
+   |
+21 |     function invariant_access_control_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/SnapshotTestInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/SnapshotTestInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/SnapshotTimeTestInvariantTest.sol:14:5:
+   |
+14 |     function invariant_unchecked_return_0() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/generated/SnapshotTimeTestInvariantTest.sol:20:5:
+   |
+20 |     function invariant_unchecked_return_1() public {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2072): Unused local variable.
+test/generated/RocketMinipoolDelegateInvariantTest.sol:17:9: Warning: Unused local variable.
+        uint256 balanceBefore = address(target).balance;
+        ^-------------------^
+Warning (2018): Function state mutability can be restricted to pure
+test/generated/RocketMinipoolBaseInvariantTest.sol:14:5: Warning: Function state mutability can be restricted to pure
+    function invariant_delegatecall_0() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+Warning (2018): Function state mutability can be restricted to pure
+test/generated/RocketMinipoolBaseInvariantTest.sol:19:5: Warning: Function state mutability can be restricted to pure
+    function invariant_delegatecall_1() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+Warning (2018): Function state mutability can be restricted to view
+test/generated/RocketMinipoolDelegateInvariantTest.sol:14:5: Warning: Function state mutability can be restricted to view
+    function invariant_no_reentrancy_0() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+Ran 1 test for test/generated/RocketDAOProtocolSettingsInflationInvariantTest.sol:RocketDAOProtocolSettingsInflationInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 395.90µs (0.00ns CPU time)
+
+Ran 1 test for test/generated/RocketNodeStakingInvariantTest.sol:RocketNodeStakingInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 435.86µs (0.00ns CPU time)
+
+Ran 1 test for test/generated/RocketDepositPoolInvariantTest.sol:RocketDepositPoolInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 479.28µs (0.00ns CPU time)
+
+Ran 1 test for test/generated/RocketMinipoolDelegateInvariantTest.sol:RocketMinipoolDelegateInvariantTest
+[PASS] invariant_no_reentrancy_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭------------------------+---------------------+-------+---------+----------╮
+| Contract               | Selector            | Calls | Reverts | Discards |
++===========================================================================+
+| RocketMinipoolDelegate | beginUserDistribute | 8037  | 8037    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | close               | 8000  | 8000    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | deposit             | 7968  | 7968    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | dissolve            | 8043  | 8043    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | distributeBalance   | 7870  | 7870    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | finalise            | 8066  | 8066    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | initialise          | 8057  | 8057    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | preDeposit          | 7984  | 7984    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | prepareVacancy      | 7903  | 7903    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | promote             | 7920  | 7920    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | reduceBondAmount    | 8196  | 8196    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | refund              | 7914  | 7914    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | slash               | 7956  | 7956    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | stake               | 8051  | 8051    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | userDeposit         | 8153  | 8153    | 0        |
+|------------------------+---------------------+-------+---------+----------|
+| RocketMinipoolDelegate | voteScrub           | 7882  | 7882    | 0        |
+╰------------------------+---------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.50s (3.50s CPU time)
+
+Ran 1 test for test/generated/RocketNetworkBalancesInvariantTest.sol:RocketNetworkBalancesInvariantTest
+[PASS] invariant_0__updateBalances() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-----------------------+-----------------------+-------+---------+----------╮
+| Contract              | Selector              | Calls | Reverts | Discards |
++============================================================================+
+| RocketNetworkBalances | executeUpdateBalances | 64126 | 64126   | 0        |
+|-----------------------+-----------------------+-------+---------+----------|
+| RocketNetworkBalances | submitBalances        | 63874 | 63874   | 0        |
+╰-----------------------+-----------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.80s (4.80s CPU time)
+
+Ran 1 test for test/generated/RocketMinipoolManagerInvariantTest.sol:RocketMinipoolManagerInvariantTest
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-----------------------+-------------------------------------+-------+---------+----------╮
+| Contract              | Selector                            | Calls | Reverts | Discards |
++==========================================================================================+
+| RocketMinipoolManager | createMinipool                      | 12974 | 12974   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | createVacantMinipool                | 13002 | 13002   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | decrementNodeStakingMinipoolCount   | 12780 | 12780   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | destroyMinipool                     | 12770 | 12770   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | incrementNodeFinalisedMinipoolCount | 12886 | 12886   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | incrementNodeStakingMinipoolCount   | 12681 | 12681   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | removeVacantMinipool                | 12761 | 12761   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | setMinipoolPubkey                   | 12657 | 12657   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | tryDistribute                       | 12965 | 12965   | 0        |
+|-----------------------+-------------------------------------+-------+---------+----------|
+| RocketMinipoolManager | updateNodeStakingMinipoolCount      | 12524 | 12524   | 0        |
+╰-----------------------+-------------------------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 5.18s (5.17s CPU time)
+
+Ran 1 test for test/generated/SnapshotTestInvariantTest.sol:SnapshotTestInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 153.11µs (0.00ns CPU time)
+
+Ran 1 test for test/generated/SnapshotTimeTestInvariantTest.sol:SnapshotTimeTestInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 121.75µs (0.00ns CPU time)
+
+Ran 1 test for test/generated/RocketMegapoolProxyInvariantTest.sol:RocketMegapoolProxyInvariantTest
+[PASS] invariant_delegatecall_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭---------------------+----------------------+-------+---------+----------╮
+| Contract            | Selector             | Calls | Reverts | Discards |
++=========================================================================+
+| RocketMegapoolProxy | delegateUpgrade      | 42766 | 42766   | 0        |
+|---------------------+----------------------+-------+---------+----------|
+| RocketMegapoolProxy | initialise           | 42503 | 42503   | 0        |
+|---------------------+----------------------+-------+---------+----------|
+| RocketMegapoolProxy | setUseLatestDelegate | 42731 | 42731   | 0        |
+╰---------------------+----------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 2.43s (2.43s CPU time)
+
+Ran 1 test for test/generated/RocketRewardsPoolInvariantTest.sol:RocketRewardsPoolInvariantTest
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-------------------+---------------------------+-------+---------+----------╮
+| Contract          | Selector                  | Calls | Reverts | Discards |
++============================================================================+
+| RocketRewardsPool | depositVoterShare         | 31775 | 31775   | 0        |
+|-------------------+---------------------------+-------+---------+----------|
+| RocketRewardsPool | executeRewardSnapshot     | 31897 | 31897   | 0        |
+|-------------------+---------------------------+-------+---------+----------|
+| RocketRewardsPool | receiveVaultWithdrawalETH | 32278 | 32278   | 0        |
+|-------------------+---------------------------+-------+---------+----------|
+| RocketRewardsPool | submitRewardSnapshot      | 32050 | 32050   | 0        |
+╰-------------------+---------------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.59s (9.59s CPU time)
+
+Ran 1 test for test/generated/RocketDAOProtocolVerifierInvariantTest.sol:RocketDAOProtocolVerifierInvariantTest
+[PASS] invariant_0_claimBondChallenger() (runs: 256, calls: 128000, reverts: 128000)
+
+╭---------------------------+---------------------+-------+---------+----------╮
+| Contract                  | Selector            | Calls | Reverts | Discards |
++==============================================================================+
+| RocketDAOProtocolVerifier | burnProposalBond    | 18142 | 18142   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | claimBondChallenger | 18666 | 18666   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | claimBondProposer   | 18199 | 18199   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | createChallenge     | 18382 | 18382   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | defeatProposal      | 18505 | 18505   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | submitProposalRoot  | 18200 | 18200   | 0        |
+|---------------------------+---------------------+-------+---------+----------|
+| RocketDAOProtocolVerifier | submitRoot          | 17906 | 17906   | 0        |
+╰---------------------------+---------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 10.40s (10.39s CPU time)
+
+Ran 3 tests for test/generated/RocketNetworkPenaltiesInvariantTest.sol:RocketNetworkPenaltiesInvariantTest
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭------------------------+----------------------+-------+---------+----------╮
+| Contract               | Selector             | Calls | Reverts | Discards |
++============================================================================+
+| RocketNetworkPenalties | executeUpdatePenalty | 64156 | 64156   | 0        |
+|------------------------+----------------------+-------+---------+----------|
+| RocketNetworkPenalties | submitPenalty        | 63844 | 63844   | 0        |
+╰------------------------+----------------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭------------------------+----------------------+-------+---------+----------╮
+| Contract               | Selector             | Calls | Reverts | Discards |
++============================================================================+
+| RocketNetworkPenalties | executeUpdatePenalty | 64156 | 64156   | 0        |
+|------------------------+----------------------+-------+---------+----------|
+| RocketNetworkPenalties | submitPenalty        | 63844 | 63844   | 0        |
+╰------------------------+----------------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_2() (runs: 256, calls: 128000, reverts: 128000)
+
+╭------------------------+----------------------+-------+---------+----------╮
+| Contract               | Selector             | Calls | Reverts | Discards |
++============================================================================+
+| RocketNetworkPenalties | executeUpdatePenalty | 64156 | 64156   | 0        |
+|------------------------+----------------------+-------+---------+----------|
+| RocketNetworkPenalties | submitPenalty        | 63844 | 63844   | 0        |
+╰------------------------+----------------------+-------+---------+----------╯
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 12.38s (12.38s CPU time)
+
+Ran 2 tests for test/generated/RocketMinipoolBaseInvariantTest.sol:RocketMinipoolBaseInvariantTest
+[PASS] invariant_delegatecall_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭--------------------+----------------------+-------+---------+----------╮
+| Contract           | Selector             | Calls | Reverts | Discards |
++========================================================================+
+| RocketMinipoolBase | delegateRollback     | 31822 | 31822   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | delegateUpgrade      | 32057 | 32057   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | initialise           | 32014 | 32014   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | setUseLatestDelegate | 32107 | 32107   | 0        |
+╰--------------------+----------------------+-------+---------+----------╯
+
+[PASS] invariant_delegatecall_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭--------------------+----------------------+-------+---------+----------╮
+| Contract           | Selector             | Calls | Reverts | Discards |
++========================================================================+
+| RocketMinipoolBase | delegateRollback     | 31822 | 31822   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | delegateUpgrade      | 32057 | 32057   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | initialise           | 32014 | 32014   | 0        |
+|--------------------+----------------------+-------+---------+----------|
+| RocketMinipoolBase | setUseLatestDelegate | 32107 | 32107   | 0        |
+╰--------------------+----------------------+-------+---------+----------╯
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 4.40s (4.40s CPU time)
+
+Ran 1 test for test/generated/RocketDAOSecurityProposalsInvariantTest.sol:RocketDAOSecurityProposalsInvariantTest
+[PASS] invariant_0_onlyValidSetting() (runs: 256, calls: 128000, reverts: 128000)
+
+╭----------------------------+------------------------+-------+---------+----------╮
+| Contract                   | Selector               | Calls | Reverts | Discards |
++==================================================================================+
+| RocketDAOSecurityProposals | cancel                 | 11658 | 11658   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | execute                | 11542 | 11542   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalInvite         | 11576 | 11576   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalKick           | 11593 | 11593   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalKickMulti      | 11736 | 11736   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalReplace        | 11674 | 11674   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalSettingAddress | 11794 | 11794   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalSettingBool    | 11520 | 11520   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | proposalSettingUint    | 11541 | 11541   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | propose                | 11732 | 11732   | 0        |
+|----------------------------+------------------------+-------+---------+----------|
+| RocketDAOSecurityProposals | vote                   | 11634 | 11634   | 0        |
+╰----------------------------+------------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 6.77s (6.77s CPU time)
+
+Ran 2 tests for test/generated/RocketSignerRegistryInvariantTest.sol:RocketSignerRegistryInvariantTest
+[PASS] invariant_0_recoverSigner() (runs: 256, calls: 128000, reverts: 128000)
+
+╭----------------------+-------------+-------+---------+----------╮
+| Contract             | Selector    | Calls | Reverts | Discards |
++=================================================================+
+| RocketSignerRegistry | clearSigner | 64172 | 64172   | 0        |
+|----------------------+-------------+-------+---------+----------|
+| RocketSignerRegistry | setSigner   | 63828 | 63828   | 0        |
+╰----------------------+-------------+-------+---------+----------╯
+
+[PASS] invariant_access_control_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭----------------------+-------------+-------+---------+----------╮
+| Contract             | Selector    | Calls | Reverts | Discards |
++=================================================================+
+| RocketSignerRegistry | clearSigner | 64172 | 64172   | 0        |
+|----------------------+-------------+-------+---------+----------|
+| RocketSignerRegistry | setSigner   | 63828 | 63828   | 0        |
+╰----------------------+-------------+-------+---------+----------╯
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 18.02s (21.15s CPU time)
+
+Ran 1 test for test/generated/RocketClaimDAOInvariantTest.sol:RocketClaimDAOInvariantTest
+[PASS] invariant_0__payOutContract() (runs: 256, calls: 128000, reverts: 128000)
+
+╭----------------+----------------------------+-------+---------+----------╮
+| Contract       | Selector                   | Calls | Reverts | Discards |
++==========================================================================+
+| RocketClaimDAO | newContract                | 21292 | 21292   | 0        |
+|----------------+----------------------------+-------+---------+----------|
+| RocketClaimDAO | payOutContracts            | 21273 | 21273   | 0        |
+|----------------+----------------------------+-------+---------+----------|
+| RocketClaimDAO | payOutContractsAndWithdraw | 21578 | 21578   | 0        |
+|----------------+----------------------------+-------+---------+----------|
+| RocketClaimDAO | spend                      | 21220 | 21220   | 0        |
+|----------------+----------------------------+-------+---------+----------|
+| RocketClaimDAO | updateContract             | 21385 | 21385   | 0        |
+|----------------+----------------------------+-------+---------+----------|
+| RocketClaimDAO | withdrawBalance            | 21252 | 21252   | 0        |
+╰----------------+----------------------------+-------+---------+----------╯
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 56.77s (56.76s CPU time)
+
+Ran 3 tests for test/generated/RocketNetworkRevenuesInvariantTest.sol:RocketNetworkRevenuesInvariantTest
+[PASS] invariant_2__getAverageSince() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-----------------------+---------------------+-------+---------+----------╮
+| Contract              | Selector            | Calls | Reverts | Discards |
++==========================================================================+
+| RocketNetworkRevenues | initialise          | 25552 | 25552   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeCapitalRatio | 25719 | 25719   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeShare        | 25475 | 25475   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setProtocolDAOShare | 25535 | 25535   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setVoterShare       | 25719 | 25719   | 0        |
+╰-----------------------+---------------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-----------------------+---------------------+-------+---------+----------╮
+| Contract              | Selector            | Calls | Reverts | Discards |
++==========================================================================+
+| RocketNetworkRevenues | initialise          | 25552 | 25552   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeCapitalRatio | 25719 | 25719   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeShare        | 25475 | 25475   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setProtocolDAOShare | 25535 | 25535   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setVoterShare       | 25719 | 25719   | 0        |
+╰-----------------------+---------------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-----------------------+---------------------+-------+---------+----------╮
+| Contract              | Selector            | Calls | Reverts | Discards |
++==========================================================================+
+| RocketNetworkRevenues | initialise          | 25552 | 25552   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeCapitalRatio | 25719 | 25719   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setNodeShare        | 25475 | 25475   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setProtocolDAOShare | 25535 | 25535   | 0        |
+|-----------------------+---------------------+-------+---------+----------|
+| RocketNetworkRevenues | setVoterShare       | 25719 | 25719   | 0        |
+╰-----------------------+---------------------+-------+---------+----------╯
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 226.27s (12.07s CPU time)
+
+Ran 2 tests for test/generated/RocketMerkleDistributorMainnetInvariantTest.sol:RocketMerkleDistributorMainnetInvariantTest
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭--------------------------------+---------------------------+-------+---------+----------╮
+| Contract                       | Selector                  | Calls | Reverts | Discards |
++=========================================================================================+
+| RocketMerkleDistributorMainnet | claim                     | 21345 | 21345   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | claimAndStake             | 21376 | 21376   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | claimOutstandingEth       | 21268 | 21268   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | initialise                | 21403 | 21403   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | receiveVaultWithdrawalETH | 21309 | 21309   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | relayRewards              | 21299 | 21299   | 0        |
+╰--------------------------------+---------------------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭--------------------------------+---------------------------+-------+---------+----------╮
+| Contract                       | Selector                  | Calls | Reverts | Discards |
++=========================================================================================+
+| RocketMerkleDistributorMainnet | claim                     | 21345 | 21345   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | claimAndStake             | 21376 | 21376   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | claimOutstandingEth       | 21268 | 21268   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | initialise                | 21403 | 21403   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | receiveVaultWithdrawalETH | 21309 | 21309   | 0        |
+|--------------------------------+---------------------------+-------+---------+----------|
+| RocketMerkleDistributorMainnet | relayRewards              | 21299 | 21299   | 0        |
+╰--------------------------------+---------------------------+-------+---------+----------╯
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 229.29s (439.47s CPU time)
+
+Ran 3 tests for test/generated/RocketMegapoolPenaltiesInvariantTest.sol:RocketMegapoolPenaltiesInvariantTest
+[PASS] invariant_unchecked_return_0() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-------------------------+----------------+-------+---------+----------╮
+| Contract                | Selector       | Calls | Reverts | Discards |
++=======================================================================+
+| RocketMegapoolPenalties | executePenalty | 64052 | 64052   | 0        |
+|-------------------------+----------------+-------+---------+----------|
+| RocketMegapoolPenalties | penalise       | 63948 | 63948   | 0        |
+╰-------------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_1() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-------------------------+----------------+-------+---------+----------╮
+| Contract                | Selector       | Calls | Reverts | Discards |
++=======================================================================+
+| RocketMegapoolPenalties | executePenalty | 64052 | 64052   | 0        |
+|-------------------------+----------------+-------+---------+----------|
+| RocketMegapoolPenalties | penalise       | 63948 | 63948   | 0        |
+╰-------------------------+----------------+-------+---------+----------╯
+
+[PASS] invariant_unchecked_return_2() (runs: 256, calls: 128000, reverts: 128000)
+
+╭-------------------------+----------------+-------+---------+----------╮
+| Contract                | Selector       | Calls | Reverts | Discards |
++=======================================================================+
+| RocketMegapoolPenalties | executePenalty | 64052 | 64052   | 0        |
+|-------------------------+----------------+-------+---------+----------|
+| RocketMegapoolPenalties | penalise       | 63948 | 63948   | 0        |
+╰-------------------------+----------------+-------+---------+----------╯
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 235.22s (13.47s CPU time)
+
+Ran 19 test suites in 235.22s (825.03s CPU time): 23 tests passed, 5 failed, 0 skipped (28 total tests)
+
+Failing tests:
+Encountered 1 failing test in test/generated/RocketDAOProtocolSettingsInflationInvariantTest.sol:RocketDAOProtocolSettingsInflationInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+
+Encountered 1 failing test in test/generated/RocketDepositPoolInvariantTest.sol:RocketDepositPoolInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+
+Encountered 1 failing test in test/generated/RocketNodeStakingInvariantTest.sol:RocketNodeStakingInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+
+Encountered 1 failing test in test/generated/SnapshotTestInvariantTest.sol:SnapshotTestInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+
+Encountered 1 failing test in test/generated/SnapshotTimeTestInvariantTest.sol:SnapshotTimeTestInvariantTest
+[FAIL: EvmError: Revert] setUp() (gas: 0)
+
+Encountered a total of 5 failing tests, 23 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 5 failed tests

@@ -1,0 +1,93 @@
+{
+  "finding_id": "sl-099f7f9c4a7cb553",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "OracleAggregatorV2._checkAnswer(int256,IOracleV2.Oracle)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "OracleAggregatorV2._checkAnswer(int256,IOracleV2.Oracle)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "OracleAggregatorV2.getPrice(address)",
+        "OracleAggregatorWithSequencerV2.getPrice(address)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "OracleAggregatorV2.getPrice(address)",
+        "OracleAggregatorV2._checkAnswer(int256,IOracleV2.Oracle)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-cf4689e6ae048057",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-cf4689e6ae048057",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/oracle/OracleAggregatorV2.sol:232",
+    "AccessControlIndex: no guard on OracleAggregatorV2._checkAnswer(int256,IOracleV2.Oracle) but no state write detected",
+    "ReachabilityIndex: OracleAggregatorV2._checkAnswer(int256,IOracleV2.Oracle) reachable via unguarded callers ['OracleAggregatorV2.getPrice(address)', 'OracleAggregatorWithSequencerV2.getPrice(address)']",
+    "Cannot verify: access-control unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": [
+    "access_control_verdict"
+  ]
+}

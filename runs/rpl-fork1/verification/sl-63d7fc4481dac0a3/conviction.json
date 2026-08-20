@@ -1,0 +1,114 @@
+{
+  "finding_id": "sl-63d7fc4481dac0a3",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "debt",
+      "lastDistributionTime",
+      "refundValue"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMegapoolDelegate._distributeAmount(uint256)",
+    "state_variables": [
+      "debt",
+      "lastDistributionTime",
+      "refundValue"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "RocketMegapoolDelegate._distributeAmount(uint256)",
+      "state_writes": [
+        "debt",
+        "lastDistributionTime",
+        "refundValue"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64)",
+        "RocketMegapoolDelegate._snapshotCapitalRatio()",
+        "RocketMegapoolDelegate.dissolveValidator(uint32)",
+        "RocketMegapoolDelegate.distribute()",
+        "RocketMegapoolDelegate.notifyFinalBalance(uint32,uint64,address,uint64,uint64)",
+        "RocketMegapoolDelegate.reduceBond(uint256)",
+        "RocketMegapoolDelegate.stake(uint32)"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64)",
+        "RocketMegapoolDelegate._distributeAmount(uint256)",
+        "debt,lastDistributionTime,refundValue storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d5bf130270251519",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d5bf130270251519",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/megapool/RocketMegapoolDelegate.sol:447",
+    "AccessControlIndex: no guard on RocketMegapoolDelegate._distributeAmount(uint256), writes state ['debt', 'lastDistributionTime', 'refundValue']",
+    "ReachabilityIndex: RocketMegapoolDelegate._distributeAmount(uint256) reachable via unguarded callers ['RocketMegapoolDelegate._notifyFinalBalance(uint32,uint64)', 'RocketMegapoolDelegate._snapshotCapitalRatio()', 'RocketMegapoolDelegate.distribute()']",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

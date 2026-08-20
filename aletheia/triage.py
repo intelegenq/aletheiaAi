@@ -365,8 +365,17 @@ def _assign_priority(t: TriageResult) -> TriageResult:
         or perm_unknown
         or prereq_missing
     ):
-        t.priority = "needs-review"
-        t.rationale.append("Needs review: evidence insufficient to rank")
+        # Sub-rank needs-review by exploitability score so the auditor
+        # can focus on the most exploitable findings first.
+        if ex >= 0.50 and scope == "in-scope":
+            t.priority = "needs-review-urgent"
+            t.rationale.append("Urgent review: in-scope, plausible exploitability, evidence incomplete")
+        elif ex >= 0.25 and scope == "in-scope":
+            t.priority = "needs-review-high"
+            t.rationale.append("High-priority review: in-scope, theoretical exploitability")
+        else:
+            t.priority = "needs-review"
+            t.rationale.append("Needs review: evidence insufficient to rank")
         return t
 
     # Uncertainty in scope is a review blocker.
@@ -436,7 +445,12 @@ def run_triage(
         if rid:
             root_cause_findings.setdefault(rid, []).append(f)
         else:
-            root_cause_findings.setdefault("", []).append(f)
+            # Fallback: group by (contract, detector) when no root_cause_id
+            src = f.source_location
+            contract = src.contract if src else ""
+            detector = f.detector or ""
+            fallback_rid = f"fallback:{contract}:{detector}"
+            root_cause_findings.setdefault(fallback_rid, []).append(f)
 
     # Build root cause info lookup
     rc_info: dict[str, dict] = {}

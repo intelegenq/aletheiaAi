@@ -1,0 +1,6 @@
+Error: Compiler run failed:
+Error: Internal compiler error:
+/solidity/libsolidity/interface/CompilerStack.cpp(1511): Throw in function void solidity::frontend::CompilerStack::assembleYul(const solidity::frontend::ContractDefinition&, std::shared_ptr<solidity::evmasm::Assembly>, std::shared_ptr<solidity::evmasm::Assembly>)
+Dynamic exception type: boost::wrapexcept<solidity::langutil::InternalCompilerError>
+std::exception::what: Assembly exception for bytecode: Tag too large for reserved space.
+[solidity::util::tag_comment*] = Assembly exception for bytecode: Tag too large for reserved space.

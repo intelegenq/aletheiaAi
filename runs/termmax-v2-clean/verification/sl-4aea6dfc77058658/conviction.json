@@ -1,0 +1,102 @@
+{
+  "finding_id": "sl-4aea6dfc77058658",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.5,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "unknown",
+    "state_variables": [
+      "_orderMapping"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "OrderManager._updateOrder(IERC20,ITermMaxOrder,int256,uint256,CurveCuts)",
+    "state_variables": [
+      "_orderMapping"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "OrderManager._updateOrder(IERC20,ITermMaxOrder,int256,uint256,CurveCuts)",
+      "state_writes": [
+        "_orderMapping"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "",
+      "callers": [
+        "OrderManager.updateOrders(IERC20,ITermMaxOrder[],int256[],uint256[],CurveCuts[])"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "OrderManager.updateOrders(IERC20,ITermMaxOrder[],int256[],uint256[],CurveCuts[])",
+        "OrderManager._updateOrder(IERC20,ITermMaxOrder,int256,uint256,CurveCuts)",
+        "_orderMapping storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-22fd8e0b7e87d059",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 2,
+    "root_cause_id": "rc-22fd8e0b7e87d059",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v1/vault/OrderManager.sol:114",
+    "AccessControlIndex: no guard on OrderManager._updateOrder(IERC20,ITermMaxOrder,int256,uint256,CurveCuts), writes state ['_orderMapping']",
+    "ReachabilityIndex: OrderManager._updateOrder(IERC20,ITermMaxOrder,int256,uint256,CurveCuts) reachable only via guarded callers ['OrderManager.updateOrders(IERC20,ITermMaxOrder[],int256[],uint256[],CurveCuts[])']",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: reachable only through restricted callers",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

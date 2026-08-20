@@ -1,0 +1,2074 @@
+{
+  "schema_version": "aletheia.conviction.v2",
+  "count": 23,
+  "analysis": {
+    "available": false,
+    "functions": 0,
+    "entry_points": 0,
+    "contracts": []
+  },
+  "root_causes": [
+    {
+      "root_cause_id": "rc-2d23ddd102531615",
+      "title": "Reentrancy Balance",
+      "contract": "AlphaProVault",
+      "function": "withdraw",
+      "state_variables": [],
+      "vulnerability_class": "TAX-14",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-0a8228b5ee8f3133"
+      ],
+      "primary_finding_id": "sl-0a8228b5ee8f3133"
+    },
+    {
+      "root_cause_id": "rc-e5c370272ab52412",
+      "title": "Reentrancy Balance",
+      "contract": "AlphaProVault",
+      "function": "deposit",
+      "state_variables": [],
+      "vulnerability_class": "TAX-14",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-5ddbb7df78acabbd"
+      ],
+      "primary_finding_id": "sl-5ddbb7df78acabbd"
+    },
+    {
+      "root_cause_id": "rc-46400eb760c242fb",
+      "title": "pattern-privileged-config-mutation",
+      "contract": "AlphaProVault",
+      "function": "withdraw",
+      "state_variables": [],
+      "vulnerability_class": "PAT-0001",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "pp-c38f759edadceb0b"
+      ],
+      "primary_finding_id": "pp-c38f759edadceb0b"
+    },
+    {
+      "root_cause_id": "rc-7305abaee2e07e56",
+      "title": "Divide Before Multiply",
+      "contract": "AlphaProVault",
+      "function": "initialize",
+      "state_variables": [],
+      "vulnerability_class": "TAX-28",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-b823c90cf09d8496"
+      ],
+      "primary_finding_id": "sl-b823c90cf09d8496"
+    },
+    {
+      "root_cause_id": "rc-13ea1176413989ea",
+      "title": "Uninitialized Local",
+      "contract": "_burnAndCollect",
+      "function": "",
+      "state_variables": [],
+      "vulnerability_class": "TAX-87",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-a684bb7110765116"
+      ],
+      "primary_finding_id": "sl-a684bb7110765116"
+    },
+    {
+      "root_cause_id": "rc-d62e68185646becc",
+      "title": "Unused Return",
+      "contract": "AlphaProPeriphery",
+      "function": "getFees",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-43d1fd2835622f7d"
+      ],
+      "primary_finding_id": "sl-43d1fd2835622f7d"
+    },
+    {
+      "root_cause_id": "rc-7c6002048ef65896",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "emergencyBurn",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-41620db6d0c925a8"
+      ],
+      "primary_finding_id": "sl-41620db6d0c925a8"
+    },
+    {
+      "root_cause_id": "rc-50c60123cea8d435",
+      "title": "Reentrancy No Eth",
+      "contract": "AlphaProVault",
+      "function": "rebalance",
+      "state_variables": [],
+      "vulnerability_class": "TAX-14",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-0f2e03dc2e8c41b0"
+      ],
+      "primary_finding_id": "sl-0f2e03dc2e8c41b0"
+    },
+    {
+      "root_cause_id": "rc-e940daa23a63639a",
+      "title": "Reentrancy No Eth",
+      "contract": "AlphaProVault",
+      "function": "withdraw",
+      "state_variables": [],
+      "vulnerability_class": "TAX-14",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-378e223950f5d162"
+      ],
+      "primary_finding_id": "sl-378e223950f5d162"
+    },
+    {
+      "root_cause_id": "rc-9fe5262ed1868a38",
+      "title": "Divide Before Multiply",
+      "contract": "AlphaProVault",
+      "function": "_floor",
+      "state_variables": [],
+      "vulnerability_class": "TAX-28",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-358b1c1421af3ad3"
+      ],
+      "primary_finding_id": "sl-358b1c1421af3ad3"
+    },
+    {
+      "root_cause_id": "rc-09d60a0a4c0f069a",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "_liquidityForAmounts",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-8456fd26a806cf87"
+      ],
+      "primary_finding_id": "sl-8456fd26a806cf87"
+    },
+    {
+      "root_cause_id": "rc-7d7ddd58cb2e8622",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "_poke",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-e33a65257f9baa90"
+      ],
+      "primary_finding_id": "sl-e33a65257f9baa90"
+    },
+    {
+      "root_cause_id": "rc-0593b51de8c5bfa9",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "getTwap",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-2b3a60dfe4372d63"
+      ],
+      "primary_finding_id": "sl-2b3a60dfe4372d63"
+    },
+    {
+      "root_cause_id": "rc-3cfc252004231081",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "checkCanRebalance",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-f72350233c154f72"
+      ],
+      "primary_finding_id": "sl-f72350233c154f72"
+    },
+    {
+      "root_cause_id": "rc-aeca2e063e0d3f69",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "_amountsForLiquidity",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-e175c500abdf3cd9"
+      ],
+      "primary_finding_id": "sl-e175c500abdf3cd9"
+    },
+    {
+      "root_cause_id": "rc-708436637395a427",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "_mintLiquidity",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-934b7bf1417bec6f"
+      ],
+      "primary_finding_id": "sl-934b7bf1417bec6f"
+    },
+    {
+      "root_cause_id": "rc-47c90dd2a5f48e38",
+      "title": "Unused Return",
+      "contract": "AlphaProVault",
+      "function": "rebalance",
+      "state_variables": [],
+      "vulnerability_class": "TAX-43",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-d9858c5d2bbc8ef7"
+      ],
+      "primary_finding_id": "sl-d9858c5d2bbc8ef7"
+    },
+    {
+      "root_cause_id": "rc-9988b80d65009a63",
+      "title": "Reentrancy No Eth",
+      "contract": "AlphaProVault",
+      "function": "deposit",
+      "state_variables": [],
+      "vulnerability_class": "TAX-14",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-f14354a17bf9fe10"
+      ],
+      "primary_finding_id": "sl-f14354a17bf9fe10"
+    },
+    {
+      "root_cause_id": "rc-62f7af001cc15519",
+      "title": "Missing Zero Check",
+      "contract": "constructor",
+      "function": "",
+      "state_variables": [],
+      "vulnerability_class": "TAX-90",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-e75d6b06ed841807"
+      ],
+      "primary_finding_id": "sl-e75d6b06ed841807"
+    },
+    {
+      "root_cause_id": "rc-a94e6d38fe0217ce",
+      "title": "Missing Zero Check",
+      "contract": "setManager",
+      "function": "",
+      "state_variables": [],
+      "vulnerability_class": "TAX-90",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-94ace5b57c7a2905"
+      ],
+      "primary_finding_id": "sl-94ace5b57c7a2905"
+    },
+    {
+      "root_cause_id": "rc-6c5d9ff054e4ab50",
+      "title": "Missing Zero Check",
+      "contract": "setGovernance",
+      "function": "",
+      "state_variables": [],
+      "vulnerability_class": "TAX-90",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-801ff7a2853701d2"
+      ],
+      "primary_finding_id": "sl-801ff7a2853701d2"
+    },
+    {
+      "root_cause_id": "rc-1457e799a3d6dd1a",
+      "title": "Missing Zero Check",
+      "contract": "setRebalanceDelegate",
+      "function": "",
+      "state_variables": [],
+      "vulnerability_class": "TAX-90",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-a5ed5887fa8343c3"
+      ],
+      "primary_finding_id": "sl-a5ed5887fa8343c3"
+    },
+    {
+      "root_cause_id": "rc-e67c7dc5b5e54267",
+      "title": "Timestamp",
+      "contract": "AlphaProVault",
+      "function": "checkCanRebalance",
+      "state_variables": [],
+      "vulnerability_class": "TAX-77",
+      "operation": "unknown",
+      "resolved": false,
+      "corroborating_engines": [
+        "slither"
+      ],
+      "evidence_count": 1,
+      "finding_ids": [
+        "sl-d8999a6944fe5a39"
+      ],
+      "primary_finding_id": "sl-d8999a6944fe5a39"
+    }
+  ],
+  "fork_simulation": {
+    "status": "skipped",
+    "reason": "fork configuration unavailable (no RPC URL)",
+    "chain_id": null,
+    "block_number": null
+  },
+  "testgen": {},
+  "summary": {
+    "verified": 0,
+    "rejected": 0,
+    "needs_review": 23,
+    "needs_dynamic_validation": 0
+  },
+  "results": [
+    {
+      "finding_id": "sl-0a8228b5ee8f3133",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-2d23ddd102531615",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-2d23ddd102531615",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:293",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-5ddbb7df78acabbd",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-e5c370272ab52412",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-e5c370272ab52412",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:196",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "pp-c38f759edadceb0b",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-46400eb760c242fb",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-46400eb760c242fb",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:293",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-b823c90cf09d8496",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-7305abaee2e07e56",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-7305abaee2e07e56",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:144",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-a684bb7110765116",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-13ea1176413989ea",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-13ea1176413989ea",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:548",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-43d1fd2835622f7d",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-d62e68185646becc",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-d62e68185646becc",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProPeriphery.sol:80",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-41620db6d0c925a8",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-7c6002048ef65896",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-7c6002048ef65896",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:788",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-0f2e03dc2e8c41b0",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-50c60123cea8d435",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-50c60123cea8d435",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:374",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-378e223950f5d162",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-e940daa23a63639a",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-e940daa23a63639a",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:293",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-358b1c1421af3ad3",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-9fe5262ed1868a38",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-9fe5262ed1868a38",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:500",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-8456fd26a806cf87",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-09d60a0a4c0f069a",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-09d60a0a4c0f069a",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:653",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-e33a65257f9baa90",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-7d7ddd58cb2e8622",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-7d7ddd58cb2e8622",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:240",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-2b3a60dfe4372d63",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-0593b51de8c5bfa9",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-0593b51de8c5bfa9",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:488",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-f72350233c154f72",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-3cfc252004231081",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-3cfc252004231081",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:462",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-e175c500abdf3cd9",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-aeca2e063e0d3f69",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-aeca2e063e0d3f69",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:637",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-934b7bf1417bec6f",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-708436637395a427",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-708436637395a427",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:568",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-d9858c5d2bbc8ef7",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-47c90dd2a5f48e38",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-47c90dd2a5f48e38",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:374",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-f14354a17bf9fe10",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-9988b80d65009a63",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-9988b80d65009a63",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:196",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-e75d6b06ed841807",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-62f7af001cc15519",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-62f7af001cc15519",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVaultFactory.sol:32",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-94ace5b57c7a2905",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-a94e6d38fe0217ce",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-a94e6d38fe0217ce",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:801",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-801ff7a2853701d2",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-6c5d9ff054e4ab50",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-6c5d9ff054e4ab50",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVaultFactory.sol:69",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-a5ed5887fa8343c3",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-1457e799a3d6dd1a",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-1457e799a3d6dd1a",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:806",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    },
+    {
+      "finding_id": "sl-d8999a6944fe5a39",
+      "verdict": "needs-review",
+      "confidence": "low",
+      "score": 0.1,
+      "source_verified": true,
+      "access_control_verdict": "unknown",
+      "call_path_verdict": "unknown",
+      "exploitability": {
+        "reachable": "unknown",
+        "reproducible": "unknown",
+        "requires_privileges": "unknown",
+        "requires_special_state": "unknown",
+        "asset_impact": "unknown",
+        "state_variables": []
+      },
+      "analysis": {
+        "analysis_available": false,
+        "function_resolved": false,
+        "canonical_function": "",
+        "state_variables": [],
+        "source_mapping": "precise",
+        "access_control": {},
+        "reachability": {}
+      },
+      "root_cause_id": "rc-e67c7dc5b5e54267",
+      "evidence_summary": {
+        "static_engines": [
+          "slither"
+        ],
+        "symbolic_engines": [],
+        "dynamic_engines": [],
+        "has_trace": true,
+        "has_test_sequence": false,
+        "has_dynamic_evidence": false,
+        "evidence_count": 1,
+        "root_cause_id": "rc-e67c7dc5b5e54267",
+        "source_verified": true,
+        "access_control_verified": false,
+        "call_path_verified": false
+      },
+      "corroborating_engines": [
+        "slither"
+      ],
+      "reasons": [
+        "Source location valid: ../charm-audit/contracts/AlphaProVault.sol:462",
+        "Access control unknown: static analysis unavailable",
+        "Reachability unknown: call-graph analysis unavailable",
+        "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+      ],
+      "rejected_because": [],
+      "verification_artifacts": [],
+      "checks_run": [
+        "source_verification",
+        "access_control_verdict",
+        "call_path_reachability",
+        "evidence_correlation",
+        "exploitability",
+        "fork_simulation"
+      ],
+      "checks_passed": [
+        "source_verification",
+        "evidence_correlation",
+        "exploitability"
+      ],
+      "checks_failed": [
+        "access_control_verdict",
+        "call_path_reachability",
+        "fork_simulation"
+      ]
+    }
+  ]
+}

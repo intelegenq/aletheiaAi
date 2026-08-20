@@ -1,0 +1,105 @@
+{
+  "finding_id": "sl-7ecd40e88c6150a7",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.7,
+  "source_verified": true,
+  "access_control_verdict": "ungated",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": false,
+    "requires_special_state": "unknown",
+    "asset_impact": "potential",
+    "state_variables": [
+      "_balances",
+      "_totalSupply",
+      "cashMock"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "MockVToken.mint(uint256)",
+    "state_variables": [
+      "_balances",
+      "_totalSupply",
+      "cashMock"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "none",
+      "effective": false,
+      "has_access_control": false,
+      "modifier_name": "",
+      "is_inherited": false,
+      "guard_found": false,
+      "protected_operation": "MockVToken.mint(uint256)",
+      "state_writes": [
+        "_balances",
+        "_totalSupply",
+        "cashMock"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "MockVToken.mint(uint256)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "MockVToken.mint(uint256)",
+        "_balances,_totalSupply,cashMock storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-395cc6c8c7fdce13",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-395cc6c8c7fdce13",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/mocks/MockVToken.sol:74",
+    "AccessControlIndex: no guard on MockVToken.mint(uint256), writes state ['_balances', '_totalSupply', 'cashMock']",
+    "ReachabilityIndex: MockVToken.mint(uint256) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: no effective guard on the state-changing operation",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

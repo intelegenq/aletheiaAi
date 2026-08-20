@@ -1,0 +1,71 @@
+{
+  "finding_id": "sl-9e4430d9bd5afe2d",
+  "verdict": "needs-review",
+  "confidence": "low",
+  "score": 0.1,
+  "source_verified": true,
+  "access_control_verdict": "unknown",
+  "call_path_verdict": "unknown",
+  "exploitability": {
+    "reachable": "unknown",
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "unknown",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": false,
+    "function_resolved": false,
+    "canonical_function": "",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {},
+    "reachability": {}
+  },
+  "root_cause_id": "rc-19522aa608c61ce4",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-19522aa608c61ce4",
+    "source_verified": true,
+    "access_control_verified": false,
+    "call_path_verified": false
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/minipool/RocketMinipoolManager.sol:75",
+    "Access control unknown: static analysis unavailable",
+    "Reachability unknown: call-graph analysis unavailable",
+    "Cannot verify: access-control and reachability unknown \u2014 manual review required"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "access_control_verdict",
+    "call_path_reachability",
+    "fork_simulation"
+  ]
+}

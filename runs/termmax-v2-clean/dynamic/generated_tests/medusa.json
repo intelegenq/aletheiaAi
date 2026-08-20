@@ -1,0 +1,22 @@
+{
+  "fuzzing": {
+    "workers": 4,
+    "workerCount": 4,
+    "timeout": 120,
+    "testLimit": 10000,
+    "callSequenceLength": 10,
+    "corpusDirectory": "corpus",
+    "coverageEnabled": true,
+    "solc": {
+      "version": "auto"
+    },
+    "foundry": {
+      "enabled": true,
+      "buildCommand": "forge build",
+      "testDirectory": "/mnt/data/aletheiaAI/runs/termmax-v2-clean/dynamic/generated_tests"
+    }
+  },
+  "compilation": {
+    "platform": "foundry"
+  }
+}

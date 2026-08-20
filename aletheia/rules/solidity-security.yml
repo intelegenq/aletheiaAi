@@ -1,0 +1,143 @@
+# Custom Solidity security rules for AletheiaAI semgrep adapter
+# Author: AletheiaAI
+# Language: Solidity
+
+rules:
+  - id: solidity.tx-origin-authorization
+    languages: [solidity]
+    severity: ERROR
+    message: "tx.origin used for authorization — phishing attack vector."
+    metadata:
+      category: security
+      confidence: high
+    pattern-either:
+      - pattern: require(tx.origin == $ADDR, ...)
+      - pattern: if (tx.origin == $ADDR) { ... }
+
+  - id: solidity.tx-origin-comparison
+    languages: [solidity]
+    severity: ERROR
+    message: "tx.origin used in comparison for access control."
+    metadata:
+      category: security
+      confidence: high
+    patterns:
+      - pattern: tx.origin == $ADDR
+      - pattern-not: tx.origin == msg.sender
+
+  - id: solidity.unprotected-selfdestruct
+    languages: [solidity]
+    severity: ERROR
+    message: "selfdestruct without access control."
+    metadata:
+      category: security
+      confidence: high
+    pattern: selfdestruct($ADDR)
+
+  - id: solidity.unchecked-send
+    languages: [solidity]
+    severity: WARNING
+    message: ".send() return value not checked."
+    metadata:
+      category: security
+      confidence: high
+    patterns:
+      - pattern: $TO.send($AMT)
+      - pattern-not-inside: |
+          require(...);
+      - pattern-not-inside: |
+          $RET = $TO.send($AMT);
+          ...
+          require($RET);
+
+  - id: solidity.timestamp-dependence
+    languages: [solidity]
+    severity: WARNING
+    message: "block.timestamp used in arithmetic — miner manipulable."
+    metadata:
+      category: security
+      confidence: medium
+    pattern-either:
+      - pattern: block.timestamp - $VAR
+      - pattern: block.timestamp + $VAR
+
+  - id: solidity.uninitialized-storage-pointer
+    languages: [solidity]
+    severity: ERROR
+    message: "Uninitialized storage variable references slot 0."
+    metadata:
+      category: security
+      confidence: high
+    patterns:
+      - pattern: $TYPE storage $VAR
+      - pattern-not: $TYPE storage $VAR = ...
+
+  - id: solidity.unchecked-erc20-transfer
+    languages: [solidity]
+    severity: WARNING
+    message: "ERC20 transfer() return value not checked — some tokens don't return bool."
+    metadata:
+      category: security
+      confidence: medium
+    patterns:
+      - pattern: $TOKEN.transfer($TO, $AMT)
+      - pattern-not-inside: |
+          require(...);
+      - pattern-not-inside: |
+          $RET = $TOKEN.transfer($TO, $AMT);
+          ...
+          require($RET);
+
+  - id: solidity.unchecked-erc20-approve
+    languages: [solidity]
+    severity: WARNING
+    message: "ERC20 approve() return value not checked."
+    metadata:
+      category: security
+      confidence: medium
+    patterns:
+      - pattern: $TOKEN.approve($TO, $AMT)
+      - pattern-not-inside: |
+          require(...);
+      - pattern-not-inside: |
+          $RET = $TOKEN.approve($TO, $AMT);
+          ...
+          require($RET);
+
+  - id: solidity.assert-for-input-validation
+    languages: [solidity]
+    severity: INFO
+    message: "assert() for input validation — use require() instead."
+    metadata:
+      category: best-practice
+      confidence: medium
+    pattern: assert($COND)
+
+  - id: solidity.unchecked-call-return-value
+    languages: [solidity]
+    severity: WARNING
+    message: "Low-level .call() return value not checked."
+    metadata:
+      category: security
+      confidence: medium
+    patterns:
+      - pattern: $TO.call$ARGS
+      - pattern-not-inside: |
+          require(...);
+      - pattern-not-inside: |
+          $RET = $TO.call$ARGS;
+          ...
+          require($RET);
+      - pattern-not-inside: |
+          $RET = $TO.call$ARGS;
+          ...
+          if ($RET) { ... }
+
+  - id: solidity.delegatecall-user-controlled
+    languages: [solidity]
+    severity: ERROR
+    message: "delegatecall to potentially user-controlled address."
+    metadata:
+      category: security
+      confidence: high
+    pattern: $ADDR.delegatecall$ARGS

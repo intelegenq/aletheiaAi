@@ -1,0 +1,108 @@
+{
+  "finding_id": "sl-c8e4e060bce268fa",
+  "verdict": "needs-dynamic-validation",
+  "confidence": "medium",
+  "score": 0.5,
+  "source_verified": true,
+  "access_control_verdict": "partially-restricted",
+  "call_path_verdict": "reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": "unknown",
+    "requires_special_state": "unknown",
+    "asset_impact": "unknown",
+    "state_variables": [
+      "ERC721StorageLocation",
+      "OwnableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "loanMapping"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes)",
+    "state_variables": [
+      "ERC721StorageLocation",
+      "OwnableStorageLocation",
+      "ReentrancyGuardStorageLocation",
+      "loanMapping"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": false,
+      "has_access_control": true,
+      "modifier_name": "isOwnerOrDelegate",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes)",
+      "state_writes": [
+        "ERC721StorageLocation",
+        "OwnableStorageLocation",
+        "ReentrancyGuardStorageLocation",
+        "loanMapping"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes)",
+        "ERC721StorageLocation,OwnableStorageLocation,ReentrancyGuardStorageLocation,loanMapping storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-d07ad782a38b36da",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-d07ad782a38b36da",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/tokens/AbstractGearingTokenV2.sol:390",
+    "AccessControlIndex: guard present on AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes) but not proven effective (isOwnerOrDelegate)",
+    "ReachabilityIndex: AbstractGearingTokenV2.repayAndRemoveCollateral(uint256,uint128,bool,address,bytes) is an external entry point",
+    "Source verified against compilation unit",
+    "AccessControlIndex: guard present but not proven effective",
+    "ReachabilityIndex: operation reachable from an external entry point",
+    "Trace / transaction sequence captured",
+    "Static evidence strong but no runtime proof yet"
+  ],
+  "rejected_because": [],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

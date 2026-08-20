@@ -1,0 +1,96 @@
+{
+  "finding_id": "sl-1cda9cd78d5b6cf2",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "AccessControlStorageLocation"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "AccessManagerV2.batchSetSwitch(IPausable[],bool)",
+    "state_variables": [
+      "AccessControlStorageLocation"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "only_role",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyRole",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "AccessManagerV2.batchSetSwitch(IPausable[],bool)",
+      "state_writes": [
+        "AccessControlStorageLocation"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "AccessManagerV2.batchSetSwitch(IPausable[],bool)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "AccessManagerV2.batchSetSwitch(IPausable[],bool)",
+        "AccessControlStorageLocation storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-f3e56bfea3269354",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-f3e56bfea3269354",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/access/AccessManagerV2.sol:48",
+    "AccessControlIndex: effective guard on AccessManagerV2.batchSetSwitch(IPausable[],bool) via onlyRole",
+    "ReachabilityIndex: AccessManagerV2.batchSetSwitch(IPausable[],bool) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyRole)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

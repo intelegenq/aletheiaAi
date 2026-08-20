@@ -1,0 +1,109 @@
+{
+  "finding_id": "sl-dc1dcc2d47a24a61",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "status",
+      "statusBlock",
+      "statusTime",
+      "userDepositAssignedTime",
+      "userDepositBalance"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketMinipoolDelegate.deposit()",
+    "state_variables": [
+      "status",
+      "statusBlock",
+      "statusTime",
+      "userDepositAssignedTime",
+      "userDepositBalance"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyLatestContract",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "RocketMinipoolDelegate.deposit()",
+      "state_writes": [
+        "status",
+        "statusBlock",
+        "statusTime",
+        "userDepositAssignedTime",
+        "userDepositBalance"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketMinipoolDelegate.deposit()",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketMinipoolDelegate.deposit()",
+        "status,statusBlock,statusTime,userDepositAssignedTime,userDepositBalance storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-593bfaef8b3164d0",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-593bfaef8b3164d0",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/minipool/RocketMinipoolDelegate.sol:164",
+    "AccessControlIndex: effective guard on RocketMinipoolDelegate.deposit() via onlyLatestContract",
+    "ReachabilityIndex: RocketMinipoolDelegate.deposit() is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyLatestContract)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability"
+  ],
+  "checks_failed": [
+    "fork_simulation"
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "finding_id": "sl-a847716f4fbd5300",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": [
+      "_badDebtMapping",
+      "_orderMaturityMapping"
+    ]
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "OrderManagerV2.redeemOrder(IERC20,address)",
+    "state_variables": [
+      "_badDebtMapping",
+      "_orderMaturityMapping"
+    ],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyProxy",
+      "is_inherited": true,
+      "guard_found": true,
+      "protected_operation": "OrderManagerV2.redeemOrder(IERC20,address)",
+      "state_writes": [
+        "_badDebtMapping",
+        "_orderMaturityMapping"
+      ]
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "OrderManagerV2.redeemOrder(IERC20,address)",
+      "callers": [],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "OrderManagerV2.redeemOrder(IERC20,address)",
+        "_badDebtMapping,_orderMaturityMapping storage write"
+      ]
+    }
+  },
+  "root_cause_id": "rc-11daf5ccfc10a2fa",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 2,
+    "root_cause_id": "rc-11daf5ccfc10a2fa",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../termmax-contract-v2/contracts/v2/vault/OrderManagerV2.sol:89",
+    "AccessControlIndex: effective guard on OrderManagerV2.redeemOrder(IERC20,address) via onlyProxy",
+    "ReachabilityIndex: OrderManagerV2.redeemOrder(IERC20,address) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyProxy)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}

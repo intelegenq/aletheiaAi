@@ -1,0 +1,23 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 544 files tracked by git with 11 Code rules:
+  Scanning 182 files with 11 solidity rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 19 (19 blocking)
+ • Rules run: 11
+ • Targets scanned: 182
+ • Parsed lines: ~99.9%
+ • Scan skipped: 
+   ◦ Files larger than  files 1.0 MB: 6
+   ◦ Files matching .semgrepignore patterns: 113
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 11 rules on 182 files: 19 findings.

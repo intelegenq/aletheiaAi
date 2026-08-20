@@ -1,0 +1,91 @@
+{
+  "finding_id": "sl-aebfef7dc97db648",
+  "verdict": "rejected",
+  "confidence": "high",
+  "score": 0.0,
+  "source_verified": true,
+  "access_control_verdict": "restricted",
+  "call_path_verdict": "restricted-reachable",
+  "exploitability": {
+    "reachable": true,
+    "reproducible": "unknown",
+    "requires_privileges": true,
+    "requires_special_state": "unknown",
+    "asset_impact": "none",
+    "state_variables": []
+  },
+  "analysis": {
+    "analysis_available": true,
+    "function_resolved": true,
+    "canonical_function": "RocketDAOProtocolProposals.proposalSettingBool(string,string,bool)",
+    "state_variables": [],
+    "source_mapping": "precise",
+    "access_control": {
+      "kind": "custom_modifier",
+      "effective": true,
+      "has_access_control": true,
+      "modifier_name": "onlyExecutingContracts",
+      "is_inherited": false,
+      "guard_found": true,
+      "protected_operation": "RocketDAOProtocolProposals.proposalSettingBool(string,string,bool)",
+      "state_writes": []
+    },
+    "reachability": {
+      "reachability": "reachable",
+      "entry_point": "RocketDAOProtocolProposals.proposalSettingBool(string,string,bool)",
+      "callers": [
+        "RocketDAOProtocolProposals.proposalSettingMulti(string[],string[],SettingType[],bytes[])"
+      ],
+      "cfg_verified": true,
+      "call_path": [
+        "external caller",
+        "RocketDAOProtocolProposals.proposalSettingBool(string,string,bool)"
+      ]
+    }
+  },
+  "root_cause_id": "rc-0e9154eba942c731",
+  "evidence_summary": {
+    "static_engines": [
+      "slither"
+    ],
+    "symbolic_engines": [],
+    "dynamic_engines": [],
+    "has_trace": true,
+    "has_test_sequence": false,
+    "has_dynamic_evidence": false,
+    "evidence_count": 1,
+    "root_cause_id": "rc-0e9154eba942c731",
+    "source_verified": true,
+    "access_control_verified": true,
+    "call_path_verified": true
+  },
+  "corroborating_engines": [
+    "slither"
+  ],
+  "reasons": [
+    "Source location valid: ../rpl-audit/contracts/contract/dao/protocol/RocketDAOProtocolProposals.sol:84",
+    "AccessControlIndex: effective guard on RocketDAOProtocolProposals.proposalSettingBool(string,string,bool) via onlyExecutingContracts",
+    "ReachabilityIndex: RocketDAOProtocolProposals.proposalSettingBool(string,string,bool) is an external entry point but guarded"
+  ],
+  "rejected_because": [
+    "Effective access-control guard confirmed by AccessControlIndex (onlyExecutingContracts)"
+  ],
+  "verification_artifacts": [],
+  "checks_run": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_passed": [
+    "source_verification",
+    "access_control_verdict",
+    "call_path_reachability",
+    "evidence_correlation",
+    "exploitability",
+    "fork_simulation"
+  ],
+  "checks_failed": []
+}
